@@ -1,0 +1,26 @@
+{
+  "name": "Underkeep completed demo",
+  "frozenDate": "2026-09-21",
+  "applicationVersion": "0.1.0",
+  "source": "Current working tree, including uncommitted and untracked implementation files",
+  "runtimeChangesDuringArchivePreparation": false,
+  "testChanges": "Two outdated browser test flows updated to match completed UI",
+  "copiedSourceFiles": 108,
+  "includesPlayerSave": false,
+  "dependencyInstall": "npm ci; dependencies not bundled",
+  "verifiedRuntime": {
+    "node": "25.8.2",
+    "npm": "11.11.1"
+  },
+  "excluded": [
+    ".git",
+    "node_modules",
+    ".expo",
+    "dist",
+    "dist-native",
+    "test-results",
+    "playwright-report",
+    "player saves",
+    "signing material"
+  ]
+}

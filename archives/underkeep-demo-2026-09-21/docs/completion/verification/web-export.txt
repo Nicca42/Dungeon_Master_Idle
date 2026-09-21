@@ -1,0 +1,40 @@
+
+> underkeep@0.1.0 export:web
+> expo export --platform web
+
+Starting Metro Bundler
+
+Static rendering is enabled. Learn more: https://docs.expo.dev/router/web/static-rendering/
+| (node:21450) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:21450) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:21450) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:21450) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:21450) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:21450) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:21450) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:21450) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+λ Bundled 2145ms node_modules/expo/node_modules/@expo/cli/node_modules/@expo/router-server/node/render.js (2872 modules)
+Web Bundled 2516ms node_modules/expo-router/entry.js (2840 modules)
+
+› web bundles (1):
+_expo/static/js/web/entry-c830eea580a4a728b3fbc95e7b919b35.js (4MB)
+
+› Static routes (8):
+/art (18KB)
+/build (18KB)
+/ (index) (18KB)
+/stats (18KB)
+/office (18KB)
+/research (18KB)
+/_sitemap (18KB)
+/+not-found (18KB)
+
+Exported: dist

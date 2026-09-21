@@ -1,0 +1,2911 @@
+{
+  "floors": {
+    "title": "Dungeon depths",
+    "description": "Expand to 50 floors and reinforce each five-floor group.",
+    "research": {
+      "getDigging": {
+        "title": "Get diggin'",
+        "description": "The first five dungeon floors are unlocked.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": []
+        },
+        "costGold": 0.0,
+        "durationGameHours": 0,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "floors",
+            "type": "floor_groups",
+            "level": 1,
+            "statsPath": "/floors/floor_groups/level_1"
+          },
+          {
+            "branch": "floors",
+            "type": "floorRange",
+            "fromFloor": 1,
+            "toFloor": 5,
+            "note": "Unlocks access to these floors, not a new structural level."
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "dungeon.maxUnlockedFloors",
+            "value": 5,
+            "applies": "policy_immediately"
+          }
+        ],
+        "initialState": "completed",
+        "legacyId": "getDigging",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "0.0 gold · 0 game hours",
+          "running": "Researching Get diggin' · {remainingHHMM}",
+          "complete": "Get diggin' complete.",
+          "tooltip": "The first five dungeon floors are unlocked.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "building": {
+        "title": "Better building",
+        "description": "Reinforced foundations: 20 health and defense. Builders upgrade furnished floors from deepest to shallowest. Novice builders take twice as long.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": [
+            "getDigging",
+            "staff"
+          ]
+        },
+        "costGold": 15.0,
+        "durationGameHours": 6,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "floors",
+            "type": "floor_groups",
+            "level": 2,
+            "statsPath": "/floors/floor_groups/level_2"
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "construction.maxFloorTier",
+            "value": 2,
+            "applies": "policy_immediately"
+          }
+        ],
+        "purchaseAfterResearch": {
+          "scope": "five-floor group",
+          "costGold": 50,
+          "staffWork": "deepest furnished floor first; novice throughput 0.5"
+        },
+        "legacyId": "building",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "15.0 gold · 6 game hours",
+          "running": "Researching Better building · {remainingHHMM}",
+          "complete": "Better building complete.",
+          "tooltip": "Reinforced foundations: 20 health and defense. Builders upgrade furnished floors from deepest to shallowest. Novice builders take twice as long.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "depths_2": {
+        "title": "Getting serious are we?",
+        "description": "Unlock floors 6–10. Excavation, construction and opening are separate orders.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "getDigging"
+          ]
+        },
+        "costGold": 30,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "floors",
+            "type": "floorRange",
+            "fromFloor": 6,
+            "toFloor": 10,
+            "note": "Unlocks access to these floors, not a new structural level."
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "dungeon.maxUnlockedFloors",
+            "value": 10,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "depths",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "30 gold · 8 game hours",
+          "running": "Researching Getting serious are we? · {remainingHHMM}",
+          "complete": "Getting serious are we? complete.",
+          "tooltip": "Unlock floors 6–10. Excavation, construction and opening are separate orders.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "depths_3": {
+        "title": "Deeper ambitions 3",
+        "description": "Unlock floors 11–15. Excavation, construction and opening are separate orders.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "depths_2"
+          ]
+        },
+        "costGold": 40,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "floors",
+            "type": "floorRange",
+            "fromFloor": 11,
+            "toFloor": 15,
+            "note": "Unlocks access to these floors, not a new structural level."
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "dungeon.maxUnlockedFloors",
+            "value": 15,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "depths",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "40 gold · 8 game hours",
+          "running": "Researching Deeper ambitions 3 · {remainingHHMM}",
+          "complete": "Deeper ambitions 3 complete.",
+          "tooltip": "Unlock floors 11–15. Excavation, construction and opening are separate orders.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "depths_4": {
+        "title": "Deeper ambitions 4",
+        "description": "Unlock floors 16–20. Excavation, construction and opening are separate orders.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "depths_3"
+          ]
+        },
+        "costGold": 50,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "floors",
+            "type": "floorRange",
+            "fromFloor": 16,
+            "toFloor": 20,
+            "note": "Unlocks access to these floors, not a new structural level."
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "dungeon.maxUnlockedFloors",
+            "value": 20,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "depths",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "50 gold · 8 game hours",
+          "running": "Researching Deeper ambitions 4 · {remainingHHMM}",
+          "complete": "Deeper ambitions 4 complete.",
+          "tooltip": "Unlock floors 16–20. Excavation, construction and opening are separate orders.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "depths_5": {
+        "title": "Deeper ambitions 5",
+        "description": "Unlock floors 21–25. Excavation, construction and opening are separate orders.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "depths_4"
+          ]
+        },
+        "costGold": 60,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "floors",
+            "type": "floorRange",
+            "fromFloor": 21,
+            "toFloor": 25,
+            "note": "Unlocks access to these floors, not a new structural level."
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "dungeon.maxUnlockedFloors",
+            "value": 25,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "depths",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "60 gold · 8 game hours",
+          "running": "Researching Deeper ambitions 5 · {remainingHHMM}",
+          "complete": "Deeper ambitions 5 complete.",
+          "tooltip": "Unlock floors 21–25. Excavation, construction and opening are separate orders.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "depths_6": {
+        "title": "Deeper ambitions 6",
+        "description": "Unlock floors 26–30. Excavation, construction and opening are separate orders.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "depths_5"
+          ]
+        },
+        "costGold": 70,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "floors",
+            "type": "floorRange",
+            "fromFloor": 26,
+            "toFloor": 30,
+            "note": "Unlocks access to these floors, not a new structural level."
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "dungeon.maxUnlockedFloors",
+            "value": 30,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "depths",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "70 gold · 8 game hours",
+          "running": "Researching Deeper ambitions 6 · {remainingHHMM}",
+          "complete": "Deeper ambitions 6 complete.",
+          "tooltip": "Unlock floors 26–30. Excavation, construction and opening are separate orders.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "depths_7": {
+        "title": "Deeper ambitions 7",
+        "description": "Unlock floors 31–35. Excavation, construction and opening are separate orders.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "depths_6"
+          ]
+        },
+        "costGold": 80,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "floors",
+            "type": "floorRange",
+            "fromFloor": 31,
+            "toFloor": 35,
+            "note": "Unlocks access to these floors, not a new structural level."
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "dungeon.maxUnlockedFloors",
+            "value": 35,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "depths",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "80 gold · 8 game hours",
+          "running": "Researching Deeper ambitions 7 · {remainingHHMM}",
+          "complete": "Deeper ambitions 7 complete.",
+          "tooltip": "Unlock floors 31–35. Excavation, construction and opening are separate orders.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "depths_8": {
+        "title": "Deeper ambitions 8",
+        "description": "Unlock floors 36–40. Excavation, construction and opening are separate orders.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "depths_7"
+          ]
+        },
+        "costGold": 90,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "floors",
+            "type": "floorRange",
+            "fromFloor": 36,
+            "toFloor": 40,
+            "note": "Unlocks access to these floors, not a new structural level."
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "dungeon.maxUnlockedFloors",
+            "value": 40,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "depths",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "90 gold · 8 game hours",
+          "running": "Researching Deeper ambitions 8 · {remainingHHMM}",
+          "complete": "Deeper ambitions 8 complete.",
+          "tooltip": "Unlock floors 36–40. Excavation, construction and opening are separate orders.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "depths_9": {
+        "title": "Deeper ambitions 9",
+        "description": "Unlock floors 41–45. Excavation, construction and opening are separate orders.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "depths_8"
+          ]
+        },
+        "costGold": 100,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "floors",
+            "type": "floorRange",
+            "fromFloor": 41,
+            "toFloor": 45,
+            "note": "Unlocks access to these floors, not a new structural level."
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "dungeon.maxUnlockedFloors",
+            "value": 45,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "depths",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "100 gold · 8 game hours",
+          "running": "Researching Deeper ambitions 9 · {remainingHHMM}",
+          "complete": "Deeper ambitions 9 complete.",
+          "tooltip": "Unlock floors 41–45. Excavation, construction and opening are separate orders.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "depths_10": {
+        "title": "Deeper ambitions 10",
+        "description": "Unlock floors 46–50. Excavation, construction and opening are separate orders.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "depths_9"
+          ]
+        },
+        "costGold": 110,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "floors",
+            "type": "floorRange",
+            "fromFloor": 46,
+            "toFloor": 50,
+            "note": "Unlocks access to these floors, not a new structural level."
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "dungeon.maxUnlockedFloors",
+            "value": 50,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "depths",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "110 gold · 8 game hours",
+          "running": "Researching Deeper ambitions 10 · {remainingHHMM}",
+          "complete": "Deeper ambitions 10 complete.",
+          "tooltip": "Unlock floors 46–50. Excavation, construction and opening are separate orders.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "building_3": {
+        "title": "Stonecraft mastery",
+        "description": "Unlock tier 3 floor structures: 30 health and defense. Upgrade with staff; research does not instantly rebuild floors.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "building",
+            "depths_4"
+          ]
+        },
+        "costGold": 100,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "floors",
+            "type": "floor_groups",
+            "level": 3,
+            "statsPath": "/floors/floor_groups/level_3"
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "construction.maxFloorTier",
+            "value": 3,
+            "applies": "policy_immediately"
+          }
+        ],
+        "purchaseAfterResearch": {
+          "scope": "five-floor group",
+          "costGold": 100,
+          "requiresStaffTier": 2
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "100 gold · 8 game hours",
+          "running": "Researching Stonecraft mastery · {remainingHHMM}",
+          "complete": "Stonecraft mastery complete.",
+          "tooltip": "Unlock tier 3 floor structures: 30 health and defense. Upgrade with staff; research does not instantly rebuild floors.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "building_4": {
+        "title": "Runic foundations",
+        "description": "Unlock tier 4 floor structures: 40 health and defense. Upgrade with staff; research does not instantly rebuild floors.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "building_3",
+            "depths_6"
+          ]
+        },
+        "costGold": 150,
+        "durationGameHours": 12,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "floors",
+            "type": "floor_groups",
+            "level": 4,
+            "statsPath": "/floors/floor_groups/level_4"
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "construction.maxFloorTier",
+            "value": 4,
+            "applies": "policy_immediately"
+          }
+        ],
+        "purchaseAfterResearch": {
+          "scope": "five-floor group",
+          "costGold": 150,
+          "requiresStaffTier": 3
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "150 gold · 12 game hours",
+          "running": "Researching Runic foundations · {remainingHHMM}",
+          "complete": "Runic foundations complete.",
+          "tooltip": "Unlock tier 4 floor structures: 40 health and defense. Upgrade with staff; research does not instantly rebuild floors.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "building_5": {
+        "title": "The deep citadel",
+        "description": "Unlock tier 5 floor structures: 50 health and defense. Upgrade with staff; research does not instantly rebuild floors.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "building_4",
+            "depths_8"
+          ]
+        },
+        "costGold": 200,
+        "durationGameHours": 16,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "floors",
+            "type": "floor_groups",
+            "level": 5,
+            "statsPath": "/floors/floor_groups/level_5"
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "construction.maxFloorTier",
+            "value": 5,
+            "applies": "policy_immediately"
+          }
+        ],
+        "purchaseAfterResearch": {
+          "scope": "five-floor group",
+          "costGold": 200,
+          "requiresStaffTier": 4
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "200 gold · 16 game hours",
+          "running": "Researching The deep citadel · {remainingHHMM}",
+          "complete": "The deep citadel complete.",
+          "tooltip": "Unlock tier 5 floor structures: 50 health and defense. Upgrade with staff; research does not instantly rebuild floors.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      }
+    }
+  },
+  "traps": {
+    "title": "Traps",
+    "description": "Trade encounter difficulty against maintenance workload.",
+    "research": {
+      "betterTraps": {
+        "title": "Better basic traps",
+        "description": "Medium · Mimics II resemble silver chests and deal 10–20 damage. Trap doors deal 10–20 damage and require perception 20.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": [
+            "traps"
+          ]
+        },
+        "costGold": 20.0,
+        "durationGameHours": 4,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "traps",
+            "type": "trapdoors",
+            "level": 2,
+            "statsPath": "/traps/trapdoors/level_2"
+          },
+          {
+            "branch": "traps",
+            "type": "mimics",
+            "level": 2,
+            "statsPath": "/traps/mimics/level_2"
+          }
+        ],
+        "changes": [],
+        "purchaseAfterResearch": {
+          "scope": "new or replacement fixture",
+          "costGoldPerFixture": 5,
+          "staffInstallationRequired": true
+        },
+        "legacyId": "betterTraps",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "20.0 gold · 4 game hours",
+          "running": "Researching Better basic traps · {remainingHHMM}",
+          "complete": "Better basic traps complete.",
+          "tooltip": "Medium · Mimics II resemble silver chests and deal 10–20 damage. Trap doors deal 10–20 damage and require perception 20.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "stealth": {
+        "title": "Beginner trap stealth",
+        "description": "Add +1 beginner trap perception difficulty per rank, capped at 10. Does not affect tier II or higher.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": [
+            "traps"
+          ]
+        },
+        "costGold": 5.0,
+        "durationGameHours": 1,
+        "repeatable": true,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "add",
+            "target": "trap_t1.perceptionBonus",
+            "value": 1,
+            "applies": "existing_and_future_tier1_traps"
+          }
+        ],
+        "maxRanks": 5,
+        "clamp": {
+          "target": "tier1_effectivePerception",
+          "maximum": 10
+        },
+        "legacyId": "stealth",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "5.0 gold · 1 game hours",
+          "running": "Researching Beginner trap stealth · {remainingHHMM}",
+          "complete": "Beginner trap stealth complete.",
+          "tooltip": "Add +1 beginner trap perception difficulty per rank, capped at 10. Does not affect tier II or higher.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "traps": {
+        "title": "It's a trap!",
+        "description": "Trap doors, arrow walls, and suspiciously toothy chests.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": []
+        },
+        "costGold": 5.0,
+        "durationGameHours": 1,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "traps",
+            "type": "trapdoors",
+            "level": 1,
+            "statsPath": "/traps/trapdoors/level_1"
+          },
+          {
+            "branch": "traps",
+            "type": "arrowWalls",
+            "level": 1,
+            "statsPath": "/traps/arrowWalls/level_1"
+          },
+          {
+            "branch": "traps",
+            "type": "mimics",
+            "level": 1,
+            "statsPath": "/traps/mimics/level_1"
+          }
+        ],
+        "changes": [],
+        "legacyId": "traps",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "5.0 gold · 1 game hours",
+          "running": "Researching It's a trap! · {remainingHHMM}",
+          "complete": "It's a trap! complete.",
+          "tooltip": "Trap doors, arrow walls, and suspiciously toothy chests.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "arrows_2": {
+        "title": "Less shoddy arrows",
+        "description": "Unlock Arrow Wall II: stronger bolts and a concealed pressure plate.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "traps"
+          ]
+        },
+        "costGold": 20,
+        "durationGameHours": 4,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "traps",
+            "type": "arrowWalls",
+            "level": 2,
+            "statsPath": "/traps/arrowWalls/level_2"
+          }
+        ],
+        "changes": [],
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "20 gold · 4 game hours",
+          "running": "Researching Less shoddy arrows · {remainingHHMM}",
+          "complete": "Less shoddy arrows complete.",
+          "tooltip": "Unlock Arrow Wall II: stronger bolts and a concealed pressure plate.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "traps_3": {
+        "title": "Trap engineering 3",
+        "description": "Unlock tier 3 trap doors, arrow walls and mimics. Stronger hardware needs more reset skill.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "betterTraps",
+            "arrows_2"
+          ]
+        },
+        "costGold": 80,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "traps",
+            "type": "trapdoors",
+            "level": 3,
+            "statsPath": "/traps/trapdoors/level_3"
+          },
+          {
+            "branch": "traps",
+            "type": "arrowWalls",
+            "level": 3,
+            "statsPath": "/traps/arrowWalls/level_3"
+          },
+          {
+            "branch": "traps",
+            "type": "mimics",
+            "level": 3,
+            "statsPath": "/traps/mimics/level_3"
+          }
+        ],
+        "changes": [],
+        "purchaseAfterResearch": {
+          "costGoldPerFixture": 10,
+          "staffInstallationRequired": true
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "80 gold · 8 game hours",
+          "running": "Researching Trap engineering 3 · {remainingHHMM}",
+          "complete": "Trap engineering 3 complete.",
+          "tooltip": "Unlock tier 3 trap doors, arrow walls and mimics. Stronger hardware needs more reset skill.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "traps_4": {
+        "title": "Trap engineering 4",
+        "description": "Unlock tier 4 trap doors, arrow walls and mimics. Stronger hardware needs more reset skill.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "traps_3",
+            "building_4"
+          ]
+        },
+        "costGold": 120,
+        "durationGameHours": 12,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "traps",
+            "type": "trapdoors",
+            "level": 4,
+            "statsPath": "/traps/trapdoors/level_4"
+          },
+          {
+            "branch": "traps",
+            "type": "arrowWalls",
+            "level": 4,
+            "statsPath": "/traps/arrowWalls/level_4"
+          },
+          {
+            "branch": "traps",
+            "type": "mimics",
+            "level": 4,
+            "statsPath": "/traps/mimics/level_4"
+          }
+        ],
+        "changes": [],
+        "purchaseAfterResearch": {
+          "costGoldPerFixture": 15,
+          "staffInstallationRequired": true
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "120 gold · 12 game hours",
+          "running": "Researching Trap engineering 4 · {remainingHHMM}",
+          "complete": "Trap engineering 4 complete.",
+          "tooltip": "Unlock tier 4 trap doors, arrow walls and mimics. Stronger hardware needs more reset skill.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "traps_5": {
+        "title": "Trap engineering 5",
+        "description": "Unlock tier 5 trap doors, arrow walls and mimics. Stronger hardware needs more reset skill.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "traps_4",
+            "building_5"
+          ]
+        },
+        "costGold": 160,
+        "durationGameHours": 16,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "traps",
+            "type": "trapdoors",
+            "level": 5,
+            "statsPath": "/traps/trapdoors/level_5"
+          },
+          {
+            "branch": "traps",
+            "type": "arrowWalls",
+            "level": 5,
+            "statsPath": "/traps/arrowWalls/level_5"
+          },
+          {
+            "branch": "traps",
+            "type": "mimics",
+            "level": 5,
+            "statsPath": "/traps/mimics/level_5"
+          }
+        ],
+        "changes": [],
+        "purchaseAfterResearch": {
+          "costGoldPerFixture": 20,
+          "staffInstallationRequired": true
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "160 gold · 16 game hours",
+          "running": "Researching Trap engineering 5 · {remainingHHMM}",
+          "complete": "Trap engineering 5 complete.",
+          "tooltip": "Unlock tier 5 trap doors, arrow walls and mimics. Stronger hardware needs more reset skill.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      }
+    }
+  },
+  "mobs": {
+    "title": "Mobs",
+    "description": "Unlock monster tiers and control production without spawn bursts.",
+    "research": {
+      "mobs": {
+        "title": "Mob-tastic",
+        "description": "Invite zombies and slimes to make themselves at home.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": []
+        },
+        "costGold": 5.0,
+        "durationGameHours": 1,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "mobs",
+            "type": "zombies",
+            "level": 1,
+            "statsPath": "/mobs/zombies/level_1"
+          },
+          {
+            "branch": "mobs",
+            "type": "slimes",
+            "level": 1,
+            "statsPath": "/mobs/slimes/level_1"
+          },
+          {
+            "branch": "mobs",
+            "type": "zombies",
+            "level": 1,
+            "statsPath": "/mobs/zombies/level_1/spawner",
+            "component": "spawner"
+          },
+          {
+            "branch": "mobs",
+            "type": "slimes",
+            "level": 1,
+            "statsPath": "/mobs/slimes/level_1/spawner",
+            "component": "spawner"
+          }
+        ],
+        "changes": [],
+        "legacyId": "mobs",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "5.0 gold · 1 game hours",
+          "running": "Researching Mob-tastic · {remainingHHMM}",
+          "complete": "Mob-tastic complete.",
+          "tooltip": "Invite zombies and slimes to make themselves at home.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "mobs_2": {
+        "title": "Monster husbandry 2",
+        "description": "Unlock tier 2 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "mobs",
+            "building"
+          ]
+        },
+        "costGold": 20,
+        "durationGameHours": 4,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "mobs",
+            "type": "zombies",
+            "level": 2,
+            "statsPath": "/mobs/zombies/level_2"
+          },
+          {
+            "branch": "mobs",
+            "type": "slimes",
+            "level": 2,
+            "statsPath": "/mobs/slimes/level_2"
+          },
+          {
+            "branch": "mobs",
+            "type": "zombies",
+            "level": 2,
+            "statsPath": "/mobs/zombies/level_2/spawner",
+            "component": "spawner"
+          },
+          {
+            "branch": "mobs",
+            "type": "slimes",
+            "level": 2,
+            "statsPath": "/mobs/slimes/level_2/spawner",
+            "component": "spawner"
+          }
+        ],
+        "changes": [],
+        "purchaseAfterResearch": {
+          "costGoldPerSpawnerUpgrade": 20
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "20 gold · 4 game hours",
+          "running": "Researching Monster husbandry 2 · {remainingHHMM}",
+          "complete": "Monster husbandry 2 complete.",
+          "tooltip": "Unlock tier 2 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "mobs_3": {
+        "title": "Monster husbandry 3",
+        "description": "Unlock tier 3 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "mobs_2",
+            "building_3"
+          ]
+        },
+        "costGold": 40,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "mobs",
+            "type": "zombies",
+            "level": 3,
+            "statsPath": "/mobs/zombies/level_3"
+          },
+          {
+            "branch": "mobs",
+            "type": "slimes",
+            "level": 3,
+            "statsPath": "/mobs/slimes/level_3"
+          },
+          {
+            "branch": "mobs",
+            "type": "zombies",
+            "level": 3,
+            "statsPath": "/mobs/zombies/level_3/spawner",
+            "component": "spawner"
+          },
+          {
+            "branch": "mobs",
+            "type": "slimes",
+            "level": 3,
+            "statsPath": "/mobs/slimes/level_3/spawner",
+            "component": "spawner"
+          }
+        ],
+        "changes": [],
+        "purchaseAfterResearch": {
+          "costGoldPerSpawnerUpgrade": 30
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "40 gold · 8 game hours",
+          "running": "Researching Monster husbandry 3 · {remainingHHMM}",
+          "complete": "Monster husbandry 3 complete.",
+          "tooltip": "Unlock tier 3 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "mobs_4": {
+        "title": "Monster husbandry 4",
+        "description": "Unlock tier 4 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "mobs_3",
+            "building_4"
+          ]
+        },
+        "costGold": 60,
+        "durationGameHours": 12,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "mobs",
+            "type": "zombies",
+            "level": 4,
+            "statsPath": "/mobs/zombies/level_4"
+          },
+          {
+            "branch": "mobs",
+            "type": "slimes",
+            "level": 4,
+            "statsPath": "/mobs/slimes/level_4"
+          },
+          {
+            "branch": "mobs",
+            "type": "zombies",
+            "level": 4,
+            "statsPath": "/mobs/zombies/level_4/spawner",
+            "component": "spawner"
+          },
+          {
+            "branch": "mobs",
+            "type": "slimes",
+            "level": 4,
+            "statsPath": "/mobs/slimes/level_4/spawner",
+            "component": "spawner"
+          }
+        ],
+        "changes": [],
+        "purchaseAfterResearch": {
+          "costGoldPerSpawnerUpgrade": 40
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "60 gold · 12 game hours",
+          "running": "Researching Monster husbandry 4 · {remainingHHMM}",
+          "complete": "Monster husbandry 4 complete.",
+          "tooltip": "Unlock tier 4 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "mobs_5": {
+        "title": "Monster husbandry 5",
+        "description": "Unlock tier 5 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "mobs_4",
+            "building_5"
+          ]
+        },
+        "costGold": 80,
+        "durationGameHours": 16,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "mobs",
+            "type": "zombies",
+            "level": 5,
+            "statsPath": "/mobs/zombies/level_5"
+          },
+          {
+            "branch": "mobs",
+            "type": "slimes",
+            "level": 5,
+            "statsPath": "/mobs/slimes/level_5"
+          },
+          {
+            "branch": "mobs",
+            "type": "zombies",
+            "level": 5,
+            "statsPath": "/mobs/zombies/level_5/spawner",
+            "component": "spawner"
+          },
+          {
+            "branch": "mobs",
+            "type": "slimes",
+            "level": 5,
+            "statsPath": "/mobs/slimes/level_5/spawner",
+            "component": "spawner"
+          }
+        ],
+        "changes": [],
+        "purchaseAfterResearch": {
+          "costGoldPerSpawnerUpgrade": 50
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "80 gold · 16 game hours",
+          "running": "Researching Monster husbandry 5 · {remainingHHMM}",
+          "complete": "Monster husbandry 5 complete.",
+          "tooltip": "Unlock tier 5 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "mob_containment": {
+        "title": "Please remain inside",
+        "description": "Containment wards reduce escape chance per exit attempt from 20% to 10%.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "mobs"
+          ]
+        },
+        "costGold": 30,
+        "durationGameHours": 4,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "mobs.escapeProbabilityPerAttempt",
+            "value": 0.1,
+            "applies": "policy_immediately"
+          }
+        ],
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "30 gold · 4 game hours",
+          "running": "Researching Please remain inside · {remainingHHMM}",
+          "complete": "Please remain inside complete.",
+          "tooltip": "Containment wards reduce escape chance per exit attempt from 20% to 10%.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "mob_containment_2": {
+        "title": "Strictly indoor monsters",
+        "description": "Stronger wards reduce escape chance to 5%.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "mob_containment",
+            "mobs_3"
+          ]
+        },
+        "costGold": 80,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "mobs.escapeProbabilityPerAttempt",
+            "value": 0.05,
+            "applies": "policy_immediately"
+          }
+        ],
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "80 gold · 8 game hours",
+          "running": "Researching Strictly indoor monsters · {remainingHHMM}",
+          "complete": "Strictly indoor monsters complete.",
+          "tooltip": "Stronger wards reduce escape chance to 5%.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      }
+    }
+  },
+  "treasure": {
+    "title": "Treasure",
+    "description": "Reward exploration with increasingly demanding locks.",
+    "research": {
+      "goldChests": {
+        "title": "Gold chests",
+        "description": "Medium · Unlock gold chests. Silver has twice the wood stats; gold doubles silver again.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": [
+            "treasure"
+          ]
+        },
+        "costGold": 20.0,
+        "durationGameHours": 4,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "treasure",
+            "type": "chests",
+            "level": 3,
+            "statsPath": "/treasure/chests/level_3"
+          }
+        ],
+        "changes": [],
+        "legacyId": "goldChests",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "20.0 gold · 4 game hours",
+          "running": "Researching Gold chests · {remainingHHMM}",
+          "complete": "Gold chests complete.",
+          "tooltip": "Medium · Unlock gold chests. Silver has twice the wood stats; gold doubles silver again.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "treasure": {
+        "title": "Treasure-me-timbers",
+        "description": "Wood and silver chests. A little incentive goes a long way.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": []
+        },
+        "costGold": 5.0,
+        "durationGameHours": 1,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "treasure",
+            "type": "chests",
+            "level": 1,
+            "statsPath": "/treasure/chests/level_1"
+          },
+          {
+            "branch": "treasure",
+            "type": "chests",
+            "level": 2,
+            "statsPath": "/treasure/chests/level_2"
+          }
+        ],
+        "changes": [],
+        "legacyId": "treasure",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "5.0 gold · 1 game hours",
+          "running": "Researching Treasure-me-timbers · {remainingHHMM}",
+          "complete": "Treasure-me-timbers complete.",
+          "tooltip": "Wood and silver chests. A little incentive goes a long way.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "chests_4": {
+        "title": "Runic chests",
+        "description": "Unlock runic chests. Greater payouts require more intelligence and stamina; research does not supply the gold.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "goldChests"
+          ]
+        },
+        "costGold": 120,
+        "durationGameHours": 12,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "treasure",
+            "type": "chests",
+            "level": 4,
+            "statsPath": "/treasure/chests/level_4"
+          }
+        ],
+        "changes": [],
+        "purchaseAfterResearch": {
+          "costGoldPerFixture": 40,
+          "treasureFunding": "paid separately from reinvestment reserve"
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "120 gold · 12 game hours",
+          "running": "Researching Runic chests · {remainingHHMM}",
+          "complete": "Runic chests complete.",
+          "tooltip": "Unlock runic chests. Greater payouts require more intelligence and stamina; research does not supply the gold.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "chests_5": {
+        "title": "Royal chests",
+        "description": "Unlock royal chests. Greater payouts require more intelligence and stamina; research does not supply the gold.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "chests_4"
+          ]
+        },
+        "costGold": 180,
+        "durationGameHours": 16,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "treasure",
+            "type": "chests",
+            "level": 5,
+            "statsPath": "/treasure/chests/level_5"
+          }
+        ],
+        "changes": [],
+        "purchaseAfterResearch": {
+          "costGoldPerFixture": 50,
+          "treasureFunding": "paid separately from reinvestment reserve"
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "180 gold · 16 game hours",
+          "running": "Researching Royal chests · {remainingHHMM}",
+          "complete": "Royal chests complete.",
+          "tooltip": "Unlock royal chests. Greater payouts require more intelligence and stamina; research does not supply the gold.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      }
+    }
+  },
+  "staff": {
+    "title": "Staff investment",
+    "description": "Improve staffing, work speed and survivability.",
+    "research": {
+      "staffSpeed": {
+        "title": "Fleet-footed staff",
+        "description": "Medium · Double staff movement speed and speed up maintenance work. Trap resets use staff speed plus intelligence against trap difficulty.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": [
+            "staff"
+          ]
+        },
+        "costGold": 15.0,
+        "durationGameHours": 4,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "staff.effectiveSpeedMultiplier",
+            "value": 2,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "staffSpeed",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "15.0 gold · 4 game hours",
+          "running": "Researching Fleet-footed staff · {remainingHHMM}",
+          "complete": "Fleet-footed staff complete.",
+          "tooltip": "Medium · Double staff movement speed and speed up maintenance work. Trap resets use staff speed plus intelligence against trap difficulty.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "staminaManagement": {
+        "title": "Better stamina management",
+        "description": "Fast · Choose the stamina threshold at which staff take their next office break.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": [
+            "staff"
+          ]
+        },
+        "costGold": 10.0,
+        "durationGameHours": 1,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "staff.restThresholdControlEnabled",
+            "value": true,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "staminaManagement",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "10.0 gold · 1 game hours",
+          "running": "Researching Better stamina management · {remainingHHMM}",
+          "complete": "Better stamina management complete.",
+          "tooltip": "Fast · Choose the stamina threshold at which staff take their next office break.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "staff": {
+        "title": "Staff management",
+        "description": "Hire maintenance workers and keep an eye on your crew.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": []
+        },
+        "costGold": 5.0,
+        "durationGameHours": 1,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "staff",
+            "type": "diggers",
+            "level": 1,
+            "statsPath": "/staff/diggers/level_1"
+          },
+          {
+            "branch": "staff",
+            "type": "maintainers",
+            "level": 1,
+            "statsPath": "/staff/maintainers/level_1"
+          },
+          {
+            "branch": "staff",
+            "type": "defenders",
+            "level": 1,
+            "statsPath": "/staff/defenders/level_1"
+          },
+          {
+            "branch": "rest",
+            "type": "staffRooms",
+            "level": 1,
+            "statsPath": "/rest/staffRooms/level_1"
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "staff.hiringEnabled",
+            "value": true,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "staff",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "5.0 gold · 1 game hours",
+          "running": "Researching Staff management · {remainingHHMM}",
+          "complete": "Staff management complete.",
+          "tooltip": "Hire maintenance workers and keep an eye on your crew.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "digging": {
+        "title": "Faster digging",
+        "description": "Bigger shovels. Twice the excavation speed.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": [
+            "staff"
+          ]
+        },
+        "costGold": 10.0,
+        "durationGameHours": 4,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "staff.excavationThroughputMultiplier",
+            "value": 2,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "digging",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "10.0 gold · 4 game hours",
+          "running": "Researching Faster digging · {remainingHHMM}",
+          "complete": "Faster digging complete.",
+          "tooltip": "Bigger shovels. Twice the excavation speed.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "staff_2": {
+        "title": "Professional crew 2",
+        "description": "Unlock tier 2 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "staff"
+          ]
+        },
+        "costGold": 25,
+        "durationGameHours": 4,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "staff",
+            "type": "diggers",
+            "level": 2,
+            "statsPath": "/staff/diggers/level_2"
+          },
+          {
+            "branch": "staff",
+            "type": "maintainers",
+            "level": 2,
+            "statsPath": "/staff/maintainers/level_2"
+          },
+          {
+            "branch": "staff",
+            "type": "defenders",
+            "level": 2,
+            "statsPath": "/staff/defenders/level_2"
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "staff.maxHireTier",
+            "value": 2,
+            "applies": "policy_immediately"
+          }
+        ],
+        "purchaseAfterResearch": {
+          "promotionGoldPerPerson": 20,
+          "application": "at next office rest; add baseline delta to permanent stats; clamp current resources without refilling"
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "25 gold · 4 game hours",
+          "running": "Researching Professional crew 2 · {remainingHHMM}",
+          "complete": "Professional crew 2 complete.",
+          "tooltip": "Unlock tier 2 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "staff_3": {
+        "title": "Professional crew 3",
+        "description": "Unlock tier 3 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "staff_2"
+          ]
+        },
+        "costGold": 50,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "staff",
+            "type": "diggers",
+            "level": 3,
+            "statsPath": "/staff/diggers/level_3"
+          },
+          {
+            "branch": "staff",
+            "type": "maintainers",
+            "level": 3,
+            "statsPath": "/staff/maintainers/level_3"
+          },
+          {
+            "branch": "staff",
+            "type": "defenders",
+            "level": 3,
+            "statsPath": "/staff/defenders/level_3"
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "staff.maxHireTier",
+            "value": 3,
+            "applies": "policy_immediately"
+          }
+        ],
+        "purchaseAfterResearch": {
+          "promotionGoldPerPerson": 30,
+          "application": "at next office rest; add baseline delta to permanent stats; clamp current resources without refilling"
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "50 gold · 8 game hours",
+          "running": "Researching Professional crew 3 · {remainingHHMM}",
+          "complete": "Professional crew 3 complete.",
+          "tooltip": "Unlock tier 3 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "staff_4": {
+        "title": "Professional crew 4",
+        "description": "Unlock tier 4 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "staff_3"
+          ]
+        },
+        "costGold": 75,
+        "durationGameHours": 12,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "staff",
+            "type": "diggers",
+            "level": 4,
+            "statsPath": "/staff/diggers/level_4"
+          },
+          {
+            "branch": "staff",
+            "type": "maintainers",
+            "level": 4,
+            "statsPath": "/staff/maintainers/level_4"
+          },
+          {
+            "branch": "staff",
+            "type": "defenders",
+            "level": 4,
+            "statsPath": "/staff/defenders/level_4"
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "staff.maxHireTier",
+            "value": 4,
+            "applies": "policy_immediately"
+          }
+        ],
+        "purchaseAfterResearch": {
+          "promotionGoldPerPerson": 40,
+          "application": "at next office rest; add baseline delta to permanent stats; clamp current resources without refilling"
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "75 gold · 12 game hours",
+          "running": "Researching Professional crew 4 · {remainingHHMM}",
+          "complete": "Professional crew 4 complete.",
+          "tooltip": "Unlock tier 4 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "staff_5": {
+        "title": "Professional crew 5",
+        "description": "Unlock tier 5 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "staff_4"
+          ]
+        },
+        "costGold": 100,
+        "durationGameHours": 16,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "staff",
+            "type": "diggers",
+            "level": 5,
+            "statsPath": "/staff/diggers/level_5"
+          },
+          {
+            "branch": "staff",
+            "type": "maintainers",
+            "level": 5,
+            "statsPath": "/staff/maintainers/level_5"
+          },
+          {
+            "branch": "staff",
+            "type": "defenders",
+            "level": 5,
+            "statsPath": "/staff/defenders/level_5"
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "staff.maxHireTier",
+            "value": 5,
+            "applies": "policy_immediately"
+          }
+        ],
+        "purchaseAfterResearch": {
+          "promotionGoldPerPerson": 50,
+          "application": "at next office rest; add baseline delta to permanent stats; clamp current resources without refilling"
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "100 gold · 16 game hours",
+          "running": "Researching Professional crew 5 · {remainingHHMM}",
+          "complete": "Professional crew 5 complete.",
+          "tooltip": "Unlock tier 5 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "digging_3": {
+        "title": "Powered wheelbarrows",
+        "description": "Increase total excavation throughput from 2× to 3× baseline.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "digging",
+            "staff_2"
+          ]
+        },
+        "costGold": 40,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "staff.excavationThroughputMultiplier",
+            "value": 3,
+            "applies": "policy_immediately"
+          }
+        ],
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "40 gold · 8 game hours",
+          "running": "Researching Powered wheelbarrows · {remainingHHMM}",
+          "complete": "Powered wheelbarrows complete.",
+          "tooltip": "Increase total excavation throughput from 2× to 3× baseline.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "digging_4": {
+        "title": "Runic excavation tools",
+        "description": "Increase total excavation throughput to 4× baseline.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "digging_3",
+            "staff_3"
+          ]
+        },
+        "costGold": 100,
+        "durationGameHours": 12,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "staff.excavationThroughputMultiplier",
+            "value": 4,
+            "applies": "policy_immediately"
+          }
+        ],
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "100 gold · 12 game hours",
+          "running": "Researching Runic excavation tools · {remainingHHMM}",
+          "complete": "Runic excavation tools complete.",
+          "tooltip": "Increase total excavation throughput to 4× baseline.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "maintenance_tools": {
+        "title": "Organized toolbelts",
+        "description": "Add 5 effective reset skill without increasing walking speed.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "staff"
+          ]
+        },
+        "costGold": 20,
+        "durationGameHours": 4,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "staff.resetSkillBonus",
+            "value": 5,
+            "applies": "policy_immediately"
+          }
+        ],
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "20 gold · 4 game hours",
+          "running": "Researching Organized toolbelts · {remainingHHMM}",
+          "complete": "Organized toolbelts complete.",
+          "tooltip": "Add 5 effective reset skill without increasing walking speed.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "maintenance_tools_2": {
+        "title": "Precision reset kits",
+        "description": "Increase the toolbelt bonus to 10 effective reset skill.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "maintenance_tools",
+            "staff_3"
+          ]
+        },
+        "costGold": 60,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "staff.resetSkillBonus",
+            "value": 10,
+            "applies": "policy_immediately"
+          }
+        ],
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "60 gold · 8 game hours",
+          "running": "Researching Precision reset kits · {remainingHHMM}",
+          "complete": "Precision reset kits complete.",
+          "tooltip": "Increase the toolbelt bonus to 10 effective reset skill.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      }
+    }
+  },
+  "adventurers": {
+    "title": "Adventurer attractions",
+    "description": "Recruit balanced parties and stronger adventurers.",
+    "research": {
+      "guild2": {
+        "title": "Adventurers Guild Level 2",
+        "description": "25% shorter spawn intervals, +20 adventurer capacity, and party formation reduced from 20 to 15 real seconds.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": [
+            "guild"
+          ]
+        },
+        "costGold": 30.0,
+        "durationGameHours": 4,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "town.spawnIntervalMultiplier",
+            "value": 0.75,
+            "applies": "policy_immediately"
+          },
+          {
+            "operation": "set",
+            "target": "town.guildCapacityBonus",
+            "value": 20,
+            "applies": "policy_immediately"
+          },
+          {
+            "operation": "set",
+            "target": "guild.formationGameSeconds",
+            "value": 360,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "guild2",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "30.0 gold · 4 game hours",
+          "running": "Researching Adventurers Guild Level 2 · {remainingHHMM}",
+          "complete": "Adventurers Guild Level 2 complete.",
+          "tooltip": "25% shorter spawn intervals, +20 adventurer capacity, and party formation reduced from 20 to 15 real seconds.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "guild": {
+        "title": "Basic Adventurers Guild",
+        "description": "A recruitment stand that prioritizes missing party roles among eligible, unpartied adventurers.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": [
+            "door"
+          ]
+        },
+        "costGold": 15.0,
+        "durationGameHours": 2,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "guild.roleAwareSpawning",
+            "value": true,
+            "applies": "policy_immediately"
+          },
+          {
+            "operation": "set",
+            "target": "guild.backlogRecruitment",
+            "value": true,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "guild",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "15.0 gold · 2 game hours",
+          "running": "Researching Basic Adventurers Guild · {remainingHHMM}",
+          "complete": "Basic Adventurers Guild complete.",
+          "tooltip": "A recruitment stand that prioritizes missing party roles among eligible, unpartied adventurers.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "level2Adventurers": {
+        "title": "Level 2 adventurers",
+        "description": "Medium · Upgrade individual town spawn points to attract adventurers with double baseline stats and elaborate class outfits.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": [
+            "guild",
+            "building"
+          ]
+        },
+        "costGold": 20.0,
+        "durationGameHours": 4,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "adventurers",
+            "type": "fighters",
+            "level": 2,
+            "statsPath": "/adventurers/fighters/level_2"
+          },
+          {
+            "branch": "adventurers",
+            "type": "wizards",
+            "level": 2,
+            "statsPath": "/adventurers/wizards/level_2"
+          },
+          {
+            "branch": "adventurers",
+            "type": "healers",
+            "level": 2,
+            "statsPath": "/adventurers/healers/level_2"
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "town.maxSpawnTier",
+            "value": 2,
+            "applies": "policy_immediately"
+          }
+        ],
+        "purchaseAfterResearch": {
+          "scope": "spawn point tier upgrade",
+          "costGold": 45
+        },
+        "legacyId": "level2Adventurers",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "20.0 gold · 4 game hours",
+          "running": "Researching Level 2 adventurers · {remainingHHMM}",
+          "complete": "Level 2 adventurers complete.",
+          "tooltip": "Medium · Upgrade individual town spawn points to attract adventurers with double baseline stats and elaborate class outfits.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "localAds": {
+        "title": "Local ads",
+        "description": "Unlock two extra adventurer spawn points. Each costs 25 gold and adds 10 to the adventurer population cap.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": [
+            "guild"
+          ]
+        },
+        "costGold": 20.0,
+        "durationGameHours": 4,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "town.maxSpawnPoints",
+            "value": 3,
+            "applies": "policy_immediately"
+          }
+        ],
+        "purchaseAfterResearch": {
+          "scope": "extra spawn point",
+          "costGold": 25,
+          "capacityAdded": 10
+        },
+        "legacyId": "localAds",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "20.0 gold · 4 game hours",
+          "running": "Researching Local ads · {remainingHHMM}",
+          "complete": "Local ads complete.",
+          "tooltip": "Unlock two extra adventurer spawn points. Each costs 25 gold and adds 10 to the adventurer population cap.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "training": {
+        "title": "Short-sighted training",
+        "description": "+1 to all stats. Including the XP requirement. How convenient.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": [
+            "door"
+          ]
+        },
+        "costGold": 5.0,
+        "durationGameHours": 1,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "training.enabled",
+            "value": true,
+            "applies": "policy_immediately"
+          },
+          {
+            "operation": "set",
+            "target": "training.maxCourses",
+            "value": 3,
+            "applies": "policy_immediately"
+          },
+          {
+            "operation": "set",
+            "target": "training.statGainPerCourse",
+            "value": 1,
+            "applies": "policy_immediately"
+          },
+          {
+            "operation": "set",
+            "target": "training.xpThresholdGainPerCourse",
+            "value": 1,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "training",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "5.0 gold · 1 game hours",
+          "running": "Researching Short-sighted training · {remainingHHMM}",
+          "complete": "Short-sighted training complete.",
+          "tooltip": "+1 to all stats. Including the XP requirement. How convenient.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "adventurers_3": {
+        "title": "Level 3 adventurers",
+        "description": "Unlock level 3 spawn-point upgrades for all three classes. Existing characters keep their own stats.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "level2Adventurers",
+            "building_3"
+          ]
+        },
+        "costGold": 80,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "adventurers",
+            "type": "fighters",
+            "level": 3,
+            "statsPath": "/adventurers/fighters/level_3"
+          },
+          {
+            "branch": "adventurers",
+            "type": "wizards",
+            "level": 3,
+            "statsPath": "/adventurers/wizards/level_3"
+          },
+          {
+            "branch": "adventurers",
+            "type": "healers",
+            "level": 3,
+            "statsPath": "/adventurers/healers/level_3"
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "town.maxSpawnTier",
+            "value": 3,
+            "applies": "policy_immediately"
+          }
+        ],
+        "purchaseAfterResearch": {
+          "scope": "spawn point tier upgrade",
+          "costGold": 90
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "80 gold · 8 game hours",
+          "running": "Researching Level 3 adventurers · {remainingHHMM}",
+          "complete": "Level 3 adventurers complete.",
+          "tooltip": "Unlock level 3 spawn-point upgrades for all three classes. Existing characters keep their own stats.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "adventurers_4": {
+        "title": "Level 4 adventurers",
+        "description": "Unlock level 4 spawn-point upgrades for all three classes. Existing characters keep their own stats.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "adventurers_3",
+            "building_4"
+          ]
+        },
+        "costGold": 120,
+        "durationGameHours": 12,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "adventurers",
+            "type": "fighters",
+            "level": 4,
+            "statsPath": "/adventurers/fighters/level_4"
+          },
+          {
+            "branch": "adventurers",
+            "type": "wizards",
+            "level": 4,
+            "statsPath": "/adventurers/wizards/level_4"
+          },
+          {
+            "branch": "adventurers",
+            "type": "healers",
+            "level": 4,
+            "statsPath": "/adventurers/healers/level_4"
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "town.maxSpawnTier",
+            "value": 4,
+            "applies": "policy_immediately"
+          }
+        ],
+        "purchaseAfterResearch": {
+          "scope": "spawn point tier upgrade",
+          "costGold": 135
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "120 gold · 12 game hours",
+          "running": "Researching Level 4 adventurers · {remainingHHMM}",
+          "complete": "Level 4 adventurers complete.",
+          "tooltip": "Unlock level 4 spawn-point upgrades for all three classes. Existing characters keep their own stats.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "adventurers_5": {
+        "title": "Level 5 adventurers",
+        "description": "Unlock level 5 spawn-point upgrades for all three classes. Existing characters keep their own stats.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "adventurers_4",
+            "building_5"
+          ]
+        },
+        "costGold": 160,
+        "durationGameHours": 16,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "adventurers",
+            "type": "fighters",
+            "level": 5,
+            "statsPath": "/adventurers/fighters/level_5"
+          },
+          {
+            "branch": "adventurers",
+            "type": "wizards",
+            "level": 5,
+            "statsPath": "/adventurers/wizards/level_5"
+          },
+          {
+            "branch": "adventurers",
+            "type": "healers",
+            "level": 5,
+            "statsPath": "/adventurers/healers/level_5"
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "town.maxSpawnTier",
+            "value": 5,
+            "applies": "policy_immediately"
+          }
+        ],
+        "purchaseAfterResearch": {
+          "scope": "spawn point tier upgrade",
+          "costGold": 180
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "160 gold · 16 game hours",
+          "running": "Researching Level 5 adventurers · {remainingHHMM}",
+          "complete": "Level 5 adventurers complete.",
+          "tooltip": "Unlock level 5 spawn-point upgrades for all three classes. Existing characters keep their own stats.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "guild3": {
+        "title": "Regional Adventurers Guild",
+        "description": "Coordinate a larger roster: 40% shorter spawn intervals than baseline, +40 guild capacity, and 10-real-second equivalent party formation.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "guild2",
+            "adventurers_3"
+          ]
+        },
+        "costGold": 80,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "town.spawnIntervalMultiplier",
+            "value": 0.6,
+            "applies": "policy_immediately"
+          },
+          {
+            "operation": "set",
+            "target": "town.guildCapacityBonus",
+            "value": 40,
+            "applies": "policy_immediately"
+          },
+          {
+            "operation": "set",
+            "target": "guild.formationGameSeconds",
+            "value": 240,
+            "applies": "policy_immediately"
+          }
+        ],
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "80 gold · 8 game hours",
+          "running": "Researching Regional Adventurers Guild · {remainingHHMM}",
+          "complete": "Regional Adventurers Guild complete.",
+          "tooltip": "Coordinate a larger roster: 40% shorter spawn intervals than baseline, +40 guild capacity, and 10-real-second equivalent party formation.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "regional_ads": {
+        "title": "Regional ads",
+        "description": "Unlock two more arrival points, for five total. Buy each separately.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "localAds",
+            "guild2"
+          ]
+        },
+        "costGold": 60,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "town.maxSpawnPoints",
+            "value": 5,
+            "applies": "policy_immediately"
+          }
+        ],
+        "purchaseAfterResearch": {
+          "scope": "extra spawn point",
+          "costGold": 50,
+          "capacityAdded": 10
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "60 gold · 8 game hours",
+          "running": "Researching Regional ads · {remainingHHMM}",
+          "complete": "Regional ads complete.",
+          "tooltip": "Unlock two more arrival points, for five total. Buy each separately.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      }
+    }
+  },
+  "rest": {
+    "title": "Rest and hospitality",
+    "description": "Increase recovery throughput without eliminating queues.",
+    "research": {
+      "rest": {
+        "title": "Basic rest spots",
+        "description": "Bunks, a tap, and a much-needed stamina refill.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": []
+        },
+        "costGold": 5.0,
+        "durationGameHours": 1,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "rest",
+            "type": "adventurerRooms",
+            "level": 1,
+            "statsPath": "/rest/adventurerRooms/level_1"
+          }
+        ],
+        "changes": [],
+        "purchaseAfterResearch": {
+          "scope": "each furnished floor",
+          "costGold": 5,
+          "button": "Add rest room to new floor\n−5 gold"
+        },
+        "legacyId": "rest",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "5.0 gold · 1 game hours",
+          "running": "Researching Basic rest spots · {remainingHHMM}",
+          "complete": "Basic rest spots complete.",
+          "tooltip": "Bunks, a tap, and a much-needed stamina refill.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "rest_2": {
+        "title": "Comfortable bunks",
+        "description": "Unlock tier 2 rooms recovering 3 points per game hour in each depleted resource. Staff and visitors retain separate rooms.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "rest",
+            "staff"
+          ]
+        },
+        "costGold": 30,
+        "durationGameHours": 4,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "rest",
+            "type": "adventurerRooms",
+            "level": 2,
+            "statsPath": "/rest/adventurerRooms/level_2"
+          },
+          {
+            "branch": "rest",
+            "type": "staffRooms",
+            "level": 2,
+            "statsPath": "/rest/staffRooms/level_2"
+          }
+        ],
+        "changes": [],
+        "purchaseAfterResearch": {
+          "scope": "individual room upgrade",
+          "costGold": 20,
+          "preserveOccupants": true,
+          "preserveCapacity": true
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "30 gold · 4 game hours",
+          "running": "Researching Comfortable bunks · {remainingHHMM}",
+          "complete": "Comfortable bunks complete.",
+          "tooltip": "Unlock tier 2 rooms recovering 3 points per game hour in each depleted resource. Staff and visitors retain separate rooms.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "rest_3": {
+        "title": "Restorative suites",
+        "description": "Unlock tier 3 rooms recovering 4 points per game hour in each depleted resource. Staff and visitors retain separate rooms.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "rest_2",
+            "staff"
+          ]
+        },
+        "costGold": 60,
+        "durationGameHours": 8,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "rest",
+            "type": "adventurerRooms",
+            "level": 3,
+            "statsPath": "/rest/adventurerRooms/level_3"
+          },
+          {
+            "branch": "rest",
+            "type": "staffRooms",
+            "level": 3,
+            "statsPath": "/rest/staffRooms/level_3"
+          }
+        ],
+        "changes": [],
+        "purchaseAfterResearch": {
+          "scope": "individual room upgrade",
+          "costGold": 40,
+          "preserveOccupants": true,
+          "preserveCapacity": true
+        },
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "60 gold · 8 game hours",
+          "running": "Researching Restorative suites · {remainingHHMM}",
+          "complete": "Restorative suites complete.",
+          "tooltip": "Unlock tier 3 rooms recovering 4 points per game hour in each depleted resource. Staff and visitors retain separate rooms.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      }
+    }
+  },
+  "finance": {
+    "title": "Finance",
+    "description": "Control admission, reinvestment and operating margins.",
+    "research": {
+      "door": {
+        "title": "Basic door policy",
+        "description": "Level-one adventurers only. Set your entrance fee.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": []
+        },
+        "costGold": 5.0,
+        "durationGameHours": 1,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "admission.controlsEnabled",
+            "value": true,
+            "applies": "policy_immediately"
+          },
+          {
+            "operation": "set",
+            "target": "admission.defaultEntryFeeGold",
+            "value": 10,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "door",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "5.0 gold · 1 game hours",
+          "running": "Researching Basic door policy · {remainingHHMM}",
+          "complete": "Basic door policy complete.",
+          "tooltip": "Level-one adventurers only. Set your entrance fee.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "finance": {
+        "title": "Sketchy finances",
+        "description": "Decide how much admission income goes back into treasure.",
+        "origin": "retained_from_demo_with_explicit_proposed_effects",
+        "prerequisites": {
+          "allOf": [
+            "door"
+          ]
+        },
+        "costGold": 5.0,
+        "durationGameHours": 1,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "finance.reinvestmentControlEnabled",
+            "value": true,
+            "applies": "policy_immediately"
+          },
+          {
+            "operation": "set",
+            "target": "finance.equipmentSaleControlEnabled",
+            "value": true,
+            "applies": "policy_immediately"
+          }
+        ],
+        "legacyId": "finance",
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "5.0 gold · 1 game hours",
+          "running": "Researching Sketchy finances · {remainingHHMM}",
+          "complete": "Sketchy finances complete.",
+          "tooltip": "Decide how much admission income goes back into treasure.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "group_policy": {
+        "title": "A door for every depth",
+        "description": "Set a separate admission range, entrance fee and rest fee for each five-floor group.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "door",
+            "depths_2"
+          ]
+        },
+        "costGold": 20,
+        "durationGameHours": 4,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "policies.independentFloorGroups",
+            "value": true,
+            "applies": "policy_immediately"
+          }
+        ],
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "20 gold · 4 game hours",
+          "running": "Researching A door for every depth · {remainingHHMM}",
+          "complete": "A door for every depth complete.",
+          "tooltip": "Set a separate admission range, entrance fee and rest fee for each five-floor group.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "reserve_policy": {
+        "title": "Treasure reserve policy",
+        "description": "Choose a reserve target and pause discretionary restocking before treasury runs short. Does not mint gold.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "finance"
+          ]
+        },
+        "costGold": 15,
+        "durationGameHours": 2,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "finance.reservePolicyEnabled",
+            "value": true,
+            "applies": "policy_immediately"
+          }
+        ],
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "15 gold · 2 game hours",
+          "running": "Researching Treasure reserve policy · {remainingHHMM}",
+          "complete": "Treasure reserve policy complete.",
+          "tooltip": "Choose a reserve target and pause discretionary restocking before treasury runs short. Does not mint gold.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      },
+      "wage_policy": {
+        "title": "Payroll planning",
+        "description": "Show projected wages and set a spending warning. Defenders still require payment for working hours.",
+        "origin": "proposed",
+        "prerequisites": {
+          "allOf": [
+            "finance",
+            "staff"
+          ]
+        },
+        "costGold": 10,
+        "durationGameHours": 2,
+        "repeatable": false,
+        "unlocks": [],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "finance.payrollForecastEnabled",
+            "value": true,
+            "applies": "policy_immediately"
+          }
+        ],
+        "ui": {
+          "button": "Research",
+          "locked": "Requires: {prerequisiteTitles}",
+          "ready": "10 gold · 2 game hours",
+          "running": "Researching Payroll planning · {remainingHHMM}",
+          "complete": "Payroll planning complete.",
+          "tooltip": "Show projected wages and set a spending warning. Defenders still require payment for working hours.",
+          "insufficientGold": "Not enough gold.",
+          "queueBusy": "Finish the current research first.",
+          "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
+        }
+      }
+    }
+  },
+  "_meta": {
+    "schemaVersion": "3.0.0",
+    "title": "Underkeep research branches and level unlocks",
+    "status": "proposed_design_for_review",
+    "statsFile": "entity-stats.v1.json",
+    "notes": [
+      "unlocks identifies the branch, entity type and level made available. Spawners are components of their mob level.",
+      "Research with no entity level unlock still describes its policy/stat modifications under changes.",
+      "Unlocking a floor range and unlocking a floor-group structural level are separate research outcomes.",
+      "Initial adventurer level-one spawns do not require research.",
+      "Asset specifications and previous broader planning notes are preserved in history/research-plan.combined.v2.json."
+    ],
+    "initialUnlocks": [
+      {
+        "branch": "floors",
+        "type": "floor_groups",
+        "level": 1,
+        "statsPath": "/floors/floor_groups/level_1"
+      },
+      {
+        "branch": "adventurers",
+        "type": "fighters",
+        "level": 1,
+        "statsPath": "/adventurers/fighters/level_1"
+      },
+      {
+        "branch": "adventurers",
+        "type": "wizards",
+        "level": 1,
+        "statsPath": "/adventurers/wizards/level_1"
+      },
+      {
+        "branch": "adventurers",
+        "type": "healers",
+        "level": 1,
+        "statsPath": "/adventurers/healers/level_1"
+      }
+    ],
+    "rules": {
+      "slots": 1,
+      "activePlayProgressMultiplier": 2,
+      "offlineProgressMultiplier": 1,
+      "payment": "deduct once when started",
+      "cancel": "no refund after start; confirmation required",
+      "prerequisites": "allOf must be complete; repeated IDs mean at least rank 1",
+      "queue": "one active node; unavailable buttons explain prerequisite or insufficient gold",
+      "completedPlacement": "bottom of selected branch",
+      "sharedNode": "Better building belongs to Dungeon depths; Staff investment links to the same ID",
+      "effectComposition": "set replaces previous research value; add accumulates per rank; compute from immutable baseline plus completed research, never mutate accumulated derived values repeatedly",
+      "migration": "existing completed IDs remain completed; existing depth rank maps to first N depth milestones; no retroactive charges",
+      "defaultInstallationPurchase": {
+        "costGoldPerFloorOrder": 5,
+        "newFixtureInstallationStamina": 1,
+        "replacementStamina": 1,
+        "note": "Per-fixture or per-spawner tier-upgrade price overrides this default for upgrades; gold stocked in chests is charged separately."
+      },
+      "existingSaveApplication": "This file is a plan only. A future migration must preview changed defaults, preserve earned stat deltas and task work fractions, and avoid silently altering the archived demo."
+    },
+    "designDecisionsToReview": [
+      {
+        "id": "admission",
+        "proposal": "Use explicit minimum and maximum admission tiers per group. Reject unaffordable or out-of-range visitors immediately unless they opt into available training before admission.",
+        "reason": "Archived maximum-tier predicate conflicts with earlier minimum-tier expectations and immediate departure conflicts with training.",
+        "status": "proposed_change"
+      },
+      {
+        "id": "excavation_curve",
+        "proposal": "Reduce per-floor growth from 1.5 to 1.15 before 50-floor production balance.",
+        "reason": "1.5^49 makes late floors impractical. New curve still needs staffing/rest simulations.",
+        "status": "proposed_change"
+      },
+      {
+        "id": "beginner_stealth",
+        "proposal": "Normalize trapdoor I perception from archived 12 to 10; stealth ranks improve arrow walls from 5 to 10.",
+        "reason": "Existing cap of 10 conflicts with trapdoor baseline 12.",
+        "status": "proposed_change"
+      },
+      {
+        "id": "treasure_late_locks",
+        "proposal": "Keep 80-intelligence royal locks as a stretch goal reached by checkpoint progression from tier V intelligence 50.",
+        "reason": "Validate realistic XP income; reduce threshold if most parties cannot reach it.",
+        "status": "needs_simulation"
+      },
+      {
+        "id": "structural_damage",
+        "proposal": "Retain damage=max(0,attack-floorDefense), with maintenance repairs; decide collapse rules separately.",
+        "reason": "Strong adventurers can damage even matching-tier floors; requires economy/load testing.",
+        "status": "needs_simulation"
+      },
+      {
+        "id": "economy",
+        "proposal": "No passive gold multiplier research; upgrades increase throughput, costs and danger together.",
+        "reason": "Test wages, checkpoint fees and funded treasure for sustainable margins.",
+        "status": "needs_simulation"
+      },
+      {
+        "id": "reset_skill_scaling",
+        "proposal": "Keep the one-minute minimum reset duration, then test whether tier V staff trivialize all reset work; optionally shift later staff gains toward stamina instead of speed.",
+        "reason": "Tier V speed/intelligence plus tools exceeds tier V reset difficulty by 100 points.",
+        "status": "needs_simulation"
+      }
+    ]
+  }
+}

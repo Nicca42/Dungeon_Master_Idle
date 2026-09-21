@@ -1,0 +1,1066 @@
+{
+  "floors": {
+    "floor_groups": {
+      "level_1": {
+        "minHealth": 10,
+        "maxHealth": 10,
+        "minDefense": 10,
+        "maxDefense": 10,
+        "fixtureSlots": 12,
+        "recommendedMobCap": 2,
+        "mobAttackBudget": 10,
+        "trapAttackBudget": 30,
+        "trapDefenseBudget": 30
+      },
+      "level_2": {
+        "minHealth": 20,
+        "maxHealth": 20,
+        "minDefense": 20,
+        "maxDefense": 20,
+        "fixtureSlots": 12,
+        "recommendedMobCap": 4,
+        "mobAttackBudget": 20,
+        "trapAttackBudget": 60,
+        "trapDefenseBudget": 60
+      },
+      "level_3": {
+        "minHealth": 30,
+        "maxHealth": 30,
+        "minDefense": 30,
+        "maxDefense": 30,
+        "fixtureSlots": 12,
+        "recommendedMobCap": 6,
+        "mobAttackBudget": 30,
+        "trapAttackBudget": 90,
+        "trapDefenseBudget": 90
+      },
+      "level_4": {
+        "minHealth": 40,
+        "maxHealth": 40,
+        "minDefense": 40,
+        "maxDefense": 40,
+        "fixtureSlots": 12,
+        "recommendedMobCap": 8,
+        "mobAttackBudget": 40,
+        "trapAttackBudget": 120,
+        "trapDefenseBudget": 120
+      },
+      "level_5": {
+        "minHealth": 50,
+        "maxHealth": 50,
+        "minDefense": 50,
+        "maxDefense": 50,
+        "fixtureSlots": 12,
+        "recommendedMobCap": 10,
+        "mobAttackBudget": 50,
+        "trapAttackBudget": 150,
+        "trapDefenseBudget": 150
+      }
+    }
+  },
+  "traps": {
+    "trapdoors": {
+      "level_1": {
+        "minHealth": 10,
+        "maxHealth": 19,
+        "minDefense": 5,
+        "maxDefense": 9,
+        "minDamage": 5,
+        "maxDamage": 10,
+        "perceptionRequired": 10,
+        "installationStamina": 1,
+        "resetDifficulty": 20,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 1,
+        "selfResets": false
+      },
+      "level_2": {
+        "minHealth": 20,
+        "maxHealth": 20,
+        "minDefense": 10,
+        "maxDefense": 10,
+        "minDamage": 10,
+        "maxDamage": 20,
+        "perceptionRequired": 20,
+        "installationStamina": 1,
+        "resetDifficulty": 30,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 1,
+        "selfResets": false
+      },
+      "level_3": {
+        "minHealth": 30,
+        "maxHealth": 30,
+        "minDefense": 15,
+        "maxDefense": 15,
+        "minDamage": 20,
+        "maxDamage": 30,
+        "perceptionRequired": 30,
+        "installationStamina": 1,
+        "resetDifficulty": 40,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 1,
+        "selfResets": false
+      },
+      "level_4": {
+        "minHealth": 40,
+        "maxHealth": 40,
+        "minDefense": 20,
+        "maxDefense": 20,
+        "minDamage": 30,
+        "maxDamage": 40,
+        "perceptionRequired": 40,
+        "installationStamina": 1,
+        "resetDifficulty": 50,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 1,
+        "selfResets": false
+      },
+      "level_5": {
+        "minHealth": 50,
+        "maxHealth": 50,
+        "minDefense": 25,
+        "maxDefense": 25,
+        "minDamage": 40,
+        "maxDamage": 50,
+        "perceptionRequired": 50,
+        "installationStamina": 1,
+        "resetDifficulty": 60,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 1,
+        "selfResets": false
+      }
+    },
+    "arrowWalls": {
+      "level_1": {
+        "minHealth": 10,
+        "maxHealth": 10,
+        "minDefense": 5,
+        "maxDefense": 5,
+        "minDamage": 10,
+        "maxDamage": 15,
+        "perceptionRequired": 5,
+        "installationStamina": 1,
+        "resetDifficulty": 20,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 1,
+        "selfResets": false
+      },
+      "level_2": {
+        "minHealth": 20,
+        "maxHealth": 20,
+        "minDefense": 10,
+        "maxDefense": 10,
+        "minDamage": 15,
+        "maxDamage": 25,
+        "perceptionRequired": 20,
+        "installationStamina": 1,
+        "resetDifficulty": 30,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 1,
+        "selfResets": false
+      },
+      "level_3": {
+        "minHealth": 30,
+        "maxHealth": 30,
+        "minDefense": 15,
+        "maxDefense": 15,
+        "minDamage": 25,
+        "maxDamage": 35,
+        "perceptionRequired": 30,
+        "installationStamina": 1,
+        "resetDifficulty": 40,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 1,
+        "selfResets": false
+      },
+      "level_4": {
+        "minHealth": 40,
+        "maxHealth": 40,
+        "minDefense": 20,
+        "maxDefense": 20,
+        "minDamage": 35,
+        "maxDamage": 45,
+        "perceptionRequired": 40,
+        "installationStamina": 1,
+        "resetDifficulty": 50,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 1,
+        "selfResets": false
+      },
+      "level_5": {
+        "minHealth": 50,
+        "maxHealth": 50,
+        "minDefense": 25,
+        "maxDefense": 25,
+        "minDamage": 45,
+        "maxDamage": 55,
+        "perceptionRequired": 50,
+        "installationStamina": 1,
+        "resetDifficulty": 60,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 1,
+        "selfResets": false
+      }
+    },
+    "mimics": {
+      "level_1": {
+        "minHealth": 10,
+        "maxHealth": 10,
+        "minDefense": 10,
+        "maxDefense": 10,
+        "minDamage": 5,
+        "maxDamage": 5,
+        "perceptionRequired": 10,
+        "installationStamina": 1,
+        "resetDifficulty": 20,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 0,
+        "selfResets": true,
+        "xpPerTrigger": 1,
+        "selfResetGameMinutes": 30
+      },
+      "level_2": {
+        "minHealth": 20,
+        "maxHealth": 20,
+        "minDefense": 20,
+        "maxDefense": 20,
+        "minDamage": 10,
+        "maxDamage": 20,
+        "perceptionRequired": 20,
+        "installationStamina": 1,
+        "resetDifficulty": 30,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 0,
+        "selfResets": true,
+        "xpPerTrigger": 1,
+        "selfResetGameMinutes": 30
+      },
+      "level_3": {
+        "minHealth": 30,
+        "maxHealth": 30,
+        "minDefense": 30,
+        "maxDefense": 30,
+        "minDamage": 20,
+        "maxDamage": 30,
+        "perceptionRequired": 30,
+        "installationStamina": 1,
+        "resetDifficulty": 40,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 0,
+        "selfResets": true,
+        "xpPerTrigger": 1,
+        "selfResetGameMinutes": 30
+      },
+      "level_4": {
+        "minHealth": 40,
+        "maxHealth": 40,
+        "minDefense": 40,
+        "maxDefense": 40,
+        "minDamage": 30,
+        "maxDamage": 40,
+        "perceptionRequired": 40,
+        "installationStamina": 1,
+        "resetDifficulty": 50,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 0,
+        "selfResets": true,
+        "xpPerTrigger": 1,
+        "selfResetGameMinutes": 30
+      },
+      "level_5": {
+        "minHealth": 50,
+        "maxHealth": 50,
+        "minDefense": 50,
+        "maxDefense": 50,
+        "minDamage": 40,
+        "maxDamage": 50,
+        "perceptionRequired": 50,
+        "installationStamina": 1,
+        "resetDifficulty": 60,
+        "resetBaseGameMinutes": 5,
+        "resetStamina": 0,
+        "selfResets": true,
+        "xpPerTrigger": 1,
+        "selfResetGameMinutes": 30
+      }
+    }
+  },
+  "mobs": {
+    "zombies": {
+      "level_1": {
+        "spawner": {
+          "cost": null,
+          "spawnRate": 1,
+          "spawnPeriodInGameHours": 1,
+          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "upgradeCost": null,
+          "readyBuffer": 1,
+          "minHealth": 10,
+          "maxHealth": 10,
+          "minDefense": 5,
+          "maxDefense": 5,
+          "produces": "zombie_t1"
+        },
+        "minHealth": 10,
+        "maxHealth": 10,
+        "minDamage": 1,
+        "maxDamage": 5,
+        "minDefense": 5,
+        "maxDefense": 5,
+        "speed": 5,
+        "escapeProbabilityPerAttempt": 0.2
+      },
+      "level_2": {
+        "spawner": {
+          "cost": null,
+          "spawnRate": 1,
+          "spawnPeriodInGameHours": 1,
+          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "upgradeCost": 20,
+          "readyBuffer": 1,
+          "minHealth": 20,
+          "maxHealth": 20,
+          "minDefense": 10,
+          "maxDefense": 10,
+          "produces": "zombie_t2"
+        },
+        "minHealth": 20,
+        "maxHealth": 20,
+        "minDamage": 2,
+        "maxDamage": 10,
+        "minDefense": 10,
+        "maxDefense": 10,
+        "speed": 5,
+        "escapeProbabilityPerAttempt": 0.2
+      },
+      "level_3": {
+        "spawner": {
+          "cost": null,
+          "spawnRate": 1,
+          "spawnPeriodInGameHours": 1,
+          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "upgradeCost": 30,
+          "readyBuffer": 1,
+          "minHealth": 30,
+          "maxHealth": 30,
+          "minDefense": 15,
+          "maxDefense": 15,
+          "produces": "zombie_t3"
+        },
+        "minHealth": 30,
+        "maxHealth": 30,
+        "minDamage": 3,
+        "maxDamage": 15,
+        "minDefense": 15,
+        "maxDefense": 15,
+        "speed": 5,
+        "escapeProbabilityPerAttempt": 0.2
+      },
+      "level_4": {
+        "spawner": {
+          "cost": null,
+          "spawnRate": 1,
+          "spawnPeriodInGameHours": 1,
+          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "upgradeCost": 40,
+          "readyBuffer": 1,
+          "minHealth": 40,
+          "maxHealth": 40,
+          "minDefense": 20,
+          "maxDefense": 20,
+          "produces": "zombie_t4"
+        },
+        "minHealth": 40,
+        "maxHealth": 40,
+        "minDamage": 4,
+        "maxDamage": 20,
+        "minDefense": 20,
+        "maxDefense": 20,
+        "speed": 5,
+        "escapeProbabilityPerAttempt": 0.2
+      },
+      "level_5": {
+        "spawner": {
+          "cost": null,
+          "spawnRate": 1,
+          "spawnPeriodInGameHours": 1,
+          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "upgradeCost": 50,
+          "readyBuffer": 1,
+          "minHealth": 50,
+          "maxHealth": 50,
+          "minDefense": 25,
+          "maxDefense": 25,
+          "produces": "zombie_t5"
+        },
+        "minHealth": 50,
+        "maxHealth": 50,
+        "minDamage": 5,
+        "maxDamage": 25,
+        "minDefense": 25,
+        "maxDefense": 25,
+        "speed": 5,
+        "escapeProbabilityPerAttempt": 0.2
+      }
+    },
+    "slimes": {
+      "level_1": {
+        "spawner": {
+          "cost": null,
+          "spawnRate": 1,
+          "spawnPeriodInGameHours": 2,
+          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "upgradeCost": null,
+          "readyBuffer": 1,
+          "minHealth": 10,
+          "maxHealth": 10,
+          "minDefense": 5,
+          "maxDefense": 5,
+          "produces": "slime_t1"
+        },
+        "minHealth": 10,
+        "maxHealth": 10,
+        "minDamage": 1,
+        "maxDamage": 5,
+        "minDefense": 10,
+        "maxDefense": 15,
+        "speed": 5,
+        "escapeProbabilityPerAttempt": 0.2
+      },
+      "level_2": {
+        "spawner": {
+          "cost": null,
+          "spawnRate": 1,
+          "spawnPeriodInGameHours": 2,
+          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "upgradeCost": 20,
+          "readyBuffer": 1,
+          "minHealth": 20,
+          "maxHealth": 20,
+          "minDefense": 10,
+          "maxDefense": 10,
+          "produces": "slime_t2"
+        },
+        "minHealth": 20,
+        "maxHealth": 20,
+        "minDamage": 2,
+        "maxDamage": 10,
+        "minDefense": 20,
+        "maxDefense": 30,
+        "speed": 5,
+        "escapeProbabilityPerAttempt": 0.2
+      },
+      "level_3": {
+        "spawner": {
+          "cost": null,
+          "spawnRate": 1,
+          "spawnPeriodInGameHours": 2,
+          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "upgradeCost": 30,
+          "readyBuffer": 1,
+          "minHealth": 30,
+          "maxHealth": 30,
+          "minDefense": 15,
+          "maxDefense": 15,
+          "produces": "slime_t3"
+        },
+        "minHealth": 30,
+        "maxHealth": 30,
+        "minDamage": 3,
+        "maxDamage": 15,
+        "minDefense": 30,
+        "maxDefense": 45,
+        "speed": 5,
+        "escapeProbabilityPerAttempt": 0.2
+      },
+      "level_4": {
+        "spawner": {
+          "cost": null,
+          "spawnRate": 1,
+          "spawnPeriodInGameHours": 2,
+          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "upgradeCost": 40,
+          "readyBuffer": 1,
+          "minHealth": 40,
+          "maxHealth": 40,
+          "minDefense": 20,
+          "maxDefense": 20,
+          "produces": "slime_t4"
+        },
+        "minHealth": 40,
+        "maxHealth": 40,
+        "minDamage": 4,
+        "maxDamage": 20,
+        "minDefense": 40,
+        "maxDefense": 60,
+        "speed": 5,
+        "escapeProbabilityPerAttempt": 0.2
+      },
+      "level_5": {
+        "spawner": {
+          "cost": null,
+          "spawnRate": 1,
+          "spawnPeriodInGameHours": 2,
+          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "upgradeCost": 50,
+          "readyBuffer": 1,
+          "minHealth": 50,
+          "maxHealth": 50,
+          "minDefense": 25,
+          "maxDefense": 25,
+          "produces": "slime_t5"
+        },
+        "minHealth": 50,
+        "maxHealth": 50,
+        "minDamage": 5,
+        "maxDamage": 25,
+        "minDefense": 50,
+        "maxDefense": 75,
+        "speed": 5,
+        "escapeProbabilityPerAttempt": 0.2
+      }
+    }
+  },
+  "treasure": {
+    "chests": {
+      "level_1": {
+        "material": "wood",
+        "minHealth": 10,
+        "maxHealth": 10,
+        "minDefense": 5,
+        "maxDefense": 5,
+        "minGold": 1,
+        "maxGold": 5,
+        "lockIntelligence": 10,
+        "openStamina": 1,
+        "refillStamina": 1
+      },
+      "level_2": {
+        "material": "silver",
+        "minHealth": 20,
+        "maxHealth": 20,
+        "minDefense": 10,
+        "maxDefense": 10,
+        "minGold": 2,
+        "maxGold": 10,
+        "lockIntelligence": 20,
+        "openStamina": 2,
+        "refillStamina": 1
+      },
+      "level_3": {
+        "material": "gold",
+        "minHealth": 40,
+        "maxHealth": 40,
+        "minDefense": 20,
+        "maxDefense": 20,
+        "minGold": 4,
+        "maxGold": 20,
+        "lockIntelligence": 40,
+        "openStamina": 4,
+        "refillStamina": 1
+      },
+      "level_4": {
+        "material": "runic",
+        "minHealth": 60,
+        "maxHealth": 60,
+        "minDefense": 30,
+        "maxDefense": 30,
+        "minGold": 6,
+        "maxGold": 30,
+        "lockIntelligence": 60,
+        "openStamina": 6,
+        "refillStamina": 1
+      },
+      "level_5": {
+        "material": "royal",
+        "minHealth": 80,
+        "maxHealth": 80,
+        "minDefense": 40,
+        "maxDefense": 40,
+        "minGold": 8,
+        "maxGold": 40,
+        "lockIntelligence": 80,
+        "openStamina": 8,
+        "refillStamina": 1
+      }
+    }
+  },
+  "staff": {
+    "diggers": {
+      "level_1": {
+        "maxHealth": 10,
+        "maxDefense": 10,
+        "maxStamina": 10,
+        "speed": 10,
+        "intelligence": 10,
+        "damage": 10,
+        "maxPrimary": 10,
+        "xpPerStatPoint": 10,
+        "hireGold": 10,
+        "wageGoldPerWorkingGameHour": 0
+      },
+      "level_2": {
+        "maxHealth": 20,
+        "maxDefense": 20,
+        "maxStamina": 20,
+        "speed": 20,
+        "intelligence": 20,
+        "damage": 20,
+        "maxPrimary": 20,
+        "xpPerStatPoint": 20,
+        "hireGold": 20,
+        "wageGoldPerWorkingGameHour": 0
+      },
+      "level_3": {
+        "maxHealth": 30,
+        "maxDefense": 30,
+        "maxStamina": 30,
+        "speed": 30,
+        "intelligence": 30,
+        "damage": 30,
+        "maxPrimary": 30,
+        "xpPerStatPoint": 30,
+        "hireGold": 30,
+        "wageGoldPerWorkingGameHour": 0
+      },
+      "level_4": {
+        "maxHealth": 40,
+        "maxDefense": 40,
+        "maxStamina": 40,
+        "speed": 40,
+        "intelligence": 40,
+        "damage": 40,
+        "maxPrimary": 40,
+        "xpPerStatPoint": 40,
+        "hireGold": 40,
+        "wageGoldPerWorkingGameHour": 0
+      },
+      "level_5": {
+        "maxHealth": 50,
+        "maxDefense": 50,
+        "maxStamina": 50,
+        "speed": 50,
+        "intelligence": 50,
+        "damage": 50,
+        "maxPrimary": 50,
+        "xpPerStatPoint": 50,
+        "hireGold": 50,
+        "wageGoldPerWorkingGameHour": 0
+      }
+    },
+    "maintainers": {
+      "level_1": {
+        "maxHealth": 10,
+        "maxDefense": 10,
+        "maxStamina": 10,
+        "speed": 10,
+        "intelligence": 10,
+        "damage": 10,
+        "maxPrimary": 10,
+        "xpPerStatPoint": 10,
+        "hireGold": 15,
+        "wageGoldPerWorkingGameHour": 0
+      },
+      "level_2": {
+        "maxHealth": 20,
+        "maxDefense": 20,
+        "maxStamina": 20,
+        "speed": 20,
+        "intelligence": 20,
+        "damage": 20,
+        "maxPrimary": 20,
+        "xpPerStatPoint": 20,
+        "hireGold": 30,
+        "wageGoldPerWorkingGameHour": 0
+      },
+      "level_3": {
+        "maxHealth": 30,
+        "maxDefense": 30,
+        "maxStamina": 30,
+        "speed": 30,
+        "intelligence": 30,
+        "damage": 30,
+        "maxPrimary": 30,
+        "xpPerStatPoint": 30,
+        "hireGold": 45,
+        "wageGoldPerWorkingGameHour": 0
+      },
+      "level_4": {
+        "maxHealth": 40,
+        "maxDefense": 40,
+        "maxStamina": 40,
+        "speed": 40,
+        "intelligence": 40,
+        "damage": 40,
+        "maxPrimary": 40,
+        "xpPerStatPoint": 40,
+        "hireGold": 60,
+        "wageGoldPerWorkingGameHour": 0
+      },
+      "level_5": {
+        "maxHealth": 50,
+        "maxDefense": 50,
+        "maxStamina": 50,
+        "speed": 50,
+        "intelligence": 50,
+        "damage": 50,
+        "maxPrimary": 50,
+        "xpPerStatPoint": 50,
+        "hireGold": 75,
+        "wageGoldPerWorkingGameHour": 0
+      }
+    },
+    "defenders": {
+      "level_1": {
+        "maxHealth": 10,
+        "maxDefense": 10,
+        "maxStamina": 10,
+        "speed": 10,
+        "intelligence": 10,
+        "damage": 10,
+        "maxPrimary": 10,
+        "xpPerStatPoint": 10,
+        "hireGold": 0,
+        "wageGoldPerWorkingGameHour": 1
+      },
+      "level_2": {
+        "maxHealth": 20,
+        "maxDefense": 20,
+        "maxStamina": 20,
+        "speed": 20,
+        "intelligence": 20,
+        "damage": 20,
+        "maxPrimary": 20,
+        "xpPerStatPoint": 20,
+        "hireGold": 0,
+        "wageGoldPerWorkingGameHour": 2
+      },
+      "level_3": {
+        "maxHealth": 30,
+        "maxDefense": 30,
+        "maxStamina": 30,
+        "speed": 30,
+        "intelligence": 30,
+        "damage": 30,
+        "maxPrimary": 30,
+        "xpPerStatPoint": 30,
+        "hireGold": 0,
+        "wageGoldPerWorkingGameHour": 3
+      },
+      "level_4": {
+        "maxHealth": 40,
+        "maxDefense": 40,
+        "maxStamina": 40,
+        "speed": 40,
+        "intelligence": 40,
+        "damage": 40,
+        "maxPrimary": 40,
+        "xpPerStatPoint": 40,
+        "hireGold": 0,
+        "wageGoldPerWorkingGameHour": 4
+      },
+      "level_5": {
+        "maxHealth": 50,
+        "maxDefense": 50,
+        "maxStamina": 50,
+        "speed": 50,
+        "intelligence": 50,
+        "damage": 50,
+        "maxPrimary": 50,
+        "xpPerStatPoint": 50,
+        "hireGold": 0,
+        "wageGoldPerWorkingGameHour": 5
+      }
+    }
+  },
+  "adventurers": {
+    "fighters": {
+      "level_1": {
+        "maxHealth": 10,
+        "maxDefense": 10,
+        "maxStamina": 10,
+        "damage": 10,
+        "speed": 10,
+        "intelligence": 10,
+        "maxPrimary": 10,
+        "xpPerStatPoint": 10,
+        "startingGold": 20,
+        "primaryName": "strength"
+      },
+      "level_2": {
+        "maxHealth": 20,
+        "maxDefense": 20,
+        "maxStamina": 20,
+        "damage": 20,
+        "speed": 20,
+        "intelligence": 20,
+        "maxPrimary": 20,
+        "xpPerStatPoint": 20,
+        "startingGold": 40,
+        "primaryName": "strength"
+      },
+      "level_3": {
+        "maxHealth": 30,
+        "maxDefense": 30,
+        "maxStamina": 30,
+        "damage": 30,
+        "speed": 30,
+        "intelligence": 30,
+        "maxPrimary": 30,
+        "xpPerStatPoint": 30,
+        "startingGold": 60,
+        "primaryName": "strength"
+      },
+      "level_4": {
+        "maxHealth": 40,
+        "maxDefense": 40,
+        "maxStamina": 40,
+        "damage": 40,
+        "speed": 40,
+        "intelligence": 40,
+        "maxPrimary": 40,
+        "xpPerStatPoint": 40,
+        "startingGold": 80,
+        "primaryName": "strength"
+      },
+      "level_5": {
+        "maxHealth": 50,
+        "maxDefense": 50,
+        "maxStamina": 50,
+        "damage": 50,
+        "speed": 50,
+        "intelligence": 50,
+        "maxPrimary": 50,
+        "xpPerStatPoint": 50,
+        "startingGold": 100,
+        "primaryName": "strength"
+      }
+    },
+    "wizards": {
+      "level_1": {
+        "maxHealth": 10,
+        "maxDefense": 10,
+        "maxStamina": 10,
+        "damage": 10,
+        "speed": 10,
+        "intelligence": 10,
+        "maxPrimary": 10,
+        "xpPerStatPoint": 10,
+        "startingGold": 20,
+        "primaryName": "mana"
+      },
+      "level_2": {
+        "maxHealth": 20,
+        "maxDefense": 20,
+        "maxStamina": 20,
+        "damage": 20,
+        "speed": 20,
+        "intelligence": 20,
+        "maxPrimary": 20,
+        "xpPerStatPoint": 20,
+        "startingGold": 40,
+        "primaryName": "mana"
+      },
+      "level_3": {
+        "maxHealth": 30,
+        "maxDefense": 30,
+        "maxStamina": 30,
+        "damage": 30,
+        "speed": 30,
+        "intelligence": 30,
+        "maxPrimary": 30,
+        "xpPerStatPoint": 30,
+        "startingGold": 60,
+        "primaryName": "mana"
+      },
+      "level_4": {
+        "maxHealth": 40,
+        "maxDefense": 40,
+        "maxStamina": 40,
+        "damage": 40,
+        "speed": 40,
+        "intelligence": 40,
+        "maxPrimary": 40,
+        "xpPerStatPoint": 40,
+        "startingGold": 80,
+        "primaryName": "mana"
+      },
+      "level_5": {
+        "maxHealth": 50,
+        "maxDefense": 50,
+        "maxStamina": 50,
+        "damage": 50,
+        "speed": 50,
+        "intelligence": 50,
+        "maxPrimary": 50,
+        "xpPerStatPoint": 50,
+        "startingGold": 100,
+        "primaryName": "mana"
+      }
+    },
+    "healers": {
+      "level_1": {
+        "maxHealth": 10,
+        "maxDefense": 10,
+        "maxStamina": 10,
+        "damage": 10,
+        "speed": 10,
+        "intelligence": 10,
+        "maxPrimary": 10,
+        "xpPerStatPoint": 10,
+        "startingGold": 20,
+        "primaryName": "divinity"
+      },
+      "level_2": {
+        "maxHealth": 20,
+        "maxDefense": 20,
+        "maxStamina": 20,
+        "damage": 20,
+        "speed": 20,
+        "intelligence": 20,
+        "maxPrimary": 20,
+        "xpPerStatPoint": 20,
+        "startingGold": 40,
+        "primaryName": "divinity"
+      },
+      "level_3": {
+        "maxHealth": 30,
+        "maxDefense": 30,
+        "maxStamina": 30,
+        "damage": 30,
+        "speed": 30,
+        "intelligence": 30,
+        "maxPrimary": 30,
+        "xpPerStatPoint": 30,
+        "startingGold": 60,
+        "primaryName": "divinity"
+      },
+      "level_4": {
+        "maxHealth": 40,
+        "maxDefense": 40,
+        "maxStamina": 40,
+        "damage": 40,
+        "speed": 40,
+        "intelligence": 40,
+        "maxPrimary": 40,
+        "xpPerStatPoint": 40,
+        "startingGold": 80,
+        "primaryName": "divinity"
+      },
+      "level_5": {
+        "maxHealth": 50,
+        "maxDefense": 50,
+        "maxStamina": 50,
+        "damage": 50,
+        "speed": 50,
+        "intelligence": 50,
+        "maxPrimary": 50,
+        "xpPerStatPoint": 50,
+        "startingGold": 100,
+        "primaryName": "divinity"
+      }
+    }
+  },
+  "rest": {
+    "adventurerRooms": {
+      "level_1": {
+        "initialCapacity": 10,
+        "capacityPurchaseGoldPerBed": 5,
+        "recoveryPointsPerGameHour": 2,
+        "staffOnly": false
+      },
+      "level_2": {
+        "initialCapacity": 10,
+        "capacityPurchaseGoldPerBed": 5,
+        "recoveryPointsPerGameHour": 3,
+        "staffOnly": false
+      },
+      "level_3": {
+        "initialCapacity": 10,
+        "capacityPurchaseGoldPerBed": 5,
+        "recoveryPointsPerGameHour": 4,
+        "staffOnly": false
+      }
+    },
+    "staffRooms": {
+      "level_1": {
+        "initialCapacity": 10,
+        "capacityPurchaseGoldPerBed": 5,
+        "recoveryPointsPerGameHour": 2,
+        "staffOnly": true
+      },
+      "level_2": {
+        "initialCapacity": 10,
+        "capacityPurchaseGoldPerBed": 5,
+        "recoveryPointsPerGameHour": 3,
+        "staffOnly": true
+      },
+      "level_3": {
+        "initialCapacity": 10,
+        "capacityPurchaseGoldPerBed": 5,
+        "recoveryPointsPerGameHour": 4,
+        "staffOnly": true
+      }
+    }
+  },
+  "finance": {
+    "defaults": {
+      "startingGold": 200,
+      "entryFeeGold": 10,
+      "checkpointGoldPerStatPoint": 1,
+      "reinvestmentPercent": 30,
+      "equipmentSalePercent": 50,
+      "staffRoomCapacity": 10,
+      "bedExpansionGold": 5,
+      "restFeeGold": 0,
+      "restFeeRange": [
+        0,
+        10
+      ],
+      "trainingPriceGoldRange": [
+        1,
+        5
+      ],
+      "trainingMaxCourses": 3,
+      "mobLimitRange": [
+        0,
+        20
+      ],
+      "extraBedLimitPerRoom": 50,
+      "minimumParty": {
+        "fighter": 2,
+        "wizard": 1,
+        "healer": 1
+      }
+    }
+  },
+  "_meta": {
+    "schemaVersion": "3.0.0",
+    "title": "Underkeep entity stats by level",
+    "status": "proposed_balance_not_runtime_configuration",
+    "units": {
+      "gold": "whole gold coins; runtime stores hundredths",
+      "researchDuration": "game hours at base rate",
+      "clock": "1 real hour = 24 game hours",
+      "timers": "HH:MM",
+      "stats": "permanent baselines unless prefixed current"
+    },
+    "notes": [
+      "Five levels are defined for floors, traps, mobs, adventurers, staff and treasure. Rest rooms retain the three levels already proposed.",
+      "A floor-group level is its structural tier, not its floor number. Each floor group contains five floors.",
+      "Equal min/max values indicate a fixed value; null spawner costs remain unspecified.",
+      "No research descriptions, unlock state or asset specifications are stored in this file.",
+      "Research unlocks reference this file using statsPath JSON pointers."
+    ],
+    "statSemantics": {
+      "defense": "depleting shield pool, blue above red health",
+      "intelligence": "also perception for this scope",
+      "primary": "strength, mana or divinity; consumable current resource separate from permanent maximum",
+      "xpPerStatPoint": "higher means slower learning; not a beneficial learning-rate multiplier",
+      "researchTier": "content tier, distinct from skill-point gains",
+      "resourceRecovery": "quiet outside rooms: 0.5 points/game hour to health, defense, stamina and primary; baseline rooms: 2; room tiers: 3 and 4",
+      "xp": "one XP per qualifying skill use; spend stamina awards one stamina XP event, not one per point; defense XP on absorbed damage; checkpoint commits adventurer XP, office rest commits staff XP"
+    }
+  }
+}

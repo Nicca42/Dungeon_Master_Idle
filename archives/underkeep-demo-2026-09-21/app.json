@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "Underkeep",
+    "slug": "underkeep",
+    "scheme": "underkeep",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "icon": "./assets/icon.png",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.underkeep.demo"
+    },
+    "android": {
+      "package": "com.underkeep.demo"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": ["expo-router", "expo-sqlite", "expo-font", "expo-asset"]
+  }
+}

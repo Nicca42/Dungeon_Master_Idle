@@ -1,0 +1,243 @@
+
+> underkeep@0.1.0 test:web
+> playwright test
+
+
+Running 74 tests using 2 workers
+
+(node:18468) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18467) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [phone] › tests/web/demo.spec.ts:31:5 › tutorial, time skip, office controls, and save/reload (7.3s)
+  ✓   1 [desktop] › tests/web/demo.spec.ts:31:5 › tutorial, time skip, office controls, and save/reload (7.3s)
+  ✓   3 [phone] › tests/web/demo.spec.ts:54:5 › build and research screens remain accessible during setup (1.8s)
+  ✓   4 [desktop] › tests/web/demo.spec.ts:54:5 › build and research screens remain accessible during setup (1.8s)
+  ✓   5 [phone] › tests/web/demo.spec.ts:68:5 › surface party interpolates continuously and timers keep the UI responsive (7.2s)
+  ✓   6 [desktop] › tests/web/demo.spec.ts:68:5 › surface party interpolates continuously and timers keep the UI responsive (7.3s)
+  ✓   7 [phone] › tests/web/demo.spec.ts:113:5 › layout arrows swap real slots, drag moves items, and saved positions survive reload (4.4s)
+  ✓   8 [desktop] › tests/web/demo.spec.ts:113:5 › layout arrows swap real slots, drag moves items, and saved positions survive reload (4.3s)
+  ✓   9 [phone] › tests/web/demo.spec.ts:172:5 › rest door opens its own occupant menu with HH:MM recovery estimates (1.6s)
+  ✓  10 [desktop] › tests/web/demo.spec.ts:172:5 › rest door opens its own occupant menu with HH:MM recovery estimates (1.6s)
+  ✘  11 [phone] › tests/web/demo.spec.ts:200:5 › new furnished floor orders installation before its centered open button appears (1.0m)
+  ✘  12 [desktop] › tests/web/demo.spec.ts:200:5 › new furnished floor orders installation before its centered open button appears (1.0m)
+(node:19161) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19163) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  14 [desktop] › tests/web/demo.spec.ts:240:7 › mob warning distinguishes 2/2 and rest information sits above entry (2.2s)
+  ✓  13 [phone] › tests/web/demo.spec.ts:240:7 › mob warning distinguishes 2/2 and rest information sits above entry (2.3s)
+  ✓  15 [desktop] › tests/web/demo.spec.ts:240:7 › mob warning distinguishes 3/2 and rest information sits above entry (1.6s)
+  ✓  16 [phone] › tests/web/demo.spec.ts:240:7 › mob warning distinguishes 3/2 and rest information sits above entry (1.6s)
+  ✓  18 [phone] › tests/web/demo.spec.ts:278:5 › hired security walks in from the adventurer spawner (2.3s)
+  ✓  17 [desktop] › tests/web/demo.spec.ts:278:5 › hired security walks in from the adventurer spawner (2.4s)
+  ✓  19 [phone] › tests/web/demo.spec.ts:301:5 › furnishing order is visible during construction and progress stays in the floor header (1.6s)
+  ✓  20 [desktop] › tests/web/demo.spec.ts:301:5 › furnishing order is visible during construction and progress stays in the floor header (1.7s)
+  ✓  22 [desktop] › tests/web/demo.spec.ts:334:5 › active research bonus stops while the app is hidden and resumes when visible (2.0s)
+  ✓  21 [phone] › tests/web/demo.spec.ts:334:5 › active research bonus stops while the app is hidden and resumes when visible (2.1s)
+  ✓  23 [desktop] › tests/web/demo.spec.ts:379:5 › top encounter labels show empty chest gold and rest door opens from its bottom edge (1.7s)
+  ✓  24 [phone] › tests/web/demo.spec.ts:379:5 › top encounter labels show empty chest gold and rest door opens from its bottom edge (1.7s)
+  ✓  25 [desktop] › tests/web/demo.spec.ts:411:5 › character card displays class skill first and uncapped gold XP for every skill (1.7s)
+  ✓  26 [phone] › tests/web/demo.spec.ts:411:5 › character card displays class skill first and uncapped gold XP for every skill (1.6s)
+  ✓  27 [desktop] › tests/web/demo.spec.ts:454:5 › floor settings buy the next room and save adjustable rest fees (1.9s)
+  ✓  28 [phone] › tests/web/demo.spec.ts:454:5 › floor settings buy the next room and save adjustable rest fees (1.9s)
+  ✓  29 [desktop] › tests/web/demo.spec.ts:485:5 › stats forecast and deep baseline editing persist across reload and a fresh game (5.3s)
+  ✓  30 [phone] › tests/web/demo.spec.ts:485:5 › stats forecast and deep baseline editing persist across reload and a fresh game (5.3s)
+  ✓  32 [phone] › tests/web/demo.spec.ts:536:5 › blue office door opens staff roster and capacity upgrades admit waiting staff (3.0s)
+  ✓  31 [desktop] › tests/web/demo.spec.ts:536:5 › blue office door opens staff roster and capacity upgrades admit waiting staff (3.1s)
+  ✓  33 [phone] › tests/web/demo.spec.ts:586:5 › research categories expose progression and spawn purchases live in Office Adventurers (3.0s)
+  ✓  34 [desktop] › tests/web/demo.spec.ts:586:5 › research categories expose progression and spawn purchases live in Office Adventurers (3.1s)
+  ✓  35 [phone] › tests/web/demo.spec.ts:630:5 › upgraded dungeon art and Mimics II remain visible while builders upgrade the next floor (1.6s)
+  ✓  36 [desktop] › tests/web/demo.spec.ts:630:5 › upgraded dungeon art and Mimics II remain visible while builders upgrade the next floor (1.6s)
+  ✓  37 [phone] › tests/web/demo.spec.ts:660:5 › empty layout picker installs unlocked fixtures and monster limit saves separately (2.1s)
+  ✓  38 [desktop] › tests/web/demo.spec.ts:660:5 › empty layout picker installs unlocked fixtures and monster limit saves separately (2.1s)
+  ✘  39 [phone] › tests/web/demo.spec.ts:703:5 › art gallery previews five options in each category and saves explicit choices (16.5s)
+  ✘  40 [desktop] › tests/web/demo.spec.ts:703:5 › art gallery previews five options in each category and saves explicit choices (16.4s)
+(node:20080) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20081) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  42 [phone] › tests/web/demo.spec.ts:741:5 › trap inspection and ready-party counters appear without recovered characters crowding the door (2.4s)
+  ✓  41 [desktop] › tests/web/demo.spec.ts:741:5 › trap inspection and ready-party counters appear without recovered characters crowding the door (2.5s)
+  ✓  43 [phone] › tests/web/demo.spec.ts:782:5 › adventure stats and both adventurer and monster spawner settings are accessible (1.8s)
+  ✓  44 [desktop] › tests/web/demo.spec.ts:782:5 › adventure stats and both adventurer and monster spawner settings are accessible (1.8s)
+  ✓  45 [phone] › tests/web/demo.spec.ts:820:5 › completed mob spawn ring is solid and over-cap text is red (1.5s)
+  ✓  46 [desktop] › tests/web/demo.spec.ts:820:5 › completed mob spawn ring is solid and over-cap text is red (1.6s)
+  ✓  47 [phone] › tests/web/demo.spec.ts:857:5 › staff excavation button queues floor six after a depth research unlock (1.8s)
+  ✓  48 [desktop] › tests/web/demo.spec.ts:857:5 › staff excavation button queues floor six after a depth research unlock (1.8s)
+  ✓  49 [phone] › tests/web/demo.spec.ts:895:5 › town timers are staggered and the researched guild previews the missing healer (1.6s)
+  ✓  50 [desktop] › tests/web/demo.spec.ts:895:5 › town timers are staggered and the researched guild previews the missing healer (1.7s)
+  ✓  51 [phone] › tests/web/demo.spec.ts:936:5 › linked silver and gold deep stats have working edit controls (3.0s)
+  ✓  52 [desktop] › tests/web/demo.spec.ts:936:5 › linked silver and gold deep stats have working edit controls (3.0s)
+  ✓  53 [phone] › tests/web/demo.spec.ts:961:5 › all waiting adventurers remain visible in the roster after a demo skip and reload (3.2s)
+  ✓  54 [desktop] › tests/web/demo.spec.ts:961:5 › all waiting adventurers remain visible in the roster after a demo skip and reload (3.2s)
+  ✓  55 [phone] › tests/web/demo.spec.ts:1006:5 › spawner deep stats edit ratios while class skills stay on class pages (3.1s)
+  ✓  56 [desktop] › tests/web/demo.spec.ts:1006:5 › spawner deep stats edit ratios while class skills stay on class pages (3.1s)
+  ✓  57 [phone] › tests/web/demo.spec.ts:1029:5 › staff speed research is available in Staff investment and starts successfully (1.5s)
+  ✓  58 [desktop] › tests/web/demo.spec.ts:1029:5 › staff speed research is available in Staff investment and starts successfully (1.4s)
+  ✓  59 [phone] › tests/web/demo.spec.ts:1051:5 › deep stats categories expose every subpage and preserve edits across navigation (4.5s)
+  ✓  60 [desktop] › tests/web/demo.spec.ts:1051:5 › deep stats categories expose every subpage and preserve edits across navigation (4.5s)
+  ✓  61 [phone] › tests/web/demo.spec.ts:1083:5 › guild level two can be researched and its upgrade controls appear in deep stats (1.8s)
+  ✓  62 [desktop] › tests/web/demo.spec.ts:1083:5 › guild level two can be researched and its upgrade controls appear in deep stats (1.7s)
+  ✓  63 [phone] › tests/web/demo.spec.ts:1115:5 › guild drains the existing backlog above spawn caps and reports missing roles instead of caps (1.6s)
+  ✓  64 [desktop] › tests/web/demo.spec.ts:1115:5 › guild drains the existing backlog above spawn caps and reports missing roles instead of caps (1.7s)
+  ✓  66 [desktop] › tests/web/demo.spec.ts:1155:5 › tutorial actions glow and demo controls live only in Demo settings (4.0s)
+  ✓  65 [phone] › tests/web/demo.spec.ts:1155:5 › tutorial actions glow and demo controls live only in Demo settings (4.1s)
+  ✓  67 [desktop] › tests/web/demo.spec.ts:1185:5 › trap reset difficulty and timing are editable and persist in deep stats (4.2s)
+  ✓  68 [phone] › tests/web/demo.spec.ts:1185:5 › trap reset difficulty and timing are editable and persist in deep stats (4.4s)
+  ✓  69 [desktop] › tests/web/demo.spec.ts:1207:5 › maintainer repair ring starts on arrival, fills, and disappears when the trap is reset (13.6s)
+  ✓  70 [phone] › tests/web/demo.spec.ts:1207:5 › maintainer repair ring starts on arrival, fills, and disappears when the trap is reset (13.4s)
+  ✓  71 [desktop] › tests/web/demo.spec.ts:1251:5 › paused fixture keeps its partial installation ring across reload (2.6s)
+  ✓  72 [phone] › tests/web/demo.spec.ts:1251:5 › paused fixture keeps its partial installation ring across reload (2.6s)
+  ✓  73 [desktop] › tests/web/demo.spec.ts:1293:5 › four-row floors separate actors, bars, fixture labels and compact footer (1.9s)
+  ✓  74 [phone] › tests/web/demo.spec.ts:1293:5 › four-row floors separate actors, bars, fixture labels and compact footer (1.8s)
+
+
+  1) [desktop] › tests/web/demo.spec.ts:200:5 › new furnished floor orders installation before its centered open button appears 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'open', exact: true })
+
+
+      231 |   await page.getByRole('button', { name: /5 minutes.*2 dungeon hours/ }).click();
+      232 |   await page.getByRole('button', { name: 'Close dialog', exact: true }).last().click();
+    > 233 |   await page.getByRole('button', { name: 'open', exact: true }).click();
+          |                                                                 ^
+      234 |   await expect(page.getByRole('button', { name: 'Inspect floor 2', exact: true })).toContainText(
+      235 |     'open',
+      236 |   );
+        at /Users/vee/Documents/ChatGPT/Dungeon_Master_Idle/tests/web/demo.spec.ts:233:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/demo-new-furnished-floor-o-1b127-entered-open-button-appears-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/demo-new-furnished-floor-o-1b127-entered-open-button-appears-desktop/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/demo-new-furnished-floor-o-1b127-entered-open-button-appears-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/demo-new-furnished-floor-o-1b127-entered-open-button-appears-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › tests/web/demo.spec.ts:703:5 › art gallery previews five options in each category and saves explicit choices 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('button', { name: 'Choose 4', exact: true })
+    Expected: 1
+    Received: 0
+    Timeout:  15000ms
+
+    Call log:
+      - Expect "toHaveCount" getByRole('button', { name: 'Choose 4', exact: true }) with timeout 15000ms
+      - waiting for getByRole('button', { name: 'Choose 4', exact: true })
+        34 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      718 |     await page.getByRole('button', { name: category, exact: true }).click();
+      719 |     for (let i = 1; i <= 5; i++)
+    > 720 |       await expect(page.getByRole('button', { name: `Choose ${i}`, exact: true })).toHaveCount(1);
+          |                                                                                    ^
+      721 |     if (test.info().project.name === 'desktop')
+      722 |       await page.screenshot({ path: `/tmp/art-options-${category}.png`, fullPage: true });
+      723 |   }
+        at /Users/vee/Documents/ChatGPT/Dungeon_Master_Idle/tests/web/demo.spec.ts:720:84
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/demo-art-gallery-previews--95ebc--and-saves-explicit-choices-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/demo-art-gallery-previews--95ebc--and-saves-explicit-choices-desktop/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/demo-art-gallery-previews--95ebc--and-saves-explicit-choices-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/demo-art-gallery-previews--95ebc--and-saves-explicit-choices-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [phone] › tests/web/demo.spec.ts:200:5 › new furnished floor orders installation before its centered open button appears 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'open', exact: true })
+
+
+      231 |   await page.getByRole('button', { name: /5 minutes.*2 dungeon hours/ }).click();
+      232 |   await page.getByRole('button', { name: 'Close dialog', exact: true }).last().click();
+    > 233 |   await page.getByRole('button', { name: 'open', exact: true }).click();
+          |                                                                 ^
+      234 |   await expect(page.getByRole('button', { name: 'Inspect floor 2', exact: true })).toContainText(
+      235 |     'open',
+      236 |   );
+        at /Users/vee/Documents/ChatGPT/Dungeon_Master_Idle/tests/web/demo.spec.ts:233:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/demo-new-furnished-floor-o-1b127-entered-open-button-appears-phone/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/demo-new-furnished-floor-o-1b127-entered-open-button-appears-phone/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/demo-new-furnished-floor-o-1b127-entered-open-button-appears-phone/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/demo-new-furnished-floor-o-1b127-entered-open-button-appears-phone/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [phone] › tests/web/demo.spec.ts:703:5 › art gallery previews five options in each category and saves explicit choices 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('button', { name: 'Choose 4', exact: true })
+    Expected: 1
+    Received: 0
+    Timeout:  15000ms
+
+    Call log:
+      - Expect "toHaveCount" getByRole('button', { name: 'Choose 4', exact: true }) with timeout 15000ms
+      - waiting for getByRole('button', { name: 'Choose 4', exact: true })
+        34 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      718 |     await page.getByRole('button', { name: category, exact: true }).click();
+      719 |     for (let i = 1; i <= 5; i++)
+    > 720 |       await expect(page.getByRole('button', { name: `Choose ${i}`, exact: true })).toHaveCount(1);
+          |                                                                                    ^
+      721 |     if (test.info().project.name === 'desktop')
+      722 |       await page.screenshot({ path: `/tmp/art-options-${category}.png`, fullPage: true });
+      723 |   }
+        at /Users/vee/Documents/ChatGPT/Dungeon_Master_Idle/tests/web/demo.spec.ts:720:84
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/demo-art-gallery-previews--95ebc--and-saves-explicit-choices-phone/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/demo-art-gallery-previews--95ebc--and-saves-explicit-choices-phone/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/demo-art-gallery-previews--95ebc--and-saves-explicit-choices-phone/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/demo-art-gallery-previews--95ebc--and-saves-explicit-choices-phone/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [desktop] › tests/web/demo.spec.ts:200:5 › new furnished floor orders installation before its centered open button appears 
+    [desktop] › tests/web/demo.spec.ts:703:5 › art gallery previews five options in each category and saves explicit choices 
+    [phone] › tests/web/demo.spec.ts:200:5 › new furnished floor orders installation before its centered open button appears 
+    [phone] › tests/web/demo.spec.ts:703:5 › art gallery previews five options in each category and saves explicit choices 
+  70 passed (3.1m)

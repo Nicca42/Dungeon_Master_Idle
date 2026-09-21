@@ -1,0 +1,2690 @@
+{
+  "captured": "2026-09-21",
+  "units": "Rule labels specify units; research cost uses hundredths of a gold coin",
+  "fields": [
+    {
+      "group": "fighter",
+      "key": "fighter.maxHealth",
+      "label": "maxHealth",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "fighter",
+      "key": "fighter.maxDefense",
+      "label": "maxDefense",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "fighter",
+      "key": "fighter.maxStamina",
+      "label": "maxStamina",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "fighter",
+      "key": "fighter.damage",
+      "label": "damage",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "fighter",
+      "key": "fighter.speed",
+      "label": "speed",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "fighter",
+      "key": "fighter.intelligence",
+      "label": "Intelligence / perception",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "fighter",
+      "key": "fighter.primary",
+      "label": "primary",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "fighter",
+      "key": "fighter.learning",
+      "label": "learning",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "fighter",
+      "key": "fighter.wealth",
+      "label": "Starting wealth · gold",
+      "value": 20,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "wizard",
+      "key": "wizard.maxHealth",
+      "label": "maxHealth",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wizard",
+      "key": "wizard.maxDefense",
+      "label": "maxDefense",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wizard",
+      "key": "wizard.maxStamina",
+      "label": "maxStamina",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wizard",
+      "key": "wizard.damage",
+      "label": "damage",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wizard",
+      "key": "wizard.speed",
+      "label": "speed",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wizard",
+      "key": "wizard.intelligence",
+      "label": "Intelligence / perception",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wizard",
+      "key": "wizard.primary",
+      "label": "primary",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wizard",
+      "key": "wizard.learning",
+      "label": "learning",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wizard",
+      "key": "wizard.wealth",
+      "label": "Starting wealth · gold",
+      "value": 20,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "healer",
+      "key": "healer.maxHealth",
+      "label": "maxHealth",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "healer",
+      "key": "healer.maxDefense",
+      "label": "maxDefense",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "healer",
+      "key": "healer.maxStamina",
+      "label": "maxStamina",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "healer",
+      "key": "healer.damage",
+      "label": "damage",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "healer",
+      "key": "healer.speed",
+      "label": "speed",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "healer",
+      "key": "healer.intelligence",
+      "label": "Intelligence / perception",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "healer",
+      "key": "healer.primary",
+      "label": "primary",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "healer",
+      "key": "healer.learning",
+      "label": "learning",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "healer",
+      "key": "healer.wealth",
+      "label": "Starting wealth · gold",
+      "value": 20,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "miner",
+      "key": "miner.maxHealth",
+      "label": "maxHealth",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "miner",
+      "key": "miner.maxDefense",
+      "label": "maxDefense",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "miner",
+      "key": "miner.maxStamina",
+      "label": "maxStamina",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "miner",
+      "key": "miner.damage",
+      "label": "damage",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "miner",
+      "key": "miner.speed",
+      "label": "speed",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "miner",
+      "key": "miner.intelligence",
+      "label": "Intelligence / perception",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "miner",
+      "key": "miner.primary",
+      "label": "primary",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "miner",
+      "key": "miner.learning",
+      "label": "learning",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "miner",
+      "key": "miner.wealth",
+      "label": "Starting wealth · gold",
+      "value": 10,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "maintenance",
+      "key": "maintenance.maxHealth",
+      "label": "maxHealth",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "maintenance",
+      "key": "maintenance.maxDefense",
+      "label": "maxDefense",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "maintenance",
+      "key": "maintenance.maxStamina",
+      "label": "maxStamina",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "maintenance",
+      "key": "maintenance.damage",
+      "label": "damage",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "maintenance",
+      "key": "maintenance.speed",
+      "label": "speed",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "maintenance",
+      "key": "maintenance.intelligence",
+      "label": "Intelligence / perception",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "maintenance",
+      "key": "maintenance.primary",
+      "label": "primary",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "maintenance",
+      "key": "maintenance.learning",
+      "label": "learning",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "maintenance",
+      "key": "maintenance.wealth",
+      "label": "Starting wealth · gold",
+      "value": 10,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "defender",
+      "key": "defender.maxHealth",
+      "label": "maxHealth",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "defender",
+      "key": "defender.maxDefense",
+      "label": "maxDefense",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "defender",
+      "key": "defender.maxStamina",
+      "label": "maxStamina",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "defender",
+      "key": "defender.damage",
+      "label": "damage",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "defender",
+      "key": "defender.speed",
+      "label": "speed",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "defender",
+      "key": "defender.intelligence",
+      "label": "Intelligence / perception",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "defender",
+      "key": "defender.primary",
+      "label": "primary",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "defender",
+      "key": "defender.learning",
+      "label": "learning",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "defender",
+      "key": "defender.wealth",
+      "label": "Starting wealth · gold",
+      "value": 10,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "trapdoor",
+      "key": "trapdoor.health",
+      "label": "Health",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "trapdoor",
+      "key": "trapdoor.damageMin",
+      "label": "Minimum damage",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "trapdoor",
+      "key": "trapdoor.damageMax",
+      "label": "Maximum damage",
+      "value": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "trapdoor",
+      "key": "trapdoor.defenseMin",
+      "label": "Minimum defense",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "trapdoor",
+      "key": "trapdoor.defenseMax",
+      "label": "Maximum defense",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "arrows",
+      "key": "arrows.health",
+      "label": "Health",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "arrows",
+      "key": "arrows.damageMin",
+      "label": "Minimum damage",
+      "value": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "arrows",
+      "key": "arrows.damageMax",
+      "label": "Maximum damage",
+      "value": 15,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "arrows",
+      "key": "arrows.defenseMin",
+      "label": "Minimum defense",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "arrows",
+      "key": "arrows.defenseMax",
+      "label": "Maximum defense",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "mimic",
+      "key": "mimic.health",
+      "label": "Health",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "mimic",
+      "key": "mimic.damageMin",
+      "label": "Minimum damage",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "mimic",
+      "key": "mimic.damageMax",
+      "label": "Maximum damage",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "mimic",
+      "key": "mimic.defenseMin",
+      "label": "Minimum defense",
+      "value": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "mimic",
+      "key": "mimic.defenseMax",
+      "label": "Maximum defense",
+      "value": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "zombie",
+      "key": "zombie.health",
+      "label": "Health",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "zombie",
+      "key": "zombie.damageMin",
+      "label": "Minimum damage",
+      "value": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "zombie",
+      "key": "zombie.damageMax",
+      "label": "Maximum damage",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "zombie",
+      "key": "zombie.defenseMin",
+      "label": "Minimum defense",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "zombie",
+      "key": "zombie.defenseMax",
+      "label": "Maximum defense",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "slime",
+      "key": "slime.health",
+      "label": "Health",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "slime",
+      "key": "slime.damageMin",
+      "label": "Minimum damage",
+      "value": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "slime",
+      "key": "slime.damageMax",
+      "label": "Maximum damage",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "slime",
+      "key": "slime.defenseMin",
+      "label": "Minimum defense",
+      "value": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "slime",
+      "key": "slime.defenseMax",
+      "label": "Maximum defense",
+      "value": 15,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wood",
+      "key": "wood.health",
+      "label": "Health",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wood",
+      "key": "wood.damageMin",
+      "label": "Minimum damage",
+      "value": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wood",
+      "key": "wood.damageMax",
+      "label": "Maximum damage",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wood",
+      "key": "wood.defenseMin",
+      "label": "Minimum defense",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wood",
+      "key": "wood.defenseMax",
+      "label": "Maximum defense",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "silver",
+      "key": "silver.health",
+      "label": "Health",
+      "value": 20,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "silver",
+      "key": "silver.damageMin",
+      "label": "Minimum damage",
+      "value": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "silver",
+      "key": "silver.damageMax",
+      "label": "Maximum damage",
+      "value": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "silver",
+      "key": "silver.defenseMin",
+      "label": "Minimum defense",
+      "value": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "silver",
+      "key": "silver.defenseMax",
+      "label": "Maximum defense",
+      "value": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wood",
+      "key": "wood.goldMin",
+      "label": "Minimum chest gold",
+      "value": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wood",
+      "key": "wood.goldMax",
+      "label": "Maximum chest gold",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wood",
+      "key": "wood.perception",
+      "label": "Lock intelligence required",
+      "value": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "wood",
+      "key": "wood.stamina",
+      "label": "Lock-picking stamina",
+      "value": 1,
+      "min": 1,
+      "max": 20,
+      "step": 1
+    },
+    {
+      "group": "silver",
+      "key": "silver.goldMin",
+      "label": "Minimum chest gold",
+      "value": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "silver",
+      "key": "silver.goldMax",
+      "label": "Maximum chest gold",
+      "value": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "silver",
+      "key": "silver.perception",
+      "label": "Lock intelligence required",
+      "value": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "silver",
+      "key": "silver.stamina",
+      "label": "Lock-picking stamina",
+      "value": 2,
+      "min": 1,
+      "max": 20,
+      "step": 1
+    },
+    {
+      "group": "trapdoor",
+      "key": "trapdoor.resetDifficulty",
+      "label": "Reset difficulty · level 1",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "trapdoor",
+      "key": "trapdoor.resetDifficultyPerLevel",
+      "label": "Extra reset difficulty per level",
+      "value": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "trapdoor",
+      "key": "trapdoor.resetMinutes",
+      "label": "Reset base time · game minutes",
+      "value": 5,
+      "min": 1,
+      "max": 120,
+      "step": 1
+    },
+    {
+      "group": "trapdoor",
+      "key": "trapdoor.resetSkillStep",
+      "label": "Skill points per timing step",
+      "value": 5,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "trapdoor",
+      "key": "trapdoor.resetPercent",
+      "label": "Time change per skill step · %",
+      "value": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "trapdoor",
+      "key": "trapdoor.resetMinimumPercent",
+      "label": "Minimum reset time · % of base",
+      "value": 20,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "arrows",
+      "key": "arrows.resetDifficulty",
+      "label": "Reset difficulty · level 1",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "arrows",
+      "key": "arrows.resetDifficultyPerLevel",
+      "label": "Extra reset difficulty per level",
+      "value": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "arrows",
+      "key": "arrows.resetMinutes",
+      "label": "Reset base time · game minutes",
+      "value": 5,
+      "min": 1,
+      "max": 120,
+      "step": 1
+    },
+    {
+      "group": "arrows",
+      "key": "arrows.resetSkillStep",
+      "label": "Skill points per timing step",
+      "value": 5,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "arrows",
+      "key": "arrows.resetPercent",
+      "label": "Time change per skill step · %",
+      "value": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "arrows",
+      "key": "arrows.resetMinimumPercent",
+      "label": "Minimum reset time · % of base",
+      "value": 20,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "trapdoor",
+      "key": "trapdoor.perception",
+      "label": "Perception to detect",
+      "value": 12,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "arrows",
+      "key": "arrows.perception",
+      "label": "Perception to detect",
+      "value": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "Costs",
+      "key": "cost.miner",
+      "label": "Hire digger · gold",
+      "value": 10,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Costs",
+      "key": "cost.maintenance",
+      "label": "Hire maintainer · gold",
+      "value": 15,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Costs",
+      "key": "cost.defender",
+      "label": "Hire security · gold",
+      "value": 0,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Costs",
+      "key": "cost.upgrade",
+      "label": "Upgrade floor group · gold",
+      "value": 50,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Costs",
+      "key": "cost.excavate",
+      "label": "Excavate floor · gold",
+      "value": 5,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Costs",
+      "key": "cost.install",
+      "label": "Install fixtures · gold",
+      "value": 5,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Costs",
+      "key": "cost.rest",
+      "label": "Room / extra bed · gold",
+      "value": 5,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Costs",
+      "key": "cost.spawn",
+      "label": "Extra spawn point · gold",
+      "value": 25,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Costs",
+      "key": "cost.develop",
+      "label": "Develop floor · gold",
+      "value": 45,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Economy",
+      "key": "startingGold",
+      "label": "New-game treasury · gold",
+      "value": 200,
+      "min": 0,
+      "max": 10000,
+      "step": 1
+    },
+    {
+      "group": "Economy",
+      "key": "levelFee",
+      "label": "Fee per stat gained · gold",
+      "value": 1,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    },
+    {
+      "group": "Economy",
+      "key": "equipmentChance",
+      "label": "Equipment reward chance · %",
+      "value": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "Economy",
+      "key": "equipmentGold",
+      "label": "Equipment sale / treasure value · gold",
+      "value": 2,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "Timing",
+      "key": "populationCap",
+      "label": "Base adventurer population cap",
+      "value": 60,
+      "min": 6,
+      "max": 300,
+      "step": 1
+    },
+    {
+      "group": "Timing",
+      "key": "trainingHours",
+      "label": "Training course · hours",
+      "value": 6,
+      "min": 1,
+      "max": 72,
+      "step": 1
+    },
+    {
+      "group": "Timing",
+      "key": "restPatienceHours",
+      "label": "Rest queue patience · hours",
+      "value": 6,
+      "min": 1,
+      "max": 24,
+      "step": 1
+    },
+    {
+      "group": "Timing",
+      "key": "maintenanceStamina",
+      "label": "Stamina per maintenance task",
+      "value": 1,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "group": "Economy",
+      "key": "fee",
+      "label": "Default entry fee · gold",
+      "value": 10,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    },
+    {
+      "group": "Economy",
+      "key": "wage",
+      "label": "Security wage · gold/hour",
+      "value": 1,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    },
+    {
+      "group": "Economy",
+      "key": "reinvest",
+      "label": "Entrance fees to treasure · %",
+      "value": 30,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "Economy",
+      "key": "saleRatio",
+      "label": "Equipment sold · %",
+      "value": 50,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "Economy",
+      "key": "trainingPrice",
+      "label": "Training fee · gold",
+      "value": 1,
+      "min": 1,
+      "max": 5,
+      "step": 1
+    },
+    {
+      "group": "Economy",
+      "key": "trainingLimit",
+      "label": "Training limit",
+      "value": 3,
+      "min": 0,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "group": "Timing",
+      "key": "arrivalHours",
+      "label": "Adventurer spawn interval · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 24,
+      "step": 0.25
+    },
+    {
+      "group": "Timing",
+      "key": "maintenanceHours",
+      "label": "Maintenance job duration · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 24,
+      "step": 0.25
+    },
+    {
+      "group": "Timing",
+      "key": "digMinutes",
+      "label": "First floor digging · real minutes / 3 diggers",
+      "value": 10,
+      "min": 1,
+      "max": 120,
+      "step": 1
+    },
+    {
+      "group": "Timing",
+      "key": "digGrowth",
+      "label": "Digging duration multiplier per floor",
+      "value": 1.5,
+      "min": 1,
+      "max": 3,
+      "step": 0.1
+    },
+    {
+      "group": "Timing",
+      "key": "escapeChance",
+      "label": "Mob escape chance · %",
+      "value": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "Zombie spawners",
+      "key": "zombie.spawnHours",
+      "label": "Zombie / mimic reset · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 24,
+      "step": 0.25
+    },
+    {
+      "group": "Slime spawners",
+      "key": "slime.spawnHours",
+      "label": "Slime spawn · hours",
+      "value": 2,
+      "min": 0.25,
+      "max": 24,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.guild2.cost",
+      "label": "Adventurers Guild Level 2 · gold",
+      "value": 30,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.guild2.hours",
+      "label": "Adventurers Guild Level 2 · hours",
+      "value": 4,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.guild.cost",
+      "label": "Basic Adventurers Guild · gold",
+      "value": 15,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.guild.hours",
+      "label": "Basic Adventurers Guild · hours",
+      "value": 2,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.getDigging.cost",
+      "label": "Get diggin' · gold",
+      "value": 0,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.getDigging.hours",
+      "label": "Get diggin' · hours",
+      "value": 0,
+      "min": 0,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.betterTraps.cost",
+      "label": "Better basic traps · gold",
+      "value": 20,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.betterTraps.hours",
+      "label": "Better basic traps · hours",
+      "value": 4,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.stealth.cost",
+      "label": "Beginner trap stealth · gold",
+      "value": 5,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.stealth.hours",
+      "label": "Beginner trap stealth · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.depths.cost",
+      "label": "Getting serious are we? · gold",
+      "value": 30,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.depths.hours",
+      "label": "Getting serious are we? · hours",
+      "value": 8,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.staffSpeed.cost",
+      "label": "Fleet-footed staff · gold",
+      "value": 15,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.staffSpeed.hours",
+      "label": "Fleet-footed staff · hours",
+      "value": 4,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.staminaManagement.cost",
+      "label": "Better stamina management · gold",
+      "value": 10,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.staminaManagement.hours",
+      "label": "Better stamina management · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.level2Adventurers.cost",
+      "label": "Level 2 adventurers · gold",
+      "value": 20,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.level2Adventurers.hours",
+      "label": "Level 2 adventurers · hours",
+      "value": 4,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.goldChests.cost",
+      "label": "Gold chests · gold",
+      "value": 20,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.goldChests.hours",
+      "label": "Gold chests · hours",
+      "value": 4,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.localAds.cost",
+      "label": "Local ads · gold",
+      "value": 20,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.localAds.hours",
+      "label": "Local ads · hours",
+      "value": 4,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.traps.cost",
+      "label": "It's a trap! · gold",
+      "value": 5,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.traps.hours",
+      "label": "It's a trap! · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.mobs.cost",
+      "label": "Mob-tastic · gold",
+      "value": 5,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.mobs.hours",
+      "label": "Mob-tastic · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.treasure.cost",
+      "label": "Treasure-me-timbers · gold",
+      "value": 5,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.treasure.hours",
+      "label": "Treasure-me-timbers · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.rest.cost",
+      "label": "Basic rest spots · gold",
+      "value": 5,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.rest.hours",
+      "label": "Basic rest spots · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.door.cost",
+      "label": "Basic door policy · gold",
+      "value": 5,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.door.hours",
+      "label": "Basic door policy · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.finance.cost",
+      "label": "Sketchy finances · gold",
+      "value": 5,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.finance.hours",
+      "label": "Sketchy finances · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.staff.cost",
+      "label": "Staff management · gold",
+      "value": 5,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.staff.hours",
+      "label": "Staff management · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.training.cost",
+      "label": "Short-sighted training · gold",
+      "value": 5,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.training.hours",
+      "label": "Short-sighted training · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.digging.cost",
+      "label": "Faster digging · gold",
+      "value": 10,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.digging.hours",
+      "label": "Faster digging · hours",
+      "value": 4,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Research",
+      "key": "research.building.cost",
+      "label": "Better building · gold",
+      "value": 15,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "group": "Research",
+      "key": "research.building.hours",
+      "label": "Better building · hours",
+      "value": 6,
+      "min": 0.25,
+      "max": 72,
+      "step": 0.25
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.trapdoors",
+      "label": "trapdoors",
+      "value": 1,
+      "min": 0,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.arrows",
+      "label": "arrows",
+      "value": 1,
+      "min": 0,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.mimics",
+      "label": "mimics",
+      "value": 1,
+      "min": 0,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.wood",
+      "label": "wood",
+      "value": 2,
+      "min": 0,
+      "max": 5,
+      "step": 1
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.silver",
+      "label": "silver",
+      "value": 1,
+      "min": 0,
+      "max": 5,
+      "step": 1
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.mobSlots",
+      "label": "mobSlots",
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.mobLimit",
+      "label": "mobLimit",
+      "value": 2,
+      "min": 0,
+      "max": 30,
+      "step": 1
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.attackBudget",
+      "label": "attackBudget",
+      "value": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.trapAttackBudget",
+      "label": "trapAttackBudget",
+      "value": 30,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.trapDefenseBudget",
+      "label": "trapDefenseBudget",
+      "value": 30,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.treasureBudget",
+      "label": "treasureBudget",
+      "value": 30,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.floorHealth",
+      "label": "floorHealth",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.floorDefense",
+      "label": "floorDefense",
+      "value": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.restCapacity",
+      "label": "restCapacity",
+      "value": 10,
+      "min": 1,
+      "max": 30,
+      "step": 1
+    },
+    {
+      "group": "Floor group",
+      "key": "policy.restFee",
+      "label": "restFee",
+      "value": 0,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    },
+    {
+      "group": "gold",
+      "key": "gold.health",
+      "label": "Health",
+      "value": 40,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "gold",
+      "key": "gold.damageMin",
+      "label": "Minimum damage",
+      "value": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "gold",
+      "key": "gold.damageMax",
+      "label": "Maximum damage",
+      "value": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "gold",
+      "key": "gold.defenseMin",
+      "label": "Minimum defense",
+      "value": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "gold",
+      "key": "gold.defenseMax",
+      "label": "Maximum defense",
+      "value": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "gold",
+      "key": "gold.goldMin",
+      "label": "Minimum chest gold",
+      "value": 4,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "gold",
+      "key": "gold.goldMax",
+      "label": "Maximum chest gold",
+      "value": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "gold",
+      "key": "gold.perception",
+      "label": "Lock intelligence required",
+      "value": 40,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "gold",
+      "key": "gold.stamina",
+      "label": "Lock-picking stamina",
+      "value": 4,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "group": "Level 2 fighter",
+      "key": "level2.fighter.maxHealth",
+      "label": "maxHealth",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 fighter",
+      "key": "level2.fighter.maxDefense",
+      "label": "maxDefense",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 fighter",
+      "key": "level2.fighter.maxStamina",
+      "label": "maxStamina",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 fighter",
+      "key": "level2.fighter.damage",
+      "label": "damage",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 fighter",
+      "key": "level2.fighter.speed",
+      "label": "speed",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 fighter",
+      "key": "level2.fighter.intelligence",
+      "label": "Intelligence / perception",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 fighter",
+      "key": "level2.fighter.primary",
+      "label": "primary",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 fighter",
+      "key": "level2.fighter.learning",
+      "label": "learning",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 fighter",
+      "key": "level2.fighter.wealth",
+      "label": "Starting wealth · gold",
+      "value": 40,
+      "min": 0,
+      "max": 2000,
+      "step": 1
+    },
+    {
+      "group": "Level 2 wizard",
+      "key": "level2.wizard.maxHealth",
+      "label": "maxHealth",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 wizard",
+      "key": "level2.wizard.maxDefense",
+      "label": "maxDefense",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 wizard",
+      "key": "level2.wizard.maxStamina",
+      "label": "maxStamina",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 wizard",
+      "key": "level2.wizard.damage",
+      "label": "damage",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 wizard",
+      "key": "level2.wizard.speed",
+      "label": "speed",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 wizard",
+      "key": "level2.wizard.intelligence",
+      "label": "Intelligence / perception",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 wizard",
+      "key": "level2.wizard.primary",
+      "label": "primary",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 wizard",
+      "key": "level2.wizard.learning",
+      "label": "learning",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 wizard",
+      "key": "level2.wizard.wealth",
+      "label": "Starting wealth · gold",
+      "value": 40,
+      "min": 0,
+      "max": 2000,
+      "step": 1
+    },
+    {
+      "group": "Level 2 healer",
+      "key": "level2.healer.maxHealth",
+      "label": "maxHealth",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 healer",
+      "key": "level2.healer.maxDefense",
+      "label": "maxDefense",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 healer",
+      "key": "level2.healer.maxStamina",
+      "label": "maxStamina",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 healer",
+      "key": "level2.healer.damage",
+      "label": "damage",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 healer",
+      "key": "level2.healer.speed",
+      "label": "speed",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 healer",
+      "key": "level2.healer.intelligence",
+      "label": "Intelligence / perception",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 healer",
+      "key": "level2.healer.primary",
+      "label": "primary",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 healer",
+      "key": "level2.healer.learning",
+      "label": "learning",
+      "value": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "group": "Level 2 healer",
+      "key": "level2.healer.wealth",
+      "label": "Starting wealth · gold",
+      "value": 40,
+      "min": 0,
+      "max": 2000,
+      "step": 1
+    },
+    {
+      "group": "Level 1 adventurer spawners",
+      "key": "populationCap",
+      "label": "Shared town setting · Base adventurer population cap",
+      "value": 60,
+      "min": 6,
+      "max": 300,
+      "step": 1
+    },
+    {
+      "group": "Level 2 adventurer spawners",
+      "key": "populationCap",
+      "label": "Shared town setting · Base adventurer population cap",
+      "value": 60,
+      "min": 6,
+      "max": 300,
+      "step": 1
+    },
+    {
+      "group": "Level 1 adventurer spawners",
+      "key": "arrivalHours",
+      "label": "Shared town setting · Adventurer spawn interval · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 24,
+      "step": 0.25
+    },
+    {
+      "group": "Level 2 adventurer spawners",
+      "key": "arrivalHours",
+      "label": "Shared town setting · Adventurer spawn interval · hours",
+      "value": 1,
+      "min": 0.25,
+      "max": 24,
+      "step": 0.25
+    },
+    {
+      "group": "Level 1 adventurer spawners",
+      "key": "spawn1.fighterRatio",
+      "label": "fighter spawn ratio · without guild",
+      "value": 3,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "group": "Level 1 adventurer spawners",
+      "key": "spawn1.wizardRatio",
+      "label": "wizard spawn ratio · without guild",
+      "value": 2,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "group": "Level 1 adventurer spawners",
+      "key": "spawn1.healerRatio",
+      "label": "healer spawn ratio · without guild",
+      "value": 1,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "group": "Level 2 adventurer spawners",
+      "key": "spawn2.fighterRatio",
+      "label": "fighter spawn ratio · without guild",
+      "value": 3,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "group": "Level 2 adventurer spawners",
+      "key": "spawn2.wizardRatio",
+      "label": "wizard spawn ratio · without guild",
+      "value": 2,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "group": "Level 2 adventurer spawners",
+      "key": "spawn2.healerRatio",
+      "label": "healer spawn ratio · without guild",
+      "value": 1,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "group": "Level 1 adventurer spawners",
+      "key": "guild2.spawnReduction",
+      "label": "Guild II spawn time reduction · %",
+      "value": 25,
+      "min": 0,
+      "max": 75,
+      "step": 5
+    },
+    {
+      "group": "Level 1 adventurer spawners",
+      "key": "guild2.capacity",
+      "label": "Guild II extra population capacity",
+      "value": 20,
+      "min": 0,
+      "max": 200,
+      "step": 5
+    },
+    {
+      "group": "Level 1 adventurer spawners",
+      "key": "partySeconds",
+      "label": "Party formation · real seconds",
+      "value": 20,
+      "min": 1,
+      "max": 120,
+      "step": 1
+    },
+    {
+      "group": "Level 1 adventurer spawners",
+      "key": "guild2.partySeconds",
+      "label": "Guild II party formation · real seconds",
+      "value": 15,
+      "min": 1,
+      "max": 120,
+      "step": 1
+    },
+    {
+      "group": "Level 2 adventurer spawners",
+      "key": "guild2.spawnReduction",
+      "label": "Guild II spawn time reduction · %",
+      "value": 25,
+      "min": 0,
+      "max": 75,
+      "step": 5
+    },
+    {
+      "group": "Level 2 adventurer spawners",
+      "key": "guild2.capacity",
+      "label": "Guild II extra population capacity",
+      "value": 20,
+      "min": 0,
+      "max": 200,
+      "step": 5
+    },
+    {
+      "group": "Level 2 adventurer spawners",
+      "key": "partySeconds",
+      "label": "Party formation · real seconds",
+      "value": 20,
+      "min": 1,
+      "max": 120,
+      "step": 1
+    },
+    {
+      "group": "Level 2 adventurer spawners",
+      "key": "guild2.partySeconds",
+      "label": "Guild II party formation · real seconds",
+      "value": 15,
+      "min": 1,
+      "max": 120,
+      "step": 1
+    }
+  ],
+  "defaults": {
+    "fighter.maxHealth": 10,
+    "fighter.maxDefense": 10,
+    "fighter.maxStamina": 10,
+    "fighter.damage": 10,
+    "fighter.speed": 10,
+    "fighter.intelligence": 10,
+    "fighter.primary": 10,
+    "fighter.learning": 10,
+    "fighter.wealth": 20,
+    "wizard.maxHealth": 10,
+    "wizard.maxDefense": 10,
+    "wizard.maxStamina": 10,
+    "wizard.damage": 10,
+    "wizard.speed": 10,
+    "wizard.intelligence": 10,
+    "wizard.primary": 10,
+    "wizard.learning": 10,
+    "wizard.wealth": 20,
+    "healer.maxHealth": 10,
+    "healer.maxDefense": 10,
+    "healer.maxStamina": 10,
+    "healer.damage": 10,
+    "healer.speed": 10,
+    "healer.intelligence": 10,
+    "healer.primary": 10,
+    "healer.learning": 10,
+    "healer.wealth": 20,
+    "miner.maxHealth": 10,
+    "miner.maxDefense": 10,
+    "miner.maxStamina": 10,
+    "miner.damage": 10,
+    "miner.speed": 10,
+    "miner.intelligence": 10,
+    "miner.primary": 10,
+    "miner.learning": 10,
+    "miner.wealth": 10,
+    "maintenance.maxHealth": 10,
+    "maintenance.maxDefense": 10,
+    "maintenance.maxStamina": 10,
+    "maintenance.damage": 10,
+    "maintenance.speed": 10,
+    "maintenance.intelligence": 10,
+    "maintenance.primary": 10,
+    "maintenance.learning": 10,
+    "maintenance.wealth": 10,
+    "defender.maxHealth": 10,
+    "defender.maxDefense": 10,
+    "defender.maxStamina": 10,
+    "defender.damage": 10,
+    "defender.speed": 10,
+    "defender.intelligence": 10,
+    "defender.primary": 10,
+    "defender.learning": 10,
+    "defender.wealth": 10,
+    "trapdoor.health": 10,
+    "trapdoor.damageMin": 5,
+    "trapdoor.damageMax": 10,
+    "trapdoor.defenseMin": 5,
+    "trapdoor.defenseMax": 5,
+    "arrows.health": 10,
+    "arrows.damageMin": 10,
+    "arrows.damageMax": 15,
+    "arrows.defenseMin": 5,
+    "arrows.defenseMax": 5,
+    "mimic.health": 10,
+    "mimic.damageMin": 5,
+    "mimic.damageMax": 5,
+    "mimic.defenseMin": 10,
+    "mimic.defenseMax": 10,
+    "zombie.health": 10,
+    "zombie.damageMin": 1,
+    "zombie.damageMax": 5,
+    "zombie.defenseMin": 5,
+    "zombie.defenseMax": 5,
+    "slime.health": 10,
+    "slime.damageMin": 1,
+    "slime.damageMax": 5,
+    "slime.defenseMin": 10,
+    "slime.defenseMax": 15,
+    "wood.health": 10,
+    "wood.damageMin": 1,
+    "wood.damageMax": 5,
+    "wood.defenseMin": 5,
+    "wood.defenseMax": 5,
+    "silver.health": 20,
+    "silver.damageMin": 2,
+    "silver.damageMax": 10,
+    "silver.defenseMin": 10,
+    "silver.defenseMax": 10,
+    "wood.goldMin": 1,
+    "wood.goldMax": 5,
+    "wood.perception": 10,
+    "wood.stamina": 1,
+    "silver.goldMin": 2,
+    "silver.goldMax": 10,
+    "silver.perception": 20,
+    "silver.stamina": 2,
+    "trapdoor.resetDifficulty": 20,
+    "trapdoor.resetDifficultyPerLevel": 10,
+    "trapdoor.resetMinutes": 5,
+    "trapdoor.resetSkillStep": 5,
+    "trapdoor.resetPercent": 20,
+    "trapdoor.resetMinimumPercent": 20,
+    "arrows.resetDifficulty": 20,
+    "arrows.resetDifficultyPerLevel": 10,
+    "arrows.resetMinutes": 5,
+    "arrows.resetSkillStep": 5,
+    "arrows.resetPercent": 20,
+    "arrows.resetMinimumPercent": 20,
+    "trapdoor.perception": 12,
+    "arrows.perception": 5,
+    "cost.miner": 10,
+    "cost.maintenance": 15,
+    "cost.defender": 0,
+    "cost.upgrade": 50,
+    "cost.excavate": 5,
+    "cost.install": 5,
+    "cost.rest": 5,
+    "cost.spawn": 25,
+    "cost.develop": 45,
+    "startingGold": 200,
+    "levelFee": 1,
+    "equipmentChance": 20,
+    "equipmentGold": 2,
+    "populationCap": 60,
+    "trainingHours": 6,
+    "restPatienceHours": 6,
+    "maintenanceStamina": 1,
+    "fee": 10,
+    "wage": 1,
+    "reinvest": 30,
+    "saleRatio": 50,
+    "trainingPrice": 1,
+    "trainingLimit": 3,
+    "arrivalHours": 1,
+    "maintenanceHours": 1,
+    "digMinutes": 10,
+    "digGrowth": 1.5,
+    "escapeChance": 20,
+    "zombie.spawnHours": 1,
+    "slime.spawnHours": 2,
+    "research.guild2.cost": 30,
+    "research.guild2.hours": 4,
+    "research.guild.cost": 15,
+    "research.guild.hours": 2,
+    "research.getDigging.cost": 0,
+    "research.getDigging.hours": 0,
+    "research.betterTraps.cost": 20,
+    "research.betterTraps.hours": 4,
+    "research.stealth.cost": 5,
+    "research.stealth.hours": 1,
+    "research.depths.cost": 30,
+    "research.depths.hours": 8,
+    "research.staffSpeed.cost": 15,
+    "research.staffSpeed.hours": 4,
+    "research.staminaManagement.cost": 10,
+    "research.staminaManagement.hours": 1,
+    "research.level2Adventurers.cost": 20,
+    "research.level2Adventurers.hours": 4,
+    "research.goldChests.cost": 20,
+    "research.goldChests.hours": 4,
+    "research.localAds.cost": 20,
+    "research.localAds.hours": 4,
+    "research.traps.cost": 5,
+    "research.traps.hours": 1,
+    "research.mobs.cost": 5,
+    "research.mobs.hours": 1,
+    "research.treasure.cost": 5,
+    "research.treasure.hours": 1,
+    "research.rest.cost": 5,
+    "research.rest.hours": 1,
+    "research.door.cost": 5,
+    "research.door.hours": 1,
+    "research.finance.cost": 5,
+    "research.finance.hours": 1,
+    "research.staff.cost": 5,
+    "research.staff.hours": 1,
+    "research.training.cost": 5,
+    "research.training.hours": 1,
+    "research.digging.cost": 10,
+    "research.digging.hours": 4,
+    "research.building.cost": 15,
+    "research.building.hours": 6,
+    "policy.trapdoors": 1,
+    "policy.arrows": 1,
+    "policy.mimics": 1,
+    "policy.wood": 2,
+    "policy.silver": 1,
+    "policy.mobSlots": 2,
+    "policy.mobLimit": 2,
+    "policy.attackBudget": 10,
+    "policy.trapAttackBudget": 30,
+    "policy.trapDefenseBudget": 30,
+    "policy.treasureBudget": 30,
+    "policy.floorHealth": 10,
+    "policy.floorDefense": 10,
+    "policy.restCapacity": 10,
+    "policy.restFee": 0,
+    "gold.health": 40,
+    "gold.damageMin": 4,
+    "gold.damageMax": 20,
+    "gold.defenseMin": 20,
+    "gold.defenseMax": 20,
+    "gold.goldMin": 4,
+    "gold.goldMax": 20,
+    "gold.perception": 40,
+    "gold.stamina": 4,
+    "level2.fighter.maxHealth": 20,
+    "level2.fighter.maxDefense": 20,
+    "level2.fighter.maxStamina": 20,
+    "level2.fighter.damage": 20,
+    "level2.fighter.speed": 20,
+    "level2.fighter.intelligence": 20,
+    "level2.fighter.primary": 20,
+    "level2.fighter.learning": 20,
+    "level2.fighter.wealth": 40,
+    "level2.wizard.maxHealth": 20,
+    "level2.wizard.maxDefense": 20,
+    "level2.wizard.maxStamina": 20,
+    "level2.wizard.damage": 20,
+    "level2.wizard.speed": 20,
+    "level2.wizard.intelligence": 20,
+    "level2.wizard.primary": 20,
+    "level2.wizard.learning": 20,
+    "level2.wizard.wealth": 40,
+    "level2.healer.maxHealth": 20,
+    "level2.healer.maxDefense": 20,
+    "level2.healer.maxStamina": 20,
+    "level2.healer.damage": 20,
+    "level2.healer.speed": 20,
+    "level2.healer.intelligence": 20,
+    "level2.healer.primary": 20,
+    "level2.healer.learning": 20,
+    "level2.healer.wealth": 40,
+    "spawn1.fighterRatio": 3,
+    "spawn1.wizardRatio": 2,
+    "spawn1.healerRatio": 1,
+    "spawn2.fighterRatio": 3,
+    "spawn2.wizardRatio": 2,
+    "spawn2.healerRatio": 1,
+    "guild2.spawnReduction": 25,
+    "guild2.capacity": 20,
+    "partySeconds": 20,
+    "guild2.partySeconds": 15
+  },
+  "research": [
+    {
+      "id": "guild2",
+      "name": "Adventurers Guild Level 2",
+      "description": "25% shorter spawn intervals, +20 adventurer capacity, and party formation reduced from 20 to 15 real seconds.",
+      "cost": 3000,
+      "hours": 4,
+      "icon": "staff"
+    },
+    {
+      "id": "guild",
+      "name": "Basic Adventurers Guild",
+      "description": "A recruitment stand that prioritizes missing party roles among eligible, unpartied adventurers.",
+      "cost": 1500,
+      "hours": 2,
+      "icon": "staff"
+    },
+    {
+      "id": "getDigging",
+      "name": "Get diggin'",
+      "description": "The first five dungeon floors are unlocked.",
+      "cost": 0,
+      "hours": 0,
+      "icon": "pick"
+    },
+    {
+      "id": "betterTraps",
+      "name": "Better basic traps",
+      "description": "Medium · Mimics II resemble silver chests and deal 10–20 damage. Trap doors deal 10–20 damage and require perception 20.",
+      "cost": 2000,
+      "hours": 4,
+      "icon": "trap"
+    },
+    {
+      "id": "stealth",
+      "name": "Beginner trap stealth",
+      "description": "Fast · Increase beginner trap detection difficulty by 1, up to 10. Advanced trap doors retain perception 20.",
+      "cost": 500,
+      "hours": 1,
+      "icon": "trap"
+    },
+    {
+      "id": "depths",
+      "name": "Getting serious are we?",
+      "description": "Large · Unlock the next five floors. Repeat to reach 50 floors.",
+      "cost": 3000,
+      "hours": 8,
+      "icon": "pick"
+    },
+    {
+      "id": "staffSpeed",
+      "name": "Fleet-footed staff",
+      "description": "Medium · Double staff movement speed and speed up maintenance work. Trap resets use staff speed plus intelligence against trap difficulty.",
+      "cost": 1500,
+      "hours": 4,
+      "icon": "staff"
+    },
+    {
+      "id": "staminaManagement",
+      "name": "Better stamina management",
+      "description": "Fast · Choose the stamina threshold at which staff take their next office break.",
+      "cost": 1000,
+      "hours": 1,
+      "icon": "staff"
+    },
+    {
+      "id": "level2Adventurers",
+      "name": "Level 2 adventurers",
+      "description": "Medium · Upgrade individual town spawn points to attract adventurers with double baseline stats and elaborate class outfits.",
+      "cost": 2000,
+      "hours": 4,
+      "icon": "staff"
+    },
+    {
+      "id": "goldChests",
+      "name": "Gold chests",
+      "description": "Medium · Unlock gold chests. Silver has twice the wood stats; gold doubles silver again.",
+      "cost": 2000,
+      "hours": 4,
+      "icon": "chest"
+    },
+    {
+      "id": "localAds",
+      "name": "Local ads",
+      "description": "Unlock two extra adventurer spawn points. Each costs 25 gold and adds 10 to the adventurer population cap.",
+      "cost": 2000,
+      "hours": 4,
+      "icon": "staff"
+    },
+    {
+      "id": "traps",
+      "name": "It's a trap!",
+      "description": "Trap doors, arrow walls, and suspiciously toothy chests.",
+      "cost": 500,
+      "hours": 1,
+      "icon": "trap"
+    },
+    {
+      "id": "mobs",
+      "name": "Mob-tastic",
+      "description": "Invite zombies and slimes to make themselves at home.",
+      "cost": 500,
+      "hours": 1,
+      "icon": "mob"
+    },
+    {
+      "id": "treasure",
+      "name": "Treasure-me-timbers",
+      "description": "Wood and silver chests. A little incentive goes a long way.",
+      "cost": 500,
+      "hours": 1,
+      "icon": "chest"
+    },
+    {
+      "id": "rest",
+      "name": "Basic rest spots",
+      "description": "Bunks, a tap, and a much-needed stamina refill.",
+      "cost": 500,
+      "hours": 1,
+      "icon": "rest"
+    },
+    {
+      "id": "door",
+      "name": "Basic door policy",
+      "description": "Level-one adventurers only. Set your entrance fee.",
+      "cost": 500,
+      "hours": 1,
+      "icon": "door"
+    },
+    {
+      "id": "finance",
+      "name": "Sketchy finances",
+      "description": "Decide how much admission income goes back into treasure.",
+      "cost": 500,
+      "hours": 1,
+      "icon": "coin"
+    },
+    {
+      "id": "staff",
+      "name": "Staff management",
+      "description": "Hire maintenance workers and keep an eye on your crew.",
+      "cost": 500,
+      "hours": 1,
+      "icon": "staff"
+    },
+    {
+      "id": "training",
+      "name": "Short-sighted training",
+      "description": "+1 to all stats. Including the XP requirement. How convenient.",
+      "cost": 500,
+      "hours": 1,
+      "icon": "training"
+    },
+    {
+      "id": "digging",
+      "name": "Faster digging",
+      "description": "Bigger shovels. Twice the excavation speed.",
+      "cost": 1000,
+      "hours": 4,
+      "icon": "pick"
+    },
+    {
+      "id": "building",
+      "name": "Better building",
+      "description": "Reinforced foundations: 20 health and defense. Builders upgrade furnished floors from deepest to shallowest. Novice builders take twice as long.",
+      "cost": 1500,
+      "hours": 6,
+      "icon": "build"
+    }
+  ]
+}

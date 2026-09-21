@@ -1,0 +1,8 @@
+
+> underkeep@0.1.0 benchmark
+> node --import tsx scripts/benchmark.ts
+
+{"realDays":1,"gameDays":24,"milliseconds":1100.1,"saveBytes":208601,"admissions":808,"earnedGold":8329,"npcs":57}
+{"realDays":30,"gameDays":720,"milliseconds":16410.9,"saveBytes":240721,"admissions":808,"earnedGold":8329,"npcs":57}
+{"mode":"legacy-copy","samples":1000,"medianMs":0.09208299999954761,"p95Ms":0.3134170000012091}
+{"mode":"shared-reference","samples":1000,"medianMs":0.00029100000028847717,"p95Ms":0.0003749999996216502}
