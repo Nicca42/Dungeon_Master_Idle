@@ -10,7 +10,11 @@
         "recommendedMobCap": 2,
         "mobAttackBudget": 10,
         "trapAttackBudget": 30,
-        "trapDefenseBudget": 30
+        "trapDefenseBudget": 30,
+        "backgroundTier": 1,
+        "upgradeAdditionalStamina": 0,
+        "upgradeOrder": "deepest_furnished_first",
+        "noviceUpgradeThroughputMultiplier": null
       },
       "level_2": {
         "minHealth": 20,
@@ -21,7 +25,11 @@
         "recommendedMobCap": 4,
         "mobAttackBudget": 20,
         "trapAttackBudget": 60,
-        "trapDefenseBudget": 60
+        "trapDefenseBudget": 60,
+        "backgroundTier": 2,
+        "upgradeAdditionalStamina": 1,
+        "upgradeOrder": "deepest_furnished_first",
+        "noviceUpgradeThroughputMultiplier": 0.5
       },
       "level_3": {
         "minHealth": 30,
@@ -32,7 +40,11 @@
         "recommendedMobCap": 6,
         "mobAttackBudget": 30,
         "trapAttackBudget": 90,
-        "trapDefenseBudget": 90
+        "trapDefenseBudget": 90,
+        "backgroundTier": 3,
+        "upgradeAdditionalStamina": 2,
+        "upgradeOrder": "deepest_furnished_first",
+        "noviceUpgradeThroughputMultiplier": null
       },
       "level_4": {
         "minHealth": 40,
@@ -43,7 +55,11 @@
         "recommendedMobCap": 8,
         "mobAttackBudget": 40,
         "trapAttackBudget": 120,
-        "trapDefenseBudget": 120
+        "trapDefenseBudget": 120,
+        "backgroundTier": 4,
+        "upgradeAdditionalStamina": 3,
+        "upgradeOrder": "deepest_furnished_first",
+        "noviceUpgradeThroughputMultiplier": null
       },
       "level_5": {
         "minHealth": 50,
@@ -54,7 +70,11 @@
         "recommendedMobCap": 10,
         "mobAttackBudget": 50,
         "trapAttackBudget": 150,
-        "trapDefenseBudget": 150
+        "trapDefenseBudget": 150,
+        "backgroundTier": 5,
+        "upgradeAdditionalStamina": 4,
+        "upgradeOrder": "deepest_furnished_first",
+        "noviceUpgradeThroughputMultiplier": null
       }
     }
   },
@@ -72,7 +92,13 @@
         "resetDifficulty": 20,
         "resetBaseGameMinutes": 5,
         "resetStamina": 1,
-        "selfResets": false
+        "selfResets": false,
+        "beginnerStealthResearch": {
+          "appliesToLevel": 1,
+          "perRankPerceptionBonus": 1,
+          "maxPerception": 10,
+          "maxRanks": 5
+        }
       },
       "level_2": {
         "minHealth": 20,
@@ -86,7 +112,13 @@
         "resetDifficulty": 30,
         "resetBaseGameMinutes": 5,
         "resetStamina": 1,
-        "selfResets": false
+        "selfResets": false,
+        "beginnerStealthResearch": {
+          "appliesToLevel": 1,
+          "perRankPerceptionBonus": 1,
+          "maxPerception": 10,
+          "maxRanks": 5
+        }
       },
       "level_3": {
         "minHealth": 30,
@@ -100,7 +132,13 @@
         "resetDifficulty": 40,
         "resetBaseGameMinutes": 5,
         "resetStamina": 1,
-        "selfResets": false
+        "selfResets": false,
+        "beginnerStealthResearch": {
+          "appliesToLevel": 1,
+          "perRankPerceptionBonus": 1,
+          "maxPerception": 10,
+          "maxRanks": 5
+        }
       },
       "level_4": {
         "minHealth": 40,
@@ -114,7 +152,13 @@
         "resetDifficulty": 50,
         "resetBaseGameMinutes": 5,
         "resetStamina": 1,
-        "selfResets": false
+        "selfResets": false,
+        "beginnerStealthResearch": {
+          "appliesToLevel": 1,
+          "perRankPerceptionBonus": 1,
+          "maxPerception": 10,
+          "maxRanks": 5
+        }
       },
       "level_5": {
         "minHealth": 50,
@@ -128,7 +172,13 @@
         "resetDifficulty": 60,
         "resetBaseGameMinutes": 5,
         "resetStamina": 1,
-        "selfResets": false
+        "selfResets": false,
+        "beginnerStealthResearch": {
+          "appliesToLevel": 1,
+          "perRankPerceptionBonus": 1,
+          "maxPerception": 10,
+          "maxRanks": 5
+        }
       }
     },
     "arrowWalls": {
@@ -144,7 +194,13 @@
         "resetDifficulty": 20,
         "resetBaseGameMinutes": 5,
         "resetStamina": 1,
-        "selfResets": false
+        "selfResets": false,
+        "beginnerStealthResearch": {
+          "appliesToLevel": 1,
+          "perRankPerceptionBonus": 1,
+          "maxPerception": 10,
+          "maxRanks": 5
+        }
       },
       "level_2": {
         "minHealth": 20,
@@ -158,7 +214,13 @@
         "resetDifficulty": 30,
         "resetBaseGameMinutes": 5,
         "resetStamina": 1,
-        "selfResets": false
+        "selfResets": false,
+        "beginnerStealthResearch": {
+          "appliesToLevel": 1,
+          "perRankPerceptionBonus": 1,
+          "maxPerception": 10,
+          "maxRanks": 5
+        }
       },
       "level_3": {
         "minHealth": 30,
@@ -172,7 +234,13 @@
         "resetDifficulty": 40,
         "resetBaseGameMinutes": 5,
         "resetStamina": 1,
-        "selfResets": false
+        "selfResets": false,
+        "beginnerStealthResearch": {
+          "appliesToLevel": 1,
+          "perRankPerceptionBonus": 1,
+          "maxPerception": 10,
+          "maxRanks": 5
+        }
       },
       "level_4": {
         "minHealth": 40,
@@ -186,7 +254,13 @@
         "resetDifficulty": 50,
         "resetBaseGameMinutes": 5,
         "resetStamina": 1,
-        "selfResets": false
+        "selfResets": false,
+        "beginnerStealthResearch": {
+          "appliesToLevel": 1,
+          "perRankPerceptionBonus": 1,
+          "maxPerception": 10,
+          "maxRanks": 5
+        }
       },
       "level_5": {
         "minHealth": 50,
@@ -200,7 +274,13 @@
         "resetDifficulty": 60,
         "resetBaseGameMinutes": 5,
         "resetStamina": 1,
-        "selfResets": false
+        "selfResets": false,
+        "beginnerStealthResearch": {
+          "appliesToLevel": 1,
+          "perRankPerceptionBonus": 1,
+          "maxPerception": 10,
+          "maxRanks": 5
+        }
       }
     },
     "mimics": {
@@ -218,7 +298,13 @@
         "resetStamina": 0,
         "selfResets": true,
         "xpPerTrigger": 1,
-        "selfResetGameMinutes": 30
+        "selfResetGameMinutes": 30,
+        "chestImitation": "wood",
+        "beginnerStealthResearch": {
+          "appliesToLevel": 1,
+          "perRankPerceptionBonus": 1,
+          "maxPerception": 10
+        }
       },
       "level_2": {
         "minHealth": 20,
@@ -234,7 +320,8 @@
         "resetStamina": 0,
         "selfResets": true,
         "xpPerTrigger": 1,
-        "selfResetGameMinutes": 30
+        "selfResetGameMinutes": 30,
+        "chestImitation": "silver"
       },
       "level_3": {
         "minHealth": 30,
@@ -250,7 +337,8 @@
         "resetStamina": 0,
         "selfResets": true,
         "xpPerTrigger": 1,
-        "selfResetGameMinutes": 30
+        "selfResetGameMinutes": 30,
+        "chestImitation": "gold"
       },
       "level_4": {
         "minHealth": 40,
@@ -266,7 +354,8 @@
         "resetStamina": 0,
         "selfResets": true,
         "xpPerTrigger": 1,
-        "selfResetGameMinutes": 30
+        "selfResetGameMinutes": 30,
+        "chestImitation": "crystal"
       },
       "level_5": {
         "minHealth": 50,
@@ -282,7 +371,8 @@
         "resetStamina": 0,
         "selfResets": true,
         "xpPerTrigger": 1,
-        "selfResetGameMinutes": 30
+        "selfResetGameMinutes": 30,
+        "chestImitation": "royal"
       }
     }
   },
@@ -290,17 +380,18 @@
     "zombies": {
       "level_1": {
         "spawner": {
-          "cost": null,
+          "cost": 0,
           "spawnRate": 1,
           "spawnPeriodInGameHours": 1,
-          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "costNote": "No separate initial spawner charge; pay 5 gold for the floor installation order. Tier upgrades are priced separately.",
           "upgradeCost": null,
           "readyBuffer": 1,
           "minHealth": 10,
           "maxHealth": 10,
           "minDefense": 5,
           "maxDefense": 5,
-          "produces": "zombie_t1"
+          "produces": "zombie_t1",
+          "installationOrderGoldPerFloor": 5
         },
         "minHealth": 10,
         "maxHealth": 10,
@@ -309,21 +400,27 @@
         "minDefense": 5,
         "maxDefense": 5,
         "speed": 5,
-        "escapeProbabilityPerAttempt": 0.2
+        "escapeProbabilityPerAttempt": 0.2,
+        "containmentResearch": {
+          "firstEscapeProbabilityPerAttempt": 0.1,
+          "secondEscapeProbabilityPerAttempt": 0.05,
+          "replacesBaseProbability": true
+        }
       },
       "level_2": {
         "spawner": {
-          "cost": null,
+          "cost": 0,
           "spawnRate": 1,
           "spawnPeriodInGameHours": 1,
-          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "costNote": "No separate initial spawner charge; pay 5 gold for the floor installation order. Tier upgrades are priced separately.",
           "upgradeCost": 20,
           "readyBuffer": 1,
           "minHealth": 20,
           "maxHealth": 20,
           "minDefense": 10,
           "maxDefense": 10,
-          "produces": "zombie_t2"
+          "produces": "zombie_t2",
+          "installationOrderGoldPerFloor": 5
         },
         "minHealth": 20,
         "maxHealth": 20,
@@ -332,21 +429,27 @@
         "minDefense": 10,
         "maxDefense": 10,
         "speed": 5,
-        "escapeProbabilityPerAttempt": 0.2
+        "escapeProbabilityPerAttempt": 0.2,
+        "containmentResearch": {
+          "firstEscapeProbabilityPerAttempt": 0.1,
+          "secondEscapeProbabilityPerAttempt": 0.05,
+          "replacesBaseProbability": true
+        }
       },
       "level_3": {
         "spawner": {
-          "cost": null,
+          "cost": 0,
           "spawnRate": 1,
           "spawnPeriodInGameHours": 1,
-          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "costNote": "No separate initial spawner charge; pay 5 gold for the floor installation order. Tier upgrades are priced separately.",
           "upgradeCost": 30,
           "readyBuffer": 1,
           "minHealth": 30,
           "maxHealth": 30,
           "minDefense": 15,
           "maxDefense": 15,
-          "produces": "zombie_t3"
+          "produces": "zombie_t3",
+          "installationOrderGoldPerFloor": 5
         },
         "minHealth": 30,
         "maxHealth": 30,
@@ -355,21 +458,27 @@
         "minDefense": 15,
         "maxDefense": 15,
         "speed": 5,
-        "escapeProbabilityPerAttempt": 0.2
+        "escapeProbabilityPerAttempt": 0.2,
+        "containmentResearch": {
+          "firstEscapeProbabilityPerAttempt": 0.1,
+          "secondEscapeProbabilityPerAttempt": 0.05,
+          "replacesBaseProbability": true
+        }
       },
       "level_4": {
         "spawner": {
-          "cost": null,
+          "cost": 0,
           "spawnRate": 1,
           "spawnPeriodInGameHours": 1,
-          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "costNote": "No separate initial spawner charge; pay 5 gold for the floor installation order. Tier upgrades are priced separately.",
           "upgradeCost": 40,
           "readyBuffer": 1,
           "minHealth": 40,
           "maxHealth": 40,
           "minDefense": 20,
           "maxDefense": 20,
-          "produces": "zombie_t4"
+          "produces": "zombie_t4",
+          "installationOrderGoldPerFloor": 5
         },
         "minHealth": 40,
         "maxHealth": 40,
@@ -378,21 +487,27 @@
         "minDefense": 20,
         "maxDefense": 20,
         "speed": 5,
-        "escapeProbabilityPerAttempt": 0.2
+        "escapeProbabilityPerAttempt": 0.2,
+        "containmentResearch": {
+          "firstEscapeProbabilityPerAttempt": 0.1,
+          "secondEscapeProbabilityPerAttempt": 0.05,
+          "replacesBaseProbability": true
+        }
       },
       "level_5": {
         "spawner": {
-          "cost": null,
+          "cost": 0,
           "spawnRate": 1,
           "spawnPeriodInGameHours": 1,
-          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "costNote": "No separate initial spawner charge; pay 5 gold for the floor installation order. Tier upgrades are priced separately.",
           "upgradeCost": 50,
           "readyBuffer": 1,
           "minHealth": 50,
           "maxHealth": 50,
           "minDefense": 25,
           "maxDefense": 25,
-          "produces": "zombie_t5"
+          "produces": "zombie_t5",
+          "installationOrderGoldPerFloor": 5
         },
         "minHealth": 50,
         "maxHealth": 50,
@@ -401,23 +516,29 @@
         "minDefense": 25,
         "maxDefense": 25,
         "speed": 5,
-        "escapeProbabilityPerAttempt": 0.2
+        "escapeProbabilityPerAttempt": 0.2,
+        "containmentResearch": {
+          "firstEscapeProbabilityPerAttempt": 0.1,
+          "secondEscapeProbabilityPerAttempt": 0.05,
+          "replacesBaseProbability": true
+        }
       }
     },
     "slimes": {
       "level_1": {
         "spawner": {
-          "cost": null,
+          "cost": 0,
           "spawnRate": 1,
           "spawnPeriodInGameHours": 2,
-          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "costNote": "No separate initial spawner charge; pay 5 gold for the floor installation order. Tier upgrades are priced separately.",
           "upgradeCost": null,
           "readyBuffer": 1,
           "minHealth": 10,
           "maxHealth": 10,
           "minDefense": 5,
           "maxDefense": 5,
-          "produces": "slime_t1"
+          "produces": "slime_t1",
+          "installationOrderGoldPerFloor": 5
         },
         "minHealth": 10,
         "maxHealth": 10,
@@ -426,21 +547,27 @@
         "minDefense": 10,
         "maxDefense": 15,
         "speed": 5,
-        "escapeProbabilityPerAttempt": 0.2
+        "escapeProbabilityPerAttempt": 0.2,
+        "containmentResearch": {
+          "firstEscapeProbabilityPerAttempt": 0.1,
+          "secondEscapeProbabilityPerAttempt": 0.05,
+          "replacesBaseProbability": true
+        }
       },
       "level_2": {
         "spawner": {
-          "cost": null,
+          "cost": 0,
           "spawnRate": 1,
           "spawnPeriodInGameHours": 2,
-          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "costNote": "No separate initial spawner charge; pay 5 gold for the floor installation order. Tier upgrades are priced separately.",
           "upgradeCost": 20,
           "readyBuffer": 1,
           "minHealth": 20,
           "maxHealth": 20,
           "minDefense": 10,
           "maxDefense": 10,
-          "produces": "slime_t2"
+          "produces": "slime_t2",
+          "installationOrderGoldPerFloor": 5
         },
         "minHealth": 20,
         "maxHealth": 20,
@@ -449,21 +576,27 @@
         "minDefense": 20,
         "maxDefense": 30,
         "speed": 5,
-        "escapeProbabilityPerAttempt": 0.2
+        "escapeProbabilityPerAttempt": 0.2,
+        "containmentResearch": {
+          "firstEscapeProbabilityPerAttempt": 0.1,
+          "secondEscapeProbabilityPerAttempt": 0.05,
+          "replacesBaseProbability": true
+        }
       },
       "level_3": {
         "spawner": {
-          "cost": null,
+          "cost": 0,
           "spawnRate": 1,
           "spawnPeriodInGameHours": 2,
-          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "costNote": "No separate initial spawner charge; pay 5 gold for the floor installation order. Tier upgrades are priced separately.",
           "upgradeCost": 30,
           "readyBuffer": 1,
           "minHealth": 30,
           "maxHealth": 30,
           "minDefense": 15,
           "maxDefense": 15,
-          "produces": "slime_t3"
+          "produces": "slime_t3",
+          "installationOrderGoldPerFloor": 5
         },
         "minHealth": 30,
         "maxHealth": 30,
@@ -472,21 +605,27 @@
         "minDefense": 30,
         "maxDefense": 45,
         "speed": 5,
-        "escapeProbabilityPerAttempt": 0.2
+        "escapeProbabilityPerAttempt": 0.2,
+        "containmentResearch": {
+          "firstEscapeProbabilityPerAttempt": 0.1,
+          "secondEscapeProbabilityPerAttempt": 0.05,
+          "replacesBaseProbability": true
+        }
       },
       "level_4": {
         "spawner": {
-          "cost": null,
+          "cost": 0,
           "spawnRate": 1,
           "spawnPeriodInGameHours": 2,
-          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "costNote": "No separate initial spawner charge; pay 5 gold for the floor installation order. Tier upgrades are priced separately.",
           "upgradeCost": 40,
           "readyBuffer": 1,
           "minHealth": 40,
           "maxHealth": 40,
           "minDefense": 20,
           "maxDefense": 20,
-          "produces": "slime_t4"
+          "produces": "slime_t4",
+          "installationOrderGoldPerFloor": 5
         },
         "minHealth": 40,
         "maxHealth": 40,
@@ -495,21 +634,27 @@
         "minDefense": 40,
         "maxDefense": 60,
         "speed": 5,
-        "escapeProbabilityPerAttempt": 0.2
+        "escapeProbabilityPerAttempt": 0.2,
+        "containmentResearch": {
+          "firstEscapeProbabilityPerAttempt": 0.1,
+          "secondEscapeProbabilityPerAttempt": 0.05,
+          "replacesBaseProbability": true
+        }
       },
       "level_5": {
         "spawner": {
-          "cost": null,
+          "cost": 0,
           "spawnRate": 1,
           "spawnPeriodInGameHours": 2,
-          "costNote": "No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.",
+          "costNote": "No separate initial spawner charge; pay 5 gold for the floor installation order. Tier upgrades are priced separately.",
           "upgradeCost": 50,
           "readyBuffer": 1,
           "minHealth": 50,
           "maxHealth": 50,
           "minDefense": 25,
           "maxDefense": 25,
-          "produces": "slime_t5"
+          "produces": "slime_t5",
+          "installationOrderGoldPerFloor": 5
         },
         "minHealth": 50,
         "maxHealth": 50,
@@ -518,7 +663,64 @@
         "minDefense": 50,
         "maxDefense": 75,
         "speed": 5,
-        "escapeProbabilityPerAttempt": 0.2
+        "escapeProbabilityPerAttempt": 0.2,
+        "containmentResearch": {
+          "firstEscapeProbabilityPerAttempt": 0.1,
+          "secondEscapeProbabilityPerAttempt": 0.05,
+          "replacesBaseProbability": true
+        }
+      }
+    },
+    "ghosts": {
+      "level_1": {
+        "source": "dead party member of corresponding tier",
+        "statsMultiplier": 0.5,
+        "statBasis": "snapshot of maximum health/defense/stamina and damage/primary/speed/intelligence at death",
+        "hostileAfterGameMinutes": 5,
+        "target": "own party",
+        "spawner": null,
+        "eyesWhenHostile": "red",
+        "persistsAfterPartyEnds": false
+      },
+      "level_2": {
+        "source": "dead party member of corresponding tier",
+        "statsMultiplier": 0.5,
+        "statBasis": "snapshot of maximum health/defense/stamina and damage/primary/speed/intelligence at death",
+        "hostileAfterGameMinutes": 5,
+        "target": "own party",
+        "spawner": null,
+        "eyesWhenHostile": "red",
+        "persistsAfterPartyEnds": false
+      },
+      "level_3": {
+        "source": "dead party member of corresponding tier",
+        "statsMultiplier": 0.5,
+        "statBasis": "snapshot of maximum health/defense/stamina and damage/primary/speed/intelligence at death",
+        "hostileAfterGameMinutes": 5,
+        "target": "own party",
+        "spawner": null,
+        "eyesWhenHostile": "red",
+        "persistsAfterPartyEnds": false
+      },
+      "level_4": {
+        "source": "dead party member of corresponding tier",
+        "statsMultiplier": 0.5,
+        "statBasis": "snapshot of maximum health/defense/stamina and damage/primary/speed/intelligence at death",
+        "hostileAfterGameMinutes": 5,
+        "target": "own party",
+        "spawner": null,
+        "eyesWhenHostile": "red",
+        "persistsAfterPartyEnds": false
+      },
+      "level_5": {
+        "source": "dead party member of corresponding tier",
+        "statsMultiplier": 0.5,
+        "statBasis": "snapshot of maximum health/defense/stamina and damage/primary/speed/intelligence at death",
+        "hostileAfterGameMinutes": 5,
+        "target": "own party",
+        "spawner": null,
+        "eyesWhenHostile": "red",
+        "persistsAfterPartyEnds": false
       }
     }
   },
@@ -534,7 +736,16 @@
         "maxGold": 5,
         "lockIntelligence": 10,
         "openStamina": 1,
-        "refillStamina": 1
+        "refillStamina": 1,
+        "openSuccessProbability": 0.5,
+        "maxAttemptsPerAdventurerPerChest": 1,
+        "allowNextPartyMemberAfterFailure": true,
+        "requiresLockIntelligenceBeforeChanceRoll": true,
+        "betterBasicTreasure": {
+          "lockIntelligenceBonus": 5,
+          "lockIntelligenceAfterResearch": 15,
+          "openSuccessProbability": 0.3333333333333333
+        }
       },
       "level_2": {
         "material": "silver",
@@ -546,7 +757,16 @@
         "maxGold": 10,
         "lockIntelligence": 20,
         "openStamina": 2,
-        "refillStamina": 1
+        "refillStamina": 1,
+        "openSuccessProbability": 0.5,
+        "maxAttemptsPerAdventurerPerChest": 1,
+        "allowNextPartyMemberAfterFailure": true,
+        "requiresLockIntelligenceBeforeChanceRoll": true,
+        "betterBasicTreasure": {
+          "lockIntelligenceBonus": 10,
+          "lockIntelligenceAfterResearch": 30,
+          "openSuccessProbability": 0.3333333333333333
+        }
       },
       "level_3": {
         "material": "gold",
@@ -558,10 +778,14 @@
         "maxGold": 20,
         "lockIntelligence": 40,
         "openStamina": 4,
-        "refillStamina": 1
+        "refillStamina": 1,
+        "openSuccessProbability": 0.25,
+        "maxAttemptsPerAdventurerPerChest": 1,
+        "allowNextPartyMemberAfterFailure": true,
+        "requiresLockIntelligenceBeforeChanceRoll": true
       },
       "level_4": {
-        "material": "runic",
+        "material": "crystal",
         "minHealth": 60,
         "maxHealth": 60,
         "minDefense": 30,
@@ -570,7 +794,11 @@
         "maxGold": 30,
         "lockIntelligence": 60,
         "openStamina": 6,
-        "refillStamina": 1
+        "refillStamina": 1,
+        "openSuccessProbability": 0.2,
+        "maxAttemptsPerAdventurerPerChest": 1,
+        "allowNextPartyMemberAfterFailure": true,
+        "requiresLockIntelligenceBeforeChanceRoll": true
       },
       "level_5": {
         "material": "royal",
@@ -582,7 +810,11 @@
         "maxGold": 40,
         "lockIntelligence": 80,
         "openStamina": 8,
-        "refillStamina": 1
+        "refillStamina": 1,
+        "openSuccessProbability": 0.16666666666666666,
+        "maxAttemptsPerAdventurerPerChest": 1,
+        "allowNextPartyMemberAfterFailure": true,
+        "requiresLockIntelligenceBeforeChanceRoll": true
       }
     }
   },
@@ -597,8 +829,31 @@
         "damage": 10,
         "maxPrimary": 10,
         "xpPerStatPoint": 10,
-        "hireGold": 10,
-        "wageGoldPerWorkingGameHour": 0
+        "hireGold": 5,
+        "wageGoldPerWorkingGameHour": 0,
+        "training": {
+          "enabled": false,
+          "costGold": null,
+          "maxTargetLevel": 1,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0
+        },
+        "maxHireableAfterBuilderResearch": 5,
+        "bestBuildersResearch": {
+          "appliesToLevel": 4,
+          "hireGold": 20,
+          "speed": 45,
+          "maxHireable": 25
+        }
       },
       "level_2": {
         "maxHealth": 20,
@@ -609,8 +864,31 @@
         "damage": 20,
         "maxPrimary": 20,
         "xpPerStatPoint": 20,
-        "hireGold": 20,
-        "wageGoldPerWorkingGameHour": 0
+        "hireGold": 10,
+        "wageGoldPerWorkingGameHour": 0,
+        "training": {
+          "enabled": true,
+          "costGold": 10,
+          "maxTargetLevel": 2,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0
+        },
+        "maxHireableAfterBuilderResearch": 10,
+        "bestBuildersResearch": {
+          "appliesToLevel": 4,
+          "hireGold": 20,
+          "speed": 45,
+          "maxHireable": 25
+        }
       },
       "level_3": {
         "maxHealth": 30,
@@ -621,20 +899,66 @@
         "damage": 30,
         "maxPrimary": 30,
         "xpPerStatPoint": 30,
-        "hireGold": 30,
-        "wageGoldPerWorkingGameHour": 0
+        "hireGold": 15,
+        "wageGoldPerWorkingGameHour": 0,
+        "training": {
+          "enabled": true,
+          "costGold": 10,
+          "maxTargetLevel": 3,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0
+        },
+        "maxHireableAfterBuilderResearch": 15,
+        "bestBuildersResearch": {
+          "appliesToLevel": 4,
+          "hireGold": 20,
+          "speed": 45,
+          "maxHireable": 25
+        }
       },
       "level_4": {
         "maxHealth": 40,
         "maxDefense": 40,
         "maxStamina": 40,
-        "speed": 40,
+        "speed": 45,
         "intelligence": 40,
         "damage": 40,
         "maxPrimary": 40,
         "xpPerStatPoint": 40,
-        "hireGold": 40,
-        "wageGoldPerWorkingGameHour": 0
+        "hireGold": 20,
+        "wageGoldPerWorkingGameHour": 0,
+        "training": {
+          "enabled": true,
+          "costGold": 15,
+          "maxTargetLevel": 4,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0
+        },
+        "bestBuildersResearch": {
+          "appliesToLevel": 4,
+          "hireGold": 20,
+          "speed": 45,
+          "maxHireable": 25
+        },
+        "maxHireableAfterBuilderResearch": 25
       },
       "level_5": {
         "maxHealth": 50,
@@ -646,7 +970,29 @@
         "maxPrimary": 50,
         "xpPerStatPoint": 50,
         "hireGold": 50,
-        "wageGoldPerWorkingGameHour": 0
+        "wageGoldPerWorkingGameHour": 0,
+        "training": {
+          "enabled": true,
+          "costGold": 20,
+          "maxTargetLevel": 5,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0
+        },
+        "bestBuildersResearch": {
+          "appliesToLevel": 4,
+          "hireGold": 20,
+          "speed": 45,
+          "maxHireable": 25
+        }
       }
     },
     "maintainers": {
@@ -660,7 +1006,23 @@
         "maxPrimary": 10,
         "xpPerStatPoint": 10,
         "hireGold": 15,
-        "wageGoldPerWorkingGameHour": 0
+        "wageGoldPerWorkingGameHour": 0,
+        "training": {
+          "enabled": false,
+          "costGold": null,
+          "maxTargetLevel": 1,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0
+        }
       },
       "level_2": {
         "maxHealth": 20,
@@ -672,7 +1034,23 @@
         "maxPrimary": 20,
         "xpPerStatPoint": 20,
         "hireGold": 30,
-        "wageGoldPerWorkingGameHour": 0
+        "wageGoldPerWorkingGameHour": 0,
+        "training": {
+          "enabled": true,
+          "costGold": 10,
+          "maxTargetLevel": 2,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0
+        }
       },
       "level_3": {
         "maxHealth": 30,
@@ -684,7 +1062,23 @@
         "maxPrimary": 30,
         "xpPerStatPoint": 30,
         "hireGold": 45,
-        "wageGoldPerWorkingGameHour": 0
+        "wageGoldPerWorkingGameHour": 0,
+        "training": {
+          "enabled": true,
+          "costGold": 10,
+          "maxTargetLevel": 3,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0
+        }
       },
       "level_4": {
         "maxHealth": 40,
@@ -696,7 +1090,23 @@
         "maxPrimary": 40,
         "xpPerStatPoint": 40,
         "hireGold": 60,
-        "wageGoldPerWorkingGameHour": 0
+        "wageGoldPerWorkingGameHour": 0,
+        "training": {
+          "enabled": true,
+          "costGold": 15,
+          "maxTargetLevel": 4,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0
+        }
       },
       "level_5": {
         "maxHealth": 50,
@@ -708,7 +1118,23 @@
         "maxPrimary": 50,
         "xpPerStatPoint": 50,
         "hireGold": 75,
-        "wageGoldPerWorkingGameHour": 0
+        "wageGoldPerWorkingGameHour": 0,
+        "training": {
+          "enabled": true,
+          "costGold": 20,
+          "maxTargetLevel": 5,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0
+        }
       }
     },
     "defenders": {
@@ -722,7 +1148,25 @@
         "maxPrimary": 10,
         "xpPerStatPoint": 10,
         "hireGold": 0,
-        "wageGoldPerWorkingGameHour": 1
+        "wageGoldPerWorkingGameHour": 1,
+        "training": {
+          "enabled": false,
+          "costGold": null,
+          "maxTargetLevel": 1,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0,
+          "unpaidOvertimeWorkingWageGoldReduction": 0.5,
+          "minimumWorkingWageGold": 0
+        }
       },
       "level_2": {
         "maxHealth": 20,
@@ -734,7 +1178,25 @@
         "maxPrimary": 20,
         "xpPerStatPoint": 20,
         "hireGold": 0,
-        "wageGoldPerWorkingGameHour": 2
+        "wageGoldPerWorkingGameHour": 2,
+        "training": {
+          "enabled": true,
+          "costGold": 10,
+          "maxTargetLevel": 2,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0,
+          "unpaidOvertimeWorkingWageGoldReduction": 0.5,
+          "minimumWorkingWageGold": 0
+        }
       },
       "level_3": {
         "maxHealth": 30,
@@ -746,7 +1208,25 @@
         "maxPrimary": 30,
         "xpPerStatPoint": 30,
         "hireGold": 0,
-        "wageGoldPerWorkingGameHour": 3
+        "wageGoldPerWorkingGameHour": 3,
+        "training": {
+          "enabled": true,
+          "costGold": 10,
+          "maxTargetLevel": 3,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0,
+          "unpaidOvertimeWorkingWageGoldReduction": 0.5,
+          "minimumWorkingWageGold": 0
+        }
       },
       "level_4": {
         "maxHealth": 40,
@@ -758,7 +1238,25 @@
         "maxPrimary": 40,
         "xpPerStatPoint": 40,
         "hireGold": 0,
-        "wageGoldPerWorkingGameHour": 4
+        "wageGoldPerWorkingGameHour": 4,
+        "training": {
+          "enabled": true,
+          "costGold": 15,
+          "maxTargetLevel": 4,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0,
+          "unpaidOvertimeWorkingWageGoldReduction": 0.5,
+          "minimumWorkingWageGold": 0
+        }
       },
       "level_5": {
         "maxHealth": 50,
@@ -770,7 +1268,25 @@
         "maxPrimary": 50,
         "xpPerStatPoint": 50,
         "hireGold": 0,
-        "wageGoldPerWorkingGameHour": 5
+        "wageGoldPerWorkingGameHour": 5,
+        "training": {
+          "enabled": true,
+          "costGold": 20,
+          "maxTargetLevel": 5,
+          "location": "staff_room",
+          "preserveEarnedStats": true
+        },
+        "researchModifiers": {
+          "fleetFootedSpeedMultiplier": 2,
+          "toolbeltResetSkillBonus": 5,
+          "precisionKitResetSkillBonus": 10,
+          "resetSkillBonusesStack": false,
+          "restThresholdConfigurable": true,
+          "unpaidOvertimeHireGoldReduction": 1,
+          "minimumHireGold": 0,
+          "unpaidOvertimeWorkingWageGoldReduction": 0.5,
+          "minimumWorkingWageGold": 0
+        }
       }
     }
   },
@@ -960,6 +1476,193 @@
         "startingGold": 100,
         "primaryName": "divinity"
       }
+    },
+    "spawners": {
+      "level_1": {
+        "spawnTier": 1,
+        "spawnRate": 1,
+        "baseSpawnPeriodInGameHours": 1,
+        "spawnIntervalMultiplier": 0.75,
+        "maxSpawnPoints": 2,
+        "activePlaySpawnSpeedMultiplier": 2,
+        "guildII": {
+          "spawnIntervalMultiplier": 0.75,
+          "populationCapacityBonus": 20,
+          "formationGameSeconds": 360
+        },
+        "guildIII": {
+          "spawnIntervalMultiplier": 0.6,
+          "populationCapacityBonus": 40,
+          "formationGameSeconds": 240
+        },
+        "modifierComposition": "Use the smallest unlocked spawn interval multiplier (strongest reduction); do not multiply tier and guild reductions. Active-play speed applies separately.",
+        "shortSightedTraining": {
+          "statGainPerCourse": 1,
+          "xpThresholdGainPerCourse": 1,
+          "maxCourses": 3
+        },
+        "extraArrivalPointCapacity": 10,
+        "effectiveIntervalMultiplierWithGuildII": 0.75,
+        "effectiveIntervalMultiplierWithGuildIII": 0.6,
+        "localAds": {
+          "additionalArrivalPoints": 2,
+          "purchaseGoldPerPoint": 25,
+          "populationCapacityPerPoint": 10
+        },
+        "basicGuild": {
+          "formationRealSeconds": 20,
+          "formationGameSeconds": 480,
+          "selectMissingPartyRoles": true
+        }
+      },
+      "level_2": {
+        "spawnTier": 2,
+        "spawnRate": 1,
+        "baseSpawnPeriodInGameHours": 1,
+        "spawnIntervalMultiplier": 0.75,
+        "maxSpawnPoints": 3,
+        "activePlaySpawnSpeedMultiplier": 2,
+        "guildII": {
+          "spawnIntervalMultiplier": 0.75,
+          "populationCapacityBonus": 20,
+          "formationGameSeconds": 360
+        },
+        "guildIII": {
+          "spawnIntervalMultiplier": 0.6,
+          "populationCapacityBonus": 40,
+          "formationGameSeconds": 240
+        },
+        "modifierComposition": "Use the smallest unlocked spawn interval multiplier (strongest reduction); do not multiply tier and guild reductions. Active-play speed applies separately.",
+        "shortSightedTraining": {
+          "statGainPerCourse": 1,
+          "xpThresholdGainPerCourse": 1,
+          "maxCourses": 3
+        },
+        "extraArrivalPointCapacity": 10,
+        "effectiveIntervalMultiplierWithGuildII": 0.75,
+        "effectiveIntervalMultiplierWithGuildIII": 0.6,
+        "localAds": {
+          "additionalArrivalPoints": 2,
+          "purchaseGoldPerPoint": 25,
+          "populationCapacityPerPoint": 10
+        },
+        "basicGuild": {
+          "formationRealSeconds": 20,
+          "formationGameSeconds": 480,
+          "selectMissingPartyRoles": true
+        }
+      },
+      "level_3": {
+        "spawnTier": 3,
+        "spawnRate": 1,
+        "baseSpawnPeriodInGameHours": 1,
+        "spawnIntervalMultiplier": 0.5,
+        "maxSpawnPoints": 4,
+        "activePlaySpawnSpeedMultiplier": 2,
+        "guildII": {
+          "spawnIntervalMultiplier": 0.75,
+          "populationCapacityBonus": 20,
+          "formationGameSeconds": 360
+        },
+        "guildIII": {
+          "spawnIntervalMultiplier": 0.6,
+          "populationCapacityBonus": 40,
+          "formationGameSeconds": 240
+        },
+        "modifierComposition": "Use the smallest unlocked spawn interval multiplier (strongest reduction); do not multiply tier and guild reductions. Active-play speed applies separately.",
+        "shortSightedTraining": {
+          "statGainPerCourse": 1,
+          "xpThresholdGainPerCourse": 1,
+          "maxCourses": 3
+        },
+        "extraArrivalPointCapacity": 10,
+        "effectiveIntervalMultiplierWithGuildII": 0.5,
+        "effectiveIntervalMultiplierWithGuildIII": 0.5,
+        "localAds": {
+          "additionalArrivalPoints": 2,
+          "purchaseGoldPerPoint": 25,
+          "populationCapacityPerPoint": 10
+        },
+        "basicGuild": {
+          "formationRealSeconds": 20,
+          "formationGameSeconds": 480,
+          "selectMissingPartyRoles": true
+        }
+      },
+      "level_4": {
+        "spawnTier": 4,
+        "spawnRate": 1,
+        "baseSpawnPeriodInGameHours": 1,
+        "spawnIntervalMultiplier": 0.25,
+        "maxSpawnPoints": 5,
+        "activePlaySpawnSpeedMultiplier": 2,
+        "guildII": {
+          "spawnIntervalMultiplier": 0.75,
+          "populationCapacityBonus": 20,
+          "formationGameSeconds": 360
+        },
+        "guildIII": {
+          "spawnIntervalMultiplier": 0.6,
+          "populationCapacityBonus": 40,
+          "formationGameSeconds": 240
+        },
+        "modifierComposition": "Use the smallest unlocked spawn interval multiplier (strongest reduction); do not multiply tier and guild reductions. Active-play speed applies separately.",
+        "shortSightedTraining": {
+          "statGainPerCourse": 1,
+          "xpThresholdGainPerCourse": 1,
+          "maxCourses": 3
+        },
+        "extraArrivalPointCapacity": 10,
+        "effectiveIntervalMultiplierWithGuildII": 0.25,
+        "effectiveIntervalMultiplierWithGuildIII": 0.25,
+        "localAds": {
+          "additionalArrivalPoints": 2,
+          "purchaseGoldPerPoint": 25,
+          "populationCapacityPerPoint": 10
+        },
+        "basicGuild": {
+          "formationRealSeconds": 20,
+          "formationGameSeconds": 480,
+          "selectMissingPartyRoles": true
+        }
+      },
+      "level_5": {
+        "spawnTier": 5,
+        "spawnRate": 1,
+        "baseSpawnPeriodInGameHours": 1,
+        "spawnIntervalMultiplier": 0.25,
+        "maxSpawnPoints": 6,
+        "activePlaySpawnSpeedMultiplier": 2,
+        "guildII": {
+          "spawnIntervalMultiplier": 0.75,
+          "populationCapacityBonus": 20,
+          "formationGameSeconds": 360
+        },
+        "guildIII": {
+          "spawnIntervalMultiplier": 0.6,
+          "populationCapacityBonus": 40,
+          "formationGameSeconds": 240
+        },
+        "modifierComposition": "Use the smallest unlocked spawn interval multiplier (strongest reduction); do not multiply tier and guild reductions. Active-play speed applies separately.",
+        "shortSightedTraining": {
+          "statGainPerCourse": 1,
+          "xpThresholdGainPerCourse": 1,
+          "maxCourses": 3
+        },
+        "extraArrivalPointCapacity": 10,
+        "effectiveIntervalMultiplierWithGuildII": 0.25,
+        "effectiveIntervalMultiplierWithGuildIII": 0.25,
+        "localAds": {
+          "additionalArrivalPoints": 2,
+          "purchaseGoldPerPoint": 25,
+          "populationCapacityPerPoint": 10
+        },
+        "basicGuild": {
+          "formationRealSeconds": 20,
+          "formationGameSeconds": 480,
+          "selectMissingPartyRoles": true
+        }
+      }
     }
   },
   "rest": {
@@ -968,19 +1671,33 @@
         "initialCapacity": 10,
         "capacityPurchaseGoldPerBed": 5,
         "recoveryPointsPerGameHour": 2,
-        "staffOnly": false
+        "staffOnly": false,
+        "entryFeeGold": 1,
+        "doorAssetTier": 1
       },
       "level_2": {
         "initialCapacity": 10,
         "capacityPurchaseGoldPerBed": 5,
         "recoveryPointsPerGameHour": 3,
-        "staffOnly": false
+        "staffOnly": false,
+        "entryFeeGold": 2,
+        "doorAssetTier": 2
       },
       "level_3": {
         "initialCapacity": 10,
         "capacityPurchaseGoldPerBed": 5,
         "recoveryPointsPerGameHour": 4,
-        "staffOnly": false
+        "staffOnly": false,
+        "entryFeeGold": 3,
+        "doorAssetTier": 3
+      },
+      "level_4": {
+        "initialCapacity": 10,
+        "capacityPurchaseGoldPerBed": 5,
+        "recoveryPointsPerGameHour": 5,
+        "staffOnly": false,
+        "entryFeeGold": 4,
+        "doorAssetTier": 4
       }
     },
     "staffRooms": {
@@ -988,19 +1705,25 @@
         "initialCapacity": 10,
         "capacityPurchaseGoldPerBed": 5,
         "recoveryPointsPerGameHour": 2,
-        "staffOnly": true
+        "staffOnly": true,
+        "entryFeeGold": 0,
+        "doorAssetTier": 1
       },
       "level_2": {
         "initialCapacity": 10,
         "capacityPurchaseGoldPerBed": 5,
         "recoveryPointsPerGameHour": 3,
-        "staffOnly": true
+        "staffOnly": true,
+        "entryFeeGold": 0,
+        "doorAssetTier": 2
       },
       "level_3": {
         "initialCapacity": 10,
         "capacityPurchaseGoldPerBed": 5,
         "recoveryPointsPerGameHour": 4,
-        "staffOnly": true
+        "staffOnly": true,
+        "entryFeeGold": 0,
+        "doorAssetTier": 3
       }
     }
   },
@@ -1014,24 +1737,25 @@
       "staffRoomCapacity": 10,
       "bedExpansionGold": 5,
       "restFeeGold": 0,
-      "restFeeRange": [
-        0,
-        10
-      ],
-      "trainingPriceGoldRange": [
-        1,
-        5
-      ],
+      "restFeeRange": [0, 10],
+      "trainingPriceGoldRange": [1, 5],
       "trainingMaxCourses": 3,
-      "mobLimitRange": [
-        0,
-        20
-      ],
+      "mobLimitRange": [0, 20],
       "extraBedLimitPerRoom": 50,
       "minimumParty": {
         "fighter": 2,
         "wizard": 1,
         "healer": 1
+      }
+    },
+    "researchModifiers": {
+      "unpaidOvertime": {
+        "staffHireGoldReduction": 1,
+        "defenderWorkingWageGoldReduction": 0.5
+      },
+      "guildGrant": {
+        "goldBonus": 1,
+        "trigger": "adventurer_stat_gain_at_floor_checkpoint"
       }
     }
   },
@@ -1047,9 +1771,9 @@
       "stats": "permanent baselines unless prefixed current"
     },
     "notes": [
-      "Five levels are defined for floors, traps, mobs, adventurers, staff and treasure. Rest rooms retain the three levels already proposed.",
+      "Five entity tiers; visitor rest rooms I\u2013IV and staff rest rooms I\u2013III are defined.",
       "A floor-group level is its structural tier, not its floor number. Each floor group contains five floors.",
-      "Equal min/max values indicate a fixed value; null spawner costs remain unspecified.",
+      "Equal min/max values indicate fixed values. Initial mob spawners have no separate price; the floor installation order costs 5 gold.",
       "No research descriptions, unlock state or asset specifications are stored in this file.",
       "Research unlocks reference this file using statsPath JSON pointers."
     ],
@@ -1059,8 +1783,32 @@
       "primary": "strength, mana or divinity; consumable current resource separate from permanent maximum",
       "xpPerStatPoint": "higher means slower learning; not a beneficial learning-rate multiplier",
       "researchTier": "content tier, distinct from skill-point gains",
-      "resourceRecovery": "quiet outside rooms: 0.5 points/game hour to health, defense, stamina and primary; baseline rooms: 2; room tiers: 3 and 4",
+      "resourceRecovery": "Quiet outside rooms: 0.5 points/game hour; room tiers I/II/III/IV recover 2/3/4/5 points per game hour. Staff room IV is not unlocked.",
       "xp": "one XP per qualifying skill use; spend stamina awards one stamina XP event, not one per point; defense XP on absorbed damage; checkpoint commits adventurer XP, office rest commits staff XP"
+    },
+    "auditNotes": [
+      "Synchronized with saved research table inspected 22 September 2026. Research modifiers are conditional, not baked into baseline stats.",
+      "No bear traps, fire traps, skeleton ghouls or extra chest tiers were added. Crystal is the renamed level-four chest.",
+      "Rest I uses unlock value 2/hour rather than conflicting description 3/hour. Rest II/III/IV values 3/4/5 are rates, not cumulative bonuses.",
+      "Luxury Suites explicitly repeats staff room III; staff room IV remains undefined.",
+      "Review decisions applied 22 September 2026: one-third chest success after Better basic treasure; Guild Grant pays per stat gained; final builder upgrade is tier IV; strongest spawn bonus only; no separate initial spawner price."
+    ]
+  },
+  "training": {
+    "revival": {
+      "level_1": {
+        "courseCostGold": 10,
+        "payer": "healer",
+        "windowGameMinutes": 5,
+        "baseCastGameMinutes": 1,
+        "castTimeFormula": "1 * 10 / max(1, healer.speed) game minutes",
+        "staminaCostFractionOfMax": 0.6666666666666666,
+        "staminaCostRounding": "ceil",
+        "restoredHealthFractionOfMax": 0.5,
+        "changesMaxHealth": false,
+        "restoredDefense": 0,
+        "automaticCourse": "Once per healer in town after research if affordable"
+      }
     }
   }
 }

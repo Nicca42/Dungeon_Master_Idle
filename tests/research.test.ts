@@ -158,3 +158,33 @@ test('excavation estimates include deepest-first building work before mining res
   assert.equal(advanceTo(s, eta - 1).floors[1]!.stage, 'excavating');
   assert.equal(advanceTo(s, eta).floors[1]!.stage, 'foundation');
 });
+
+test('new foundations receive researched architecture before furnishing continues', () => {
+  let s = demoState();
+  s.parties = [];
+  s.nextArrivalAt = s.now + 100 * HOUR;
+  s.research.push('building');
+  s.floors[0].level = 2;
+  s.floors[0].health = s.floors[0].defense = 20;
+  const floor = s.floors[1];
+  floor.stage = 'foundation';
+  floor.required = 1;
+  floor.work = 0;
+  s.actors = s.actors.filter((a) => a.role === 'miner').slice(0, 1);
+  s.actors[0].primary = 20;
+  s.actors[0].stamina = 100;
+  s.actors[0].maxStamina = 100;
+  s.actors[0].status = 'working';
+  s = advanceTo(s, HOUR);
+  assert.equal(s.floors[1].stage, 'furnishing');
+  assert.equal(s.floors[1].upgradeWork, 0);
+  s = advanceTo(s, 2 * HOUR);
+  assert.equal(s.floors[1].upgradeWork, 1);
+  assert.equal(s.floors[1].work, 0);
+  s = advanceTo(s, 7 * HOUR);
+  assert.equal(s.floors[1].level, 2);
+  assert.equal(s.floors[1].health, 20);
+  assert.equal(s.floors[1].defense, 20);
+  assert.equal(s.floors[1].stage, 'furnishing');
+  assert.equal(s.floors[1].upgradeWork, undefined);
+});

@@ -1,3 +1,4 @@
+import { fixtureTierLimit } from '../game/progression';
 import { availableFixtures, fixtureName } from '../game/fixtures';
 import React, { useEffect, useRef, useState } from 'react';
 import { View, PanResponder, Animated, ScrollView, Pressable, Platform } from 'react-native';
@@ -59,7 +60,7 @@ function Tile({
   const sprite: SpriteKind =
     e.kind === 'wood'
       ? 'chest'
-      : ['arrows', 'trapdoor'].includes(e.kind)
+      : e.kind === 'trapdoor'
         ? 'trap'
         : (e.kind as SpriteKind);
   const label = ['zombie', 'slime'].includes(e.kind)
@@ -317,6 +318,21 @@ export function FloorLayoutEditor({
           })}
         </View>
       </ScrollView>
+      <Row style={{ flexWrap: 'wrap' }}>
+        {f.encounters
+          .filter((e) => !e.roaming && (e.tier ?? 1) < fixtureTierLimit(g, e.kind))
+          .map((e) => (
+            <Button
+              key={e.id}
+              compact
+              onPress={() =>
+                void dispatch({ type: 'upgradeFixture', floor: f.id, encounter: e.id })
+              }
+            >
+              Upgrade {e.kind} to {(e.tier ?? 1) + 1} · {((e.tier ?? 1) + 1) * 10} gold
+            </Button>
+          ))}
+      </Row>
       {adding !== null && (
         <Panel>
           <Heading size={20}>Add trap · slot {adding + 1}</Heading>

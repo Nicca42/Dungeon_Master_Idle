@@ -1,3 +1,5 @@
+import { unlockedTier, spawnPointLimit } from '../game/progression';
+import { RESEARCH_ART, ResearchIcon } from './ResearchArt';
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { GameState } from '../game/types';
@@ -37,7 +39,12 @@ export function ResearchPanel({ g, busy }: { g: GameState; busy: boolean }) {
         <Body>
           {page + 1} / {RESEARCH_CATEGORIES.length}
         </Body>
-        <Button compact secondary disabled={page === 5} onPress={() => setPage((p) => p + 1)}>
+        <Button
+          compact
+          secondary
+          disabled={page === RESEARCH_CATEGORIES.length - 1}
+          onPress={() => setPage((p) => p + 1)}
+        >
           Next category
         </Button>
       </Row>
@@ -59,7 +66,17 @@ export function ResearchPanel({ g, busy }: { g: GameState; busy: boolean }) {
       {pending.map((r, i) => (
         <Panel key={r.id} style={{ borderColor: i === 0 ? c.gold : c.border }}>
           <Label color={c.gold}>{i === 0 ? 'Next research' : category}</Label>
-          <Heading size={23}>{r.name}</Heading>
+          <Row>
+            <ResearchIcon
+              branch={
+                RESEARCH_ART.find((b) => b.id === r.icon) ??
+                RESEARCH_ART.find((b) => b.name === category) ??
+                RESEARCH_ART[0]
+              }
+              level={Math.min(5, Number(r.id.match(/\d$/)?.[0] ?? 1))}
+            />
+            <Heading size={23}>{r.name}</Heading>
+          </Row>
           <Body style={{ marginVertical: 8 }}>{r.description}</Body>
           {r.id === 'depths' && (
             <Body>
@@ -130,7 +147,7 @@ export function AdventurerOffice({ g, busy }: { g: GameState; busy: boolean }) {
         disabled={
           busy ||
           !g.research.includes('localAds') ||
-          g.spawnPoints >= 3 ||
+          g.spawnPoints >= spawnPointLimit(g) ||
           g.gold < rule(g, 'cost.spawn') * 100
         }
         onPress={() => void dispatch({ type: 'buySpawnPoint' })}
@@ -150,12 +167,12 @@ export function AdventurerOffice({ g, busy }: { g: GameState; busy: boolean }) {
             disabled={
               busy ||
               !g.research.includes('level2Adventurers') ||
-              (g.spawnTiers?.[point] ?? 1) === 2 ||
+              (g.spawnTiers?.[point] ?? 1) >= unlockedTier(g, 'adventurer') ||
               g.gold < 2500
             }
             onPress={() => void dispatch({ type: 'upgradeSpawn', point })}
           >
-            Upgrade to level 2 · 25 gold
+            Upgrade to level {(g.spawnTiers?.[point] ?? 1) + 1} · 25 gold
           </Button>
         </Panel>
       ))}

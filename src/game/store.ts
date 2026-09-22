@@ -1,3 +1,4 @@
+import { migrateContentDefaults } from './contentMigration';
 import { defaultArtChoices } from './appearance';
 import { DEFAULT_RULES, Rules, applyRules, validateRules } from './config';
 import { create } from 'zustand';
@@ -125,6 +126,11 @@ export function initialize(retry = false) {
     baseline = validateRules((await repository.readBaseline()) ?? DEFAULT_RULES);
     const result = await repository.read();
     saved = result.save ?? { state: initialState(42691, baseline), wall: Date.now() };
+    if ((saved.state.contentRevision ?? 0) < 1) {
+      baseline = validateRules(migrateContentDefaults(baseline));
+      saved.state.contentRevision = 1;
+      await repository.writeBaseline(baseline);
+    }
     saved.state.artChoices = { ...defaultArtChoices(), ...saved.state.artChoices };
     if (JSON.stringify(saved.state.config ?? DEFAULT_RULES) !== JSON.stringify(baseline))
       saved.state = applyRules(saved.state, baseline);

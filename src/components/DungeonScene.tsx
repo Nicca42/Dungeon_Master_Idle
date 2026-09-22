@@ -1,3 +1,12 @@
+import { inactiveOfficeStaff } from '../game/idleStaff';
+import { StaffTransit, StaffTravel, useStaffTransit } from './StaffTransit';
+import { useRouter } from 'expo-router';
+import { PixelActionIcon } from './PixelActionIcon';
+import { CharacterActions } from './CharacterAction';
+import { latestActorCues, cueKey } from '../game/actionVisuals';
+import { ActionEffect } from './ActionEffect';
+import { roomTier, unlockedTier } from '../game/progression';
+import { TierSlime } from './TierArt';
 import { installationProgress } from '../game/installation';
 import { staffSpeed } from '../game/staffSpeed';
 import { arrivalAt } from '../game/spawnTiming';
@@ -113,68 +122,6 @@ function Spinner({
     </Animated.View>
   );
 }
-function ActionBubble({ actions, reduced }: { actions: ActionCue[]; reduced: boolean }) {
-  const [index, setIndex] = useState(0),
-    [unlocked, setUnlocked] = useState(false);
-  const motion = useRef(new Animated.Value(0)).current;
-  const key = actions.map((a) => `${a.time}${a.kind}${a.actor}`).join('|');
-  useEffect(() => {
-    setIndex(0);
-    setUnlocked(false);
-    const timer = setTimeout(() => setUnlocked(true), 650);
-    const cycle = setInterval(() => setIndex((i) => (i + 1) % Math.max(1, actions.length)), 1600);
-    return () => {
-      clearTimeout(timer);
-      clearInterval(cycle);
-    };
-  }, [key]);
-  useEffect(() => {
-    if (reduced) return;
-    const a = Animated.loop(
-      Animated.sequence([
-        Animated.timing(motion, { toValue: -3, duration: 650, useNativeDriver: true }),
-        Animated.timing(motion, { toValue: 0, duration: 650, useNativeDriver: true }),
-      ]),
-    );
-    a.start();
-    return () => a.stop();
-  }, [reduced]);
-  const a = actions[index % actions.length];
-  if (!a) return null;
-  const Icon =
-    a.kind === 'lock'
-      ? unlocked && a.success
-        ? LockOpen
-        : LockKeyhole
-      : a.kind === 'attack'
-        ? Swords
-        : a.kind === 'defend'
-          ? Shield
-          : a.kind === 'heal'
-            ? Heart
-            : Eye;
-  return (
-    <Animated.View
-      accessibilityLabel={`${a.actor}: ${a.kind}, difficulty ${a.difficulty}, power ${a.power}, ${a.success ? 'success' : 'failed'}`}
-      style={{
-        alignItems: 'center',
-        transform: [{ translateY: motion }],
-        backgroundColor: '#1c1827ed',
-        paddingHorizontal: 4,
-        paddingVertical: 2,
-        borderRadius: 5,
-        borderWidth: 1,
-        borderColor: '#6b5267',
-      }}
-    >
-      <Row style={{ gap: 7 }}>
-        <Text style={{ fontFamily: fonts.medium, color: c.red, fontSize: 10 }}>{a.difficulty}</Text>
-        <Icon size={12} color={a.success ? c.gold : c.red} />
-        <Text style={{ fontFamily: fonts.medium, color: c.green, fontSize: 10 }}>{a.power}</Text>
-      </Row>
-    </Animated.View>
-  );
-}
 function Cave({
   x,
   y,
@@ -224,7 +171,7 @@ function Cave({
           color: '#fff4de',
         }}
       >
-        {entry ? 'ENTRY' : 'EXIT'}
+        {entry ? 'NEXT LVL' : 'EXIT'}
       </Text>
     </View>
   );
@@ -258,6 +205,7 @@ function SurfaceParty({ g, p, reduced }: { g: GameState; p: Party; reduced: bool
         .filter((a): a is Actor => !!a && a.health > 0)
         .map((a) => (
           <Sprite
+            sceneCharacter
             key={a.id}
             kind={a.role}
             saturation={a.outfitSaturation}
@@ -277,24 +225,36 @@ function WalkingWorker({
   start,
   reduced,
   children,
+  arriveAt,
+  now,
 }: {
+  arriveAt?: number;
+  now: number;
   speed: number;
   target: number;
   start: number;
   reduced: boolean;
-  children: React.ReactNode;
+  children: (arrived: boolean) => React.ReactNode;
 }) {
   const x = useRef(new Animated.Value(start)).current;
+  const [arrived, setArrived] = useState(start === target);
   useEffect(() => {
+    setArrived(false);
     const motion = Animated.timing(x, {
       toValue: target,
-      duration: reduced ? 0 : (8000 * 10) / speed,
+      duration: reduced
+        ? 0
+        : arriveAt !== undefined
+          ? Math.max(0, (arriveAt - now) / TIME_SCALE)
+          : (8000 * 10) / speed,
       easing: Easing.linear,
       useNativeDriver: true,
     });
-    motion.start();
+    motion.start(({ finished }) => {
+      if (finished) setArrived(true);
+    });
     return () => motion.stop();
-  }, [target, reduced, speed]);
+  }, [target, reduced, speed, arriveAt]);
   return (
     <Animated.View
       style={{
@@ -305,7 +265,7 @@ function WalkingWorker({
         transform: [{ translateX: x }],
       }}
     >
-      {children}
+      {children(arrived)}
     </Animated.View>
   );
 }
@@ -327,6 +287,7 @@ function SurfaceMob({ e, reduced }: { e: GameState['escapedMobs'][number]; reduc
     >
       <HealthBars health={e.health} defense={e.defense} />
       <Sprite
+        sceneCharacter
         kind={e.kind}
         variant={e.variant}
         saturation={e.saturation}
@@ -388,6 +349,7 @@ function SecurityGuard({
           <Progress value={a.stamina / a.maxStamina} color={c.green} height={3} />
         </View>
         <Sprite
+          sceneCharacter
           kind="defender"
           saturation={a.outfitSaturation}
           variant={a.variant}
@@ -403,6 +365,7 @@ function SecurityGuard({
 }
 function SurfaceLife({
   g,
+  travels,
   onAdmin,
   onActor,
   onDiggers,
@@ -410,12 +373,14 @@ function SurfaceLife({
   reduced,
 }: {
   g: GameState;
+  travels: StaffTravel[];
   onAdmin: () => void;
   onDiggers: () => void;
   onDefenders: () => void;
   onActor: (a: Actor) => void;
   reduced: boolean;
 }) {
+  const router = useRouter();
   const [showTown, setShowTown] = useState(false);
   const foreground = useGame((s) => s.foreground);
   const guildForecast = guildPartyForecast(g, foreground);
@@ -431,29 +396,61 @@ function SurfaceLife({
   const readyRoles = waitingPartyCounts(g);
   const warning = React.useMemo(() => defenseWarning(g), [g.actors, g.escapedMobs, g.officeHealth]);
   const guards = g.actors.filter((a) => a.role === 'defender' && a.health > 0);
-  const workers = g.actors.filter(
-    (a) =>
-      a.role === 'maintenance' &&
-      a.health > 0 &&
-      a.status !== 'resting' &&
-      a.stamina === a.maxStamina &&
-      !a.task &&
-      !a.workFloor,
-  );
+  const inactive = inactiveOfficeStaff(g, new Set(travels.map((t) => t.actor.id)));
   return (
     <>
       {['ready', 'open'].includes(g.floors[0]!.stage) && (
         <Cave x={90} y={70} entry locked={g.floors[0]!.stage !== 'open'} />
       )}
 
+      <StaffTransit travels={travels} floor={0} reduced={reduced} onActor={onActor} />
+      {g.office && (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={`${inactive.length} inactive staff inside headquarters`}
+          onPress={onAdmin}
+          style={{
+            position: 'absolute',
+            left: 309,
+            top: 134,
+            width: 40,
+            zIndex: 65,
+            alignItems: 'center',
+          }}
+        >
+          <Text style={{ fontFamily: fonts.medium, fontSize: 9, color: c.gold }}>
+            {inactive.length} idle
+          </Text>
+        </Pressable>
+      )}
       {g.office && (
         <Pressable
           accessibilityRole="button"
           accessibilityLabel="Staff-only office rest room"
           onPress={onDefenders}
-          style={{ position: 'absolute', left: 392, top: 83, zIndex: 65, alignItems: 'center' }}
+          style={{
+            position: 'absolute',
+            left: 353,
+            top: 99,
+            width: 29,
+            height: 35,
+            zIndex: 65,
+            alignItems: 'center',
+          }}
         >
-          <Text style={{ fontFamily: fonts.bold, fontSize: 9, color: '#8fc7ff' }}>STAFF ONLY</Text>
+          <Text
+            style={{
+              position: 'absolute',
+              top: -13,
+              width: 80,
+              textAlign: 'center',
+              fontFamily: fonts.bold,
+              fontSize: 9,
+              color: '#8fc7ff',
+            }}
+          >
+            STAFF ONLY
+          </Text>
           <Svg width={29} height={35} viewBox="0 0 24 30">
             <Rect x={1} y={0} width={22} height={30} fill="#263b58" />
             <Rect x={4} y={3} width={16} height={26} fill="#397dc1" />
@@ -461,10 +458,39 @@ function SurfaceLife({
             <Rect x={16} y={17} width={2} height={3} fill="#edc778" />
             <Path d="M7 14V26M12 14V26" stroke="#28609a" strokeWidth={1} />
           </Svg>
-          <Text style={{ fontFamily: fonts.medium, fontSize: 9, color: '#8fc7ff' }}>
+          <Text
+            style={{
+              position: 'absolute',
+              top: 35,
+              width: 48,
+              textAlign: 'center',
+              fontFamily: fonts.medium,
+              fontSize: 9,
+              color: '#8fc7ff',
+            }}
+          >
             {staffRoom(g).occupants.length}/{staffRoom(g).capacity}
             {staffRoom(g).queue.length ? ` · ${staffRoom(g).queue.length} waiting` : ''}
           </Text>
+        </Pressable>
+      )}
+      {g.office && !g.researchJob && (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="No research active: open research"
+          onPress={() => router.push('/research')}
+          style={{
+            position: 'absolute',
+            left: 266,
+            top: 39,
+            padding: 6,
+            backgroundColor: c.raised,
+            borderWidth: 1,
+            borderColor: c.gold,
+            zIndex: 60,
+          }}
+        >
+          <PixelActionIcon kind="search" color={c.gold} size={22} />
         </Pressable>
       )}
       {warning && (
@@ -496,7 +522,10 @@ function SurfaceLife({
       )}
       {guards
         .filter(
-          (a) => a.status !== 'resting' && (g.escapedMobs.length > 0 || a.stamina === a.maxStamina),
+          (a) =>
+            !travels.some((t) => t.actor.id === a.id) &&
+            a.status !== 'resting' &&
+            (g.escapedMobs.length > 0 || a.stamina === a.maxStamina),
         )
         .map((a, i) => (
           <SecurityGuard key={a.id} g={g} a={a} index={i} reduced={reduced} onActor={onActor} />
@@ -535,11 +564,26 @@ function SurfaceLife({
           accessibilityRole="button"
           accessibilityLabel="Basic Adventurers Guild"
           onPress={onAdmin}
-          style={{ position: 'absolute', left: 438, top: 88, width: 90, alignItems: 'center' }}
+          style={{
+            position: 'absolute',
+            left: 438,
+            top: 100,
+            width: 90,
+            height: 34,
+            alignItems: 'center',
+          }}
         >
           <Text
             testID="guild-party-countdown"
-            style={{ fontSize: 8, lineHeight: 12, color: c.gold }}
+            style={{
+              position: 'absolute',
+              bottom: 36,
+              width: 100,
+              textAlign: 'center',
+              fontSize: 8,
+              lineHeight: 12,
+              color: c.gold,
+            }}
           >
             {g.research.includes('guild2') ? 'GUILD II' : 'GUILD'} ·
             {guildForecast.remaining === null
@@ -568,6 +612,7 @@ function SurfaceLife({
             style={{ opacity: 0.4 }}
           >
             <Sprite
+              sceneCharacter
               variant={nextLook(g, nextArrivalClass(g, point), false).variant}
               saturation={nextLook(g, nextArrivalClass(g, point), false).saturation}
               kind={nextArrivalClass(g, point)}
@@ -603,7 +648,19 @@ function SurfaceLife({
           onPress={() => onActor(a)}
           style={{ position: 'absolute', left: 535 + i * 13, top: 104 }}
         >
+          {a.spawnedAt !== undefined && g.now - a.spawnedAt < TICK && (
+            <View style={{ position: 'absolute', top: -20 }}>
+              <ActionEffect
+                key={a.spawnedAt}
+                kind="Adventurer spawning"
+                tier={a.outfitTier}
+                once
+                hideOnComplete
+              />
+            </View>
+          )}
           <Sprite
+            sceneCharacter
             kind={a.role}
             saturation={a.outfitSaturation}
             variant={a.variant}
@@ -689,6 +746,7 @@ function SurfaceLife({
                   }}
                 >
                   <Sprite
+                    sceneCharacter
                     kind={a.role}
                     saturation={a.outfitSaturation}
                     variant={a.variant}
@@ -723,26 +781,6 @@ function SurfaceLife({
         .map((p) => (
           <SurfaceParty key={p.id} g={g} p={p} reduced={reduced} />
         ))}
-      {workers.map((a, i) => (
-        <Pressable
-          key={a.id}
-          accessibilityRole="button"
-          accessibilityLabel={`Surface maintainer ${a.name}`}
-          onPress={() => onActor(a)}
-          style={{ position: 'absolute', left: 200 + i * 26, top: 97 }}
-        >
-          <HealthBars
-            health={a.health}
-            maxHealth={a.maxHealth}
-            defense={a.defense}
-            maxDefense={a.maxDefense}
-          />
-          <View style={{ width: 23 }}>
-            <Progress value={a.stamina / a.maxStamina} color={c.green} height={3} />
-          </View>
-          <Sprite kind="maintenance" size={28} facing={-1} />
-        </Pressable>
-      ))}
       {g.escapedMobs.map((e) => (
         <SurfaceMob key={e.id} e={e} reduced={reduced} />
       ))}
@@ -848,8 +886,10 @@ function PartySprites({
     .filter(
       (a) =>
         a &&
+        a.health > 0 &&
+        a.status !== 'dead' &&
         !f.restOccupants.some((o) => o.actorId === a.id) &&
-        !((resting || p.checkpointed) && a.stamina >= a.maxStamina),
+        !((resting || p.checkpointed) && fullyRecovered(a)),
     );
   return (
     <Animated.View
@@ -861,9 +901,9 @@ function PartySprites({
         zIndex: 3,
       }}
     >
-      {p.actions.length > 0 && (
-        <View style={{ position: 'absolute', top: -23, left: -20 }}>
-          <ActionBubble actions={p.actions} reduced={reduced} />
+      {resting && team.some((a) => a.health > 0 && !fullyRecovered(a)) && (
+        <View style={{ position: 'absolute', top: -30 }}>
+          <ActionEffect kind="Waiting for rest" size={28} />
         </View>
       )}
       <View
@@ -878,11 +918,16 @@ function PartySprites({
             accessibilityRole="button"
             accessibilityLabel={`Inspect ${a.name} ${a.id}`}
             onPress={() => onActor(a)}
-            style={{ width: 17, opacity: a.health > 0 ? 1 : 0.3 }}
+            style={{ width: 17, opacity: 1 }}
           >
+            <CharacterActions
+              key={latestActorCues(p.actions, a, team).map(cueKey).join('|')}
+              cues={latestActorCues(p.actions, a, team)}
+              reduced={reduced}
+            />
             {resting && <RestCheck checkedAt={a.restCheckedAt} now={g.now} reduced={reduced} />}
             <View
-              style={{ position: 'absolute', top: FLOOR_ROWS.stats - FLOOR_ROWS.actors - 28 }}
+              style={{ position: 'absolute', top: FLOOR_ROWS.stats - FLOOR_ROWS.actors - 18 }}
               testID="floor-character-bars"
             >
               <HealthBars
@@ -894,6 +939,7 @@ function PartySprites({
               />
             </View>
             <Sprite
+              sceneCharacter
               kind={a.role}
               saturation={a.outfitSaturation}
               variant={a.variant}
@@ -909,12 +955,14 @@ function PartySprites({
   );
 }
 function MobileMob({
+  now,
   f,
   e,
   reduced,
 }: {
   f: Floor;
   e: Floor['encounters'][number];
+  now: number;
   reduced: boolean;
 }) {
   const target = routeX(f, e.position);
@@ -943,13 +991,20 @@ function MobileMob({
       }}
     >
       <View
-        style={{ position: 'absolute', top: FLOOR_ROWS.stats - FLOOR_ROWS.actors - 28 }}
+        style={{ position: 'absolute', top: FLOOR_ROWS.stats - FLOOR_ROWS.actors - 18 }}
         testID="floor-character-bars"
       >
         <HealthBars health={e.health} defense={e.defense} maxDefense={e.maxDefense} />
       </View>
+      {e.spawnedAt !== undefined && now - e.spawnedAt < TICK && (
+        <View style={{ position: 'absolute', top: -12 }}>
+          <ActionEffect key={e.spawnedAt} kind="Mob spawning" tier={e.tier} once hideOnComplete />
+        </View>
+      )}
       <Sprite
+        sceneCharacter
         kind={e.kind as SpriteKind}
+        tier={e.tier}
         variant={e.variant}
         saturation={e.saturation}
         size={31}
@@ -959,7 +1014,7 @@ function MobileMob({
     </Animated.View>
   );
 }
-function UpgradeArt({ f, reduced }: { f: Floor; reduced: boolean }) {
+function UpgradeArt({ f, reduced, level }: { f: Floor; reduced: boolean; level: number }) {
   const target = 640 * Math.min(1, (f.upgradeWork ?? 0) / (f.upgradeRequired ?? 6));
   const width = useRef(new Animated.Value(target)).current;
   useEffect(() => {
@@ -979,7 +1034,7 @@ function UpgradeArt({ f, reduced }: { f: Floor; reduced: boolean }) {
       style={{ position: 'absolute', bottom: 0, left: 0, width, height: 112, overflow: 'hidden' }}
     >
       <View style={{ width: 640 }}>
-        <FloorArt built digging={false} index={f.id} level={2} encounters={NO_ENCOUNTERS} />
+        <FloorArt built digging={false} index={f.id} level={level} encounters={NO_ENCOUNTERS} />
       </View>
     </Animated.View>
   );
@@ -1110,7 +1165,7 @@ function Builder({
       }}
     >
       <View
-        style={{ position: 'absolute', top: FLOOR_ROWS.stats - FLOOR_ROWS.actors - 28 }}
+        style={{ position: 'absolute', top: FLOOR_ROWS.stats - FLOOR_ROWS.actors - 18 }}
         testID="floor-character-bars"
       >
         <HealthBars
@@ -1121,25 +1176,43 @@ function Builder({
         />
       </View>
       <View
-        style={{ width: 25, position: 'absolute', top: FLOOR_ROWS.stats - FLOOR_ROWS.actors - 16 }}
+        style={{ width: 25, position: 'absolute', top: FLOOR_ROWS.stats - FLOOR_ROWS.actors - 6 }}
       >
         <Progress value={a.stamina / a.maxStamina} height={3} color={c.green} />
       </View>
-      <View style={{ position: 'absolute', top: -12 }}>
-        <Hammer size={12} color={c.gold} />
-      </View>
-      <Sprite kind="miner" size={30} animate={!reduced} />
+      {f.stage === 'excavating' && a.stamina > 0 ? (
+        <View style={{ width: 36, height: 36 }}>
+          <View style={{ position: 'absolute', bottom: 0, left: -6 }}>
+            <ActionEffect kind="Digging" tier={a.outfitTier ?? 1} size={48} />
+          </View>
+        </View>
+      ) : (
+        <>
+          <View style={{ position: 'absolute', top: -12 }}>
+            <Hammer size={12} color={c.gold} />
+          </View>
+          <Sprite
+            sceneCharacter
+            kind="miner"
+            tier={a.outfitTier ?? 1}
+            size={30}
+            animate={!reduced}
+          />
+        </>
+      )}
     </Animated.View>
   );
 }
 function FloorCanvas({
   g,
+  travels,
   f,
   onActor,
   onRest,
   reduced,
 }: {
   g: GameState;
+  travels: StaffTravel[];
   f: Floor;
   onActor: (a: Actor) => void;
   onRest: (floor: number) => void;
@@ -1150,11 +1223,15 @@ function FloorCanvas({
   const waitingParties = g.parties.filter(
     (p) => p.floor === f.id && (p.checkpointed || f.restQueue.includes(p.id)),
   );
-  const built = ['ready', 'open'].includes(f.stage),
+  const built = ['furnishing', 'ready', 'open'].includes(f.stage),
     odd = true;
   const door = REST_CENTER - 14;
   const tasks = g.actors.filter(
-    (a) => a.role === 'maintenance' && a.health > 0 && (a.task?.floor ?? a.workFloor) === f.id,
+    (a) =>
+      a.role === 'maintenance' &&
+      !travels.some((t) => t.actor.id === a.id) &&
+      a.health > 0 &&
+      (a.task?.floor ?? a.workFloor) === f.id,
   );
   const crew = g.actors.filter((a) => a.role === 'miner' && a.health > 0);
   const workingFloor =
@@ -1197,7 +1274,9 @@ function FloorCanvas({
           ) : (
             <ExcavationArt f={f} reduced={reduced} />
           )}
-          {f.upgradeWork !== undefined && <UpgradeArt f={f} reduced={reduced} />}
+          {f.upgradeWork !== undefined && (
+            <UpgradeArt level={unlockedTier(g, 'floor')} f={f} reduced={reduced} />
+          )}
         </View>
       </View>
       <View
@@ -1309,24 +1388,25 @@ function FloorCanvas({
           ) : f.installation === 'installing' ? (
             <View style={{ backgroundColor: c.bg, padding: 8 }}>
               <Body>
-                {f.stage === 'furnishing' ? 'Installation queued · ' : 'Installing '}
+                Installing
                 {f.encounters.filter((e) => e.installed !== false).length}/{f.encounters.length}
               </Body>
-              <Body style={{ fontSize: 10 }}>1 stamina per fixture · maintainers required</Body>
+              <Body style={{ fontSize: 10 }}>1 stamina per fixture · maintainers working</Body>
             </View>
           ) : (
             <Button
-              disabled={f.id > 1 && g.floors[f.id - 2]!.stage !== 'open'}
+              disabled={f.stage !== 'ready' || (f.id > 1 && g.floors[f.id - 2]!.stage !== 'open')}
               onPress={() => void dispatch({ type: 'openFloor', floor: f.id })}
             >
-              open
+              {f.stage === 'furnishing' ? 'Fixtures installed · builders finishing' : 'open'}
             </Button>
           )}
         </View>
       )}
+      <StaffTransit travels={travels} floor={f.id} reduced={reduced} onActor={onActor} />
       {workingFloor?.id === f.id &&
         crew
-          .filter((a) => a.status !== 'resting')
+          .filter((a) => a.status !== 'resting' && !travels.some((t) => t.actor.id === a.id))
           .map((a, i) => <Builder key={a.id} a={a} f={f} index={i} reduced={reduced} />)}
       {built ? (
         <>
@@ -1378,11 +1458,17 @@ function FloorCanvas({
                     width={28}
                     height={44}
                     fill="#1a1722"
-                    stroke="#836b76"
+                    stroke={['#b27a42', '#b8c9d0', '#edc45f', '#ebc442'][roomTier(g) - 1]}
                     strokeWidth={4}
                   />
                   <Path d={`M${door + 4} 83v-4h20v4`} fill="#625266" />
-                  <Rect x={door + 5} y={87} width={18} height={37} fill="#40594e" />
+                  <Rect
+                    x={door + 5}
+                    y={87}
+                    width={18}
+                    height={37}
+                    fill={roomTier(g) === 4 ? '#e6b837' : '#675139'}
+                  />
                   <Rect x={door + 19} y={105} width={3} height={3} fill="#e9bb70" />
                 </G>
               )}
@@ -1394,7 +1480,7 @@ function FloorCanvas({
                       kind={
                         e.kind === 'wood'
                           ? 'chest'
-                          : e.kind === 'arrows' || e.kind === 'trapdoor'
+                          : e.kind === 'trapdoor'
                             ? 'trap'
                             : (e.kind as SpriteKind)
                       }
@@ -1408,24 +1494,14 @@ function FloorCanvas({
                   </G>
                 ) : e.roaming || e.installed === false ? null : (
                   <G key={e.id} transform={`translate(${routeX(f, i) + 15} 108)`}>
-                    {(e.kind === 'slime' ? g.artChoices?.puddle : g.artChoices?.coffin) ? (
+                    {e.kind === 'slime' ? (
                       <G transform="translate(-17 -12)">
-                        <SpawnArt
-                          kind={e.kind === 'slime' ? 'puddle' : 'coffin'}
-                          variant={e.kind === 'slime' ? g.artChoices?.puddle : g.artChoices?.coffin}
-                        />
+                        <TierSlime tier={e.tier ?? 1} puddle />
                       </G>
-                    ) : e.kind === 'slime' ? (
-                      <>
-                        <Path
-                          d="M-15 12L-12 7L-6 7L-4 3H5L8 7H13L16 12L12 17H-11Z"
-                          fill="#267b85"
-                          stroke="#153e53"
-                          strokeWidth={2}
-                        />
-                        <Path d="M-9 10L-4 6H4L8 10H12L9 13H-8Z" fill="#62bcb0" />
-                        <Rect x={-3} y={8} width={4} height={2} fill="#a0dfc6" />
-                      </>
+                    ) : g.artChoices?.coffin ? (
+                      <G transform="translate(-17 -12)">
+                        <SpawnArt kind="coffin" variant={g.artChoices?.coffin} />
+                      </G>
                     ) : (
                       <>
                         <Path
@@ -1604,18 +1680,6 @@ function FloorCanvas({
                       >
                         DMG {e.damage}
                       </Text>
-                      {e.kind === 'mimic' && (
-                        <Text
-                          style={{
-                            textAlign: 'center',
-                            fontFamily: fonts.medium,
-                            color: c.purple,
-                            fontSize: 8,
-                          }}
-                        >
-                          XP {e.xp ?? 0}
-                        </Text>
-                      )}
                     </>
                   )}
                 </View>
@@ -1681,7 +1745,7 @@ function FloorCanvas({
             .filter((e) => e.installed !== false && ['zombie', 'slime'].includes(e.kind))
             .map((e) => (
               <React.Fragment key={e.id}>
-                {e.active && <MobileMob f={f} e={e} reduced={reduced} />}
+                {e.active && <MobileMob now={g.now} f={f} e={e} reduced={reduced} />}
                 {!e.roaming && (
                   <View
                     style={{
@@ -1745,6 +1809,43 @@ function FloorCanvas({
             .map((p) => (
               <PartySprites key={p.id} g={g} f={f} p={p} reduced={reduced} onActor={onActor} />
             ))}
+          {(g.ghosts ?? [])
+            .filter((ghost) => ghost.floor === f.id)
+            .map((ghost) => {
+              const a = g.actors.find((a) => a.id === ghost.actorId);
+              if (!a) return null;
+              return (
+                <View
+                  key={`ghost-${a.id}`}
+                  accessibilityLabel={`${a.name}: ${ghost.hostile ? 'hostile ghost' : 'awaiting revival'}`}
+                  style={{
+                    position: 'absolute',
+                    left: routeX(f, ghost.node),
+                    top: FLOOR_ROWS.actors + 8,
+                    alignItems: 'center',
+                  }}
+                >
+                  <HealthBars
+                    health={ghost.health}
+                    maxHealth={ghost.maxHealth}
+                    defense={ghost.defense}
+                    maxDefense={ghost.maxDefense}
+                  />
+                  <View style={{ opacity: ghost.hostile ? 0.7 : 0.35 }}>
+                    <Sprite
+                      kind={a.role}
+                      tier={a.outfitTier}
+                      variant={a.variant}
+                      sceneCharacter
+                      eyeColor={ghost.hostile ? '#ff243e' : undefined}
+                    />
+                  </View>
+                  <Text style={{ fontSize: 8, color: ghost.hostile ? '#ff243e' : '#ddd' }}>
+                    {ghost.hostile ? 'Ghost' : countdown(ghost.deadline - g.now)}
+                  </Text>
+                </View>
+              );
+            })}
           {tasks.map((a, workerIndex) => {
             const index =
               a.task && a.task.kind !== 'repair'
@@ -1753,49 +1854,57 @@ function FloorCanvas({
             return (
               <WalkingWorker
                 speed={staffSpeed(g, a)}
+                arriveAt={a.task?.arriveAt}
+                now={g.now}
                 key={a.id}
                 target={a.returnUntil ? 35 : routeX(f, index) + 24}
-                start={a.task ? 35 : routeX(f, index) + 24}
+                start={a.returnUntil ? 35 : routeX(f, index) + 24}
                 reduced={reduced}
               >
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityLabel={`${a.name} ${a.task?.kind ?? a.status}, stamina ${a.stamina}/${a.maxStamina}`}
-                  onPress={() => onActor(a)}
-                  style={{ alignItems: 'center' }}
-                >
-                  <View
-                    style={{ position: 'absolute', top: FLOOR_ROWS.stats - FLOOR_ROWS.actors - 28 }}
-                    testID="floor-character-bars"
+                {(arrived) => (
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={`${a.name} ${a.task?.kind ?? a.status}, stamina ${a.stamina}/${a.maxStamina}`}
+                    onPress={() => onActor(a)}
+                    style={{ alignItems: 'center' }}
                   >
-                    <HealthBars
-                      health={a.health}
-                      maxHealth={a.maxHealth}
-                      defense={a.defense}
-                      maxDefense={a.maxDefense}
-                    />
-                  </View>
-                  <View
-                    style={{
-                      width: 28,
-                      position: 'absolute',
-                      top: FLOOR_ROWS.stats - FLOOR_ROWS.actors - 16,
-                    }}
-                  >
-                    <Progress value={a.stamina / a.maxStamina} color={c.green} height={3} />
-                  </View>
-                  {a.task && (a.task.arriveAt ?? 0) <= g.now && (
-                    <View style={{ position: 'absolute', top: -12 }}>
-                      <Hammer size={13} color={c.gold} />
+                    <View
+                      style={{
+                        position: 'absolute',
+                        top: FLOOR_ROWS.stats - FLOOR_ROWS.actors - 18,
+                      }}
+                      testID="floor-character-bars"
+                    >
+                      <HealthBars
+                        health={a.health}
+                        maxHealth={a.maxHealth}
+                        defense={a.defense}
+                        maxDefense={a.maxDefense}
+                      />
                     </View>
-                  )}
-                  <Sprite
-                    kind="maintenance"
-                    size={30}
-                    facing={a.returnUntil ? 1 : -1}
-                    animate={!reduced && (!!a.task || !!a.returnUntil)}
-                  />
-                </Pressable>
+                    <View
+                      style={{
+                        width: 28,
+                        position: 'absolute',
+                        top: FLOOR_ROWS.stats - FLOOR_ROWS.actors - 6,
+                      }}
+                    >
+                      <Progress value={a.stamina / a.maxStamina} color={c.green} height={3} />
+                    </View>
+                    {arrived && a.task && (a.task.arriveAt ?? 0) <= g.now && (
+                      <View style={{ position: 'absolute', top: -12 }}>
+                        <ActionEffect kind="Reset trap" size={28} />
+                      </View>
+                    )}
+                    <Sprite
+                      sceneCharacter
+                      kind="maintenance"
+                      size={30}
+                      facing={a.returnUntil ? 1 : -1}
+                      animate={!reduced && (!!a.task || !!a.returnUntil)}
+                    />
+                  </Pressable>
+                )}
               </WalkingWorker>
             );
           })}
@@ -1887,6 +1996,7 @@ export function DungeonScene({
   onDefenders: () => void;
   reduced: boolean;
 }) {
+  const travels = useStaffTransit(g, reduced);
   const [availableWidth, setAvailableWidth] = useState(640);
   const [sceneHeight, setSceneHeight] = useState(1350);
   const [zoomed, setZoomed] = useState(false);
@@ -1928,6 +2038,7 @@ export function DungeonScene({
               <Surface office={g.office} now={Math.floor(g.now / 60000) * 60000} />
               <SurfaceLife
                 g={g}
+                travels={travels}
                 reduced={reduced}
                 onAdmin={onAdmin}
                 onActor={onActor}
@@ -2127,7 +2238,14 @@ export function DungeonScene({
                         </Text>
                       </View>
                     </Pressable>
-                    <FloorCanvas g={g} f={f} onActor={onActor} onRest={onRest} reduced={reduced} />
+                    <FloorCanvas
+                      travels={travels}
+                      g={g}
+                      f={f}
+                      onActor={onActor}
+                      onRest={onRest}
+                      reduced={reduced}
+                    />
                     {i < 4 && <View style={{ height: 3 }} />}
                   </View>
                 ))}

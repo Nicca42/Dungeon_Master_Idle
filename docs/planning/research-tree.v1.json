@@ -41,8 +41,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "0.0 gold · 0 game hours",
-          "running": "Researching Get diggin' · {remainingHHMM}",
+          "ready": "0.0 gold \u00b7 0 game hours",
+          "running": "Researching Get diggin' \u00b7 {remainingHHMM}",
           "complete": "Get diggin' complete.",
           "tooltip": "The first five dungeon floors are unlocked.",
           "insufficientGold": "Not enough gold.",
@@ -55,10 +55,7 @@
         "description": "Reinforced foundations: 20 health and defense. Builders upgrade furnished floors from deepest to shallowest. Novice builders take twice as long.",
         "origin": "retained_from_demo_with_explicit_proposed_effects",
         "prerequisites": {
-          "allOf": [
-            "getDigging",
-            "staff"
-          ]
+          "allOf": ["getDigging", "staff"]
         },
         "costGold": 15.0,
         "durationGameHours": 6,
@@ -88,8 +85,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "15.0 gold · 6 game hours",
-          "running": "Researching Better building · {remainingHHMM}",
+          "ready": "15.0 gold \u00b7 6 game hours",
+          "running": "Researching Better building \u00b7 {remainingHHMM}",
           "complete": "Better building complete.",
           "tooltip": "Reinforced foundations: 20 health and defense. Builders upgrade furnished floors from deepest to shallowest. Novice builders take twice as long.",
           "insufficientGold": "Not enough gold.",
@@ -100,12 +97,10 @@
       },
       "depths_2": {
         "title": "Getting serious are we?",
-        "description": "Unlock floors 6–10. Excavation, construction and opening are separate orders.",
+        "description": "Unlock floors 6\u201310. Excavation, construction and opening are separate orders.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "getDigging"
-          ]
+          "allOf": ["getDigging"]
         },
         "costGold": 30,
         "durationGameHours": 8,
@@ -131,10 +126,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "30 gold · 8 game hours",
-          "running": "Researching Getting serious are we? · {remainingHHMM}",
+          "ready": "30 gold \u00b7 8 game hours",
+          "running": "Researching Getting serious are we? \u00b7 {remainingHHMM}",
           "complete": "Getting serious are we? complete.",
-          "tooltip": "Unlock floors 6–10. Excavation, construction and opening are separate orders.",
+          "tooltip": "Unlock floors 6\u201310. Excavation, construction and opening are separate orders.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
@@ -142,12 +137,10 @@
       },
       "depths_3": {
         "title": "Deeper ambitions 3",
-        "description": "Unlock floors 11–15. Excavation, construction and opening are separate orders.",
+        "description": "Unlock floors 11\u201315. Excavation, construction and opening are separate orders.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "depths_2"
-          ]
+          "allOf": ["depths_2"]
         },
         "costGold": 40,
         "durationGameHours": 8,
@@ -173,10 +166,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "40 gold · 8 game hours",
-          "running": "Researching Deeper ambitions 3 · {remainingHHMM}",
+          "ready": "40 gold \u00b7 8 game hours",
+          "running": "Researching Deeper ambitions 3 \u00b7 {remainingHHMM}",
           "complete": "Deeper ambitions 3 complete.",
-          "tooltip": "Unlock floors 11–15. Excavation, construction and opening are separate orders.",
+          "tooltip": "Unlock floors 11\u201315. Excavation, construction and opening are separate orders.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
@@ -184,12 +177,10 @@
       },
       "depths_4": {
         "title": "Deeper ambitions 4",
-        "description": "Unlock floors 16–20. Excavation, construction and opening are separate orders.",
+        "description": "Unlock floors 16\u201320. Excavation, construction and opening are separate orders.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "depths_3"
-          ]
+          "allOf": ["depths_3"]
         },
         "costGold": 50,
         "durationGameHours": 8,
@@ -215,10 +206,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "50 gold · 8 game hours",
-          "running": "Researching Deeper ambitions 4 · {remainingHHMM}",
+          "ready": "50 gold \u00b7 8 game hours",
+          "running": "Researching Deeper ambitions 4 \u00b7 {remainingHHMM}",
           "complete": "Deeper ambitions 4 complete.",
-          "tooltip": "Unlock floors 16–20. Excavation, construction and opening are separate orders.",
+          "tooltip": "Unlock floors 16\u201320. Excavation, construction and opening are separate orders.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
@@ -226,12 +217,10 @@
       },
       "depths_5": {
         "title": "Deeper ambitions 5",
-        "description": "Unlock floors 21–25. Excavation, construction and opening are separate orders.",
+        "description": "Unlock floors 21\u201325. Excavation, construction and opening are separate orders.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "depths_4"
-          ]
+          "allOf": ["depths_4"]
         },
         "costGold": 60,
         "durationGameHours": 8,
@@ -257,10 +246,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "60 gold · 8 game hours",
-          "running": "Researching Deeper ambitions 5 · {remainingHHMM}",
+          "ready": "60 gold \u00b7 8 game hours",
+          "running": "Researching Deeper ambitions 5 \u00b7 {remainingHHMM}",
           "complete": "Deeper ambitions 5 complete.",
-          "tooltip": "Unlock floors 21–25. Excavation, construction and opening are separate orders.",
+          "tooltip": "Unlock floors 21\u201325. Excavation, construction and opening are separate orders.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
@@ -268,12 +257,10 @@
       },
       "depths_6": {
         "title": "Deeper ambitions 6",
-        "description": "Unlock floors 26–30. Excavation, construction and opening are separate orders.",
+        "description": "Unlock floors 26\u201330. Excavation, construction and opening are separate orders.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "depths_5"
-          ]
+          "allOf": ["depths_5"]
         },
         "costGold": 70,
         "durationGameHours": 8,
@@ -299,10 +286,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "70 gold · 8 game hours",
-          "running": "Researching Deeper ambitions 6 · {remainingHHMM}",
+          "ready": "70 gold \u00b7 8 game hours",
+          "running": "Researching Deeper ambitions 6 \u00b7 {remainingHHMM}",
           "complete": "Deeper ambitions 6 complete.",
-          "tooltip": "Unlock floors 26–30. Excavation, construction and opening are separate orders.",
+          "tooltip": "Unlock floors 26\u201330. Excavation, construction and opening are separate orders.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
@@ -310,12 +297,10 @@
       },
       "depths_7": {
         "title": "Deeper ambitions 7",
-        "description": "Unlock floors 31–35. Excavation, construction and opening are separate orders.",
+        "description": "Unlock floors 31\u201335. Excavation, construction and opening are separate orders.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "depths_6"
-          ]
+          "allOf": ["depths_6"]
         },
         "costGold": 80,
         "durationGameHours": 8,
@@ -341,10 +326,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "80 gold · 8 game hours",
-          "running": "Researching Deeper ambitions 7 · {remainingHHMM}",
+          "ready": "80 gold \u00b7 8 game hours",
+          "running": "Researching Deeper ambitions 7 \u00b7 {remainingHHMM}",
           "complete": "Deeper ambitions 7 complete.",
-          "tooltip": "Unlock floors 31–35. Excavation, construction and opening are separate orders.",
+          "tooltip": "Unlock floors 31\u201335. Excavation, construction and opening are separate orders.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
@@ -352,12 +337,10 @@
       },
       "depths_8": {
         "title": "Deeper ambitions 8",
-        "description": "Unlock floors 36–40. Excavation, construction and opening are separate orders.",
+        "description": "Unlock floors 36\u201340. Excavation, construction and opening are separate orders.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "depths_7"
-          ]
+          "allOf": ["depths_7"]
         },
         "costGold": 90,
         "durationGameHours": 8,
@@ -383,10 +366,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "90 gold · 8 game hours",
-          "running": "Researching Deeper ambitions 8 · {remainingHHMM}",
+          "ready": "90 gold \u00b7 8 game hours",
+          "running": "Researching Deeper ambitions 8 \u00b7 {remainingHHMM}",
           "complete": "Deeper ambitions 8 complete.",
-          "tooltip": "Unlock floors 36–40. Excavation, construction and opening are separate orders.",
+          "tooltip": "Unlock floors 36\u201340. Excavation, construction and opening are separate orders.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
@@ -394,12 +377,10 @@
       },
       "depths_9": {
         "title": "Deeper ambitions 9",
-        "description": "Unlock floors 41–45. Excavation, construction and opening are separate orders.",
+        "description": "Unlock floors 41\u201345. Excavation, construction and opening are separate orders.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "depths_8"
-          ]
+          "allOf": ["depths_8"]
         },
         "costGold": 100,
         "durationGameHours": 8,
@@ -425,10 +406,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "100 gold · 8 game hours",
-          "running": "Researching Deeper ambitions 9 · {remainingHHMM}",
+          "ready": "100 gold \u00b7 8 game hours",
+          "running": "Researching Deeper ambitions 9 \u00b7 {remainingHHMM}",
           "complete": "Deeper ambitions 9 complete.",
-          "tooltip": "Unlock floors 41–45. Excavation, construction and opening are separate orders.",
+          "tooltip": "Unlock floors 41\u201345. Excavation, construction and opening are separate orders.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
@@ -436,12 +417,10 @@
       },
       "depths_10": {
         "title": "Deeper ambitions 10",
-        "description": "Unlock floors 46–50. Excavation, construction and opening are separate orders.",
+        "description": "Unlock floors 46\u201350. Excavation, construction and opening are separate orders.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "depths_9"
-          ]
+          "allOf": ["depths_9"]
         },
         "costGold": 110,
         "durationGameHours": 8,
@@ -467,10 +446,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "110 gold · 8 game hours",
-          "running": "Researching Deeper ambitions 10 · {remainingHHMM}",
+          "ready": "110 gold \u00b7 8 game hours",
+          "running": "Researching Deeper ambitions 10 \u00b7 {remainingHHMM}",
           "complete": "Deeper ambitions 10 complete.",
-          "tooltip": "Unlock floors 46–50. Excavation, construction and opening are separate orders.",
+          "tooltip": "Unlock floors 46\u201350. Excavation, construction and opening are separate orders.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
@@ -481,10 +460,7 @@
         "description": "Unlock tier 3 floor structures: 30 health and defense. Upgrade with staff; research does not instantly rebuild floors.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "building",
-            "depths_4"
-          ]
+          "allOf": ["building", "depths_4"]
         },
         "costGold": 100,
         "durationGameHours": 8,
@@ -513,8 +489,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "100 gold · 8 game hours",
-          "running": "Researching Stonecraft mastery · {remainingHHMM}",
+          "ready": "100 gold \u00b7 8 game hours",
+          "running": "Researching Stonecraft mastery \u00b7 {remainingHHMM}",
           "complete": "Stonecraft mastery complete.",
           "tooltip": "Unlock tier 3 floor structures: 30 health and defense. Upgrade with staff; research does not instantly rebuild floors.",
           "insufficientGold": "Not enough gold.",
@@ -528,10 +504,7 @@
         "description": "Unlock tier 4 floor structures: 40 health and defense. Upgrade with staff; research does not instantly rebuild floors.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "building_3",
-            "depths_6"
-          ]
+          "allOf": ["building_3", "depths_6"]
         },
         "costGold": 150,
         "durationGameHours": 12,
@@ -560,8 +533,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "150 gold · 12 game hours",
-          "running": "Researching Runic foundations · {remainingHHMM}",
+          "ready": "150 gold \u00b7 12 game hours",
+          "running": "Researching Runic foundations \u00b7 {remainingHHMM}",
           "complete": "Runic foundations complete.",
           "tooltip": "Unlock tier 4 floor structures: 40 health and defense. Upgrade with staff; research does not instantly rebuild floors.",
           "insufficientGold": "Not enough gold.",
@@ -575,10 +548,7 @@
         "description": "Unlock tier 5 floor structures: 50 health and defense. Upgrade with staff; research does not instantly rebuild floors.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "building_4",
-            "depths_8"
-          ]
+          "allOf": ["building_4", "depths_8"]
         },
         "costGold": 200,
         "durationGameHours": 16,
@@ -607,8 +577,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "200 gold · 16 game hours",
-          "running": "Researching The deep citadel · {remainingHHMM}",
+          "ready": "200 gold \u00b7 16 game hours",
+          "running": "Researching The deep citadel \u00b7 {remainingHHMM}",
           "complete": "The deep citadel complete.",
           "tooltip": "Unlock tier 5 floor structures: 50 health and defense. Upgrade with staff; research does not instantly rebuild floors.",
           "insufficientGold": "Not enough gold.",
@@ -625,12 +595,10 @@
     "research": {
       "betterTraps": {
         "title": "Better basic traps",
-        "description": "Medium · Mimics II resemble silver chests and deal 10–20 damage. Trap doors deal 10–20 damage and require perception 20.",
+        "description": "Medium \u00b7 Mimics II resemble silver chests and deal 10\u201320 damage. Trap doors deal 10\u201320 damage and require perception 20.",
         "origin": "retained_from_demo_with_explicit_proposed_effects",
         "prerequisites": {
-          "allOf": [
-            "traps"
-          ]
+          "allOf": ["traps"]
         },
         "costGold": 20.0,
         "durationGameHours": 4,
@@ -659,10 +627,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "20.0 gold · 4 game hours",
-          "running": "Researching Better basic traps · {remainingHHMM}",
+          "ready": "20.0 gold \u00b7 4 game hours",
+          "running": "Researching Better basic traps \u00b7 {remainingHHMM}",
           "complete": "Better basic traps complete.",
-          "tooltip": "Medium · Mimics II resemble silver chests and deal 10–20 damage. Trap doors deal 10–20 damage and require perception 20.",
+          "tooltip": "Medium \u00b7 Mimics II resemble silver chests and deal 10\u201320 damage. Trap doors deal 10\u201320 damage and require perception 20.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
@@ -674,9 +642,7 @@
         "description": "Add +1 beginner trap perception difficulty per rank, capped at 10. Does not affect tier II or higher.",
         "origin": "retained_from_demo_with_explicit_proposed_effects",
         "prerequisites": {
-          "allOf": [
-            "traps"
-          ]
+          "allOf": ["traps"]
         },
         "costGold": 5.0,
         "durationGameHours": 1,
@@ -699,8 +665,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "5.0 gold · 1 game hours",
-          "running": "Researching Beginner trap stealth · {remainingHHMM}",
+          "ready": "5.0 gold \u00b7 1 game hours",
+          "running": "Researching Beginner trap stealth \u00b7 {remainingHHMM}",
           "complete": "Beginner trap stealth complete.",
           "tooltip": "Add +1 beginner trap perception difficulty per rank, capped at 10. Does not affect tier II or higher.",
           "insufficientGold": "Not enough gold.",
@@ -743,8 +709,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "5.0 gold · 1 game hours",
-          "running": "Researching It's a trap! · {remainingHHMM}",
+          "ready": "5.0 gold \u00b7 1 game hours",
+          "running": "Researching It's a trap! \u00b7 {remainingHHMM}",
           "complete": "It's a trap! complete.",
           "tooltip": "Trap doors, arrow walls, and suspiciously toothy chests.",
           "insufficientGold": "Not enough gold.",
@@ -757,9 +723,7 @@
         "description": "Unlock Arrow Wall II: stronger bolts and a concealed pressure plate.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "traps"
-          ]
+          "allOf": ["traps"]
         },
         "costGold": 20,
         "durationGameHours": 4,
@@ -776,8 +740,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "20 gold · 4 game hours",
-          "running": "Researching Less shoddy arrows · {remainingHHMM}",
+          "ready": "20 gold \u00b7 4 game hours",
+          "running": "Researching Less shoddy arrows \u00b7 {remainingHHMM}",
           "complete": "Less shoddy arrows complete.",
           "tooltip": "Unlock Arrow Wall II: stronger bolts and a concealed pressure plate.",
           "insufficientGold": "Not enough gold.",
@@ -790,10 +754,7 @@
         "description": "Unlock tier 3 trap doors, arrow walls and mimics. Stronger hardware needs more reset skill.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "betterTraps",
-            "arrows_2"
-          ]
+          "allOf": ["betterTraps", "arrows_2"]
         },
         "costGold": 80,
         "durationGameHours": 8,
@@ -826,8 +787,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "80 gold · 8 game hours",
-          "running": "Researching Trap engineering 3 · {remainingHHMM}",
+          "ready": "80 gold \u00b7 8 game hours",
+          "running": "Researching Trap engineering 3 \u00b7 {remainingHHMM}",
           "complete": "Trap engineering 3 complete.",
           "tooltip": "Unlock tier 3 trap doors, arrow walls and mimics. Stronger hardware needs more reset skill.",
           "insufficientGold": "Not enough gold.",
@@ -841,10 +802,7 @@
         "description": "Unlock tier 4 trap doors, arrow walls and mimics. Stronger hardware needs more reset skill.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "traps_3",
-            "building_4"
-          ]
+          "allOf": ["traps_3", "building_4"]
         },
         "costGold": 120,
         "durationGameHours": 12,
@@ -877,8 +835,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "120 gold · 12 game hours",
-          "running": "Researching Trap engineering 4 · {remainingHHMM}",
+          "ready": "120 gold \u00b7 12 game hours",
+          "running": "Researching Trap engineering 4 \u00b7 {remainingHHMM}",
           "complete": "Trap engineering 4 complete.",
           "tooltip": "Unlock tier 4 trap doors, arrow walls and mimics. Stronger hardware needs more reset skill.",
           "insufficientGold": "Not enough gold.",
@@ -892,10 +850,7 @@
         "description": "Unlock tier 5 trap doors, arrow walls and mimics. Stronger hardware needs more reset skill.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "traps_4",
-            "building_5"
-          ]
+          "allOf": ["traps_4", "building_5"]
         },
         "costGold": 160,
         "durationGameHours": 16,
@@ -928,8 +883,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "160 gold · 16 game hours",
-          "running": "Researching Trap engineering 5 · {remainingHHMM}",
+          "ready": "160 gold \u00b7 16 game hours",
+          "running": "Researching Trap engineering 5 \u00b7 {remainingHHMM}",
           "complete": "Trap engineering 5 complete.",
           "tooltip": "Unlock tier 5 trap doors, arrow walls and mimics. Stronger hardware needs more reset skill.",
           "insufficientGold": "Not enough gold.",
@@ -987,8 +942,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "5.0 gold · 1 game hours",
-          "running": "Researching Mob-tastic · {remainingHHMM}",
+          "ready": "5.0 gold \u00b7 1 game hours",
+          "running": "Researching Mob-tastic \u00b7 {remainingHHMM}",
           "complete": "Mob-tastic complete.",
           "tooltip": "Invite zombies and slimes to make themselves at home.",
           "insufficientGold": "Not enough gold.",
@@ -1001,10 +956,7 @@
         "description": "Unlock tier 2 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "mobs",
-            "building"
-          ]
+          "allOf": ["mobs", "building"]
         },
         "costGold": 20,
         "durationGameHours": 4,
@@ -1044,8 +996,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "20 gold · 4 game hours",
-          "running": "Researching Monster husbandry 2 · {remainingHHMM}",
+          "ready": "20 gold \u00b7 4 game hours",
+          "running": "Researching Monster husbandry 2 \u00b7 {remainingHHMM}",
           "complete": "Monster husbandry 2 complete.",
           "tooltip": "Unlock tier 2 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
           "insufficientGold": "Not enough gold.",
@@ -1059,10 +1011,7 @@
         "description": "Unlock tier 3 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "mobs_2",
-            "building_3"
-          ]
+          "allOf": ["mobs_2", "building_3"]
         },
         "costGold": 40,
         "durationGameHours": 8,
@@ -1102,8 +1051,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "40 gold · 8 game hours",
-          "running": "Researching Monster husbandry 3 · {remainingHHMM}",
+          "ready": "40 gold \u00b7 8 game hours",
+          "running": "Researching Monster husbandry 3 \u00b7 {remainingHHMM}",
           "complete": "Monster husbandry 3 complete.",
           "tooltip": "Unlock tier 3 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
           "insufficientGold": "Not enough gold.",
@@ -1117,10 +1066,7 @@
         "description": "Unlock tier 4 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "mobs_3",
-            "building_4"
-          ]
+          "allOf": ["mobs_3", "building_4"]
         },
         "costGold": 60,
         "durationGameHours": 12,
@@ -1160,8 +1106,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "60 gold · 12 game hours",
-          "running": "Researching Monster husbandry 4 · {remainingHHMM}",
+          "ready": "60 gold \u00b7 12 game hours",
+          "running": "Researching Monster husbandry 4 \u00b7 {remainingHHMM}",
           "complete": "Monster husbandry 4 complete.",
           "tooltip": "Unlock tier 4 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
           "insufficientGold": "Not enough gold.",
@@ -1175,10 +1121,7 @@
         "description": "Unlock tier 5 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "mobs_4",
-            "building_5"
-          ]
+          "allOf": ["mobs_4", "building_5"]
         },
         "costGold": 80,
         "durationGameHours": 16,
@@ -1218,8 +1161,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "80 gold · 16 game hours",
-          "running": "Researching Monster husbandry 5 · {remainingHHMM}",
+          "ready": "80 gold \u00b7 16 game hours",
+          "running": "Researching Monster husbandry 5 \u00b7 {remainingHHMM}",
           "complete": "Monster husbandry 5 complete.",
           "tooltip": "Unlock tier 5 zombies, slimes and their nests. Spawn intervals stay unchanged; stronger monsters do not bypass floor limits.",
           "insufficientGold": "Not enough gold.",
@@ -1233,9 +1176,7 @@
         "description": "Containment wards reduce escape chance per exit attempt from 20% to 10%.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "mobs"
-          ]
+          "allOf": ["mobs"]
         },
         "costGold": 30,
         "durationGameHours": 4,
@@ -1252,8 +1193,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "30 gold · 4 game hours",
-          "running": "Researching Please remain inside · {remainingHHMM}",
+          "ready": "30 gold \u00b7 4 game hours",
+          "running": "Researching Please remain inside \u00b7 {remainingHHMM}",
           "complete": "Please remain inside complete.",
           "tooltip": "Containment wards reduce escape chance per exit attempt from 20% to 10%.",
           "insufficientGold": "Not enough gold.",
@@ -1266,10 +1207,7 @@
         "description": "Stronger wards reduce escape chance to 5%.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "mob_containment",
-            "mobs_3"
-          ]
+          "allOf": ["mob_containment", "mobs_3"]
         },
         "costGold": 80,
         "durationGameHours": 8,
@@ -1286,8 +1224,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "80 gold · 8 game hours",
-          "running": "Researching Strictly indoor monsters · {remainingHHMM}",
+          "ready": "80 gold \u00b7 8 game hours",
+          "running": "Researching Strictly indoor monsters \u00b7 {remainingHHMM}",
           "complete": "Strictly indoor monsters complete.",
           "tooltip": "Stronger wards reduce escape chance to 5%.",
           "insufficientGold": "Not enough gold.",
@@ -1303,12 +1241,10 @@
     "research": {
       "goldChests": {
         "title": "Gold chests",
-        "description": "Medium · Unlock gold chests. Silver has twice the wood stats; gold doubles silver again.",
+        "description": "Medium \u00b7 Unlock gold chests. Silver has twice the wood stats; gold doubles silver again.",
         "origin": "retained_from_demo_with_explicit_proposed_effects",
         "prerequisites": {
-          "allOf": [
-            "treasure"
-          ]
+          "allOf": ["treasure"]
         },
         "costGold": 20.0,
         "durationGameHours": 4,
@@ -1326,10 +1262,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "20.0 gold · 4 game hours",
-          "running": "Researching Gold chests · {remainingHHMM}",
+          "ready": "20.0 gold \u00b7 4 game hours",
+          "running": "Researching Gold chests \u00b7 {remainingHHMM}",
           "complete": "Gold chests complete.",
-          "tooltip": "Medium · Unlock gold chests. Silver has twice the wood stats; gold doubles silver again.",
+          "tooltip": "Medium \u00b7 Unlock gold chests. Silver has twice the wood stats; gold doubles silver again.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
@@ -1364,8 +1300,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "5.0 gold · 1 game hours",
-          "running": "Researching Treasure-me-timbers · {remainingHHMM}",
+          "ready": "5.0 gold \u00b7 1 game hours",
+          "running": "Researching Treasure-me-timbers \u00b7 {remainingHHMM}",
           "complete": "Treasure-me-timbers complete.",
           "tooltip": "Wood and silver chests. A little incentive goes a long way.",
           "insufficientGold": "Not enough gold.",
@@ -1378,9 +1314,7 @@
         "description": "Unlock runic chests. Greater payouts require more intelligence and stamina; research does not supply the gold.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "goldChests"
-          ]
+          "allOf": ["goldChests"]
         },
         "costGold": 120,
         "durationGameHours": 12,
@@ -1401,8 +1335,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "120 gold · 12 game hours",
-          "running": "Researching Runic chests · {remainingHHMM}",
+          "ready": "120 gold \u00b7 12 game hours",
+          "running": "Researching Runic chests \u00b7 {remainingHHMM}",
           "complete": "Runic chests complete.",
           "tooltip": "Unlock runic chests. Greater payouts require more intelligence and stamina; research does not supply the gold.",
           "insufficientGold": "Not enough gold.",
@@ -1416,9 +1350,7 @@
         "description": "Unlock royal chests. Greater payouts require more intelligence and stamina; research does not supply the gold.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "chests_4"
-          ]
+          "allOf": ["chests_4"]
         },
         "costGold": 180,
         "durationGameHours": 16,
@@ -1439,8 +1371,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "180 gold · 16 game hours",
-          "running": "Researching Royal chests · {remainingHHMM}",
+          "ready": "180 gold \u00b7 16 game hours",
+          "running": "Researching Royal chests \u00b7 {remainingHHMM}",
           "complete": "Royal chests complete.",
           "tooltip": "Unlock royal chests. Greater payouts require more intelligence and stamina; research does not supply the gold.",
           "insufficientGold": "Not enough gold.",
@@ -1457,12 +1389,10 @@
     "research": {
       "staffSpeed": {
         "title": "Fleet-footed staff",
-        "description": "Medium · Double staff movement speed and speed up maintenance work. Trap resets use staff speed plus intelligence against trap difficulty.",
+        "description": "Medium \u00b7 Double staff movement speed and speed up maintenance work. Trap resets use staff speed plus intelligence against trap difficulty.",
         "origin": "retained_from_demo_with_explicit_proposed_effects",
         "prerequisites": {
-          "allOf": [
-            "staff"
-          ]
+          "allOf": ["staff"]
         },
         "costGold": 15.0,
         "durationGameHours": 4,
@@ -1480,10 +1410,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "15.0 gold · 4 game hours",
-          "running": "Researching Fleet-footed staff · {remainingHHMM}",
+          "ready": "15.0 gold \u00b7 4 game hours",
+          "running": "Researching Fleet-footed staff \u00b7 {remainingHHMM}",
           "complete": "Fleet-footed staff complete.",
-          "tooltip": "Medium · Double staff movement speed and speed up maintenance work. Trap resets use staff speed plus intelligence against trap difficulty.",
+          "tooltip": "Medium \u00b7 Double staff movement speed and speed up maintenance work. Trap resets use staff speed plus intelligence against trap difficulty.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
@@ -1491,12 +1421,10 @@
       },
       "staminaManagement": {
         "title": "Better stamina management",
-        "description": "Fast · Choose the stamina threshold at which staff take their next office break.",
+        "description": "Fast \u00b7 Choose the stamina threshold at which staff take their next office break.",
         "origin": "retained_from_demo_with_explicit_proposed_effects",
         "prerequisites": {
-          "allOf": [
-            "staff"
-          ]
+          "allOf": ["staff"]
         },
         "costGold": 10.0,
         "durationGameHours": 1,
@@ -1514,10 +1442,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "10.0 gold · 1 game hours",
-          "running": "Researching Better stamina management · {remainingHHMM}",
+          "ready": "10.0 gold \u00b7 1 game hours",
+          "running": "Researching Better stamina management \u00b7 {remainingHHMM}",
           "complete": "Better stamina management complete.",
-          "tooltip": "Fast · Choose the stamina threshold at which staff take their next office break.",
+          "tooltip": "Fast \u00b7 Choose the stamina threshold at which staff take their next office break.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
@@ -1571,8 +1499,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "5.0 gold · 1 game hours",
-          "running": "Researching Staff management · {remainingHHMM}",
+          "ready": "5.0 gold \u00b7 1 game hours",
+          "running": "Researching Staff management \u00b7 {remainingHHMM}",
           "complete": "Staff management complete.",
           "tooltip": "Hire maintenance workers and keep an eye on your crew.",
           "insufficientGold": "Not enough gold.",
@@ -1585,9 +1513,7 @@
         "description": "Bigger shovels. Twice the excavation speed.",
         "origin": "retained_from_demo_with_explicit_proposed_effects",
         "prerequisites": {
-          "allOf": [
-            "staff"
-          ]
+          "allOf": ["staff"]
         },
         "costGold": 10.0,
         "durationGameHours": 4,
@@ -1605,8 +1531,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "10.0 gold · 4 game hours",
-          "running": "Researching Faster digging · {remainingHHMM}",
+          "ready": "10.0 gold \u00b7 4 game hours",
+          "running": "Researching Faster digging \u00b7 {remainingHHMM}",
           "complete": "Faster digging complete.",
           "tooltip": "Bigger shovels. Twice the excavation speed.",
           "insufficientGold": "Not enough gold.",
@@ -1619,9 +1545,7 @@
         "description": "Unlock tier 2 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "staff"
-          ]
+          "allOf": ["staff"]
         },
         "costGold": 25,
         "durationGameHours": 4,
@@ -1661,8 +1585,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "25 gold · 4 game hours",
-          "running": "Researching Professional crew 2 · {remainingHHMM}",
+          "ready": "25 gold \u00b7 4 game hours",
+          "running": "Researching Professional crew 2 \u00b7 {remainingHHMM}",
           "complete": "Professional crew 2 complete.",
           "tooltip": "Unlock tier 2 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
           "insufficientGold": "Not enough gold.",
@@ -1676,9 +1600,7 @@
         "description": "Unlock tier 3 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "staff_2"
-          ]
+          "allOf": ["staff_2"]
         },
         "costGold": 50,
         "durationGameHours": 8,
@@ -1718,8 +1640,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "50 gold · 8 game hours",
-          "running": "Researching Professional crew 3 · {remainingHHMM}",
+          "ready": "50 gold \u00b7 8 game hours",
+          "running": "Researching Professional crew 3 \u00b7 {remainingHHMM}",
           "complete": "Professional crew 3 complete.",
           "tooltip": "Unlock tier 3 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
           "insufficientGold": "Not enough gold.",
@@ -1733,9 +1655,7 @@
         "description": "Unlock tier 4 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "staff_3"
-          ]
+          "allOf": ["staff_3"]
         },
         "costGold": 75,
         "durationGameHours": 12,
@@ -1775,8 +1695,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "75 gold · 12 game hours",
-          "running": "Researching Professional crew 4 · {remainingHHMM}",
+          "ready": "75 gold \u00b7 12 game hours",
+          "running": "Researching Professional crew 4 \u00b7 {remainingHHMM}",
           "complete": "Professional crew 4 complete.",
           "tooltip": "Unlock tier 4 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
           "insufficientGold": "Not enough gold.",
@@ -1790,9 +1710,7 @@
         "description": "Unlock tier 5 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "staff_4"
-          ]
+          "allOf": ["staff_4"]
         },
         "costGold": 100,
         "durationGameHours": 16,
@@ -1832,8 +1750,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "100 gold · 16 game hours",
-          "running": "Researching Professional crew 5 · {remainingHHMM}",
+          "ready": "100 gold \u00b7 16 game hours",
+          "running": "Researching Professional crew 5 \u00b7 {remainingHHMM}",
           "complete": "Professional crew 5 complete.",
           "tooltip": "Unlock tier 5 hiring and paid promotion for diggers, maintainers and defenders. Preserve earned growth when promoting.",
           "insufficientGold": "Not enough gold.",
@@ -1844,13 +1762,10 @@
       },
       "digging_3": {
         "title": "Powered wheelbarrows",
-        "description": "Increase total excavation throughput from 2× to 3× baseline.",
+        "description": "Increase total excavation throughput from 2\u00d7 to 3\u00d7 baseline.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "digging",
-            "staff_2"
-          ]
+          "allOf": ["digging", "staff_2"]
         },
         "costGold": 40,
         "durationGameHours": 8,
@@ -1867,10 +1782,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "40 gold · 8 game hours",
-          "running": "Researching Powered wheelbarrows · {remainingHHMM}",
+          "ready": "40 gold \u00b7 8 game hours",
+          "running": "Researching Powered wheelbarrows \u00b7 {remainingHHMM}",
           "complete": "Powered wheelbarrows complete.",
-          "tooltip": "Increase total excavation throughput from 2× to 3× baseline.",
+          "tooltip": "Increase total excavation throughput from 2\u00d7 to 3\u00d7 baseline.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
@@ -1878,13 +1793,10 @@
       },
       "digging_4": {
         "title": "Runic excavation tools",
-        "description": "Increase total excavation throughput to 4× baseline.",
+        "description": "Increase total excavation throughput to 4\u00d7 baseline.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "digging_3",
-            "staff_3"
-          ]
+          "allOf": ["digging_3", "staff_3"]
         },
         "costGold": 100,
         "durationGameHours": 12,
@@ -1901,10 +1813,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "100 gold · 12 game hours",
-          "running": "Researching Runic excavation tools · {remainingHHMM}",
+          "ready": "100 gold \u00b7 12 game hours",
+          "running": "Researching Runic excavation tools \u00b7 {remainingHHMM}",
           "complete": "Runic excavation tools complete.",
-          "tooltip": "Increase total excavation throughput to 4× baseline.",
+          "tooltip": "Increase total excavation throughput to 4\u00d7 baseline.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "effectsHelp": "Changes apply according to each effect scope. Existing entities keep earned progression."
@@ -1915,9 +1827,7 @@
         "description": "Add 5 effective reset skill without increasing walking speed.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "staff"
-          ]
+          "allOf": ["staff"]
         },
         "costGold": 20,
         "durationGameHours": 4,
@@ -1934,8 +1844,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "20 gold · 4 game hours",
-          "running": "Researching Organized toolbelts · {remainingHHMM}",
+          "ready": "20 gold \u00b7 4 game hours",
+          "running": "Researching Organized toolbelts \u00b7 {remainingHHMM}",
           "complete": "Organized toolbelts complete.",
           "tooltip": "Add 5 effective reset skill without increasing walking speed.",
           "insufficientGold": "Not enough gold.",
@@ -1948,10 +1858,7 @@
         "description": "Increase the toolbelt bonus to 10 effective reset skill.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "maintenance_tools",
-            "staff_3"
-          ]
+          "allOf": ["maintenance_tools", "staff_3"]
         },
         "costGold": 60,
         "durationGameHours": 8,
@@ -1968,8 +1875,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "60 gold · 8 game hours",
-          "running": "Researching Precision reset kits · {remainingHHMM}",
+          "ready": "60 gold \u00b7 8 game hours",
+          "running": "Researching Precision reset kits \u00b7 {remainingHHMM}",
           "complete": "Precision reset kits complete.",
           "tooltip": "Increase the toolbelt bonus to 10 effective reset skill.",
           "insufficientGold": "Not enough gold.",
@@ -1988,9 +1895,7 @@
         "description": "25% shorter spawn intervals, +20 adventurer capacity, and party formation reduced from 20 to 15 real seconds.",
         "origin": "retained_from_demo_with_explicit_proposed_effects",
         "prerequisites": {
-          "allOf": [
-            "guild"
-          ]
+          "allOf": ["guild"]
         },
         "costGold": 30.0,
         "durationGameHours": 4,
@@ -2020,8 +1925,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "30.0 gold · 4 game hours",
-          "running": "Researching Adventurers Guild Level 2 · {remainingHHMM}",
+          "ready": "30.0 gold \u00b7 4 game hours",
+          "running": "Researching Adventurers Guild Level 2 \u00b7 {remainingHHMM}",
           "complete": "Adventurers Guild Level 2 complete.",
           "tooltip": "25% shorter spawn intervals, +20 adventurer capacity, and party formation reduced from 20 to 15 real seconds.",
           "insufficientGold": "Not enough gold.",
@@ -2034,9 +1939,7 @@
         "description": "A recruitment stand that prioritizes missing party roles among eligible, unpartied adventurers.",
         "origin": "retained_from_demo_with_explicit_proposed_effects",
         "prerequisites": {
-          "allOf": [
-            "door"
-          ]
+          "allOf": ["door"]
         },
         "costGold": 15.0,
         "durationGameHours": 2,
@@ -2060,8 +1963,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "15.0 gold · 2 game hours",
-          "running": "Researching Basic Adventurers Guild · {remainingHHMM}",
+          "ready": "15.0 gold \u00b7 2 game hours",
+          "running": "Researching Basic Adventurers Guild \u00b7 {remainingHHMM}",
           "complete": "Basic Adventurers Guild complete.",
           "tooltip": "A recruitment stand that prioritizes missing party roles among eligible, unpartied adventurers.",
           "insufficientGold": "Not enough gold.",
@@ -2071,13 +1974,10 @@
       },
       "level2Adventurers": {
         "title": "Level 2 adventurers",
-        "description": "Medium · Upgrade individual town spawn points to attract adventurers with double baseline stats and elaborate class outfits.",
+        "description": "Medium \u00b7 Upgrade individual town spawn points to attract adventurers with double baseline stats and elaborate class outfits.",
         "origin": "retained_from_demo_with_explicit_proposed_effects",
         "prerequisites": {
-          "allOf": [
-            "guild",
-            "building"
-          ]
+          "allOf": ["guild", "building"]
         },
         "costGold": 20.0,
         "durationGameHours": 4,
@@ -2118,10 +2018,10 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "20.0 gold · 4 game hours",
-          "running": "Researching Level 2 adventurers · {remainingHHMM}",
+          "ready": "20.0 gold \u00b7 4 game hours",
+          "running": "Researching Level 2 adventurers \u00b7 {remainingHHMM}",
           "complete": "Level 2 adventurers complete.",
-          "tooltip": "Medium · Upgrade individual town spawn points to attract adventurers with double baseline stats and elaborate class outfits.",
+          "tooltip": "Medium \u00b7 Upgrade individual town spawn points to attract adventurers with double baseline stats and elaborate class outfits.",
           "insufficientGold": "Not enough gold.",
           "queueBusy": "Finish the current research first.",
           "purchaseNotice": "Research unlocks this option. Purchase or upgrade it separately.",
@@ -2133,9 +2033,7 @@
         "description": "Unlock two extra adventurer spawn points. Each costs 25 gold and adds 10 to the adventurer population cap.",
         "origin": "retained_from_demo_with_explicit_proposed_effects",
         "prerequisites": {
-          "allOf": [
-            "guild"
-          ]
+          "allOf": ["guild"]
         },
         "costGold": 20.0,
         "durationGameHours": 4,
@@ -2158,8 +2056,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "20.0 gold · 4 game hours",
-          "running": "Researching Local ads · {remainingHHMM}",
+          "ready": "20.0 gold \u00b7 4 game hours",
+          "running": "Researching Local ads \u00b7 {remainingHHMM}",
           "complete": "Local ads complete.",
           "tooltip": "Unlock two extra adventurer spawn points. Each costs 25 gold and adds 10 to the adventurer population cap.",
           "insufficientGold": "Not enough gold.",
@@ -2173,9 +2071,7 @@
         "description": "+1 to all stats. Including the XP requirement. How convenient.",
         "origin": "retained_from_demo_with_explicit_proposed_effects",
         "prerequisites": {
-          "allOf": [
-            "door"
-          ]
+          "allOf": ["door"]
         },
         "costGold": 5.0,
         "durationGameHours": 1,
@@ -2211,8 +2107,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "5.0 gold · 1 game hours",
-          "running": "Researching Short-sighted training · {remainingHHMM}",
+          "ready": "5.0 gold \u00b7 1 game hours",
+          "running": "Researching Short-sighted training \u00b7 {remainingHHMM}",
           "complete": "Short-sighted training complete.",
           "tooltip": "+1 to all stats. Including the XP requirement. How convenient.",
           "insufficientGold": "Not enough gold.",
@@ -2225,10 +2121,7 @@
         "description": "Unlock level 3 spawn-point upgrades for all three classes. Existing characters keep their own stats.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "level2Adventurers",
-            "building_3"
-          ]
+          "allOf": ["level2Adventurers", "building_3"]
         },
         "costGold": 80,
         "durationGameHours": 8,
@@ -2268,8 +2161,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "80 gold · 8 game hours",
-          "running": "Researching Level 3 adventurers · {remainingHHMM}",
+          "ready": "80 gold \u00b7 8 game hours",
+          "running": "Researching Level 3 adventurers \u00b7 {remainingHHMM}",
           "complete": "Level 3 adventurers complete.",
           "tooltip": "Unlock level 3 spawn-point upgrades for all three classes. Existing characters keep their own stats.",
           "insufficientGold": "Not enough gold.",
@@ -2283,10 +2176,7 @@
         "description": "Unlock level 4 spawn-point upgrades for all three classes. Existing characters keep their own stats.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "adventurers_3",
-            "building_4"
-          ]
+          "allOf": ["adventurers_3", "building_4"]
         },
         "costGold": 120,
         "durationGameHours": 12,
@@ -2326,8 +2216,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "120 gold · 12 game hours",
-          "running": "Researching Level 4 adventurers · {remainingHHMM}",
+          "ready": "120 gold \u00b7 12 game hours",
+          "running": "Researching Level 4 adventurers \u00b7 {remainingHHMM}",
           "complete": "Level 4 adventurers complete.",
           "tooltip": "Unlock level 4 spawn-point upgrades for all three classes. Existing characters keep their own stats.",
           "insufficientGold": "Not enough gold.",
@@ -2341,10 +2231,7 @@
         "description": "Unlock level 5 spawn-point upgrades for all three classes. Existing characters keep their own stats.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "adventurers_4",
-            "building_5"
-          ]
+          "allOf": ["adventurers_4", "building_5"]
         },
         "costGold": 160,
         "durationGameHours": 16,
@@ -2384,8 +2271,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "160 gold · 16 game hours",
-          "running": "Researching Level 5 adventurers · {remainingHHMM}",
+          "ready": "160 gold \u00b7 16 game hours",
+          "running": "Researching Level 5 adventurers \u00b7 {remainingHHMM}",
           "complete": "Level 5 adventurers complete.",
           "tooltip": "Unlock level 5 spawn-point upgrades for all three classes. Existing characters keep their own stats.",
           "insufficientGold": "Not enough gold.",
@@ -2399,10 +2286,7 @@
         "description": "Coordinate a larger roster: 40% shorter spawn intervals than baseline, +40 guild capacity, and 10-real-second equivalent party formation.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "guild2",
-            "adventurers_3"
-          ]
+          "allOf": ["guild2", "adventurers_3"]
         },
         "costGold": 80,
         "durationGameHours": 8,
@@ -2431,8 +2315,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "80 gold · 8 game hours",
-          "running": "Researching Regional Adventurers Guild · {remainingHHMM}",
+          "ready": "80 gold \u00b7 8 game hours",
+          "running": "Researching Regional Adventurers Guild \u00b7 {remainingHHMM}",
           "complete": "Regional Adventurers Guild complete.",
           "tooltip": "Coordinate a larger roster: 40% shorter spawn intervals than baseline, +40 guild capacity, and 10-real-second equivalent party formation.",
           "insufficientGold": "Not enough gold.",
@@ -2445,10 +2329,7 @@
         "description": "Unlock two more arrival points, for five total. Buy each separately.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "localAds",
-            "guild2"
-          ]
+          "allOf": ["localAds", "guild2"]
         },
         "costGold": 60,
         "durationGameHours": 8,
@@ -2470,8 +2351,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "60 gold · 8 game hours",
-          "running": "Researching Regional ads · {remainingHHMM}",
+          "ready": "60 gold \u00b7 8 game hours",
+          "running": "Researching Regional ads \u00b7 {remainingHHMM}",
           "complete": "Regional ads complete.",
           "tooltip": "Unlock two more arrival points, for five total. Buy each separately.",
           "insufficientGold": "Not enough gold.",
@@ -2508,14 +2389,14 @@
         "purchaseAfterResearch": {
           "scope": "each furnished floor",
           "costGold": 5,
-          "button": "Add rest room to new floor\n−5 gold"
+          "button": "Add rest room to new floor\n\u22125 gold"
         },
         "legacyId": "rest",
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "5.0 gold · 1 game hours",
-          "running": "Researching Basic rest spots · {remainingHHMM}",
+          "ready": "5.0 gold \u00b7 1 game hours",
+          "running": "Researching Basic rest spots \u00b7 {remainingHHMM}",
           "complete": "Basic rest spots complete.",
           "tooltip": "Bunks, a tap, and a much-needed stamina refill.",
           "insufficientGold": "Not enough gold.",
@@ -2529,10 +2410,7 @@
         "description": "Unlock tier 2 rooms recovering 3 points per game hour in each depleted resource. Staff and visitors retain separate rooms.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "rest",
-            "staff"
-          ]
+          "allOf": ["rest", "staff"]
         },
         "costGold": 30,
         "durationGameHours": 4,
@@ -2561,8 +2439,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "30 gold · 4 game hours",
-          "running": "Researching Comfortable bunks · {remainingHHMM}",
+          "ready": "30 gold \u00b7 4 game hours",
+          "running": "Researching Comfortable bunks \u00b7 {remainingHHMM}",
           "complete": "Comfortable bunks complete.",
           "tooltip": "Unlock tier 2 rooms recovering 3 points per game hour in each depleted resource. Staff and visitors retain separate rooms.",
           "insufficientGold": "Not enough gold.",
@@ -2576,10 +2454,7 @@
         "description": "Unlock tier 3 rooms recovering 4 points per game hour in each depleted resource. Staff and visitors retain separate rooms.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "rest_2",
-            "staff"
-          ]
+          "allOf": ["rest_2", "staff"]
         },
         "costGold": 60,
         "durationGameHours": 8,
@@ -2608,8 +2483,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "60 gold · 8 game hours",
-          "running": "Researching Restorative suites · {remainingHHMM}",
+          "ready": "60 gold \u00b7 8 game hours",
+          "running": "Researching Restorative suites \u00b7 {remainingHHMM}",
           "complete": "Restorative suites complete.",
           "tooltip": "Unlock tier 3 rooms recovering 4 points per game hour in each depleted resource. Staff and visitors retain separate rooms.",
           "insufficientGold": "Not enough gold.",
@@ -2653,8 +2528,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "5.0 gold · 1 game hours",
-          "running": "Researching Basic door policy · {remainingHHMM}",
+          "ready": "5.0 gold \u00b7 1 game hours",
+          "running": "Researching Basic door policy \u00b7 {remainingHHMM}",
           "complete": "Basic door policy complete.",
           "tooltip": "Level-one adventurers only. Set your entrance fee.",
           "insufficientGold": "Not enough gold.",
@@ -2667,9 +2542,7 @@
         "description": "Decide how much admission income goes back into treasure.",
         "origin": "retained_from_demo_with_explicit_proposed_effects",
         "prerequisites": {
-          "allOf": [
-            "door"
-          ]
+          "allOf": ["door"]
         },
         "costGold": 5.0,
         "durationGameHours": 1,
@@ -2693,8 +2566,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "5.0 gold · 1 game hours",
-          "running": "Researching Sketchy finances · {remainingHHMM}",
+          "ready": "5.0 gold \u00b7 1 game hours",
+          "running": "Researching Sketchy finances \u00b7 {remainingHHMM}",
           "complete": "Sketchy finances complete.",
           "tooltip": "Decide how much admission income goes back into treasure.",
           "insufficientGold": "Not enough gold.",
@@ -2707,10 +2580,7 @@
         "description": "Set a separate admission range, entrance fee and rest fee for each five-floor group.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "door",
-            "depths_2"
-          ]
+          "allOf": ["door", "depths_2"]
         },
         "costGold": 20,
         "durationGameHours": 4,
@@ -2727,8 +2597,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "20 gold · 4 game hours",
-          "running": "Researching A door for every depth · {remainingHHMM}",
+          "ready": "20 gold \u00b7 4 game hours",
+          "running": "Researching A door for every depth \u00b7 {remainingHHMM}",
           "complete": "A door for every depth complete.",
           "tooltip": "Set a separate admission range, entrance fee and rest fee for each five-floor group.",
           "insufficientGold": "Not enough gold.",
@@ -2741,9 +2611,7 @@
         "description": "Choose a reserve target and pause discretionary restocking before treasury runs short. Does not mint gold.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "finance"
-          ]
+          "allOf": ["finance"]
         },
         "costGold": 15,
         "durationGameHours": 2,
@@ -2760,8 +2628,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "15 gold · 2 game hours",
-          "running": "Researching Treasure reserve policy · {remainingHHMM}",
+          "ready": "15 gold \u00b7 2 game hours",
+          "running": "Researching Treasure reserve policy \u00b7 {remainingHHMM}",
           "complete": "Treasure reserve policy complete.",
           "tooltip": "Choose a reserve target and pause discretionary restocking before treasury runs short. Does not mint gold.",
           "insufficientGold": "Not enough gold.",
@@ -2774,10 +2642,7 @@
         "description": "Show projected wages and set a spending warning. Defenders still require payment for working hours.",
         "origin": "proposed",
         "prerequisites": {
-          "allOf": [
-            "finance",
-            "staff"
-          ]
+          "allOf": ["finance", "staff"]
         },
         "costGold": 10,
         "durationGameHours": 2,
@@ -2794,8 +2659,8 @@
         "ui": {
           "button": "Research",
           "locked": "Requires: {prerequisiteTitles}",
-          "ready": "10 gold · 2 game hours",
-          "running": "Researching Payroll planning · {remainingHHMM}",
+          "ready": "10 gold \u00b7 2 game hours",
+          "running": "Researching Payroll planning \u00b7 {remainingHHMM}",
           "complete": "Payroll planning complete.",
           "tooltip": "Show projected wages and set a spending warning. Defenders still require payment for working hours.",
           "insufficientGold": "Not enough gold.",
@@ -2907,5 +2772,38 @@
         "status": "needs_simulation"
       }
     ]
+  },
+  "training": {
+    "title": "Training",
+    "description": "Paid courses teaching adventurers new abilities.",
+    "research": {
+      "revivalClass": {
+        "title": "Revival class",
+        "description": "Healers pay 10 gold from their wealth before joining a party to learn revival. Cast within five game minutes of death, restoring half maximum health at a cost of two-thirds maximum stamina (rounded up).",
+        "prerequisites": {
+          "allOf": []
+        },
+        "costGold": 5,
+        "durationGameHours": 1,
+        "repeatable": false,
+        "unlocks": [
+          {
+            "branch": "training",
+            "type": "revival",
+            "level": 1,
+            "statsPath": "/training/revival/level_1"
+          }
+        ],
+        "changes": [
+          {
+            "operation": "set",
+            "target": "healers.revivalCourseAvailable",
+            "value": true,
+            "applies": "immediately"
+          }
+        ],
+        "legacyId": "revivalClass"
+      }
+    }
   }
 }

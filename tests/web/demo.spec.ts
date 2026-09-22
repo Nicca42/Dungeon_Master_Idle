@@ -7,7 +7,7 @@ async function finishTutorial(page: Page) {
   await open();
   await confirm('Open headquarters');
   await open();
-  for (let i = 0; i < 3; i++) await confirm('Hire digger · 10 gold');
+  for (let i = 0; i < 3; i++) await confirm('Hire digger · 5 gold');
   for (let i = 0; i < 3; i++)
     await page.getByRole('button', { name: /Excavate next floor/ }).click();
   await open();
@@ -58,7 +58,7 @@ test('build and research screens remain accessible during setup', async ({ page 
   await expect(page.getByText('Build from the ground down.', { exact: true })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Develop', exact: true }).first()).toBeDisabled();
   await page.getByRole('button', { name: 'Research', exact: true }).click();
-  await page.getByRole('button', { name: 'Staff investment', exact: true }).click();
+  await page.getByRole('button', { name: 'Builders', exact: true }).click();
   await expect(page.getByText('Faster digging', { exact: true })).toBeVisible();
   await page.getByTestId('tutorial-action').click();
   await page.getByRole('button', { name: 'Open headquarters', exact: true }).last().click();
@@ -700,11 +700,10 @@ test('empty layout picker installs unlocked fixtures and monster limit saves sep
   expect(save.floors[0].encounters.filter((e: any) => e.kind === 'arrows')).toHaveLength(2);
 });
 
-test('art gallery previews five options in each category and saves explicit choices', async ({
-  page,
-}) => {
+test('asset library preserves saved variants across levels and reload', async ({ page }) => {
   const { demoState } = await import('../../src/game/engine');
   const state = demoState();
+  state.artChoices = { ...state.artChoices, wizard: [3, 4, 5] };
   await page.addInitScript(
     (state) =>
       localStorage.setItem(
@@ -714,34 +713,17 @@ test('art gallery previews five options in each category and saves explicit choi
     state,
   );
   await page.goto('/art');
-  for (const category of ['coffin', 'puddle', 'zombie', 'fighter', 'wizard', 'healer']) {
-    await page.getByRole('button', { name: category, exact: true }).click();
-    await expect(
-      page.getByRole('button', { name: /^(Choose [1-5]|Selected · [1-3])$/ }),
-    ).toHaveCount(5);
-    if (test.info().project.name === 'desktop')
-      await page.screenshot({ path: `/tmp/art-options-${category}.png`, fullPage: true });
-  }
-  await page.getByRole('button', { name: 'coffin', exact: true }).click();
-  await page.getByRole('button', { name: 'Choose 2', exact: true }).click();
-  await page.getByRole('button', { name: 'Apply coffin selection', exact: true }).click();
-  await expect(
-    page.getByText('Saved. Spawner art updates now; character designs apply to new spawns.'),
-  ).toBeVisible();
-  await page.getByRole('button', { name: 'zombie', exact: true }).click();
-  while (await page.getByRole('button', { name: /^Selected ·/ }).count())
-    await page
-      .getByRole('button', { name: /^Selected ·/ })
-      .first()
-      .click();
-  for (const i of [1, 3, 5])
-    await page.getByRole('button', { name: `Choose ${i}`, exact: true }).click();
-  await page.getByRole('button', { name: 'Apply zombie selection', exact: true }).click();
+  for (const tier of [1, 2, 3, 4, 5])
+    for (const variant of [3, 4, 5])
+      await expect(
+        page.getByLabel(`wizard level ${tier} variant ${variant}`, { exact: true }),
+      ).toHaveCount(1);
+  await page.reload();
+  await expect(page.getByLabel('wizard level 5 variant 5', { exact: true })).toHaveCount(1);
   const save = await page.evaluate(
     () => JSON.parse(JSON.parse(localStorage.getItem('underkeep-demo-v1')!).current).state,
   );
-  expect(save.artChoices.coffin).toBe(2);
-  expect(save.artChoices.zombie).toEqual([1, 3, 5]);
+  expect(save.artChoices.wizard).toEqual([3, 4, 5]);
 });
 
 test('trap inspection and ready-party counters appear without recovered characters crowding the door', async ({
@@ -930,8 +912,8 @@ test('town timers are staggered and the researched guild previews the missing he
     page.getByRole('button', { name: 'Basic Adventurers Guild', exact: true }),
   ).toBeVisible();
   await expect(page.getByTestId('town-spawner-0')).toContainText('01:00');
-  await expect(page.getByTestId('town-spawner-1')).toContainText('01:20');
-  await expect(page.getByTestId('town-spawner-2')).toContainText('01:40');
+  await expect(page.getByTestId('town-spawner-1')).toContainText('01:15');
+  await expect(page.getByTestId('town-spawner-2')).toContainText('01:30');
   await expect(
     page.getByTestId('town-spawner-0').getByLabel('Next adventurer: healer'),
   ).toHaveCount(1);
@@ -1166,7 +1148,7 @@ test('tutorial actions glow and demo controls live only in Demo settings', async
   await page.getByTestId('tutorial-action').click();
   await page.getByRole('button', { name: 'Open headquarters', exact: true }).last().click();
   await page.getByTestId('tutorial-action').click();
-  const hire = page.getByRole('button', { name: 'Hire digger · 10 gold', exact: true });
+  const hire = page.getByRole('button', { name: 'Hire digger · 5 gold', exact: true });
   for (let i = 0; i < 3; i++) {
     await expect(hire.getByTestId('tutorial-button-glow')).toBeVisible();
     await hire.click();
@@ -1183,9 +1165,9 @@ test('tutorial actions glow and demo controls live only in Demo settings', async
   await expect(
     page.getByRole('button', { name: 'Restart the tutorial', exact: true }),
   ).toBeVisible();
-  await expect(page.getByText('coffin · 1/1 selected')).toBeVisible();
+  await expect(page.getByText('Asset library · levels I–V')).toBeVisible();
   await page.reload();
-  await expect(page.getByText('coffin · 1/1 selected')).toBeVisible();
+  await expect(page.getByText('Asset library · levels I–V')).toBeVisible();
 });
 
 test('trap reset difficulty and timing are editable and persist in deep stats', async ({
@@ -1243,7 +1225,12 @@ test('maintainer repair ring starts on arrival, fills, and disappears when the t
   await page.goto('/');
   const ring = page.getByTestId(`maintenance-progress-${worker.id}`);
   await expect(ring).toHaveCount(0);
+  await expect(
+    page.getByRole('button', { name: `${worker.name} travelling via cave`, exact: true }),
+  ).toBeAttached();
+  await expect(page.getByLabel('Reset trap', { exact: true })).toHaveCount(0);
   await expect(ring).toBeAttached();
+  await expect(page.getByLabel('Reset trap', { exact: true })).toBeAttached();
   await expect(
     page.getByTestId(`encounter-info-${trap.id}`).getByTestId(`maintenance-progress-${worker.id}`),
   ).toBeAttached();

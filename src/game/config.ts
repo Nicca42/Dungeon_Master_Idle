@@ -1,3 +1,5 @@
+import { floorGroupIndex, excavationWork, foundationWork } from './construction';
+import { unlockedTier } from './progression';
 import { maintenanceWorkTime } from './staffSpeed';
 import type { GameState } from './types';
 import { RESEARCH, HOUR } from './content';
@@ -84,7 +86,7 @@ for (const kind of ['trapdoor', 'arrows']) {
 add('trapdoor', 'trapdoor.perception', 'Perception to detect', 12);
 add('arrows', 'arrows.perception', 'Perception to detect', 5);
 for (const [key, label, value] of [
-  ['miner', 'Hire digger', 10],
+  ['miner', 'Hire digger', 5],
   ['maintenance', 'Hire maintainer', 15],
   ['defender', 'Hire security', 0],
   ['upgrade', 'Upgrade floor group', 50],
@@ -111,22 +113,16 @@ add('Economy', 'trainingPrice', 'Training fee · gold', 1, 1, 5);
 add('Economy', 'trainingLimit', 'Training limit', 3, 0, 10);
 add('Timing', 'arrivalHours', 'Adventurer spawn interval · hours', 1, 0.25, 24, 0.25);
 add('Timing', 'maintenanceHours', 'Maintenance job duration · hours', 1, 0.25, 24, 0.25);
-add('Timing', 'digMinutes', 'First floor digging · real minutes / 3 diggers', 10, 1, 120);
-add('Timing', 'digGrowth', 'Digging duration multiplier per floor', 1.5, 1, 3, 0.1);
+for (let tier = 1; tier <= 5; tier++)
+  add('Costs', `cost.staffTier${tier}`, `Hire tier ${tier} staff`, 5 + (tier - 1) * 10, 0, 1000);
+add('Timing', 'digMinutes', 'First floor group digging · real minutes / 3 diggers', 10, 1, 120);
+add('Timing', 'digGrowth', 'Digging duration multiplier per five-floor group', 1.5, 1, 3, 0.1);
 add('Timing', 'escapeChance', 'Mob escape chance · %', 20, 0, 100);
 add('Timing', 'zombie.spawnHours', 'Zombie / mimic reset · hours', 1, 0.25, 24, 0.25);
 add('Timing', 'slime.spawnHours', 'Slime spawn · hours', 2, 0.25, 24, 0.25);
 for (const r of RESEARCH) {
   add('Research', `research.${r.id}.cost`, `${r.name} · gold`, r.cost / 100, 0, 1000);
-  add(
-    'Research',
-    `research.${r.id}.hours`,
-    `${r.name} · hours`,
-    r.hours,
-    r.id === 'getDigging' ? 0 : 0.25,
-    72,
-    0.25,
-  );
+  add('Research', `research.${r.id}.hours`, `${r.name} · hours`, r.hours, 0, 72, 1 / 60);
 }
 for (const [key, value] of Object.entries({
   trapdoors: 1,
@@ -227,9 +223,20 @@ export const rule = (s: Pick<GameState, 'config'>, key: string): number => {
 export const arrivalInterval = (s: GameState) =>
   rule(s, 'arrivalHours') *
   HOUR *
-  (s.research.includes('guild2') ? 1 - rule(s, 'guild2.spawnReduction') / 100 : 1);
+  Math.min(
+    [0.75, 0.75, 0.5, 0.25, 0.25][unlockedTier(s, 'adventurer') - 1],
+    s.research.includes('guild3')
+      ? 0.6
+      : s.research.includes('guild2')
+        ? 1 - rule(s, 'guild2.spawnReduction') / 100
+        : 1,
+  );
 export const partyFormationTime = (s: GameState) =>
-  rule(s, s.research.includes('guild2') ? 'guild2.partySeconds' : 'partySeconds') * 1000 * 24;
+  (s.research.includes('guild3')
+    ? 10
+    : rule(s, s.research.includes('guild2') ? 'guild2.partySeconds' : 'partySeconds')) *
+  1000 *
+  24;
 export function validateRules(input: Rules): Rules {
   const rules = { ...DEFAULT_RULES, ...input };
   for (const [key, value] of Object.entries(rules)) {
@@ -295,8 +302,10 @@ export function applyRules(state: GameState, input: Rules): GameState {
       'primary',
       'learning',
     ] as const) {
-      const key = `${a.outfitTier === 2 ? 'level2.' : ''}${a.role}.${stat}`;
-      if (changed(key)) a[stat] = Math.max(1, a[stat] + rules[key]! - rule(state, key));
+      const advanced = (a.outfitTier ?? 1) >= 2 && ['fighter', 'wizard', 'healer'].includes(a.role);
+      const factor = advanced ? (a.outfitTier ?? 2) / 2 : 1;
+      const key = `${advanced ? 'level2.' : ''}${a.role}.${stat}`;
+      if (changed(key)) a[stat] = Math.max(1, a[stat] + (rules[key]! - rule(state, key)) * factor);
     }
     a.health =
       a.health <= 0 ? 0 : Math.max(1, Math.min(a.maxHealth, a.health + a.maxHealth - old.health));
@@ -314,16 +323,12 @@ export function applyRules(state: GameState, input: Rules): GameState {
     if (changed(key)) next[key] = rules[key]!;
   if (changed('fee')) next.fee = rules.fee! * 100;
   for (const f of next.floors) {
-    f.health = Math.max(
-      0,
-      Math.min(
-        next.policy.floorHealth,
-        f.health + next.policy.floorHealth - state.policy.floorHealth,
-      ),
-    );
-    f.defense = next.policy.floorDefense;
+    if (changed('policy.floorHealth'))
+      f.health = Math.max(0, f.health + next.policy.floorHealth - state.policy.floorHealth);
+    if (changed('policy.floorDefense'))
+      f.defense = Math.max(0, f.defense + next.policy.floorDefense - state.policy.floorDefense);
     if (['queued', 'excavating'].includes(f.stage))
-      f.required = 1.2 * rules.digMinutes! * rules.digGrowth! ** (f.id - 1);
+      f.required = excavationWork(f.id, rules.digMinutes!, rules.digGrowth!);
     for (const e of f.encounters) {
       const k = e.kind;
       if (e.health > 0 && changed(`${k}.health`))
@@ -415,3 +420,14 @@ export function adjustRule(rules: Rules, key: string, direction: -1 | 1): Rules 
     ),
   };
 }
+
+export const staffHireCost = (s: GameState, role: 'miner' | 'maintenance' | 'defender') =>
+  Math.max(
+    0,
+    rule(s, `cost.${role}`) +
+      (role === 'miner' ? (unlockedTier(s, 'builder') - 1) * 5 : 0) -
+      (s.research.includes('unpaidOvertime') ? 1 : 0),
+  );
+
+export const tierStaffHireCost = (s: GameState, tier: number) =>
+  Math.max(0, rule(s, `cost.staffTier${tier}`) - (s.research.includes('unpaidOvertime') ? 1 : 0));

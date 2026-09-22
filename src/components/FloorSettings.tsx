@@ -1,3 +1,4 @@
+import { unlockedTier } from '../game/progression';
 import { rule } from '../game/config';
 import React, { useEffect, useState } from 'react';
 import { View, Text, Pressable } from 'react-native';
@@ -119,12 +120,14 @@ export function FloorSettings({
             busy ||
             !g.research.includes('building') ||
             g.floors.some((f) => f.upgradeWork !== undefined) ||
-            g.policy.floorLevel === 2 ||
+            g.policy.floorLevel >= unlockedTier(g, 'floor') ||
             g.gold < rule(g, 'cost.upgrade') * 100
           }
           onPress={() => void dispatch({ type: 'upgradeFloors' })}
         >
-          {g.policy.floorLevel === 2 ? 'Level 2' : 'Upgrade · 50g'}
+          {g.policy.floorLevel >= unlockedTier(g, 'floor')
+            ? `Level ${g.policy.floorLevel}`
+            : 'Upgrade · 50g'}
         </Button>
       </Row>
       <Body style={{ marginTop: 7 }}>

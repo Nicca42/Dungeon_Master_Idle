@@ -1,3 +1,4 @@
+import { roomInterval } from './progression';
 import { recoveryHours, fullyRecovered, ROOM_RECOVERY_INTERVAL } from './recovery';
 import { GameState } from './types';
 import { HOUR } from './content';
@@ -7,9 +8,7 @@ export function restRoster(g: GameState, floorId: number) {
     const actor = g.actors.find((a) => a.id === o.actorId && a.health > 0);
     if (!actor) return [];
     const hours = Math.ceil(recoveryHours(actor));
-    return [
-      { actor, end: hours <= 0 ? g.now : o.recoverAt + (hours - 1) * ROOM_RECOVERY_INTERVAL },
-    ];
+    return [{ actor, end: hours <= 0 ? g.now : o.recoverAt + (hours - 1) * roomInterval(g) }];
   });
   return roster;
 }

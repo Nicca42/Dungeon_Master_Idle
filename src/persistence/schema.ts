@@ -1,3 +1,4 @@
+import { excavationWork, foundationWork } from '../game/construction';
 import { z } from 'zod';
 import { GameState } from '../game/types';
 import { validateState, blankXp } from '../game/engine';
@@ -21,14 +22,35 @@ const combat = z.object({
   deaths: number,
 });
 const actionCue = z.object({
-  kind: z.enum(['lock', 'attack', 'defend', 'heal', 'detect']),
+  kind: z.enum(['lock', 'attack', 'defend', 'heal', 'detect', 'gold']),
+  role: z.enum(['fighter', 'wizard', 'healer', 'miner', 'maintenance', 'defender']).optional(),
+  tier: number.optional(),
   actor: z.string(),
+  actorId: number.optional(),
   difficulty: number,
   power: number,
   success: z.boolean(),
   time: number,
 });
+const dailyReport = z.object({
+  day: number.int().positive(),
+  since: number,
+  end: number,
+  partial: z.boolean(),
+  adventurers: number,
+  parties: number,
+  entryGold: number,
+  traps: number,
+  treasureGold: number,
+  xp: number,
+  deaths: number,
+  levels: number,
+  levelGold: number,
+});
 const actor = z.object({
+  revivalTrained: z.boolean().optional(),
+  ghostCreated: z.boolean().optional(),
+  spawnedAt: number.optional(),
   id: number,
   name: z.string(),
   role: z.enum(['fighter', 'wizard', 'healer', 'miner', 'maintenance', 'defender']),
@@ -75,6 +97,41 @@ const actor = z.object({
     .nullable(),
 });
 const research = z.enum([
+  'revivalClass',
+  'building3',
+  'building4',
+  'building5',
+  'builders2',
+  'builders3',
+  'builders4',
+  'traps3',
+  'traps4',
+  'traps5',
+  'mobs2',
+  'mobs3',
+  'mobs4',
+  'mobs5',
+  'staff2',
+  'staff3',
+  'staff4',
+  'staff5',
+  'adventurers3',
+  'adventurers4',
+  'adventurers5',
+  'rest2',
+  'rest3',
+  'rest4',
+  'betterTreasure',
+  'crystalChests',
+  'royalChests',
+  'toolbelts',
+  'resetKits',
+  'containment',
+  'containment2',
+  'guild3',
+  'regionalAds',
+  'unpaidOvertime',
+  'guildGrant',
   'getDigging',
   'betterTraps',
   'depths',
@@ -100,6 +157,7 @@ const research = z.enum([
 const state = z.object({
   version: z.literal(1),
   rulesVersion: z.literal(2),
+  contentRevision: number.optional(),
   groupLayout: z
     .array(
       z.object({
@@ -124,7 +182,7 @@ const state = z.object({
   config: z.record(z.string(), z.number().finite()).optional(),
   trapStealth: number.min(5).max(10).optional(),
   staffRestThreshold: number.min(0).max(90).optional(),
-  spawnTiers: z.array(number.min(1).max(2)).max(3).optional(),
+  spawnTiers: z.array(number.min(1).max(5)).max(6).optional(),
   configRevision: number.optional(),
   staffRoom: z
     .object({
@@ -138,6 +196,9 @@ const state = z.object({
     .max(4000)
     .optional(),
   ledgerSince: number.optional(),
+  dailyReports: z
+    .object({ current: dailyReport, reports: z.array(dailyReport).max(90) })
+    .optional(),
   fee: number.max(2000),
   reinvest: number.max(100),
   saleRatio: number.max(100),
@@ -148,7 +209,7 @@ const state = z.object({
   gameOver: z.boolean().default(false),
   nextArrivalAt: number.default(3600000),
   arrivalSequence: number.int().optional(),
-  spawnPoints: number.int().min(1).max(3).default(1),
+  spawnPoints: number.int().min(1).max(6).default(1),
   excavationSpells: number.int().max(2).default(2),
   escapedMobs: z
     .array(
@@ -197,6 +258,7 @@ const state = z.object({
         encounters: z.array(
           z.object({
             id: number,
+            spawnedAt: number.optional(),
             slot: z.number().int().min(0).max(11).optional(),
             kind: z.enum([
               'trapdoor',
@@ -255,6 +317,31 @@ const state = z.object({
       actions: z.array(actionCue),
     }),
   ),
+  ghosts: z
+    .array(
+      z.object({
+        actorId: number,
+        partyId: number,
+        floor: number,
+        node: number,
+        diedAt: number,
+        deadline: number,
+        hostile: z.boolean(),
+        health: number,
+        maxHealth: number,
+        defense: number,
+        maxDefense: number,
+        damage: number,
+        primary: number,
+        speed: number,
+        intelligence: number,
+        stamina: number,
+        maxStamina: number,
+        healerId: number.optional(),
+        castAt: number.optional(),
+      }),
+    )
+    .optional(),
   research: z.array(research),
   researchJob: z.object({ id: research, end: number }).nullable(),
   activity: z.array(
@@ -385,6 +472,18 @@ export function decode(raw: string): Save {
       pending: z.object({ game: number, wall: number, active: z.boolean().optional() }).optional(),
     })
     .parse(data);
+  // Rebalance ongoing saves without discarding completed construction work.
+  for (const floor of result.state.floors) {
+    if (['locked', 'queued', 'excavating'].includes(floor.stage))
+      floor.required = excavationWork(
+        floor.id,
+        result.state.config?.digMinutes ?? 10,
+        result.state.config?.digGrowth ?? 1.5,
+      );
+    else if (floor.stage === 'foundation') floor.required = foundationWork(floor.id);
+    else continue;
+    floor.work = Math.min(floor.work, floor.required);
+  }
   validateState(result.state);
   return result;
 }

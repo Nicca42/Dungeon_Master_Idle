@@ -1,3 +1,4 @@
+import { roomInterval } from './progression';
 import { Actor, GameState } from './types';
 import { fullyRecovered, replenish, recoveryHours, ROOM_RECOVERY_INTERVAL } from './recovery';
 import { HOUR } from './content';
@@ -19,7 +20,7 @@ export function serviceStaffRoom(s: GameState, bank: (a: Actor) => void) {
     const a = eligible(o.actorId)!;
     while (s.now >= o.recoverAt && !fullyRecovered(a)) {
       replenish(a);
-      o.recoverAt += ROOM_RECOVERY_INTERVAL;
+      o.recoverAt += roomInterval(s, true);
     }
     if (fullyRecovered(a)) {
       room.occupants = room.occupants.filter((x) => x.actorId !== a.id);
@@ -35,19 +36,19 @@ export function serviceStaffRoom(s: GameState, bank: (a: Actor) => void) {
   for (const a of s.actors.filter((a) => isStaff(a) && a.health > 0)) {
     if (a.task || a.returnUntil || a.workFloor) continue;
     const threshold = Math.floor((a.maxStamina * (s.staffRestThreshold ?? 0)) / 100);
-    const maintenanceWork =
-      s.research.includes('staminaManagement') &&
-      s.floors.some(
-        (f) =>
-          f.health < (f.level === 2 ? 20 : s.policy.floorHealth) ||
-          f.encounters.some(
-            (e) =>
-              e.destroyed ||
-              e.installed === false ||
-              (!e.active && ['trapdoor', 'arrows'].includes(e.kind)) ||
-              (e.capacity > e.gold && s.reserve > 0),
-          ),
-      );
+    const maintenanceWork = s.floors.some(
+      (f) =>
+        f.health < f.level * 10 ||
+        f.encounters.some(
+          (e) =>
+            e.destroyed ||
+            (e.installed === false &&
+              f.installation !== 'pending' &&
+              ['furnishing', 'ready', 'open'].includes(f.stage)) ||
+            (!e.active && ['trapdoor', 'arrows'].includes(e.kind)) ||
+            (e.capacity > e.gold && s.reserve > 0),
+        ),
+    );
     const shouldRest =
       a.status === 'resting' ||
       (a.role === 'miner'
@@ -55,7 +56,7 @@ export function serviceStaffRoom(s: GameState, bank: (a: Actor) => void) {
           (!digging && !fullyRecovered(a))
         : (a.role === 'defender' && s.escapedMobs.length) ||
             (a.role === 'maintenance' && maintenanceWork)
-          ? a.stamina <= Math.floor((a.maxStamina * (s.staffRestThreshold ?? 0)) / 100)
+          ? a.stamina <= (a.role === 'maintenance' ? 0 : threshold)
           : !fullyRecovered(a));
     if (!shouldRest) continue;
     a.status = 'resting';
@@ -70,8 +71,8 @@ export function serviceStaffRoom(s: GameState, bank: (a: Actor) => void) {
       a.status = 'working';
       continue;
     }
-    room.occupants.push({ actorId: a.id, recoverAt: s.now + ROOM_RECOVERY_INTERVAL });
-    a.until = s.now + recoveryHours(a) * ROOM_RECOVERY_INTERVAL;
+    room.occupants.push({ actorId: a.id, recoverAt: s.now + roomInterval(s, true) });
+    a.until = s.now + recoveryHours(a) * roomInterval(s, true);
   }
 }
 export function staffRestRoster(s: GameState) {
@@ -79,7 +80,7 @@ export function staffRestRoster(s: GameState) {
     const actor = s.actors.find((a) => a.id === o.actorId);
     if (!actor) return [];
     return [
-      { actor, end: o.recoverAt + Math.max(0, recoveryHours(actor) - 1) * ROOM_RECOVERY_INTERVAL },
+      { actor, end: o.recoverAt + Math.max(0, recoveryHours(actor) - 1) * roomInterval(s, true) },
     ];
   });
 }

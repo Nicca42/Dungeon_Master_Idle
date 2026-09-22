@@ -1,0 +1,71 @@
+[
+  {
+    "rowId": "adventurers_spawners",
+    "columnId": "level_1",
+    "lines": [
+      "local Ads / additional Arrival Points: 2",
+      "local Ads / purchase Gold Per Point: 25",
+      "local Ads / population Capacity Per Point: 10",
+      "basic Guild / formation Real Seconds: 20",
+      "basic Guild / formation Game Seconds: 480",
+      "basic Guild / select Missing Party Roles: true"
+    ]
+  },
+  {
+    "rowId": "adventurers_spawners",
+    "columnId": "level_2",
+    "lines": [
+      "local Ads / additional Arrival Points: 2",
+      "local Ads / purchase Gold Per Point: 25",
+      "local Ads / population Capacity Per Point: 10",
+      "basic Guild / formation Real Seconds: 20",
+      "basic Guild / formation Game Seconds: 480",
+      "basic Guild / select Missing Party Roles: true"
+    ]
+  },
+  {
+    "rowId": "adventurers_spawners",
+    "columnId": "level_3",
+    "lines": [
+      "local Ads / additional Arrival Points: 2",
+      "local Ads / purchase Gold Per Point: 25",
+      "local Ads / population Capacity Per Point: 10",
+      "basic Guild / formation Real Seconds: 20",
+      "basic Guild / formation Game Seconds: 480",
+      "basic Guild / select Missing Party Roles: true"
+    ]
+  },
+  {
+    "rowId": "adventurers_spawners",
+    "columnId": "level_4",
+    "lines": [
+      "local Ads / additional Arrival Points: 2",
+      "local Ads / purchase Gold Per Point: 25",
+      "local Ads / population Capacity Per Point: 10",
+      "basic Guild / formation Real Seconds: 20",
+      "basic Guild / formation Game Seconds: 480",
+      "basic Guild / select Missing Party Roles: true"
+    ]
+  },
+  {
+    "rowId": "adventurers_spawners",
+    "columnId": "level_5",
+    "lines": [
+      "local Ads / additional Arrival Points: 2",
+      "local Ads / purchase Gold Per Point: 25",
+      "local Ads / population Capacity Per Point: 10",
+      "basic Guild / formation Real Seconds: 20",
+      "basic Guild / formation Game Seconds: 480",
+      "basic Guild / select Missing Party Roles: true"
+    ]
+  },
+  {
+    "rowId": "traps_mimics",
+    "columnId": "level_1",
+    "lines": [
+      "beginner Stealth Research / applies To Level: 1",
+      "beginner Stealth Research / per Rank Perception Bonus: 1",
+      "beginner Stealth Research / max Perception: 10"
+    ]
+  }
+]

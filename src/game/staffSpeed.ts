@@ -17,7 +17,10 @@ export function maintenanceWorkTime(
     const difficulty =
       value('resetDifficulty') +
       Math.max(0, (trap.tier ?? 1) - 1) * value('resetDifficultyPerLevel');
-    const skill = staffSpeed(s, a) + a.intelligence;
+    const skill =
+      staffSpeed(s, a) +
+      a.intelligence +
+      (s.research.includes('resetKits') ? 10 : s.research.includes('toolbelts') ? 5 : 0);
     // Only complete five-point steps change the default multiplier.
     const steps = Math.trunc((difficulty - skill) / value('resetSkillStep'));
     const multiplier = Math.max(

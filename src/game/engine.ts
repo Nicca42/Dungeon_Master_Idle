@@ -1,3 +1,8 @@
+import { createDailyReports, dailyEvent, rollDailyReports } from './dailyReports';
+import { captureGhosts, settleGhosts, teachRevival } from './ghosts';
+import { floorGroupIndex, excavationWork, foundationWork } from './construction';
+import { fixtureStats } from './tierStats';
+import { unlockedTier, spawnPointLimit, roomInterval, fixtureTierLimit } from './progression';
 import { installationProgress } from './installation';
 import { maintenanceTiming, maintenanceWorkTime, staffTravelTime } from './staffSpeed';
 import { arrivalSequence, arrivalOffset, mobReadyAt, staggerMobs } from './spawnTiming';
@@ -8,6 +13,7 @@ import { researchAvailable, queueBuildingUpgrade, upgradingFloor, newFloor } fro
 import { serviceStaffRoom, isStaff, staffRoom } from './staffRest';
 import {
   rule,
+  tierStaffHireCost,
   DEFAULT_RULES,
   Rules,
   validateRules,
@@ -67,6 +73,7 @@ function actor(s: GameState, role: Role, base = 10): Actor {
   const look = nextLook(s, role);
   return {
     id: s.nextId++,
+    spawnedAt: s.now,
     ...(look.variant !== undefined ? { variant: look.variant } : {}),
     name: names[role][count % names[role].length]!,
     role,
@@ -98,8 +105,10 @@ function actor(s: GameState, role: Role, base = 10): Actor {
 export function initialState(seed = 42691, config: Rules = DEFAULT_RULES): GameState {
   const s: GameState = {
     version: 1,
+    dailyReports: createDailyReports(0),
     artChoices: defaultArtChoices(),
     rulesVersion: 2,
+    contentRevision: 1,
     config: { ...config },
     configRevision: 0,
     staffRoom: { capacity: 10, queue: [], occupants: [] },
@@ -133,7 +142,7 @@ export function initialState(seed = 42691, config: Rules = DEFAULT_RULES): GameS
       name,
       stage: 'locked',
       work: 0,
-      required: 12 * 1.5 ** index,
+      required: excavationWork(index + 1),
       restSpots: 0,
       encounters: [],
       visitors: 0,
@@ -185,7 +194,7 @@ export function initialState(seed = 42691, config: Rules = DEFAULT_RULES): GameS
   for (const key of Object.keys(s.policy) as (keyof GameState['policy'])[])
     if (config[`policy.${key}`] !== undefined) s.policy[key] = config[`policy.${key}`]!;
   for (const f of s.floors) {
-    f.required = 1.2 * rule(s, 'digMinutes') * rule(s, 'digGrowth') ** (f.id - 1);
+    f.required = excavationWork(f.id, rule(s, 'digMinutes'), rule(s, 'digGrowth'));
     f.health = s.policy.floorHealth;
     f.defense = s.policy.floorDefense;
   }
@@ -224,7 +233,14 @@ function makeEncounter(s: GameState, kind: Encounter['kind']): Encounter {
   return {
     id: s.nextId++,
     kind,
-    tier: ['mimic', 'trapdoor'].includes(kind) && s.research.includes('betterTraps') ? 2 : 1,
+    tier:
+      kind === 'silver'
+        ? 2
+        : kind === 'gold'
+          ? 3
+          : ['mimic', 'trapdoor'].includes(kind) && s.research.includes('betterTraps')
+            ? 2
+            : 1,
     roaming: false,
     active: true,
     health: rule(s, `${kind}.health`),
@@ -288,7 +304,7 @@ function layout(s: GameState, f: Floor) {
   }
   if (!['ready', 'open'].includes(f.stage)) f.health = s.policy.floorHealth;
   f.level = Math.max(f.level, s.policy.floorLevel);
-  f.defense = f.level === 2 ? 20 : s.policy.floorDefense;
+  f.defense = f.level * 10;
   f.policyRevision = s.policyRevision;
 
   f.spawnAt = s.now + HOUR;
@@ -435,6 +451,7 @@ export function bankFloorXp(s: GameState, p: Party) {
   let gained = 0,
     charged = 0;
   for (const a of team) {
+    const beforeFees = charged;
     if (a.health <= 0) {
       a.pendingXp = blankXp();
       continue;
@@ -446,7 +463,7 @@ export function bankFloorXp(s: GameState, p: Party) {
         a.bankedXp[stat] -= a.learning;
         a[stat]++;
         gained++;
-        let fee = rule(s, 'levelFee') * 100;
+        let fee = (rule(s, 'levelFee') + (s.research.includes('guildGrant') ? 1 : 0)) * 100;
         for (const payer of team.filter((x) => x.health > 0)) {
           const paid = Math.min(payer.wealth, fee);
           payer.wealth -= paid;
@@ -457,9 +474,11 @@ export function bankFloorXp(s: GameState, p: Party) {
       }
     }
     a.xp = Object.values(a.bankedXp).reduce((n, v) => n + v, 0);
+    if (charged > beforeFees) cue(s, p, 'gold', a, 0, (charged - beforeFees) / 100);
   }
   s.gold += charged;
   recordGold(s, charged, 'Stat level-up fees');
+  dailyEvent(s, { levels: gained, levelGold: charged });
   s.totals.income += charged;
   p.checkpointed = true;
   if (gained)
@@ -483,6 +502,7 @@ function finishParty(s: GameState, p: Party, retreat = false) {
     f.restQueue = f.restQueue.filter((id) => id !== p.id);
     f.restOccupants = f.restOccupants.filter((o) => o.partyId !== p.id);
   }
+  s.ghosts = (s.ghosts ?? []).filter((g) => g.partyId !== p.id);
   s.parties = s.parties.filter((x) => x.id !== p.id);
   s.totals.visits++;
   if (retreat) s.totals.retreats++;
@@ -537,7 +557,17 @@ function cue(
 ) {
   if (kind === 'attack' || kind === 'defend')
     damageFloor(s.floors[p.floor - 1]!, kind === 'attack' ? power : difficulty);
-  p.actions.push({ kind, actor: a.name, difficulty, power, success, time: s.now });
+  p.actions.push({
+    kind,
+    actor: a.name,
+    actorId: a.id,
+    role: a.role,
+    tier: a.outfitTier ?? 1,
+    difficulty,
+    power,
+    success,
+    time: s.now,
+  });
   p.actions = p.actions.slice(-8);
 }
 function needsHealing(a: Actor, healer: Actor) {
@@ -602,7 +632,7 @@ export function processRest(s: GameState, f: Floor, service = true) {
     while (s.now >= occupant.recoverAt && !fullyRecovered(a)) {
       replenish(a);
       delete a.quietRecoverAt;
-      occupant.recoverAt += ROOM_RECOVERY_INTERVAL;
+      occupant.recoverAt += roomInterval(s);
     }
   }
   for (const id of [...f.restQueue]) {
@@ -701,7 +731,7 @@ export function processRest(s: GameState, f: Floor, service = true) {
       f.restOccupants.push({
         actorId: a.id,
         partyId: id,
-        recoverAt: s.now + ROOM_RECOVERY_INTERVAL,
+        recoverAt: s.now + roomInterval(s),
       });
       p.lastRestAdmissionAt = s.now;
       p.status = 'resting';
@@ -737,6 +767,7 @@ function expireRejectedArrivals(s: GameState) {
 }
 function admit(s: GameState) {
   if (!s.opened || s.gameOver) return false;
+  teachRevival(s);
   const available = s.actors.filter(
     (a) =>
       a.status === 'town' &&
@@ -771,6 +802,7 @@ function admit(s: GameState) {
   s.reserve += reserve;
   s.totals.income += receipt;
   s.totals.admissions += group.length;
+  dailyEvent(s, { adventurers: group.length, parties: 1, entryGold: receipt });
   s.quietSince = s.now;
   for (const a of group) {
     a.wealth -= s.fee;
@@ -789,7 +821,19 @@ function admit(s: GameState) {
     restJoinedAt: null,
     lastRestAdmissionAt: null,
     restedIds: [],
-    actions: [],
+    actions: [
+      {
+        kind: 'gold',
+        actor: group[0]?.name ?? 'Party',
+        actorId: group[0]?.id,
+        role: group[0]?.role,
+        tier: group[0]?.outfitTier ?? 1,
+        difficulty: 0,
+        power: receipt / 100,
+        success: true,
+        time: s.now,
+      },
+    ],
   };
   adventureStats(s).partiesTotal++;
   s.parties.push(p);
@@ -797,17 +841,59 @@ function admit(s: GameState) {
   log(s, `${group.length} adventurers entered. +${receipt / 100} gold admission.`, 'gold');
   return true;
 }
+function enterDungeon(s: GameState, p: Party, at: number) {
+  const admission = p.actions.find((a) => a.kind === 'gold')?.power ?? 0;
+  const team = members(s, p).filter((a) => a.health > 0);
+  p.status = 'moving';
+  p.actions =
+    admission > 0
+      ? team.map((a) => ({
+          kind: 'gold',
+          actor: a.name,
+          actorId: a.id,
+          role: a.role,
+          tier: a.outfitTier ?? 1,
+          difficulty: 0,
+          power: admission / team.length,
+          success: true,
+          time: at,
+        }))
+      : [];
+}
 function advanceParty(s: GameState, p: Party) {
   const f = s.floors[p.floor - 1]!,
     team = members(s, p).filter((a) => a.health > 0);
-  p.actions = p.actions.filter((a) => s.now - a.time < 2 * TICK);
+  if (p.status !== 'arriving') p.actions = p.actions.filter((a) => s.now - a.time < 2 * TICK);
   if (!team.length) {
     finishParty(s, p, true);
     return;
   }
+  captureGhosts(s, p);
+  const ghosts = (s.ghosts ?? []).filter((g) => g.partyId === p.id);
+  if (ghosts.length) {
+    for (const ghost of ghosts.filter((g) => g.hostile)) {
+      if (ghost.health > 0) {
+        const target = team.find((a) => a.health > 0);
+        if (target) {
+          attack(target, ghost.damage + ghost.primary);
+          captureGhosts(s, p);
+        }
+      }
+
+      for (const a of team.filter((a) => a.health > 0 && a.stamina > 0)) {
+        attack(ghost, a.damage + primaryAvailable(a), a);
+        spendStamina(a, 1);
+        usePrimary(a);
+        cue(s, p, 'attack', a, ghost.defense, a.damage, true);
+        if (ghost.health <= 0) break;
+      }
+    }
+    s.ghosts = s.ghosts!.filter((g) => g.health > 0);
+    return;
+  }
   if (p.status === 'arriving') {
     if (s.now < p.surfaceUntil || s.escapedMobs.length) return;
-    p.status = 'moving';
+    enterDungeon(s, p, s.now);
     return;
   }
   if (p.node >= f.encounters.length) {
@@ -852,37 +938,51 @@ function advanceParty(s: GameState, p: Party) {
     return;
   }
   if (['wood', 'silver', 'gold'].includes(e.kind) && e.gold > 0) {
-    const requirement = rule(s, `${e.kind}.perception`),
-      cost = rule(s, `${e.kind}.stamina`);
-    const a =
-      team.find((a) => a.intelligence >= requirement && a.stamina >= cost) ??
-      team.find(
-        (a) =>
-          a.role === 'wizard' &&
-          a.intelligence + primaryAvailable(a) >= requirement &&
-          a.stamina >= cost,
-      );
-    const candidate = a ?? team.find((a) => a.role === 'wizard') ?? team[0]!;
-    const power =
-      candidate.role === 'wizard'
-        ? candidate.intelligence + primaryAvailable(candidate)
-        : candidate.intelligence;
-    cue(s, p, 'lock', candidate, requirement, power, !!a);
+    const chestTier = e.tier ?? (e.kind === 'silver' ? 2 : e.kind === 'gold' ? 3 : 1),
+      stats = fixtureStats(e.kind, chestTier);
+    const requirement =
+        (chestTier > 3 ? stats.lockIntelligence : rule(s, `${e.kind}.perception`)) +
+        (s.research.includes('betterTreasure') && chestTier <= 2 ? chestTier * 5 : 0),
+      cost = chestTier > 3 ? stats.openStamina : rule(s, `${e.kind}.stamina`);
+    let a: Actor | undefined;
+    const eligible = team.filter(
+      (a) =>
+        a.stamina >= cost &&
+        a.intelligence + (a.role === 'wizard' ? primaryAvailable(a) : 0) >= requirement,
+    );
+    const chance =
+      chestTier <= 2
+        ? s.research.includes('betterTreasure')
+          ? 1 / 3
+          : 0.5
+        : [0, 0, 0, 0.25, 0.2, 1 / 6][chestTier];
+    for (const candidate of eligible) {
+      spendStamina(candidate, cost);
+      learn(candidate, 'intelligence');
+      const power =
+        candidate.intelligence + (candidate.role === 'wizard' ? primaryAvailable(candidate) : 0);
+      if (candidate.role === 'wizard') usePrimary(candidate);
+      const success = random(s) < chance;
+      cue(s, p, 'lock', candidate, requirement, power, success);
+      if (success) {
+        a = candidate;
+        break;
+      }
+    }
+    const candidate = eligible[0] ?? team[0]!;
     if (a && e.gold > 0) {
-      spendStamina(a, cost);
-      learn(a, 'intelligence');
-      if (a.role === 'wizard') usePrimary(a);
       const loot = e.gold;
       e.gold = 0;
       e.active = false;
       s.totals.loot += loot;
+      dailyEvent(s, { treasureGold: loot });
       team.forEach(
         (m, i) => (m.wealth += Math.floor(loot / team.length) + (i < loot % team.length ? 1 : 0)),
       );
       log(s, `${a.name} opened a ${e.kind} chest. ${loot / 100} gold claimed.`, 'gold');
     }
     if (!a) {
-      learn(candidate, 'intelligence');
+      if (!eligible.length) learn(candidate, 'intelligence');
       log(
         s,
         `Party #${p.id} could not open ${e.kind}: needs ${requirement} intelligence or wizard manipulation and ${cost} stamina.`,
@@ -891,8 +991,8 @@ function advanceParty(s: GameState, p: Party) {
     }
   } else if (['trapdoor', 'arrows'].includes(e.kind) && e.active) {
     const requirement =
-      e.tier === 2 && e.kind === 'trapdoor'
-        ? 20
+      (e.tier ?? 1) >= 2
+        ? fixtureStats(e.kind, e.tier!).perceptionRequired
         : Math.min(10, Math.max(rule(s, `${e.kind}.perception`), s.trapStealth ?? 5));
     const observer = [...team].sort((a, b) => b.intelligence - a.intelligence)[0]!;
     cue(
@@ -906,10 +1006,14 @@ function advanceParty(s: GameState, p: Party) {
     );
     learn(observer, 'intelligence');
     if (observer.intelligence < requirement) {
+      dailyEvent(s, { traps: 1 });
       const target = team[0]!;
       cue(s, p, 'defend', target, e.damage, target.defense, target.defense >= e.damage);
       attack(target, e.damage);
-      if (target.health <= 0) target.status = 'dead';
+      if (target.health <= 0) {
+        target.status = 'dead';
+        captureGhosts(s, p);
+      }
       e.active = false;
     }
   } else if (e.active && (e.kind === 'mimic' || e === mobile)) {
@@ -918,6 +1022,7 @@ function advanceParty(s: GameState, p: Party) {
       e.triggeredParties ??= e.triggeredParty === undefined ? [] : [e.triggeredParty];
       if (!e.triggeredParties.includes(p.id)) {
         e.xp = (e.xp ?? 0) + 1;
+        dailyEvent(s, { traps: 1 });
         e.triggeredParties.push(p.id);
       }
       e.revealedUntil = s.now + TICK;
@@ -958,7 +1063,10 @@ function advanceParty(s: GameState, p: Party) {
         learn(blocker, 'maxDefense');
       } else cue(s, p, 'defend', target, damage, target.defense, target.defense >= damage);
       attack(target, damage);
-      if (target.health <= 0) target.status = 'dead';
+      if (target.health <= 0) {
+        target.status = 'dead';
+        captureGhosts(s, p);
+      }
       return;
     }
     e.active = false;
@@ -992,11 +1100,8 @@ export function moveMobs(s: GameState, f: Floor) {
         (p) =>
           p.floor === f.id &&
           p.status !== 'arriving' &&
-          members(s, p).some((a) => a.health > 0) &&
-          !f.restOccupants.some(
-            (o) =>
-              o.partyId === p.id &&
-              p.members.every((id) => f.restOccupants.some((x) => x.actorId === id)),
+          members(s, p).some(
+            (a) => a.health > 0 && !f.restOccupants.some((o) => o.actorId === a.id),
           ),
       )
       .sort((a, b) => Math.abs(a.node - e.position) - Math.abs(b.node - e.position))[0];
@@ -1015,7 +1120,14 @@ export function moveMobs(s: GameState, f: Floor) {
       e.patrolDirection = -1;
     }
     if (e.position <= -1 && e.patrolDirection !== 1) {
-      if (random(s) >= rule(s, 'escapeChance') / 100) {
+      if (
+        random(s) >=
+        (s.research.includes('containment2')
+          ? 0.05
+          : s.research.includes('containment')
+            ? 0.1
+            : rule(s, 'escapeChance') / 100)
+      ) {
         e.position = -1;
         e.patrolDirection = 1;
         continue;
@@ -1099,9 +1211,12 @@ export function defenderDuty(s: GameState) {
       continue;
     }
     const ticks = a.dutyTicks ?? 0;
+    const wageRate = Math.max(
+      0,
+      rule(s, 'wage') - (s.research.includes('unpaidOvertime') ? 0.5 : 0),
+    );
     const wage =
-      Math.floor(((ticks + 1) * rule(s, 'wage') * 100) / 12) -
-      Math.floor((ticks * rule(s, 'wage') * 100) / 12);
+      Math.floor(((ticks + 1) * wageRate * 100) / 12) - Math.floor((ticks * wageRate * 100) / 12);
     if (s.gold < wage) {
       a.status = 'resting';
       a.until = s.now + HOUR;
@@ -1151,14 +1266,15 @@ function completeMaintenance(s: GameState) {
     if (!a.task || a.task.until > s.now) continue;
     const floor = s.floors[a.task.floor - 1];
     if (a.task.kind === 'repair' && floor)
-      floor.health = Math.min(floor.level === 2 ? 20 : s.policy.floorHealth, floor.health + 1);
+      floor.health = Math.min(floor.level * 10, floor.health + 1);
     const e = s.floors[a.task.floor - 1]?.encounters.find((e) => e.id === a.task!.encounter);
     if (e) {
       if (a.task.kind === 'replace') {
         e.destroyed = false;
         e.installed = true;
         e.active = true;
-        e.health = rule(s, `${e.kind}.health`);
+        e.health =
+          (e.tier ?? 1) > 1 ? fixtureStats(e.kind, e.tier!).maxHealth : rule(s, `${e.kind}.health`);
         e.defense = e.maxDefense;
       } else if (a.task.kind === 'install') {
         e.installed = true;
@@ -1168,7 +1284,8 @@ function completeMaintenance(s: GameState) {
       } else if (a.task.kind === 'refill') fill(s, e);
       else {
         e.active = true;
-        e.health = rule(s, `${e.kind}.health`);
+        e.health =
+          (e.tier ?? 1) > 1 ? fixtureStats(e.kind, e.tier!).maxHealth : rule(s, `${e.kind}.health`);
         e.defense = e.maxDefense;
       }
     }
@@ -1205,7 +1322,7 @@ function assignMaintenance(s: GameState, resetsOnly = true) {
       a.task = null;
     }
     if (a.task) continue;
-    if (!urgent && (resetsOnly || a.status === 'resting' || a.returnUntil)) continue;
+    if (!urgent && resetsOnly) continue;
     if (a.stamina < rule(s, 'maintenanceStamina')) {
       a.status = 'resting';
       continue;
@@ -1244,10 +1361,16 @@ function assignMaintenance(s: GameState, resetsOnly = true) {
       const damaged = s.floors.find(
         (f) =>
           ['ready', 'open'].includes(f.stage) &&
-          f.health < s.policy.floorHealth &&
+          f.health < f.level * 10 &&
           !s.actors.some((worker) => worker.task?.kind === 'repair' && worker.task.floor === f.id),
       );
       if (damaged) {
+        a.status = 'working';
+        delete a.returnUntil;
+        if (s.staffRoom) {
+          s.staffRoom.queue = s.staffRoom.queue.filter((id) => id !== a.id);
+          s.staffRoom.occupants = s.staffRoom.occupants.filter((o) => o.actorId !== a.id);
+        }
         spendStamina(a, rule(s, 'maintenanceStamina'));
         const timing = maintenanceTiming(s, a, damaged.id);
         a.workFloor = damaged.id;
@@ -1266,14 +1389,18 @@ function installEncounters(s: GameState) {
   assignMaintenance(s);
   for (const f of s.floors.filter(
     (f) =>
-      (f.installation === 'installing' && f.stage === 'ready') ||
-      (['ready', 'open'].includes(f.stage) &&
+      (f.installation === 'installing' && ['furnishing', 'ready', 'open'].includes(f.stage)) ||
+      (['furnishing', 'ready', 'open'].includes(f.stage) &&
         f.installation !== 'pending' &&
         f.encounters.some((e) => e.installed === false)),
   )) {
     if (f.encounters.every((e) => e.installed !== false)) {
       f.installation = 'complete';
-      log(s, `Floor ${f.id}: all fixtures installed. Ready to open.`, 'work');
+      log(
+        s,
+        `Floor ${f.id}: all fixtures installed.${f.stage === 'ready' ? ' Ready to open.' : ' Builders are finishing construction.'}`,
+        'work',
+      );
       continue;
     }
     for (const a of s.actors.filter(
@@ -1282,7 +1409,6 @@ function installEncounters(s: GameState) {
         a.health > 0 &&
         a.stamina > 0 &&
         a.stamina >= rule(s, 'maintenanceStamina') &&
-        a.status !== 'resting' &&
         !a.task,
     )) {
       const available = f.encounters.filter(
@@ -1293,6 +1419,11 @@ function installEncounters(s: GameState) {
       if (!e.installPaid) {
         spendStamina(a, rule(s, 'maintenanceStamina'));
         e.installPaid = true;
+      }
+      a.status = 'working';
+      if (s.staffRoom) {
+        s.staffRoom.queue = s.staffRoom.queue.filter((id) => id !== a.id);
+        s.staffRoom.occupants = s.staffRoom.occupants.filter((o) => o.actorId !== a.id);
       }
       delete a.returnUntil;
       const timing = maintenanceTiming(s, a, f.id);
@@ -1309,6 +1440,7 @@ function installEncounters(s: GameState) {
       };
     }
   }
+  assignMaintenance(s, false);
 }
 export const excavationMinutes = (
   floor: number,
@@ -1316,7 +1448,8 @@ export const excavationMinutes = (
   diggers = 3,
   state: Pick<GameState, 'config'> = {},
 ) =>
-  (((rule(state, 'digMinutes') * rule(state, 'digGrowth') ** (floor - 1)) / (upgraded ? 2 : 1)) *
+  (((rule(state, 'digMinutes') * rule(state, 'digGrowth') ** floorGroupIndex(floor)) /
+    (upgraded ? 2 : 1)) *
     3) /
   Math.max(1, diggers);
 function excavateTick(s: GameState) {
@@ -1337,14 +1470,18 @@ function excavateTick(s: GameState) {
   if (f.work + 1e-7 >= f.required) {
     f.stage = 'foundation';
     f.work = 0;
-    f.required = 6 * f.id;
+    f.required = foundationWork(f.id);
     log(s, `Floor ${f.id} excavation complete. Building foundations.`, 'work');
   }
 }
 export const adventurerCap = (s: GameState) =>
   rule(s, 'populationCap') +
   (s.spawnPoints - 1) * 10 +
-  (s.research.includes('guild2') ? rule(s, 'guild2.capacity') : 0);
+  (s.research.includes('guild3')
+    ? 40
+    : s.research.includes('guild2')
+      ? rule(s, 'guild2.capacity')
+      : 0);
 const adventurerRoles = ['fighter', 'wizard', 'healer'] as const;
 const partyRequirement = { fighter: 2, wizard: 1, healer: 1 };
 // Fighters occupy spawn capacity while queued or assigned to a dungeon party.
@@ -1425,21 +1562,22 @@ export const nextExcavationFloor = (s: GameState) => s.floors.find((f) => f.stag
 export const canExcavate = (s: GameState, f: Floor) =>
   f.id === 1 || ['ready', 'open'].includes(s.floors[f.id - 2]!.stage);
 function workBuildingUpgrade(s: GameState, a: Actor): boolean {
+  queueBuildingUpgrade(s);
   const upgrading = upgradingFloor(s);
   if (upgrading) {
     spendStamina(a, 1);
     usePrimary(a);
     upgrading.upgradeWork! += a.primary < 20 ? 0.5 : 1;
     if (upgrading.upgradeWork! >= (upgrading.upgradeRequired ?? 6)) {
-      upgrading.level = 2;
-      upgrading.health += 10;
-      upgrading.defense = 20;
+      upgrading.level = unlockedTier(s, 'floor');
+      upgrading.health = upgrading.level * 10;
+      upgrading.defense = upgrading.level * 10;
       delete upgrading.upgradeWork;
       delete upgrading.upgradeRequired;
       if (!upgradingFloor(s)) {
-        s.policy.floorLevel = 2;
-        s.policy.floorHealth = 20;
-        s.policy.floorDefense = 20;
+        s.policy.floorLevel = unlockedTier(s, 'floor');
+        s.policy.floorHealth = s.policy.floorLevel * 10;
+        s.policy.floorDefense = s.policy.floorLevel * 10;
       }
     }
     return true;
@@ -1477,17 +1615,18 @@ function hourly(s: GameState) {
         f.work = 0;
         if (f.stage === 'excavating') {
           f.stage = 'foundation';
-          f.required = 6 * f.id;
+          f.required = foundationWork(f.id);
         } else if (f.stage === 'foundation') {
           f.stage = 'furnishing';
           f.required = 6;
+          queueBuildingUpgrade(s);
         } else {
           f.stage = 'ready';
           f.health = s.policy.floorHealth;
           f.defense = s.policy.floorDefense;
           f.level = s.policy.floorLevel;
           f.required = 0;
-          if (f.installation !== 'installing') {
+          if (!['installing', 'complete'].includes(f.installation ?? '')) {
             f.installation = 'pending';
             f.encounters = [];
           }
@@ -1533,9 +1672,11 @@ function spawnMobs(s: GameState) {
       else delete e.variant;
       e.saturation = look.saturation;
       e.active = true;
+      e.spawnedAt = s.now;
       e.position = f.encounters.indexOf(e);
       e.patrolDirection = -1;
-      e.health = rule(s, `${e.kind}.health`);
+      e.health =
+        (e.tier ?? 1) > 1 ? fixtureStats(e.kind, e.tier!).maxHealth : rule(s, `${e.kind}.health`);
       e.defense = e.maxDefense;
       f.spawnAt = s.now + TICK;
     }
@@ -1550,7 +1691,7 @@ function arrivals(s: GameState) {
       const weight = (r: (typeof adventurerRoles)[number]) =>
         s.research.includes('guild')
           ? partyRequirement[r]
-          : rule(s, `spawn${tierForRatio}.${r}Ratio`);
+          : rule(s, `spawn${Math.min(2, tierForRatio)}.${r}Ratio`);
       const cap = Math.ceil(
         (adventurerCap(s) * weight(role as (typeof adventurerRoles)[number])) /
           adventurerRoles.reduce((sum, r) => sum + weight(r), 0),
@@ -1562,7 +1703,7 @@ function arrivals(s: GameState) {
       ) {
         const person = actor(s, role),
           tier = s.spawnTiers?.[point] ?? 1;
-        if (tier === 2) {
+        if (tier >= 2) {
           for (const stat of [
             'maxHealth',
             'maxDefense',
@@ -1573,8 +1714,8 @@ function arrivals(s: GameState) {
             'speed',
             'learning',
           ] as const)
-            person[stat] = rule(s, `level2.${role}.${stat}`);
-          person.wealth = rule(s, `level2.${role}.wealth`) * 100;
+            person[stat] = (rule(s, `level2.${role}.${stat}`) * tier) / 2;
+          person.wealth = (rule(s, `level2.${role}.wealth`) * 100 * tier) / 2;
           person.health = person.maxHealth;
           person.defense = person.maxDefense;
           person.stamina = person.maxStamina;
@@ -1612,12 +1753,22 @@ function enroll(s: GameState) {
   }
 }
 function tick(s: GameState) {
+  queueBuildingUpgrade(s);
   if (s.researchJob && s.now >= s.researchJob.end) {
     const id = s.researchJob.id;
     const previousArrivalInterval = arrivalInterval(s);
     const previousFormationTime = partyFormationTime(s);
     unlock(s, id);
-    if (id === 'guild2') {
+    if (
+      [
+        'guild2',
+        'guild3',
+        'level2Adventurers',
+        'adventurers3',
+        'adventurers4',
+        'adventurers5',
+      ].includes(id)
+    ) {
       s.nextArrivalAt =
         s.now +
         Math.ceil(
@@ -1651,11 +1802,13 @@ function tick(s: GameState) {
     if (id === 'depths')
       for (let i = 0, n = Math.min(5, 50 - s.floors.length); i < n; i++) {
         const f = newFloor(s.floors.length + 1);
-        f.required = 1.2 * rule(s, 'digMinutes') * rule(s, 'digGrowth') ** (f.id - 1);
+        f.required = excavationWork(f.id, rule(s, 'digMinutes'), rule(s, 'digGrowth'));
         s.floors.push(f);
       }
     if (id === 'stealth') s.trapStealth = Math.min(10, (s.trapStealth ?? 5) + 1);
-    if (id === 'building') queueBuildingUpgrade(s);
+    if (['building', 'building3', 'building4', 'building5'].includes(id)) queueBuildingUpgrade(s);
+    if (['rest', 'rest2', 'rest3', 'rest4'].includes(id))
+      s.policy.restFee = unlockedTier(s, 'rest');
     if (id === 'betterTraps') {
       // Research must not turn a level-two trap into a zero-damage fixture.
       s.policy.trapAttackBudget = Math.max(
@@ -1714,12 +1867,13 @@ function tick(s: GameState) {
         delete e.triggeredParty;
         delete e.triggeredParties;
         e.active = true;
-        e.health = rule(s, `${e.kind}.health`);
+        e.health =
+          (e.tier ?? 1) > 1 ? fixtureStats(e.kind, e.tier!).maxHealth : rule(s, `${e.kind}.health`);
         e.defense = e.maxDefense;
       }
     }
   completeMaintenance(s);
-  assignMaintenance(s);
+  installEncounters(s);
   processStaffRest(s);
   for (const f of s.floors) {
     if (
@@ -1764,14 +1918,14 @@ function tick(s: GameState) {
   surfaceCombat(s);
   for (const p of [...s.parties]) advanceParty(s, p);
   for (const f of s.floors) processRest(s, f);
-  assignMaintenance(s);
+  installEncounters(s);
   processStaffRest(s);
 }
 function settleArrivals(s: GameState, at: number) {
   if (s.gameOver || s.escapedMobs.length) return;
   for (const p of s.parties)
     if (p.status === 'arriving' && p.surfaceUntil <= at && members(s, p).some((a) => a.health > 0))
-      p.status = 'moving';
+      enterDungeon(s, p, at);
 }
 // Finish short reset jobs at their deadline, rather than rounding up to the next five-minute tick.
 function settleMaintenance(s: GameState, at: number) {
@@ -1782,6 +1936,7 @@ function settleMaintenance(s: GameState, at: number) {
     if (!due.length) break;
     s.now = Math.max(now, Math.min(...due));
     completeMaintenance(s);
+    installEncounters(s);
   }
   s.now = now;
 }
@@ -1794,11 +1949,14 @@ export function advanceTo(state: GameState, target: number, active = false): Gam
   const arrivalDue =
     !state.escapedMobs.length &&
     state.parties.some((p) => p.status === 'arriving' && p.surfaceUntil <= target);
+  const ghostDue = (state.ghosts ?? []).some(
+    (g) => !g.hostile && Math.min(g.castAt ?? Infinity, g.deadline) <= target,
+  );
   const maintenanceDue = state.actors.some((a) => a.task && a.task.until <= target);
-  if (target < state.nextTick && !active && !arrivalDue && !maintenanceDue)
+  if (target < state.nextTick && !active && !arrivalDue && !maintenanceDue && !ghostDue)
     return { ...state, now: target };
   const s: GameState =
-    target < state.nextTick && !arrivalDue && !maintenanceDue
+    target < state.nextTick && !arrivalDue && !maintenanceDue && !ghostDue
       ? { ...state, researchJob: state.researchJob ? { ...state.researchJob } : null }
       : JSON.parse(JSON.stringify(state));
   const bonus = (until: number) => {
@@ -1809,18 +1967,22 @@ export function advanceTo(state: GameState, target: number, active = false): Gam
     if (s.researchJob) s.researchJob.end -= elapsed;
   };
   while (s.nextTick <= target) {
+    settleGhosts(s, s.nextTick, learn);
     settleMaintenance(s, s.nextTick);
     settleArrivals(s, s.nextTick);
     bonus(s.nextTick);
+    rollDailyReports(s, s.nextTick);
     s.now = s.nextTick;
     s.nextTick += TICK;
     const observed = observeAdventures(s);
     tick(s);
     recordAdventures(s, observed);
   }
+  settleGhosts(s, target, learn);
   settleMaintenance(s, target);
   bonus(target);
   settleArrivals(s, target);
+  rollDailyReports(s, target);
   s.now = target;
   return s;
 }
@@ -1901,7 +2063,7 @@ export function command(state: GameState, action: Command): GameState {
       tutorial(s);
       break;
     case 'buySpawnPoint':
-      if (!s.research.includes('localAds') || s.spawnPoints >= 3)
+      if (!s.research.includes('localAds') || s.spawnPoints >= spawnPointLimit(s))
         throw new Error('Research Local ads; at most two extra spawn points can be bought.');
       spend(s, rule(s, 'cost.spawn') * 100, 'Spawn points');
       s.spawnPoints++;
@@ -1921,7 +2083,7 @@ export function command(state: GameState, action: Command): GameState {
       s.excavationSpells--;
       f.stage = 'foundation';
       f.work = 0;
-      f.required = 6 * f.id;
+      f.required = foundationWork(f.id);
       log(
         s,
         `Free excavation spell finished digging floor ${f.id}. Foundations and furnishing are next.`,
@@ -1939,7 +2101,7 @@ export function command(state: GameState, action: Command): GameState {
       spend(s, rule(s, 'cost.excavate') * 100, 'Excavation');
       f.stage = 'queued';
       f.work = 0;
-      f.required = 1.2 * rule(s, 'digMinutes') * rule(s, 'digGrowth') ** (f.id - 1);
+      f.required = excavationWork(f.id, rule(s, 'digMinutes'), rule(s, 'digGrowth'));
       log(s, `Floor ${f.id} queued for excavation. 5 gold.`, 'work');
       if (s.tutorial === 2 && s.floors.slice(0, 3).every((f) => f.stage !== 'locked'))
         s.tutorial = 3;
@@ -1999,7 +2161,19 @@ export function command(state: GameState, action: Command): GameState {
       if (!r || s.researchJob || !researchAvailable(s, r.id) || s.tutorial < 9)
         throw new Error('Research is not available yet.');
       spend(s, rule(s, `research.${r.id}.cost`) * 100, `Research: ${r.name}`);
-      s.researchJob = { id: r.id, end: s.now + rule(s, `research.${r.id}.hours`) * HOUR };
+      s.researchJob = {
+        id: r.id,
+        end:
+          s.now +
+          (r.id === 'depths'
+            ? s.floors.length === 5
+              ? 2
+              : s.floors.length === 10
+                ? 3
+                : 4
+            : rule(s, `research.${r.id}.hours`)) *
+            HOUR,
+      };
       log(s, `Research started: ${r.name}.`, 'work');
       break;
     }
@@ -2151,6 +2325,64 @@ export function command(state: GameState, action: Command): GameState {
       for (const key of Object.keys(action.choices)) delete s.artSequence[key];
       break;
     }
+    case 'trainStaff': {
+      const a = s.actors.find((a) => a.id === action.actor);
+      if (
+        !a ||
+        !['miner', 'maintenance', 'defender'].includes(a.role) ||
+        a.health <= 0 ||
+        a.task ||
+        a.workFloor ||
+        a.returnUntil
+      )
+        throw new Error('Staff must return to the office before training.');
+      const tier = (a.outfitTier ?? 1) + 1;
+      if (tier > unlockedTier(s, a.role === 'miner' ? 'builder' : 'staff'))
+        throw new Error('Research the next staff tier first.');
+      spend(s, [0, 0, 10, 10, 15, 20][tier] * 100, 'Staff training');
+      for (const stat of [
+        'maxHealth',
+        'maxDefense',
+        'maxStamina',
+        'damage',
+        'intelligence',
+        'primary',
+        'learning',
+      ] as const)
+        a[stat] += 10;
+      a.speed += a.role === 'miner' && tier === 4 ? 15 : 10;
+      a.outfitTier = tier;
+      a.status = 'resting';
+      processStaffRest(s);
+      break;
+    }
+    case 'upgradeFixture': {
+      const f = s.floors.find((f) => f.id === action.floor);
+      const e = f?.encounters.find((e) => e.id === action.encounter);
+      if (
+        !e ||
+        e.roaming ||
+        e.installed === false ||
+        e.destroyed ||
+        (e.tier ?? 1) >= fixtureTierLimit(s, e.kind)
+      )
+        throw new Error('No fixture upgrade is available.');
+      if (s.actors.some((a) => a.task?.encounter === e.id))
+        throw new Error('Wait for maintenance to finish this fixture.');
+      const tier = (e.tier ?? 1) + 1,
+        stats = fixtureStats(e.kind, tier);
+      spend(s, tier * 1000, 'Fixture upgrade');
+      e.tier = tier;
+      e.health = stats.maxHealth;
+      e.defense = stats.maxDefense;
+      e.maxDefense = stats.maxDefense;
+      if (stats.maxDamage !== undefined) e.damage = roll(s, stats.minDamage, stats.maxDamage);
+      if (stats.maxGold !== undefined) {
+        e.capacity = roll(s, stats.minGold, stats.maxGold) * 100;
+        e.gold = Math.min(e.gold, e.capacity);
+      }
+      break;
+    }
     case 'addFixture': {
       const f = s.floors.find((f) => f.id === action.floor);
       if (!f || !['ready', 'open'].includes(f.stage) || !availableFixtures(s).includes(action.kind))
@@ -2256,6 +2488,37 @@ export function command(state: GameState, action: Command): GameState {
       processStaffRest(s);
       break;
     }
+    case 'hireStaff': {
+      if (!s.office || !s.research.includes('staff'))
+        throw new Error('Unlock Staff Management first.');
+      if (
+        !Number.isInteger(action.tier) ||
+        action.tier < 1 ||
+        action.tier > unlockedTier(s, 'staff')
+      )
+        throw new Error('Research this staff tier first.');
+      if (!['maintenance', 'miner', 'defender'].includes(action.role))
+        throw new Error('Invalid staff role.');
+      const builderTier = unlockedTier(s, 'builder');
+      if (
+        action.role === 'miner' &&
+        s.actors.filter((a) => a.role === 'miner' && a.health > 0).length >=
+          (builderTier === 4 ? 25 : builderTier * 5)
+      )
+        throw new Error('Builder hiring cap reached. Research better builders.');
+      const price = tierStaffHireCost(s, action.tier);
+      spend(s, price * 100, `${action.role} hiring`);
+      const hired = actor(s, action.role, action.tier * 10);
+      hired.outfitTier = action.tier;
+      if (action.role === 'defender') hired.securitySpawnedAt = s.now;
+      s.actors.push(hired);
+      log(
+        s,
+        `Tier ${action.tier} ${action.role} joined the crew. ${price} gold hiring fee.`,
+        'work',
+      );
+      break;
+    }
     case 'hireDefender':
       if (!s.office || !s.research.includes('staff'))
         throw new Error('Unlock Staff Management first.');
@@ -2271,8 +2534,26 @@ export function command(state: GameState, action: Command): GameState {
     case 'hireMiner':
       if (!s.office || s.tutorial < 1)
         throw new Error('Hire your first crew through the tutorial.');
-      spend(s, rule(s, 'cost.miner') * 100, 'Digger hiring');
-      s.actors.push(actor(s, 'miner'));
+      const builderTier = unlockedTier(s, 'builder');
+      if (
+        s.actors.filter((a) => a.role === 'miner' && a.health > 0).length >=
+        (builderTier === 4 ? 25 : builderTier * 5)
+      )
+        throw new Error('Builder hiring cap reached. Research better builders.');
+      spend(
+        s,
+        Math.max(
+          0,
+          rule(s, 'cost.miner') +
+            (builderTier - 1) * 5 -
+            (s.research.includes('unpaidOvertime') ? 1 : 0),
+        ) * 100,
+        'Digger hiring',
+      );
+      const newBuilder = actor(s, 'miner', builderTier * 10);
+      newBuilder.outfitTier = builderTier;
+      newBuilder.speed = builderTier === 4 ? 45 : builderTier * 10;
+      s.actors.push(newBuilder);
       if (s.tutorial === 1 && s.actors.filter((a) => a.role === 'miner').length >= 3)
         s.tutorial = 2;
       log(s, 'A digger joined the crew. 10 gold hiring fee.', 'work');
@@ -2280,7 +2561,12 @@ export function command(state: GameState, action: Command): GameState {
     case 'hireMaintenance':
       if (!s.research.includes('staff') && s.tutorial !== 7)
         throw new Error('Unlock Staff Management first.');
-      spend(s, rule(s, 'cost.maintenance') * 100, 'Maintainer hiring');
+      spend(
+        s,
+        Math.max(0, rule(s, 'cost.maintenance') - (s.research.includes('unpaidOvertime') ? 1 : 0)) *
+          100,
+        'Maintainer hiring',
+      );
       s.actors.push(actor(s, 'maintenance'));
       if (s.tutorial === 7 && s.actors.filter((a) => a.role === 'maintenance').length >= 3) {
         unlock(s, 'staff');
@@ -2292,7 +2578,9 @@ export function command(state: GameState, action: Command): GameState {
       if (
         !s.research.includes('building') ||
         upgradingFloor(s) ||
-        !s.floors.some((f) => ['ready', 'open'].includes(f.stage) && f.level < 2)
+        !s.floors.some(
+          (f) => ['ready', 'open'].includes(f.stage) && f.level < unlockedTier(s, 'floor'),
+        )
       )
         throw new Error('No floor upgrade is available.');
       spend(s, rule(s, 'cost.upgrade') * 100, 'Floor upgrades');
@@ -2314,12 +2602,12 @@ export function command(state: GameState, action: Command): GameState {
         action.point < 0 ||
         action.point >= s.spawnPoints ||
         !Number.isInteger(action.point) ||
-        (s.spawnTiers?.[action.point] ?? 1) >= 2
+        (s.spawnTiers?.[action.point] ?? 1) >= unlockedTier(s, 'adventurer')
       )
         throw new Error('Spawn upgrade is unavailable.');
       spend(s, 2500, 'Level 2 spawn upgrade');
       s.spawnTiers = Array.from({ length: s.spawnPoints }, (_, i) => s.spawnTiers?.[i] ?? 1);
-      s.spawnTiers[action.point] = 2;
+      s.spawnTiers[action.point]++;
       break;
     case 'grant':
       if (s.recoveryGrant || s.gold > 0 || s.now - s.quietSince < DAY)
@@ -2382,6 +2670,7 @@ export function excavationEnd(s: GameState, floorId: number, currentPhase = fals
   for (let now = s.nextTick; now < s.now + 30 * DAY; now += TICK) {
     forecast.now = now;
     forecast.floors = floors;
+    queueBuildingUpgrade(forecast);
     processStaffRest(forecast);
     let current = floors.find((f) =>
       ['queued', 'excavating', 'foundation', 'furnishing'].includes(f.stage),
@@ -2395,7 +2684,7 @@ export function excavationEnd(s: GameState, floorId: number, currentPhase = fals
         if (current.id === floorId) return now;
         current.stage = 'foundation';
         current.work = 0;
-        current.required = 6 * current.id;
+        current.required = foundationWork(current.id);
       }
     }
     const recoverMiners = () => processStaffRest(forecast);
@@ -2427,6 +2716,7 @@ export function excavationEnd(s: GameState, floorId: number, currentPhase = fals
         if (current.stage === 'foundation') {
           current.stage = 'furnishing';
           current.required = 6;
+          queueBuildingUpgrade(forecast);
         } else {
           current.stage = 'ready';
         }

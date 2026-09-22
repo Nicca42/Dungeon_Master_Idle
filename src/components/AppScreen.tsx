@@ -1,3 +1,6 @@
+import { StaffHireButtons } from './StaffHireButtons';
+import { staffHireCost } from '../game/config';
+import { unlockedTier } from '../game/progression';
 import { RestRoomPanel } from './RestRoomPanel';
 import { nextExcavationFloor } from '../game/engine';
 import { ArtGallery } from './ArtGallery';
@@ -697,7 +700,7 @@ export default function AppScreen() {
               style={g.tutorial === 7 ? { borderWidth: 2, borderColor: c.gold } : undefined}
               disabled={
                 busy ||
-                g.gold < rule(g, 'cost.maintenance') * 100 ||
+                g.gold < staffHireCost(g, 'maintenance') * 100 ||
                 (!g.research.includes('staff') && g.tutorial !== 7)
               }
               onPress={() => {
@@ -705,7 +708,7 @@ export default function AppScreen() {
                 setModal(null);
               }}
             >
-              {`Hire maintainer · ${rule(g, 'cost.maintenance')} gold`}
+              {`Hire maintainer · ${staffHireCost(g, 'maintenance')} gold`}
             </Button>
           </View>
         )}
@@ -812,16 +815,7 @@ export default function AppScreen() {
                           office room at one point per game hour. They wait when beds are full and
                           receive no wages while resting. Without wage funds they stand down.
                         </Body>
-                        <Button
-                          disabled={
-                            busy ||
-                            g.gold < Math.max(100, rule(g, 'cost.defender') * 100) ||
-                            !g.research.includes('staff')
-                          }
-                          onPress={() => void dispatch({ type: 'hireDefender' })}
-                        >
-                          {`Hire adventurer · ${rule(g, 'wage')} gold/hour${rule(g, 'cost.defender') ? ` · ${rule(g, 'cost.defender')} gold hire fee` : ''}`}
-                        </Button>
+                        <StaffHireButtons g={g} role="defender" busy={busy} />
                         {g.actors
                           .filter((a) => a.role === 'defender')
                           .map((a) => (
@@ -865,40 +859,46 @@ export default function AppScreen() {
                           </Body>
                         )}
                         <Row style={{ flexWrap: 'wrap' }}>
-                          {staffPage === 'maintainers' && (
-                            <Button
-                              pulse={g.tutorial === 7}
-                              style={
-                                g.tutorial === 7
-                                  ? { borderWidth: 2, borderColor: c.gold }
-                                  : undefined
-                              }
-                              disabled={
-                                busy ||
-                                g.gold < rule(g, 'cost.maintenance') * 100 ||
-                                (!g.research.includes('staff') && g.tutorial !== 7)
-                              }
-                              onPress={() => void dispatch({ type: 'hireMaintenance' })}
-                            >
-                              {`Hire maintainer · ${rule(g, 'cost.maintenance')} gold`}
-                            </Button>
-                          )}
-                          {staffPage === 'diggers' && (
-                            <Button
-                              pulse={g.tutorial === 1}
-                              style={
-                                g.tutorial === 1
-                                  ? { borderWidth: 2, borderColor: c.gold }
-                                  : undefined
-                              }
-                              disabled={
-                                busy || g.gold < rule(g, 'cost.miner') * 100 || g.tutorial < 1
-                              }
-                              onPress={() => void dispatch({ type: 'hireMiner' })}
-                            >
-                              {`Hire digger · ${rule(g, 'cost.miner')} gold`}
-                            </Button>
-                          )}
+                          {staffPage === 'maintainers' &&
+                            (g.tutorial >= 9 ? (
+                              <StaffHireButtons g={g} role="maintenance" busy={busy} />
+                            ) : (
+                              <Button
+                                pulse={g.tutorial === 7}
+                                style={
+                                  g.tutorial === 7
+                                    ? { borderWidth: 2, borderColor: c.gold }
+                                    : undefined
+                                }
+                                disabled={
+                                  busy ||
+                                  g.gold < staffHireCost(g, 'maintenance') * 100 ||
+                                  (!g.research.includes('staff') && g.tutorial !== 7)
+                                }
+                                onPress={() => void dispatch({ type: 'hireMaintenance' })}
+                              >
+                                {`Hire maintainer · ${staffHireCost(g, 'maintenance')} gold`}
+                              </Button>
+                            ))}
+                          {staffPage === 'diggers' &&
+                            (g.tutorial >= 9 ? (
+                              <StaffHireButtons g={g} role="miner" busy={busy} />
+                            ) : (
+                              <Button
+                                pulse={g.tutorial === 1}
+                                style={
+                                  g.tutorial === 1
+                                    ? { borderWidth: 2, borderColor: c.gold }
+                                    : undefined
+                                }
+                                disabled={
+                                  busy || g.gold < staffHireCost(g, 'miner') * 100 || g.tutorial < 1
+                                }
+                                onPress={() => void dispatch({ type: 'hireMiner' })}
+                              >
+                                {`Hire digger · ${staffHireCost(g, 'miner')} gold`}
+                              </Button>
+                            ))}
                         </Row>
                         {staffPage === 'diggers' && (
                           <>
@@ -1504,8 +1504,9 @@ function Build({ g, busy }: { g: GameState; busy: boolean }) {
           <Pickaxe size={20} color={c.gold} />
         </Row>
         <Body style={{ marginTop: 8 }}>
-          Three rested diggers excavate floor 1 in 10 real minutes. Each deeper floor takes 1.5× as
-          long. Faster Digging halves these times; queues and rest add waiting time.
+          Three rested diggers excavate each of floors 1–5 in 10 real minutes. Each deeper group of
+          five floors takes 1.5× as long. Faster Digging halves these times; queues and rest add
+          waiting time.
         </Body>
         <Divider />
         {g.floors.map((f) => (
@@ -1927,6 +1928,9 @@ function SkillXp({
 }
 function ActorDetails({ actor: a, reduced, g }: { actor: Actor; reduced: boolean; g: GameState }) {
   const activity = actorActivity(g, a);
+  const canTrain =
+    ['miner', 'maintenance', 'defender'].includes(a.role) &&
+    (a.outfitTier ?? 1) < unlockedTier(g, a.role === 'miner' ? 'builder' : 'staff');
   const primary =
     a.role === 'wizard'
       ? 'Mana'
@@ -1952,6 +1956,15 @@ function ActorDetails({ actor: a, reduced, g }: { actor: Actor; reduced: boolean
   ];
   return (
     <>
+      {canTrain && (
+        <Button
+          disabled={!!a.task || !!a.workFloor || !!a.returnUntil}
+          onPress={() => void dispatch({ type: 'trainStaff', actor: a.id })}
+        >
+          Train to level {(a.outfitTier ?? 1) + 1} ·{' '}
+          {[0, 0, 10, 10, 15, 20][(a.outfitTier ?? 1) + 1]} gold (at office)
+        </Button>
+      )}
       <Row style={{ gap: 18 }}>
         <View style={{ backgroundColor: '#302a38', borderRadius: 8, padding: 14 }}>
           <Sprite
@@ -1977,6 +1990,9 @@ function ActorDetails({ actor: a, reduced, g }: { actor: Actor; reduced: boolean
       <Divider />
       <View testID="actor-current">
         <Body>Currently: {activity.current}</Body>
+        {a.revivalTrained && (
+          <Body>Revival trained · 00:05 window · costs ⅔ maximum stamina · restores ½ health</Body>
+        )}
       </View>
       <View testID="actor-next">
         <Body style={{ marginBottom: 14 }}>Queued: {activity.next}</Body>

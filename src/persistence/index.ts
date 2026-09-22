@@ -56,3 +56,18 @@ export async function writeBaseline(rules: Record<string, number>) {
     JSON.stringify(rules),
   );
 }
+
+export async function readPlanningTables(): Promise<unknown | null> {
+  const row = await (
+    await db()
+  ).getFirstAsync<{ payload: string }>("SELECT payload FROM saves WHERE slot = 'planning-tables'");
+  return row ? JSON.parse(row.payload) : null;
+}
+export async function writePlanningTables(tables: unknown): Promise<void> {
+  await (
+    await db()
+  ).runAsync(
+    "INSERT OR REPLACE INTO saves (slot,payload) VALUES ('planning-tables', ?)",
+    JSON.stringify(tables),
+  );
+}

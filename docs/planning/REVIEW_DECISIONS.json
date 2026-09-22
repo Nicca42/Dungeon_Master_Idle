@@ -1,0 +1,34 @@
+{
+  "date": "2026-09-22",
+  "approved": {
+    "betterBasicTreasure": {
+      "openSuccessProbability": 0.3333333333333333
+    },
+    "guildGrant": {
+      "goldPerStatGained": 1
+    },
+    "bestBuilders": {
+      "tier": 4,
+      "hireGold": 20,
+      "speed": 45,
+      "maxHireable": 25
+    },
+    "basicRestSpots": {
+      "recoveryPointsPerGameHour": 2
+    },
+    "adventurerSpawnBonuses": {
+      "composition": "minimum_interval_multiplier",
+      "stackMultiplicatively": false
+    },
+    "initialMobSpawner": {
+      "costGold": 0,
+      "installationOrderGoldPerFloor": 5
+    }
+  },
+  "luxurySuites": {
+    "durationGameHours": 10,
+    "adventurerRoomTier": 4,
+    "staffRoomTier": 3,
+    "unchangedUnlocks": true
+  }
+}

@@ -26,7 +26,7 @@ test('guild requests two fighters, then wizard, then healer and assembles a team
     let s = emptyTown(points);
     for (const role of ['fighter', 'fighter', 'wizard', 'healer']) {
       assert.equal(nextArrivalClass(s), role);
-      s = advanceTo(s, s.nextArrivalAt);
+      s = advanceTo(s, Math.ceil(s.nextArrivalAt/TICK)*TICK);
       assert.equal(s.actors.at(-1)!.role, role);
     }
     assert.equal(s.parties.length, 1);

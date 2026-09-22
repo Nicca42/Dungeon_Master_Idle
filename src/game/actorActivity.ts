@@ -1,6 +1,14 @@
 import { Actor, GameState } from './types';
 import { TICK } from './content';
 export function actorActivity(s: GameState, a: Actor) {
+  const ghost = (s.ghosts ?? []).find((g) => g.actorId === a.id);
+  if (ghost)
+    return {
+      current: ghost.hostile ? 'Hostile ghost: fighting former party' : 'Ghost: awaiting revival',
+      next: ghost.hostile ? 'Fight until defeated' : 'Revive before 00:05 or become hostile',
+    };
+  if ((s.ghosts ?? []).some((g) => g.healerId === a.id && g.castAt !== undefined))
+    return { current: 'Casting revival', next: 'Restore fallen party member at half health' };
   if (a.health <= 0) return { current: 'Dead', next: 'None' };
   if (a.task)
     return {
@@ -42,9 +50,16 @@ export function actorActivity(s: GameState, a: Actor) {
     };
   if (p.status === 'arriving')
     return { current: 'Walking to the dungeon entrance', next: 'Explore the first floor' };
-  const cue = [...p.actions].reverse().find((c) => c.actor === a.name && s.now - c.time < TICK);
+  const cue = [...p.actions]
+    .reverse()
+    .find(
+      (c) =>
+        (c.actorId !== undefined ? c.actorId === a.id : c.actor === a.name) &&
+        s.now - c.time < TICK,
+    );
   const action = cue
     ? {
+        gold: 'Paying dungeon fees',
         lock: 'Picking a lock',
         attack: 'Attacking a monster',
         defend: 'Defending the party',

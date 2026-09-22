@@ -33,11 +33,11 @@ import {
 import { DAY, HOUR } from '../src/game/content';
 import { decode } from '../src/persistence/schema';
 
-test('tutorial starts with 200 gold, finishes for 135, and only boosts floor one', () => {
+test('tutorial starts with 200 gold, finishes for 120, and only boosts floor one', () => {
   let s = initialState();
   assert.equal(s.gold, 20000);
   for (let i = 0; i < 8; i++) s = tutorialStep(s);
-  assert.equal(s.gold, 6500);
+  assert.equal(s.gold, 8000);
   assert.equal(s.floors[0]!.stage, 'ready');
   assert.equal(s.floors[1]!.stage, 'queued');
   assert.equal(s.floors[2]!.stage, 'queued');
@@ -436,29 +436,22 @@ test('structural damage equals attack minus defense and never goes negative', ()
   damageFloor(f, 50);
   assert.equal(f.health, 0);
 });
-test('maintenance repairs one floor health for each stamina spent', () => {
+test('maintenance repairs charge one stamina and immediately queue the next repair', () => {
   let s = demoState();
   s.parties = [];
-  s.floors[0]!.health = 5;
-  for (const f of s.floors) f.encounters = [];
-  const workers = s.actors.filter((a) => a.role === 'maintenance');
-  s.actors = s.actors.filter((a) => a.id !== workers[1]!.id);
-  for (const a of s.actors)
-    if (['fighter', 'wizard', 'healer'].includes(a.role)) {
-      a.status = 'recovering';
-      a.until = DAY;
-    }
-  s = advanceTo(s, HOUR);
-  const worker = s.actors.find((a) => a.id === workers[0]!.id)!;
-  assert.equal(worker.task?.kind, 'repair');
-  assert.equal(worker.stamina, 9);
-  assert.equal(s.floors[0]!.health, 5);
-  s = advanceTo(s, worker.task!.until);
-  assert.equal(s.floors[0]!.health, 6);
-  assert.equal(s.actors.find((a) => a.id === worker.id)!.stamina, 9); // returning after first repair
-  s = advanceTo(s, 3 * HOUR);
-  assert.equal(s.actors.find((a) => a.id === worker.id)!.stamina, 9); // next repair minus one stamina, plus one quiet recovery
+  s.nextArrivalAt = 100 * DAY;
+  s.floors.forEach((f) => (f.encounters = []));
+  s.floors[0].health = 5;
+  s.actors = [s.actors.find((a) => a.role === 'maintenance')!];
+  s = advanceTo(s, s.nextTick);
+  assert.equal(s.actors[0].task?.kind, 'repair');
+  assert.equal(s.actors[0].stamina, 9);
+  s = advanceTo(s, s.actors[0].task!.until);
+  assert.equal(s.floors[0].health, 6);
+  assert.equal(s.actors[0].task?.kind, 'repair');
+  assert.equal(s.actors[0].stamina, 8);
 });
+
 test('busy crew and unclaimed spent trap raise a hiring alert; hiring adds available staff', () => {
   const s = demoState();
   const trap = s.floors[0]!.encounters.find((e) => e.kind === 'trapdoor')!;
@@ -571,7 +564,7 @@ test('party starts on the surface, then enters the first cave after its arrival 
   assert.equal(after.parties[0]!.node, 0);
 });
 
-test('excavation takes ten and fifteen real minutes with three rested diggers, and research halves both', () => {
+test('excavation takes ten real minutes throughout the first group, and research halves it', () => {
   for (const floor of [1, 2])
     for (const upgraded of [false, true]) {
       const s = demoState();
@@ -585,7 +578,7 @@ test('excavation takes ten and fifteen real minutes with three rested diggers, a
       const target = s.floors[floor - 1]!;
       target.stage = 'queued';
       target.work = 0;
-      target.required = 12 * 1.5 ** (floor - 1);
+      target.required = 12 * 1.5 ** Math.floor((floor - 1) / 5);
       for (const a of s.actors.filter((a) => a.role === 'miner')) {
         a.stamina = 10;
         a.status = 'working';
@@ -597,13 +590,13 @@ test('excavation takes ten and fifteen real minutes with three rested diggers, a
     }
   assert.deepEqual(
     [1, 2, 3, 4, 5].map((f) => excavationMinutes(f)),
-    [10, 15, 22.5, 33.75, 50.625],
+    [10, 10, 10, 10, 10],
   );
 });
-test('staff management hires a digger for ten gold with baseline stats', () => {
+test('staff management hires a digger for five gold with baseline stats', () => {
   const s = demoState(),
     next = command(s, { type: 'hireMiner' });
-  assert.equal(next.gold, s.gold - 1000);
+  assert.equal(next.gold, s.gold - 500);
   assert.equal(next.actors.filter((a) => a.role === 'miner').length, 4);
   const a = next.actors.at(-1)!;
   assert.equal(a.stamina, 10);
@@ -748,9 +741,10 @@ test('six diggers excavate at twice the three-digger rate', () => {
   s = tutorialStep(s);
   s = tutorialStep(s);
   s.opened = true;
-  const six = command(command(command(s, { type: 'hireMiner' }), { type: 'hireMiner' }), {
-    type: 'hireMiner',
-  });
+  // Isolate headcount throughput; normal tier-I hiring is capped at five.
+  const six = structuredClone(s);
+  for (const a of s.actors.filter((a) => a.role === 'miner'))
+    six.actors.push({ ...structuredClone(a), id: six.nextId++ });
   const threeResult = advanceTo(s, 2 * HOUR);
   const sixResult = advanceTo(six, 2 * HOUR);
   assert.equal(threeResult.floors[0]!.work, 6);
@@ -902,7 +896,7 @@ test('local ads unlocks exactly two paid spawn points and each produces an extra
   s.gold = 20000;
   s.parties = [];
   assert.throws(() => command(s, { type: 'buySpawnPoint' }));
-  s.research.push('localAds');
+  s.research.push('localAds', 'level2Adventurers');
   s = command(s, { type: 'buySpawnPoint' });
   s = command(s, { type: 'buySpawnPoint' });
   assert.equal(s.spawnPoints, 3);
@@ -911,7 +905,7 @@ test('local ads unlocks exactly two paid spawn points and each produces an extra
   assert.throws(() => command(s, { type: 'buySpawnPoint' }));
   s.actors = s.actors.filter((a) => ['miner', 'maintenance'].includes(a.role));
   const expected = [0, 1, 2].map((point) => nextArrivalClass(s, point));
-  const next = advanceTo(s, HOUR);
+  const next = advanceTo(s, s.nextArrivalAt + HOUR / 2);
   assert.deepEqual(
     next.actors.filter((a) => ['fighter', 'wizard', 'healer'].includes(a.role)).map((a) => a.role),
     expected,
@@ -928,7 +922,12 @@ test('two excavation spells preserve gold, only skip excavation, and require fur
   assert.equal(s.floors[1]!.work, 0);
   assert.throws(() => command(s, { type: 'excavationSpell', floor: 3 }));
   const eta = excavationEnd(s, 3)!;
-  assert.ok(eta > s.now + 9 * HOUR, 'ETA includes previous foundations and furnishing');
+  const withoutPrecedingWork = structuredClone(s);
+  withoutPrecedingWork.floors[1]!.stage = 'ready';
+  assert.ok(
+    eta > excavationEnd(withoutPrecedingWork, 3)!,
+    'ETA includes previous foundations and furnishing',
+  );
   s.floors[1]!.stage = 'ready';
   s = command(s, { type: 'excavationSpell', floor: 3 });
   assert.equal(s.excavationSpells, 0);
@@ -1232,7 +1231,7 @@ test('security turns toward and attacks escaped mobs on either side of its post'
   }
 });
 
-test('installation ordered during furnishing waits for builders and is retained when ready', () => {
+test('installation ordered during furnishing begins immediately and is retained when ready', () => {
   let s = demoState();
   s.parties = [];
   const f = s.floors[1]!;
@@ -1243,7 +1242,7 @@ test('installation ordered during furnishing waits for builders and is retained 
   s = command(s, { type: 'installFloor', floor: 2 });
   const ids = s.floors[1]!.encounters.map((e) => e.id);
   assert.equal(s.floors[1]!.installation, 'installing');
-  assert.ok(!s.actors.some((a) => a.task?.floor === 2));
+  assert.ok(s.actors.some((a) => a.task?.floor === 2 && a.task.kind === 'install'));
   assert.throws(() => command(s, { type: 'installFloor', floor: 2 }));
   s = advanceTo(s, HOUR);
   assert.equal(s.floors[1]!.stage, 'ready');

@@ -12,7 +12,7 @@ test('treasury history reconciles all purchases and simulated income with actual
   s = command(s, { type: 'fund', amount: 500 });
   s = advanceTo(s, s.now + 24 * HOUR);
   assert.equal(s.gold, 20000 + s.ledger!.reduce((n, e) => n + e.amount, 0));
-  assert.ok(s.ledger!.some((e) => e.reason === 'Digger hiring' && e.amount === -4000));
+  assert.ok(s.ledger!.some((e) => e.reason === 'Digger hiring' && e.amount === -2000));
   assert.ok(s.ledger!.some((e) => e.reason === 'Entrance fees' && e.amount > 0));
   assert.deepEqual(decode(JSON.stringify({ state: s, wall: 0 })).state.ledger, s.ledger);
 });

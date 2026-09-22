@@ -1,3 +1,4 @@
+import { DailyReports } from './DailyReports';
 import { STATS_CATEGORIES } from '../game/statsCategories';
 import { AdventureStats } from './AdventureStats';
 import React, { useEffect, useState } from 'react';
@@ -89,8 +90,14 @@ export function Stats({ g, busy }: { g: GameState; busy: boolean }) {
         <Button compact secondary={page !== 2} onPress={() => setPage(2)}>
           Adventure stats
         </Button>
+        <Button compact secondary={page !== 3} onPress={() => setPage(3)}>
+          Daily reports
+          {g.dailyReports?.reports.length ? ` · Day ${g.dailyReports.reports.at(-1)!.day}` : ''}
+        </Button>
       </Row>
-      {page === 2 ? (
+      {page === 3 ? (
+        <DailyReports g={g} />
+      ) : page === 2 ? (
         <AdventureStats g={g} />
       ) : page === 0 ? (
         <>

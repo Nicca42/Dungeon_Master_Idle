@@ -108,3 +108,25 @@ test('monster population cap is independent of nests and changes without rebuild
   assert.equal(mobLimitReached(s, s.floors[0]!), false);
   assert.equal(s.policy.mobSlots, 2);
 });
+
+test('mobs ignore protected survivors even when a dead party member is outside', () => {
+  const s = demoState(),
+    f = s.floors[0],
+    p = s.parties[0];
+  p.status = 'resting';
+  p.node = 6;
+  const team = p.members.map((id) => s.actors.find((a) => a.id === id)!);
+  team[0].health = 0;
+  f.restOccupants = team
+    .slice(1)
+    .map((a) => ({ actorId: a.id, partyId: p.id, recoverAt: s.now + HOUR }));
+  const mob = f.encounters.find((e) => e.kind === 'zombie')!;
+  mob.active = true;
+  mob.position = 2;
+  mob.patrolDirection = -1;
+  moveMobs(s, f);
+  assert.equal(mob.position, 1.5);
+  f.restOccupants.pop();
+  moveMobs(s, f);
+  assert.equal(mob.position, 2);
+});

@@ -3,8 +3,11 @@ export type Stat =
   'primary' | 'damage' | 'maxHealth' | 'maxDefense' | 'maxStamina' | 'speed' | 'intelligence';
 export type Xp = Record<Stat, number>;
 export interface ActionCue {
-  kind: 'lock' | 'attack' | 'defend' | 'heal' | 'detect';
+  kind: 'lock' | 'attack' | 'defend' | 'heal' | 'detect' | 'gold';
+  role?: Role;
+  tier?: number;
   actor: string;
+  actorId?: number;
   difficulty: number;
   power: number;
   success: boolean;
@@ -14,6 +17,9 @@ export type Role = 'fighter' | 'wizard' | 'healer' | 'miner' | 'maintenance' | '
 export type Stage =
   'locked' | 'queued' | 'excavating' | 'foundation' | 'furnishing' | 'ready' | 'open';
 export interface Actor {
+  revivalTrained?: boolean;
+  ghostCreated?: boolean;
+  spawnedAt?: number;
   combatStats?: CombatStats;
   variant?: number;
   id: number;
@@ -58,6 +64,7 @@ export interface Actor {
   } | null;
 }
 export interface Encounter {
+  spawnedAt?: number;
   variant?: number;
   saturation?: number;
   destroyed?: boolean;
@@ -137,6 +144,7 @@ export interface Totals {
   built: number;
 }
 export type ResearchId =
+  | 'revivalClass'
   | 'traps'
   | 'mobs'
   | 'treasure'
@@ -157,7 +165,25 @@ export type ResearchId =
   | 'goldChests'
   | 'stealth'
   | 'guild'
-  | 'guild2';
+  | 'guild2'
+  | `building${3 | 4 | 5}`
+  | `builders${2 | 3 | 4}`
+  | `traps${3 | 4 | 5}`
+  | `mobs${2 | 3 | 4 | 5}`
+  | `staff${2 | 3 | 4 | 5}`
+  | `adventurers${3 | 4 | 5}`
+  | `rest${2 | 3 | 4}`
+  | 'betterTreasure'
+  | 'crystalChests'
+  | 'royalChests'
+  | 'toolbelts'
+  | 'resetKits'
+  | 'containment'
+  | 'containment2'
+  | 'guild3'
+  | 'regionalAds'
+  | 'unpaidOvertime'
+  | 'guildGrant';
 export interface Research {
   id: ResearchId;
   name: string;
@@ -175,6 +201,9 @@ export type ArtChoices = {
   healer?: number[];
 };
 export interface GameState {
+  dailyReports?: import('./dailyReports').DailyReports;
+  ghosts?: import('./ghosts').Ghost[];
+  contentRevision?: number;
   mobScheduleKey?: string;
   adventureStats?: {
     since: number;
@@ -266,6 +295,8 @@ export interface GameState {
 }
 export type Command =
   | { type: 'artChoices'; choices: ArtChoices }
+  | { type: 'trainStaff'; actor: number }
+  | { type: 'upgradeFixture'; floor: number; encounter: number }
   | { type: 'addFixture'; floor: number; slot: number; kind: Encounter['kind'] }
   | { type: 'tutorial' }
   | { type: 'develop'; floor: number }
@@ -289,6 +320,7 @@ export type Command =
   | { type: 'upgradeSpawn'; point: number }
   | { type: 'staffRestThreshold'; value: number }
   | { type: 'expandStaffRoom' }
+  | { type: 'hireStaff'; role: 'maintenance' | 'miner' | 'defender'; tier: number }
   | { type: 'hireMaintenance' }
   | { type: 'hireMiner' }
   | { type: 'hireDefender' }

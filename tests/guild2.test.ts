@@ -17,7 +17,7 @@ test('guild II requires the guild and improves spawn intervals and total capacit
     interval = arrivalInterval(s);
   s.research.push('guild2');
   assert.equal(adventurerCap(s), cap + 20);
-  assert.equal(arrivalInterval(s), interval * 0.75);
+  assert.equal(arrivalInterval(s), interval);
   s.arrivalSequence = 0;
   assert.equal(arrivalAt(s, 1) - arrivalAt(s, 0), HOUR / 4);
   assert.equal(partyFormationTime(s), 15 * 24 * 1000);
@@ -43,7 +43,7 @@ test('formation completes at 20 real seconds, or 15 with guild II, between actio
   }
 });
 
-test('completing guild II shortens the current spawn countdown and persists', () => {
+test('completing guild II preserves an equally strong existing spawn bonus and persists', () => {
   let s = demoState();
   s.gold = 100000;
   s.research.push('guild');
@@ -52,6 +52,6 @@ test('completing guild II shortens the current spawn countdown and persists', ()
   s.nextArrivalAt = 2 * HOUR;
   const completedAt = s.nextTick;
   s = advanceTo(s, completedAt);
-  assert.equal(s.nextArrivalAt, completedAt + (2 * HOUR - completedAt) * 0.75);
+  assert.equal(s.nextArrivalAt, 2 * HOUR);
   assert.ok(decode(JSON.stringify({ state: s, wall: 0 })).state.research.includes('guild2'));
 });

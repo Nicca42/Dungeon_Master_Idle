@@ -1,0 +1,443 @@
+[
+  {
+    "rowId": "floors_floor_groups",
+    "rowLabel": "floors / floor groups",
+    "columnId": "level_1",
+    "before": "min Health: 10\nmax Health: 10\nmin Defense: 10\nmax Defense: 10\nfixture Slots: 12\nrecommended Mob Cap: 2\nmob Attack Budget: 10\ntrap Attack Budget: 30\ntrap Defense Budget: 30",
+    "after": "min Health: 10\nmax Health: 10\nmin Defense: 10\nmax Defense: 10\nfixture Slots: 12\nrecommended Mob Cap: 2\nmob Attack Budget: 10\ntrap Attack Budget: 30\ntrap Defense Budget: 30\nbackground Tier: 1\nupgrade Additional Stamina: 0\nupgrade Order: deepest_furnished_first\nnovice Upgrade Throughput Multiplier: Unspecified"
+  },
+  {
+    "rowId": "floors_floor_groups",
+    "rowLabel": "floors / floor groups",
+    "columnId": "level_2",
+    "before": "min Health: 20\nmax Health: 20\nmin Defense: 20\nmax Defense: 20\nfixture Slots: 12\nrecommended Mob Cap: 4\nmob Attack Budget: 20\ntrap Attack Budget: 60\ntrap Defense Budget: 60",
+    "after": "min Health: 20\nmax Health: 20\nmin Defense: 20\nmax Defense: 20\nfixture Slots: 12\nrecommended Mob Cap: 4\nmob Attack Budget: 20\ntrap Attack Budget: 60\ntrap Defense Budget: 60\nbackground Tier: 2\nupgrade Additional Stamina: 1\nupgrade Order: deepest_furnished_first\nnovice Upgrade Throughput Multiplier: 0.5"
+  },
+  {
+    "rowId": "floors_floor_groups",
+    "rowLabel": "floors / floor groups",
+    "columnId": "level_3",
+    "before": "min Health: 30\nmax Health: 30\nmin Defense: 30\nmax Defense: 30\nfixture Slots: 12\nrecommended Mob Cap: 6\nmob Attack Budget: 30\ntrap Attack Budget: 90\ntrap Defense Budget: 90",
+    "after": "min Health: 30\nmax Health: 30\nmin Defense: 30\nmax Defense: 30\nfixture Slots: 12\nrecommended Mob Cap: 6\nmob Attack Budget: 30\ntrap Attack Budget: 90\ntrap Defense Budget: 90\nbackground Tier: 3\nupgrade Additional Stamina: 2\nupgrade Order: deepest_furnished_first\nnovice Upgrade Throughput Multiplier: Unspecified"
+  },
+  {
+    "rowId": "floors_floor_groups",
+    "rowLabel": "floors / floor groups",
+    "columnId": "level_4",
+    "before": "min Health: 40\nmax Health: 40\nmin Defense: 40\nmax Defense: 40\nfixture Slots: 12\nrecommended Mob Cap: 8\nmob Attack Budget: 40\ntrap Attack Budget: 120\ntrap Defense Budget: 120",
+    "after": "min Health: 40\nmax Health: 40\nmin Defense: 40\nmax Defense: 40\nfixture Slots: 12\nrecommended Mob Cap: 8\nmob Attack Budget: 40\ntrap Attack Budget: 120\ntrap Defense Budget: 120\nbackground Tier: 4\nupgrade Additional Stamina: 3\nupgrade Order: deepest_furnished_first\nnovice Upgrade Throughput Multiplier: Unspecified"
+  },
+  {
+    "rowId": "floors_floor_groups",
+    "rowLabel": "floors / floor groups",
+    "columnId": "level_5",
+    "before": "min Health: 50\nmax Health: 50\nmin Defense: 50\nmax Defense: 50\nfixture Slots: 12\nrecommended Mob Cap: 10\nmob Attack Budget: 50\ntrap Attack Budget: 150\ntrap Defense Budget: 150",
+    "after": "min Health: 50\nmax Health: 50\nmin Defense: 50\nmax Defense: 50\nfixture Slots: 12\nrecommended Mob Cap: 10\nmob Attack Budget: 50\ntrap Attack Budget: 150\ntrap Defense Budget: 150\nbackground Tier: 5\nupgrade Additional Stamina: 4\nupgrade Order: deepest_furnished_first\nnovice Upgrade Throughput Multiplier: Unspecified"
+  },
+  {
+    "rowId": "traps_trapdoors",
+    "rowLabel": "traps / trapdoors",
+    "columnId": "level_1",
+    "before": "min Health: 10\nmax Health: 19\nmin Defense: 5\nmax Defense: 9\nmin Damage: 5\nmax Damage: 10\nperception Required: 10\ninstallation Stamina: 1\nreset Difficulty: 20\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false",
+    "after": "min Health: 10\nmax Health: 19\nmin Defense: 5\nmax Defense: 9\nmin Damage: 5\nmax Damage: 10\nperception Required: 10\ninstallation Stamina: 1\nreset Difficulty: 20\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false\nbeginner Stealth Research / applies To Level: 1\nbeginner Stealth Research / per Rank Perception Bonus: 1\nbeginner Stealth Research / max Perception: 10\nbeginner Stealth Research / max Ranks: 5"
+  },
+  {
+    "rowId": "traps_trapdoors",
+    "rowLabel": "traps / trapdoors",
+    "columnId": "level_2",
+    "before": "min Health: 20\nmax Health: 20\nmin Defense: 10\nmax Defense: 10\nmin Damage: 10\nmax Damage: 20\nperception Required: 20\ninstallation Stamina: 1\nreset Difficulty: 30\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false",
+    "after": "min Health: 20\nmax Health: 20\nmin Defense: 10\nmax Defense: 10\nmin Damage: 10\nmax Damage: 20\nperception Required: 20\ninstallation Stamina: 1\nreset Difficulty: 30\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false\nbeginner Stealth Research / applies To Level: 1\nbeginner Stealth Research / per Rank Perception Bonus: 1\nbeginner Stealth Research / max Perception: 10\nbeginner Stealth Research / max Ranks: 5"
+  },
+  {
+    "rowId": "traps_trapdoors",
+    "rowLabel": "traps / trapdoors",
+    "columnId": "level_3",
+    "before": "min Health: 30\nmax Health: 30\nmin Defense: 15\nmax Defense: 15\nmin Damage: 20\nmax Damage: 30\nperception Required: 30\ninstallation Stamina: 1\nreset Difficulty: 40\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false",
+    "after": "min Health: 30\nmax Health: 30\nmin Defense: 15\nmax Defense: 15\nmin Damage: 20\nmax Damage: 30\nperception Required: 30\ninstallation Stamina: 1\nreset Difficulty: 40\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false\nbeginner Stealth Research / applies To Level: 1\nbeginner Stealth Research / per Rank Perception Bonus: 1\nbeginner Stealth Research / max Perception: 10\nbeginner Stealth Research / max Ranks: 5"
+  },
+  {
+    "rowId": "traps_trapdoors",
+    "rowLabel": "traps / trapdoors",
+    "columnId": "level_4",
+    "before": "min Health: 40\nmax Health: 40\nmin Defense: 20\nmax Defense: 20\nmin Damage: 30\nmax Damage: 40\nperception Required: 40\ninstallation Stamina: 1\nreset Difficulty: 50\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false",
+    "after": "min Health: 40\nmax Health: 40\nmin Defense: 20\nmax Defense: 20\nmin Damage: 30\nmax Damage: 40\nperception Required: 40\ninstallation Stamina: 1\nreset Difficulty: 50\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false\nbeginner Stealth Research / applies To Level: 1\nbeginner Stealth Research / per Rank Perception Bonus: 1\nbeginner Stealth Research / max Perception: 10\nbeginner Stealth Research / max Ranks: 5"
+  },
+  {
+    "rowId": "traps_trapdoors",
+    "rowLabel": "traps / trapdoors",
+    "columnId": "level_5",
+    "before": "min Health: 50\nmax Health: 50\nmin Defense: 25\nmax Defense: 25\nmin Damage: 40\nmax Damage: 50\nperception Required: 50\ninstallation Stamina: 1\nreset Difficulty: 60\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false",
+    "after": "min Health: 50\nmax Health: 50\nmin Defense: 25\nmax Defense: 25\nmin Damage: 40\nmax Damage: 50\nperception Required: 50\ninstallation Stamina: 1\nreset Difficulty: 60\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false\nbeginner Stealth Research / applies To Level: 1\nbeginner Stealth Research / per Rank Perception Bonus: 1\nbeginner Stealth Research / max Perception: 10\nbeginner Stealth Research / max Ranks: 5"
+  },
+  {
+    "rowId": "traps_arrowWalls",
+    "rowLabel": "traps / arrow Walls",
+    "columnId": "level_1",
+    "before": "min Health: 10\nmax Health: 10\nmin Defense: 5\nmax Defense: 5\nmin Damage: 10\nmax Damage: 15\nperception Required: 5\ninstallation Stamina: 1\nreset Difficulty: 20\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false",
+    "after": "min Health: 10\nmax Health: 10\nmin Defense: 5\nmax Defense: 5\nmin Damage: 10\nmax Damage: 15\nperception Required: 5\ninstallation Stamina: 1\nreset Difficulty: 20\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false\nbeginner Stealth Research / applies To Level: 1\nbeginner Stealth Research / per Rank Perception Bonus: 1\nbeginner Stealth Research / max Perception: 10\nbeginner Stealth Research / max Ranks: 5"
+  },
+  {
+    "rowId": "traps_arrowWalls",
+    "rowLabel": "traps / arrow Walls",
+    "columnId": "level_2",
+    "before": "min Health: 20\nmax Health: 20\nmin Defense: 10\nmax Defense: 10\nmin Damage: 15\nmax Damage: 25\nperception Required: 20\ninstallation Stamina: 1\nreset Difficulty: 30\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false",
+    "after": "min Health: 20\nmax Health: 20\nmin Defense: 10\nmax Defense: 10\nmin Damage: 15\nmax Damage: 25\nperception Required: 20\ninstallation Stamina: 1\nreset Difficulty: 30\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false\nbeginner Stealth Research / applies To Level: 1\nbeginner Stealth Research / per Rank Perception Bonus: 1\nbeginner Stealth Research / max Perception: 10\nbeginner Stealth Research / max Ranks: 5"
+  },
+  {
+    "rowId": "traps_arrowWalls",
+    "rowLabel": "traps / arrow Walls",
+    "columnId": "level_3",
+    "before": "min Health: 30\nmax Health: 30\nmin Defense: 15\nmax Defense: 15\nmin Damage: 25\nmax Damage: 35\nperception Required: 30\ninstallation Stamina: 1\nreset Difficulty: 40\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false",
+    "after": "min Health: 30\nmax Health: 30\nmin Defense: 15\nmax Defense: 15\nmin Damage: 25\nmax Damage: 35\nperception Required: 30\ninstallation Stamina: 1\nreset Difficulty: 40\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false\nbeginner Stealth Research / applies To Level: 1\nbeginner Stealth Research / per Rank Perception Bonus: 1\nbeginner Stealth Research / max Perception: 10\nbeginner Stealth Research / max Ranks: 5"
+  },
+  {
+    "rowId": "traps_arrowWalls",
+    "rowLabel": "traps / arrow Walls",
+    "columnId": "level_4",
+    "before": "min Health: 40\nmax Health: 40\nmin Defense: 20\nmax Defense: 20\nmin Damage: 35\nmax Damage: 45\nperception Required: 40\ninstallation Stamina: 1\nreset Difficulty: 50\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false",
+    "after": "min Health: 40\nmax Health: 40\nmin Defense: 20\nmax Defense: 20\nmin Damage: 35\nmax Damage: 45\nperception Required: 40\ninstallation Stamina: 1\nreset Difficulty: 50\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false\nbeginner Stealth Research / applies To Level: 1\nbeginner Stealth Research / per Rank Perception Bonus: 1\nbeginner Stealth Research / max Perception: 10\nbeginner Stealth Research / max Ranks: 5"
+  },
+  {
+    "rowId": "traps_arrowWalls",
+    "rowLabel": "traps / arrow Walls",
+    "columnId": "level_5",
+    "before": "min Health: 50\nmax Health: 50\nmin Defense: 25\nmax Defense: 25\nmin Damage: 45\nmax Damage: 55\nperception Required: 50\ninstallation Stamina: 1\nreset Difficulty: 60\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false",
+    "after": "min Health: 50\nmax Health: 50\nmin Defense: 25\nmax Defense: 25\nmin Damage: 45\nmax Damage: 55\nperception Required: 50\ninstallation Stamina: 1\nreset Difficulty: 60\nreset Base Game Minutes: 5\nreset Stamina: 1\nself Resets: false\nbeginner Stealth Research / applies To Level: 1\nbeginner Stealth Research / per Rank Perception Bonus: 1\nbeginner Stealth Research / max Perception: 10\nbeginner Stealth Research / max Ranks: 5"
+  },
+  {
+    "rowId": "traps_mimics",
+    "rowLabel": "traps / mimics",
+    "columnId": "level_1",
+    "before": "min Health: 10\nmax Health: 10\nmin Defense: 10\nmax Defense: 10\nmin Damage: 5\nmax Damage: 5\nperception Required: 10\ninstallation Stamina: 1\nreset Difficulty: 20\nreset Base Game Minutes: 5\nreset Stamina: 0\nself Resets: true\nxp Per Trigger: 1\nself Reset Game Minutes: 30",
+    "after": "min Health: 10\nmax Health: 10\nmin Defense: 10\nmax Defense: 10\nmin Damage: 5\nmax Damage: 5\nperception Required: 10\ninstallation Stamina: 1\nreset Difficulty: 20\nreset Base Game Minutes: 5\nreset Stamina: 0\nself Resets: true\nxp Per Trigger: 1\nself Reset Game Minutes: 30\nchest Imitation: wood"
+  },
+  {
+    "rowId": "traps_mimics",
+    "rowLabel": "traps / mimics",
+    "columnId": "level_2",
+    "before": "min Health: 20\nmax Health: 20\nmin Defense: 20\nmax Defense: 20\nmin Damage: 10\nmax Damage: 20\nperception Required: 20\ninstallation Stamina: 1\nreset Difficulty: 30\nreset Base Game Minutes: 5\nreset Stamina: 0\nself Resets: true\nxp Per Trigger: 1\nself Reset Game Minutes: 30",
+    "after": "min Health: 20\nmax Health: 20\nmin Defense: 20\nmax Defense: 20\nmin Damage: 10\nmax Damage: 20\nperception Required: 20\ninstallation Stamina: 1\nreset Difficulty: 30\nreset Base Game Minutes: 5\nreset Stamina: 0\nself Resets: true\nxp Per Trigger: 1\nself Reset Game Minutes: 30\nchest Imitation: silver"
+  },
+  {
+    "rowId": "traps_mimics",
+    "rowLabel": "traps / mimics",
+    "columnId": "level_3",
+    "before": "min Health: 30\nmax Health: 30\nmin Defense: 30\nmax Defense: 30\nmin Damage: 20\nmax Damage: 30\nperception Required: 30\ninstallation Stamina: 1\nreset Difficulty: 40\nreset Base Game Minutes: 5\nreset Stamina: 0\nself Resets: true\nxp Per Trigger: 1\nself Reset Game Minutes: 30",
+    "after": "min Health: 30\nmax Health: 30\nmin Defense: 30\nmax Defense: 30\nmin Damage: 20\nmax Damage: 30\nperception Required: 30\ninstallation Stamina: 1\nreset Difficulty: 40\nreset Base Game Minutes: 5\nreset Stamina: 0\nself Resets: true\nxp Per Trigger: 1\nself Reset Game Minutes: 30\nchest Imitation: gold"
+  },
+  {
+    "rowId": "traps_mimics",
+    "rowLabel": "traps / mimics",
+    "columnId": "level_4",
+    "before": "min Health: 40\nmax Health: 40\nmin Defense: 40\nmax Defense: 40\nmin Damage: 30\nmax Damage: 40\nperception Required: 40\ninstallation Stamina: 1\nreset Difficulty: 50\nreset Base Game Minutes: 5\nreset Stamina: 0\nself Resets: true\nxp Per Trigger: 1\nself Reset Game Minutes: 30",
+    "after": "min Health: 40\nmax Health: 40\nmin Defense: 40\nmax Defense: 40\nmin Damage: 30\nmax Damage: 40\nperception Required: 40\ninstallation Stamina: 1\nreset Difficulty: 50\nreset Base Game Minutes: 5\nreset Stamina: 0\nself Resets: true\nxp Per Trigger: 1\nself Reset Game Minutes: 30\nchest Imitation: crystal"
+  },
+  {
+    "rowId": "traps_mimics",
+    "rowLabel": "traps / mimics",
+    "columnId": "level_5",
+    "before": "min Health: 50\nmax Health: 50\nmin Defense: 50\nmax Defense: 50\nmin Damage: 40\nmax Damage: 50\nperception Required: 50\ninstallation Stamina: 1\nreset Difficulty: 60\nreset Base Game Minutes: 5\nreset Stamina: 0\nself Resets: true\nxp Per Trigger: 1\nself Reset Game Minutes: 30",
+    "after": "min Health: 50\nmax Health: 50\nmin Defense: 50\nmax Defense: 50\nmin Damage: 40\nmax Damage: 50\nperception Required: 50\ninstallation Stamina: 1\nreset Difficulty: 60\nreset Base Game Minutes: 5\nreset Stamina: 0\nself Resets: true\nxp Per Trigger: 1\nself Reset Game Minutes: 30\nchest Imitation: royal"
+  },
+  {
+    "rowId": "mobs_zombies",
+    "rowLabel": "mobs / zombies",
+    "columnId": "level_1",
+    "before": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 1\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: Unspecified\nspawner / ready Buffer: 1\nspawner / min Health: 10\nspawner / max Health: 10\nspawner / min Defense: 5\nspawner / max Defense: 5\nspawner / produces: zombie_t1\nmin Health: 10\nmax Health: 10\nmin Damage: 1\nmax Damage: 5\nmin Defense: 5\nmax Defense: 5\nspeed: 5\nescape Probability Per Attempt: 0.2",
+    "after": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 1\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: Unspecified\nspawner / ready Buffer: 1\nspawner / min Health: 10\nspawner / max Health: 10\nspawner / min Defense: 5\nspawner / max Defense: 5\nspawner / produces: zombie_t1\nmin Health: 10\nmax Health: 10\nmin Damage: 1\nmax Damage: 5\nmin Defense: 5\nmax Defense: 5\nspeed: 5\nescape Probability Per Attempt: 0.2\ncontainment Research / first Escape Probability Per Attempt: 0.1\ncontainment Research / second Escape Probability Per Attempt: 0.05\ncontainment Research / replaces Base Probability: true"
+  },
+  {
+    "rowId": "mobs_zombies",
+    "rowLabel": "mobs / zombies",
+    "columnId": "level_2",
+    "before": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 1\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 20\nspawner / ready Buffer: 1\nspawner / min Health: 20\nspawner / max Health: 20\nspawner / min Defense: 10\nspawner / max Defense: 10\nspawner / produces: zombie_t2\nmin Health: 20\nmax Health: 20\nmin Damage: 2\nmax Damage: 10\nmin Defense: 10\nmax Defense: 10\nspeed: 5\nescape Probability Per Attempt: 0.2",
+    "after": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 1\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 20\nspawner / ready Buffer: 1\nspawner / min Health: 20\nspawner / max Health: 20\nspawner / min Defense: 10\nspawner / max Defense: 10\nspawner / produces: zombie_t2\nmin Health: 20\nmax Health: 20\nmin Damage: 2\nmax Damage: 10\nmin Defense: 10\nmax Defense: 10\nspeed: 5\nescape Probability Per Attempt: 0.2\ncontainment Research / first Escape Probability Per Attempt: 0.1\ncontainment Research / second Escape Probability Per Attempt: 0.05\ncontainment Research / replaces Base Probability: true"
+  },
+  {
+    "rowId": "mobs_zombies",
+    "rowLabel": "mobs / zombies",
+    "columnId": "level_3",
+    "before": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 1\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 30\nspawner / ready Buffer: 1\nspawner / min Health: 30\nspawner / max Health: 30\nspawner / min Defense: 15\nspawner / max Defense: 15\nspawner / produces: zombie_t3\nmin Health: 30\nmax Health: 30\nmin Damage: 3\nmax Damage: 15\nmin Defense: 15\nmax Defense: 15\nspeed: 5\nescape Probability Per Attempt: 0.2",
+    "after": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 1\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 30\nspawner / ready Buffer: 1\nspawner / min Health: 30\nspawner / max Health: 30\nspawner / min Defense: 15\nspawner / max Defense: 15\nspawner / produces: zombie_t3\nmin Health: 30\nmax Health: 30\nmin Damage: 3\nmax Damage: 15\nmin Defense: 15\nmax Defense: 15\nspeed: 5\nescape Probability Per Attempt: 0.2\ncontainment Research / first Escape Probability Per Attempt: 0.1\ncontainment Research / second Escape Probability Per Attempt: 0.05\ncontainment Research / replaces Base Probability: true"
+  },
+  {
+    "rowId": "mobs_zombies",
+    "rowLabel": "mobs / zombies",
+    "columnId": "level_4",
+    "before": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 1\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 40\nspawner / ready Buffer: 1\nspawner / min Health: 40\nspawner / max Health: 40\nspawner / min Defense: 20\nspawner / max Defense: 20\nspawner / produces: zombie_t4\nmin Health: 40\nmax Health: 40\nmin Damage: 4\nmax Damage: 20\nmin Defense: 20\nmax Defense: 20\nspeed: 5\nescape Probability Per Attempt: 0.2",
+    "after": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 1\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 40\nspawner / ready Buffer: 1\nspawner / min Health: 40\nspawner / max Health: 40\nspawner / min Defense: 20\nspawner / max Defense: 20\nspawner / produces: zombie_t4\nmin Health: 40\nmax Health: 40\nmin Damage: 4\nmax Damage: 20\nmin Defense: 20\nmax Defense: 20\nspeed: 5\nescape Probability Per Attempt: 0.2\ncontainment Research / first Escape Probability Per Attempt: 0.1\ncontainment Research / second Escape Probability Per Attempt: 0.05\ncontainment Research / replaces Base Probability: true"
+  },
+  {
+    "rowId": "mobs_zombies",
+    "rowLabel": "mobs / zombies",
+    "columnId": "level_5",
+    "before": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 1\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 50\nspawner / ready Buffer: 1\nspawner / min Health: 50\nspawner / max Health: 50\nspawner / min Defense: 25\nspawner / max Defense: 25\nspawner / produces: zombie_t5\nmin Health: 50\nmax Health: 50\nmin Damage: 5\nmax Damage: 25\nmin Defense: 25\nmax Defense: 25\nspeed: 5\nescape Probability Per Attempt: 0.2",
+    "after": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 1\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 50\nspawner / ready Buffer: 1\nspawner / min Health: 50\nspawner / max Health: 50\nspawner / min Defense: 25\nspawner / max Defense: 25\nspawner / produces: zombie_t5\nmin Health: 50\nmax Health: 50\nmin Damage: 5\nmax Damage: 25\nmin Defense: 25\nmax Defense: 25\nspeed: 5\nescape Probability Per Attempt: 0.2\ncontainment Research / first Escape Probability Per Attempt: 0.1\ncontainment Research / second Escape Probability Per Attempt: 0.05\ncontainment Research / replaces Base Probability: true"
+  },
+  {
+    "rowId": "mobs_slimes",
+    "rowLabel": "mobs / slimes",
+    "columnId": "level_1",
+    "before": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 2\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: Unspecified\nspawner / ready Buffer: 1\nspawner / min Health: 10\nspawner / max Health: 10\nspawner / min Defense: 5\nspawner / max Defense: 5\nspawner / produces: slime_t1\nmin Health: 10\nmax Health: 10\nmin Damage: 1\nmax Damage: 5\nmin Defense: 10\nmax Defense: 15\nspeed: 5\nescape Probability Per Attempt: 0.2",
+    "after": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 2\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: Unspecified\nspawner / ready Buffer: 1\nspawner / min Health: 10\nspawner / max Health: 10\nspawner / min Defense: 5\nspawner / max Defense: 5\nspawner / produces: slime_t1\nmin Health: 10\nmax Health: 10\nmin Damage: 1\nmax Damage: 5\nmin Defense: 10\nmax Defense: 15\nspeed: 5\nescape Probability Per Attempt: 0.2\ncontainment Research / first Escape Probability Per Attempt: 0.1\ncontainment Research / second Escape Probability Per Attempt: 0.05\ncontainment Research / replaces Base Probability: true"
+  },
+  {
+    "rowId": "mobs_slimes",
+    "rowLabel": "mobs / slimes",
+    "columnId": "level_2",
+    "before": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 2\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 20\nspawner / ready Buffer: 1\nspawner / min Health: 20\nspawner / max Health: 20\nspawner / min Defense: 10\nspawner / max Defense: 10\nspawner / produces: slime_t2\nmin Health: 20\nmax Health: 20\nmin Damage: 2\nmax Damage: 10\nmin Defense: 20\nmax Defense: 30\nspeed: 5\nescape Probability Per Attempt: 0.2",
+    "after": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 2\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 20\nspawner / ready Buffer: 1\nspawner / min Health: 20\nspawner / max Health: 20\nspawner / min Defense: 10\nspawner / max Defense: 10\nspawner / produces: slime_t2\nmin Health: 20\nmax Health: 20\nmin Damage: 2\nmax Damage: 10\nmin Defense: 20\nmax Defense: 30\nspeed: 5\nescape Probability Per Attempt: 0.2\ncontainment Research / first Escape Probability Per Attempt: 0.1\ncontainment Research / second Escape Probability Per Attempt: 0.05\ncontainment Research / replaces Base Probability: true"
+  },
+  {
+    "rowId": "mobs_slimes",
+    "rowLabel": "mobs / slimes",
+    "columnId": "level_3",
+    "before": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 2\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 30\nspawner / ready Buffer: 1\nspawner / min Health: 30\nspawner / max Health: 30\nspawner / min Defense: 15\nspawner / max Defense: 15\nspawner / produces: slime_t3\nmin Health: 30\nmax Health: 30\nmin Damage: 3\nmax Damage: 15\nmin Defense: 30\nmax Defense: 45\nspeed: 5\nescape Probability Per Attempt: 0.2",
+    "after": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 2\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 30\nspawner / ready Buffer: 1\nspawner / min Health: 30\nspawner / max Health: 30\nspawner / min Defense: 15\nspawner / max Defense: 15\nspawner / produces: slime_t3\nmin Health: 30\nmax Health: 30\nmin Damage: 3\nmax Damage: 15\nmin Defense: 30\nmax Defense: 45\nspeed: 5\nescape Probability Per Attempt: 0.2\ncontainment Research / first Escape Probability Per Attempt: 0.1\ncontainment Research / second Escape Probability Per Attempt: 0.05\ncontainment Research / replaces Base Probability: true"
+  },
+  {
+    "rowId": "mobs_slimes",
+    "rowLabel": "mobs / slimes",
+    "columnId": "level_4",
+    "before": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 2\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 40\nspawner / ready Buffer: 1\nspawner / min Health: 40\nspawner / max Health: 40\nspawner / min Defense: 20\nspawner / max Defense: 20\nspawner / produces: slime_t4\nmin Health: 40\nmax Health: 40\nmin Damage: 4\nmax Damage: 20\nmin Defense: 40\nmax Defense: 60\nspeed: 5\nescape Probability Per Attempt: 0.2",
+    "after": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 2\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 40\nspawner / ready Buffer: 1\nspawner / min Health: 40\nspawner / max Health: 40\nspawner / min Defense: 20\nspawner / max Defense: 20\nspawner / produces: slime_t4\nmin Health: 40\nmax Health: 40\nmin Damage: 4\nmax Damage: 20\nmin Defense: 40\nmax Defense: 60\nspeed: 5\nescape Probability Per Attempt: 0.2\ncontainment Research / first Escape Probability Per Attempt: 0.1\ncontainment Research / second Escape Probability Per Attempt: 0.05\ncontainment Research / replaces Base Probability: true"
+  },
+  {
+    "rowId": "mobs_slimes",
+    "rowLabel": "mobs / slimes",
+    "columnId": "level_5",
+    "before": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 2\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 50\nspawner / ready Buffer: 1\nspawner / min Health: 50\nspawner / max Health: 50\nspawner / min Defense: 25\nspawner / max Defense: 25\nspawner / produces: slime_t5\nmin Health: 50\nmax Health: 50\nmin Damage: 5\nmax Damage: 25\nmin Defense: 50\nmax Defense: 75\nspeed: 5\nescape Probability Per Attempt: 0.2",
+    "after": "spawner / cost: Unspecified\nspawner / spawn Rate: 1\nspawner / spawn Period In Game Hours: 2\nspawner / cost Note: No separate initial spawner price was specified in this draft. The default installation order costs 5 gold per floor; this is not a per-spawner price.\nspawner / upgrade Cost: 50\nspawner / ready Buffer: 1\nspawner / min Health: 50\nspawner / max Health: 50\nspawner / min Defense: 25\nspawner / max Defense: 25\nspawner / produces: slime_t5\nmin Health: 50\nmax Health: 50\nmin Damage: 5\nmax Damage: 25\nmin Defense: 50\nmax Defense: 75\nspeed: 5\nescape Probability Per Attempt: 0.2\ncontainment Research / first Escape Probability Per Attempt: 0.1\ncontainment Research / second Escape Probability Per Attempt: 0.05\ncontainment Research / replaces Base Probability: true"
+  },
+  {
+    "rowId": "treasure_chests",
+    "rowLabel": "treasure / chests",
+    "columnId": "level_1",
+    "before": "material: wood\nmin Health: 10\nmax Health: 10\nmin Defense: 5\nmax Defense: 5\nmin Gold: 1\nmax Gold: 5\nlock Intelligence: 10\nopen Stamina: 1\nrefill Stamina: 1",
+    "after": "material: wood\nmin Health: 10\nmax Health: 10\nmin Defense: 5\nmax Defense: 5\nmin Gold: 1\nmax Gold: 5\nlock Intelligence: 10\nopen Stamina: 1\nrefill Stamina: 1\nopen Success Probability: 0.5\nmax Attempts Per Adventurer Per Chest: 1\nallow Next Party Member After Failure: true\nrequires Lock Intelligence Before Chance Roll: true\nbetter Basic Treasure / lock Intelligence Bonus: 5\nbetter Basic Treasure / lock Intelligence After Research: 15\nbetter Basic Treasure / open Success Probability: Unspecified\nbetter Basic Treasure / review: Unlocks say 1/3 success; description says 1/3 failure. Awaiting choice."
+  },
+  {
+    "rowId": "treasure_chests",
+    "rowLabel": "treasure / chests",
+    "columnId": "level_2",
+    "before": "material: silver\nmin Health: 20\nmax Health: 20\nmin Defense: 10\nmax Defense: 10\nmin Gold: 2\nmax Gold: 10\nlock Intelligence: 20\nopen Stamina: 2\nrefill Stamina: 1",
+    "after": "material: silver\nmin Health: 20\nmax Health: 20\nmin Defense: 10\nmax Defense: 10\nmin Gold: 2\nmax Gold: 10\nlock Intelligence: 20\nopen Stamina: 2\nrefill Stamina: 1\nopen Success Probability: 0.5\nmax Attempts Per Adventurer Per Chest: 1\nallow Next Party Member After Failure: true\nrequires Lock Intelligence Before Chance Roll: true\nbetter Basic Treasure / lock Intelligence Bonus: 10\nbetter Basic Treasure / lock Intelligence After Research: 30\nbetter Basic Treasure / open Success Probability: Unspecified\nbetter Basic Treasure / review: Unlocks say 1/3 success; description says 1/3 failure. Awaiting choice."
+  },
+  {
+    "rowId": "treasure_chests",
+    "rowLabel": "treasure / chests",
+    "columnId": "level_3",
+    "before": "material: gold\nmin Health: 40\nmax Health: 40\nmin Defense: 20\nmax Defense: 20\nmin Gold: 4\nmax Gold: 20\nlock Intelligence: 40\nopen Stamina: 4\nrefill Stamina: 1",
+    "after": "material: gold\nmin Health: 40\nmax Health: 40\nmin Defense: 20\nmax Defense: 20\nmin Gold: 4\nmax Gold: 20\nlock Intelligence: 40\nopen Stamina: 4\nrefill Stamina: 1\nopen Success Probability: 0.25\nmax Attempts Per Adventurer Per Chest: 1\nallow Next Party Member After Failure: true\nrequires Lock Intelligence Before Chance Roll: true"
+  },
+  {
+    "rowId": "treasure_chests",
+    "rowLabel": "treasure / chests",
+    "columnId": "level_4",
+    "before": "material: runic\nmin Health: 60\nmax Health: 60\nmin Defense: 30\nmax Defense: 30\nmin Gold: 6\nmax Gold: 30\nlock Intelligence: 60\nopen Stamina: 6\nrefill Stamina: 1",
+    "after": "material: crystal\nmin Health: 60\nmax Health: 60\nmin Defense: 30\nmax Defense: 30\nmin Gold: 6\nmax Gold: 30\nlock Intelligence: 60\nopen Stamina: 6\nrefill Stamina: 1\nopen Success Probability: 0.2\nmax Attempts Per Adventurer Per Chest: 1\nallow Next Party Member After Failure: true\nrequires Lock Intelligence Before Chance Roll: true"
+  },
+  {
+    "rowId": "treasure_chests",
+    "rowLabel": "treasure / chests",
+    "columnId": "level_5",
+    "before": "material: royal\nmin Health: 80\nmax Health: 80\nmin Defense: 40\nmax Defense: 40\nmin Gold: 8\nmax Gold: 40\nlock Intelligence: 80\nopen Stamina: 8\nrefill Stamina: 1",
+    "after": "material: royal\nmin Health: 80\nmax Health: 80\nmin Defense: 40\nmax Defense: 40\nmin Gold: 8\nmax Gold: 40\nlock Intelligence: 80\nopen Stamina: 8\nrefill Stamina: 1\nopen Success Probability: 0.16666666666666666\nmax Attempts Per Adventurer Per Chest: 1\nallow Next Party Member After Failure: true\nrequires Lock Intelligence Before Chance Roll: true"
+  },
+  {
+    "rowId": "staff_diggers",
+    "rowLabel": "staff / diggers",
+    "columnId": "level_1",
+    "before": "max Health: 10\nmax Defense: 10\nmax Stamina: 10\nspeed: 10\nintelligence: 10\ndamage: 10\nmax Primary: 10\nxp Per Stat Point: 10\nhire Gold: 10\nwage Gold Per Working Game Hour: 0",
+    "after": "max Health: 10\nmax Defense: 10\nmax Stamina: 10\nspeed: 10\nintelligence: 10\ndamage: 10\nmax Primary: 10\nxp Per Stat Point: 10\nhire Gold: 5\nwage Gold Per Working Game Hour: 0\ntraining / enabled: false\ntraining / cost Gold: Unspecified\ntraining / max Target Level: 1\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0\nmax Hireable After Builder Research: 5\nbest Builders Research / applies To Level: 3\nbest Builders Research / hire Gold: 20\nbest Builders Research / speed: 45\nbest Builders Research / max Hireable: 25\nbest Builders Research / requires Review: Research repeats level 3; confirm this is an upgrade rather than level 4."
+  },
+  {
+    "rowId": "staff_diggers",
+    "rowLabel": "staff / diggers",
+    "columnId": "level_2",
+    "before": "max Health: 20\nmax Defense: 20\nmax Stamina: 20\nspeed: 20\nintelligence: 20\ndamage: 20\nmax Primary: 20\nxp Per Stat Point: 20\nhire Gold: 20\nwage Gold Per Working Game Hour: 0",
+    "after": "max Health: 20\nmax Defense: 20\nmax Stamina: 20\nspeed: 20\nintelligence: 20\ndamage: 20\nmax Primary: 20\nxp Per Stat Point: 20\nhire Gold: 10\nwage Gold Per Working Game Hour: 0\ntraining / enabled: true\ntraining / cost Gold: 10\ntraining / max Target Level: 2\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0\nmax Hireable After Builder Research: 10\nbest Builders Research / applies To Level: 3\nbest Builders Research / hire Gold: 20\nbest Builders Research / speed: 45\nbest Builders Research / max Hireable: 25\nbest Builders Research / requires Review: Research repeats level 3; confirm this is an upgrade rather than level 4."
+  },
+  {
+    "rowId": "staff_diggers",
+    "rowLabel": "staff / diggers",
+    "columnId": "level_3",
+    "before": "max Health: 30\nmax Defense: 30\nmax Stamina: 30\nspeed: 30\nintelligence: 30\ndamage: 30\nmax Primary: 30\nxp Per Stat Point: 30\nhire Gold: 30\nwage Gold Per Working Game Hour: 0",
+    "after": "max Health: 30\nmax Defense: 30\nmax Stamina: 30\nspeed: 30\nintelligence: 30\ndamage: 30\nmax Primary: 30\nxp Per Stat Point: 30\nhire Gold: 15\nwage Gold Per Working Game Hour: 0\ntraining / enabled: true\ntraining / cost Gold: 10\ntraining / max Target Level: 3\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0\nmax Hireable After Builder Research: 15\nbest Builders Research / applies To Level: 3\nbest Builders Research / hire Gold: 20\nbest Builders Research / speed: 45\nbest Builders Research / max Hireable: 25\nbest Builders Research / requires Review: Research repeats level 3; confirm this is an upgrade rather than level 4."
+  },
+  {
+    "rowId": "staff_diggers",
+    "rowLabel": "staff / diggers",
+    "columnId": "level_4",
+    "before": "max Health: 40\nmax Defense: 40\nmax Stamina: 40\nspeed: 40\nintelligence: 40\ndamage: 40\nmax Primary: 40\nxp Per Stat Point: 40\nhire Gold: 40\nwage Gold Per Working Game Hour: 0",
+    "after": "max Health: 40\nmax Defense: 40\nmax Stamina: 40\nspeed: 40\nintelligence: 40\ndamage: 40\nmax Primary: 40\nxp Per Stat Point: 40\nhire Gold: 40\nwage Gold Per Working Game Hour: 0\ntraining / enabled: true\ntraining / cost Gold: 15\ntraining / max Target Level: 4\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0\nbest Builders Research / applies To Level: 3\nbest Builders Research / hire Gold: 20\nbest Builders Research / speed: 45\nbest Builders Research / max Hireable: 25\nbest Builders Research / requires Review: Research repeats level 3; confirm this is an upgrade rather than level 4."
+  },
+  {
+    "rowId": "staff_diggers",
+    "rowLabel": "staff / diggers",
+    "columnId": "level_5",
+    "before": "max Health: 50\nmax Defense: 50\nmax Stamina: 50\nspeed: 50\nintelligence: 50\ndamage: 50\nmax Primary: 50\nxp Per Stat Point: 50\nhire Gold: 50\nwage Gold Per Working Game Hour: 0",
+    "after": "max Health: 50\nmax Defense: 50\nmax Stamina: 50\nspeed: 50\nintelligence: 50\ndamage: 50\nmax Primary: 50\nxp Per Stat Point: 50\nhire Gold: 50\nwage Gold Per Working Game Hour: 0\ntraining / enabled: true\ntraining / cost Gold: 20\ntraining / max Target Level: 5\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0\nbest Builders Research / applies To Level: 3\nbest Builders Research / hire Gold: 20\nbest Builders Research / speed: 45\nbest Builders Research / max Hireable: 25\nbest Builders Research / requires Review: Research repeats level 3; confirm this is an upgrade rather than level 4."
+  },
+  {
+    "rowId": "staff_maintainers",
+    "rowLabel": "staff / maintainers",
+    "columnId": "level_1",
+    "before": "max Health: 10\nmax Defense: 10\nmax Stamina: 10\nspeed: 10\nintelligence: 10\ndamage: 10\nmax Primary: 10\nxp Per Stat Point: 10\nhire Gold: 15\nwage Gold Per Working Game Hour: 0",
+    "after": "max Health: 10\nmax Defense: 10\nmax Stamina: 10\nspeed: 10\nintelligence: 10\ndamage: 10\nmax Primary: 10\nxp Per Stat Point: 10\nhire Gold: 15\nwage Gold Per Working Game Hour: 0\ntraining / enabled: false\ntraining / cost Gold: Unspecified\ntraining / max Target Level: 1\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0"
+  },
+  {
+    "rowId": "staff_maintainers",
+    "rowLabel": "staff / maintainers",
+    "columnId": "level_2",
+    "before": "max Health: 20\nmax Defense: 20\nmax Stamina: 20\nspeed: 20\nintelligence: 20\ndamage: 20\nmax Primary: 20\nxp Per Stat Point: 20\nhire Gold: 30\nwage Gold Per Working Game Hour: 0",
+    "after": "max Health: 20\nmax Defense: 20\nmax Stamina: 20\nspeed: 20\nintelligence: 20\ndamage: 20\nmax Primary: 20\nxp Per Stat Point: 20\nhire Gold: 30\nwage Gold Per Working Game Hour: 0\ntraining / enabled: true\ntraining / cost Gold: 10\ntraining / max Target Level: 2\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0"
+  },
+  {
+    "rowId": "staff_maintainers",
+    "rowLabel": "staff / maintainers",
+    "columnId": "level_3",
+    "before": "max Health: 30\nmax Defense: 30\nmax Stamina: 30\nspeed: 30\nintelligence: 30\ndamage: 30\nmax Primary: 30\nxp Per Stat Point: 30\nhire Gold: 45\nwage Gold Per Working Game Hour: 0",
+    "after": "max Health: 30\nmax Defense: 30\nmax Stamina: 30\nspeed: 30\nintelligence: 30\ndamage: 30\nmax Primary: 30\nxp Per Stat Point: 30\nhire Gold: 45\nwage Gold Per Working Game Hour: 0\ntraining / enabled: true\ntraining / cost Gold: 10\ntraining / max Target Level: 3\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0"
+  },
+  {
+    "rowId": "staff_maintainers",
+    "rowLabel": "staff / maintainers",
+    "columnId": "level_4",
+    "before": "max Health: 40\nmax Defense: 40\nmax Stamina: 40\nspeed: 40\nintelligence: 40\ndamage: 40\nmax Primary: 40\nxp Per Stat Point: 40\nhire Gold: 60\nwage Gold Per Working Game Hour: 0",
+    "after": "max Health: 40\nmax Defense: 40\nmax Stamina: 40\nspeed: 40\nintelligence: 40\ndamage: 40\nmax Primary: 40\nxp Per Stat Point: 40\nhire Gold: 60\nwage Gold Per Working Game Hour: 0\ntraining / enabled: true\ntraining / cost Gold: 15\ntraining / max Target Level: 4\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0"
+  },
+  {
+    "rowId": "staff_maintainers",
+    "rowLabel": "staff / maintainers",
+    "columnId": "level_5",
+    "before": "max Health: 50\nmax Defense: 50\nmax Stamina: 50\nspeed: 50\nintelligence: 50\ndamage: 50\nmax Primary: 50\nxp Per Stat Point: 50\nhire Gold: 75\nwage Gold Per Working Game Hour: 0",
+    "after": "max Health: 50\nmax Defense: 50\nmax Stamina: 50\nspeed: 50\nintelligence: 50\ndamage: 50\nmax Primary: 50\nxp Per Stat Point: 50\nhire Gold: 75\nwage Gold Per Working Game Hour: 0\ntraining / enabled: true\ntraining / cost Gold: 20\ntraining / max Target Level: 5\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0"
+  },
+  {
+    "rowId": "staff_defenders",
+    "rowLabel": "staff / defenders",
+    "columnId": "level_1",
+    "before": "max Health: 10\nmax Defense: 10\nmax Stamina: 10\nspeed: 10\nintelligence: 10\ndamage: 10\nmax Primary: 10\nxp Per Stat Point: 10\nhire Gold: 0\nwage Gold Per Working Game Hour: 1",
+    "after": "max Health: 10\nmax Defense: 10\nmax Stamina: 10\nspeed: 10\nintelligence: 10\ndamage: 10\nmax Primary: 10\nxp Per Stat Point: 10\nhire Gold: 0\nwage Gold Per Working Game Hour: 1\ntraining / enabled: false\ntraining / cost Gold: Unspecified\ntraining / max Target Level: 1\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0\nresearch Modifiers / unpaid Overtime Working Wage Gold Reduction: 0.5\nresearch Modifiers / minimum Working Wage Gold: 0"
+  },
+  {
+    "rowId": "staff_defenders",
+    "rowLabel": "staff / defenders",
+    "columnId": "level_2",
+    "before": "max Health: 20\nmax Defense: 20\nmax Stamina: 20\nspeed: 20\nintelligence: 20\ndamage: 20\nmax Primary: 20\nxp Per Stat Point: 20\nhire Gold: 0\nwage Gold Per Working Game Hour: 2",
+    "after": "max Health: 20\nmax Defense: 20\nmax Stamina: 20\nspeed: 20\nintelligence: 20\ndamage: 20\nmax Primary: 20\nxp Per Stat Point: 20\nhire Gold: 0\nwage Gold Per Working Game Hour: 2\ntraining / enabled: true\ntraining / cost Gold: 10\ntraining / max Target Level: 2\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0\nresearch Modifiers / unpaid Overtime Working Wage Gold Reduction: 0.5\nresearch Modifiers / minimum Working Wage Gold: 0"
+  },
+  {
+    "rowId": "staff_defenders",
+    "rowLabel": "staff / defenders",
+    "columnId": "level_3",
+    "before": "max Health: 30\nmax Defense: 30\nmax Stamina: 30\nspeed: 30\nintelligence: 30\ndamage: 30\nmax Primary: 30\nxp Per Stat Point: 30\nhire Gold: 0\nwage Gold Per Working Game Hour: 3",
+    "after": "max Health: 30\nmax Defense: 30\nmax Stamina: 30\nspeed: 30\nintelligence: 30\ndamage: 30\nmax Primary: 30\nxp Per Stat Point: 30\nhire Gold: 0\nwage Gold Per Working Game Hour: 3\ntraining / enabled: true\ntraining / cost Gold: 10\ntraining / max Target Level: 3\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0\nresearch Modifiers / unpaid Overtime Working Wage Gold Reduction: 0.5\nresearch Modifiers / minimum Working Wage Gold: 0"
+  },
+  {
+    "rowId": "staff_defenders",
+    "rowLabel": "staff / defenders",
+    "columnId": "level_4",
+    "before": "max Health: 40\nmax Defense: 40\nmax Stamina: 40\nspeed: 40\nintelligence: 40\ndamage: 40\nmax Primary: 40\nxp Per Stat Point: 40\nhire Gold: 0\nwage Gold Per Working Game Hour: 4",
+    "after": "max Health: 40\nmax Defense: 40\nmax Stamina: 40\nspeed: 40\nintelligence: 40\ndamage: 40\nmax Primary: 40\nxp Per Stat Point: 40\nhire Gold: 0\nwage Gold Per Working Game Hour: 4\ntraining / enabled: true\ntraining / cost Gold: 15\ntraining / max Target Level: 4\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0\nresearch Modifiers / unpaid Overtime Working Wage Gold Reduction: 0.5\nresearch Modifiers / minimum Working Wage Gold: 0"
+  },
+  {
+    "rowId": "staff_defenders",
+    "rowLabel": "staff / defenders",
+    "columnId": "level_5",
+    "before": "max Health: 50\nmax Defense: 50\nmax Stamina: 50\nspeed: 50\nintelligence: 50\ndamage: 50\nmax Primary: 50\nxp Per Stat Point: 50\nhire Gold: 0\nwage Gold Per Working Game Hour: 5",
+    "after": "max Health: 50\nmax Defense: 50\nmax Stamina: 50\nspeed: 50\nintelligence: 50\ndamage: 50\nmax Primary: 50\nxp Per Stat Point: 50\nhire Gold: 0\nwage Gold Per Working Game Hour: 5\ntraining / enabled: true\ntraining / cost Gold: 20\ntraining / max Target Level: 5\ntraining / location: staff_room\ntraining / preserve Earned Stats: true\nresearch Modifiers / fleet Footed Speed Multiplier: 2\nresearch Modifiers / toolbelt Reset Skill Bonus: 5\nresearch Modifiers / precision Kit Reset Skill Bonus: 10\nresearch Modifiers / reset Skill Bonuses Stack: false\nresearch Modifiers / rest Threshold Configurable: true\nresearch Modifiers / unpaid Overtime Hire Gold Reduction: 1\nresearch Modifiers / minimum Hire Gold: 0\nresearch Modifiers / unpaid Overtime Working Wage Gold Reduction: 0.5\nresearch Modifiers / minimum Working Wage Gold: 0"
+  },
+  {
+    "rowId": "adventurers_spawners",
+    "rowLabel": "adventurers / spawners",
+    "columnId": "level_1",
+    "before": "Not defined",
+    "after": "spawn Tier: 1\nspawn Rate: 1\nbase Spawn Period In Game Hours: 1\nspawn Interval Multiplier: 0.75\nmax Spawn Points: 2\nactive Play Spawn Speed Multiplier: 2\nguild II / spawn Interval Multiplier: 0.75\nguild II / population Capacity Bonus: 20\nguild II / formation Game Seconds: 360\nguild III / spawn Interval Multiplier: 0.6\nguild III / population Capacity Bonus: 40\nguild III / formation Game Seconds: 240\nmodifier Composition: Unresolved: tier and guild spawn interval multipliers are listed separately, not silently multiplied.\nshort Sighted Training / stat Gain Per Course: 1\nshort Sighted Training / xp Threshold Gain Per Course: 1\nshort Sighted Training / max Courses: 3\nextra Arrival Point Capacity: 10"
+  },
+  {
+    "rowId": "adventurers_spawners",
+    "rowLabel": "adventurers / spawners",
+    "columnId": "level_2",
+    "before": "Not defined",
+    "after": "spawn Tier: 2\nspawn Rate: 1\nbase Spawn Period In Game Hours: 1\nspawn Interval Multiplier: 0.75\nmax Spawn Points: 3\nactive Play Spawn Speed Multiplier: 2\nguild II / spawn Interval Multiplier: 0.75\nguild II / population Capacity Bonus: 20\nguild II / formation Game Seconds: 360\nguild III / spawn Interval Multiplier: 0.6\nguild III / population Capacity Bonus: 40\nguild III / formation Game Seconds: 240\nmodifier Composition: Unresolved: tier and guild spawn interval multipliers are listed separately, not silently multiplied.\nshort Sighted Training / stat Gain Per Course: 1\nshort Sighted Training / xp Threshold Gain Per Course: 1\nshort Sighted Training / max Courses: 3\nextra Arrival Point Capacity: 10"
+  },
+  {
+    "rowId": "adventurers_spawners",
+    "rowLabel": "adventurers / spawners",
+    "columnId": "level_3",
+    "before": "Not defined",
+    "after": "spawn Tier: 3\nspawn Rate: 1\nbase Spawn Period In Game Hours: 1\nspawn Interval Multiplier: 0.5\nmax Spawn Points: 4\nactive Play Spawn Speed Multiplier: 2\nguild II / spawn Interval Multiplier: 0.75\nguild II / population Capacity Bonus: 20\nguild II / formation Game Seconds: 360\nguild III / spawn Interval Multiplier: 0.6\nguild III / population Capacity Bonus: 40\nguild III / formation Game Seconds: 240\nmodifier Composition: Unresolved: tier and guild spawn interval multipliers are listed separately, not silently multiplied.\nshort Sighted Training / stat Gain Per Course: 1\nshort Sighted Training / xp Threshold Gain Per Course: 1\nshort Sighted Training / max Courses: 3\nextra Arrival Point Capacity: 10"
+  },
+  {
+    "rowId": "adventurers_spawners",
+    "rowLabel": "adventurers / spawners",
+    "columnId": "level_4",
+    "before": "Not defined",
+    "after": "spawn Tier: 4\nspawn Rate: 1\nbase Spawn Period In Game Hours: 1\nspawn Interval Multiplier: 0.25\nmax Spawn Points: 5\nactive Play Spawn Speed Multiplier: 2\nguild II / spawn Interval Multiplier: 0.75\nguild II / population Capacity Bonus: 20\nguild II / formation Game Seconds: 360\nguild III / spawn Interval Multiplier: 0.6\nguild III / population Capacity Bonus: 40\nguild III / formation Game Seconds: 240\nmodifier Composition: Unresolved: tier and guild spawn interval multipliers are listed separately, not silently multiplied.\nshort Sighted Training / stat Gain Per Course: 1\nshort Sighted Training / xp Threshold Gain Per Course: 1\nshort Sighted Training / max Courses: 3\nextra Arrival Point Capacity: 10"
+  },
+  {
+    "rowId": "adventurers_spawners",
+    "rowLabel": "adventurers / spawners",
+    "columnId": "level_5",
+    "before": "Not defined",
+    "after": "spawn Tier: 5\nspawn Rate: 1\nbase Spawn Period In Game Hours: 1\nspawn Interval Multiplier: 0.25\nmax Spawn Points: 6\nactive Play Spawn Speed Multiplier: 2\nguild II / spawn Interval Multiplier: 0.75\nguild II / population Capacity Bonus: 20\nguild II / formation Game Seconds: 360\nguild III / spawn Interval Multiplier: 0.6\nguild III / population Capacity Bonus: 40\nguild III / formation Game Seconds: 240\nmodifier Composition: Unresolved: tier and guild spawn interval multipliers are listed separately, not silently multiplied.\nshort Sighted Training / stat Gain Per Course: 1\nshort Sighted Training / xp Threshold Gain Per Course: 1\nshort Sighted Training / max Courses: 3\nextra Arrival Point Capacity: 10"
+  },
+  {
+    "rowId": "rest_adventurerRooms",
+    "rowLabel": "rest / adventurer Rooms",
+    "columnId": "level_1",
+    "before": "initial Capacity: 10\ncapacity Purchase Gold Per Bed: 5\nrecovery Points Per Game Hour: 2\nstaff Only: false",
+    "after": "initial Capacity: 10\ncapacity Purchase Gold Per Bed: 5\nrecovery Points Per Game Hour: 2\nstaff Only: false\nentry Fee Gold: 1\ndoor Asset Tier: 1"
+  },
+  {
+    "rowId": "rest_adventurerRooms",
+    "rowLabel": "rest / adventurer Rooms",
+    "columnId": "level_2",
+    "before": "initial Capacity: 10\ncapacity Purchase Gold Per Bed: 5\nrecovery Points Per Game Hour: 3\nstaff Only: false",
+    "after": "initial Capacity: 10\ncapacity Purchase Gold Per Bed: 5\nrecovery Points Per Game Hour: 3\nstaff Only: false\nentry Fee Gold: 2\ndoor Asset Tier: 2"
+  },
+  {
+    "rowId": "rest_adventurerRooms",
+    "rowLabel": "rest / adventurer Rooms",
+    "columnId": "level_3",
+    "before": "initial Capacity: 10\ncapacity Purchase Gold Per Bed: 5\nrecovery Points Per Game Hour: 4\nstaff Only: false",
+    "after": "initial Capacity: 10\ncapacity Purchase Gold Per Bed: 5\nrecovery Points Per Game Hour: 4\nstaff Only: false\nentry Fee Gold: 3\ndoor Asset Tier: 3"
+  },
+  {
+    "rowId": "rest_adventurerRooms",
+    "rowLabel": "rest / adventurer Rooms",
+    "columnId": "level_4",
+    "before": "Not defined",
+    "after": "initial Capacity: 10\ncapacity Purchase Gold Per Bed: 5\nrecovery Points Per Game Hour: 5\nstaff Only: false\nentry Fee Gold: 4\ndoor Asset Tier: 4"
+  },
+  {
+    "rowId": "rest_staffRooms",
+    "rowLabel": "rest / staff Rooms",
+    "columnId": "level_1",
+    "before": "initial Capacity: 10\ncapacity Purchase Gold Per Bed: 5\nrecovery Points Per Game Hour: 2\nstaff Only: true",
+    "after": "initial Capacity: 10\ncapacity Purchase Gold Per Bed: 5\nrecovery Points Per Game Hour: 2\nstaff Only: true\nentry Fee Gold: 0\ndoor Asset Tier: 1"
+  },
+  {
+    "rowId": "rest_staffRooms",
+    "rowLabel": "rest / staff Rooms",
+    "columnId": "level_2",
+    "before": "initial Capacity: 10\ncapacity Purchase Gold Per Bed: 5\nrecovery Points Per Game Hour: 3\nstaff Only: true",
+    "after": "initial Capacity: 10\ncapacity Purchase Gold Per Bed: 5\nrecovery Points Per Game Hour: 3\nstaff Only: true\nentry Fee Gold: 0\ndoor Asset Tier: 2"
+  },
+  {
+    "rowId": "rest_staffRooms",
+    "rowLabel": "rest / staff Rooms",
+    "columnId": "level_3",
+    "before": "initial Capacity: 10\ncapacity Purchase Gold Per Bed: 5\nrecovery Points Per Game Hour: 4\nstaff Only: true",
+    "after": "initial Capacity: 10\ncapacity Purchase Gold Per Bed: 5\nrecovery Points Per Game Hour: 4\nstaff Only: true\nentry Fee Gold: 0\ndoor Asset Tier: 3"
+  },
+  {
+    "rowId": "finance_researchModifiers",
+    "rowLabel": "finance / research modifiers",
+    "columnId": "level_1",
+    "before": "Not defined",
+    "after": "unpaid Overtime / staff Hire Gold Reduction: 1\nunpaid Overtime / defender Working Wage Gold Reduction: 0.5\nguild Grant / gold Bonus: 1\nguild Grant / trigger: Unspecified\nguild Grant / review: Description says per stat gain; unlock says per admission. Awaiting choice."
+  }
+]

@@ -1,9 +1,11 @@
+import { EXTRA_RESEARCH } from './researchExpansion';
 import { Research } from './types';
 export const MINUTE = 60_000;
 export const HOUR = 60 * MINUTE;
 export const DAY = 24 * HOUR;
 export const TICK = 5 * MINUTE;
 export const RESEARCH: Research[] = [
+  ...EXTRA_RESEARCH,
   {
     id: 'guild2',
     name: 'Adventurers Guild Level 2',
@@ -105,7 +107,7 @@ export const RESEARCH: Research[] = [
     name: "It's a trap!",
     description: 'Trap doors, arrow walls, and suspiciously toothy chests.',
     cost: 500,
-    hours: 1,
+    hours: 5/60,
     icon: 'trap',
   },
   {
@@ -129,7 +131,7 @@ export const RESEARCH: Research[] = [
     name: 'Basic rest spots',
     description: 'Bunks, a tap, and a much-needed stamina refill.',
     cost: 500,
-    hours: 1,
+    hours: 10/60,
     icon: 'rest',
   },
   {
@@ -153,7 +155,7 @@ export const RESEARCH: Research[] = [
     name: 'Staff management',
     description: 'Hire maintenance workers and keep an eye on your crew.',
     cost: 500,
-    hours: 1,
+    hours: 5/60,
     icon: 'staff',
   },
   {

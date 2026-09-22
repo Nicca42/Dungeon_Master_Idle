@@ -1,3 +1,5 @@
+import { TierCharacter, TierSlime, TierTrap, TierChest, TierFloor } from './TierArt';
+import { characterColors } from '../art/tierStyle';
 import { CharacterVariant } from './ArtVariants';
 import { saturateColor } from '../game/palette';
 import React, { useEffect, useRef } from 'react';
@@ -17,6 +19,9 @@ export type SpriteKind =
   | 'chest'
   | 'silver'
   | 'gold'
+  | 'crystal'
+  | 'royal'
+  | 'arrows'
   | 'trap'
   | 'bed';
 const outfits: Record<string, string[]> = {
@@ -29,7 +34,7 @@ const outfits: Record<string, string[]> = {
   zombie: ['#93aa78', '#59755b', '#8a9a68'],
 };
 export const outfitColor = (role: string, saturation = 1) =>
-  saturateColor(outfits[role]?.[0] ?? '#a9b7bd', saturation);
+  saturateColor(characterColors[role]?.[0] ?? '#a9b7bd', saturation);
 function SpriteShapeImpl({
   kind,
   x = 0,
@@ -40,6 +45,7 @@ function SpriteShapeImpl({
   saturation = 1,
   tier = 1,
   variant,
+  eyeColor,
 }: {
   kind: SpriteKind;
   x?: number;
@@ -50,7 +56,59 @@ function SpriteShapeImpl({
   saturation?: number;
   tier?: number;
   variant?: number;
+  eyeColor?: string;
 }) {
+  const artTier = Math.max(1, Math.min(5, tier));
+  if (
+    characterColors[kind] ||
+    ['slime', 'trap', 'arrows', 'chest', 'silver', 'gold', 'crystal', 'royal', 'mimic'].includes(
+      kind,
+    )
+  ) {
+    const chestTier =
+      kind === 'silver'
+        ? 2
+        : kind === 'gold'
+          ? Math.max(3, artTier)
+          : kind === 'crystal'
+            ? 4
+            : kind === 'royal'
+              ? 5
+              : artTier;
+    return (
+      <G transform={`translate(${x} ${y}) scale(${scale})`}>
+        <G transform="translate(0 1) scale(0.68)">
+          {characterColors[kind] ? (
+            <TierCharacter eyeColor={eyeColor} kind={kind} tier={artTier} variant={variant ?? 1} />
+          ) : kind === 'slime' ? (
+            <TierSlime tier={artTier} />
+          ) : kind === 'trap' || kind === 'arrows' ? (
+            <G opacity={muted ? 0.5 : 1}>
+              <TierTrap tier={artTier} arrows={kind === 'arrows'} />
+            </G>
+          ) : (
+            <G>
+              <TierChest tier={chestTier} />
+              {muted && (
+                <G>
+                  <Rect x={3} y={14} width={24} height={5} fill="#211c28" />
+                  <Path d="M3 13V6H27V13" fill="none" stroke="#cab98e" strokeWidth={2} />
+                </G>
+              )}
+              {kind === 'mimic' && revealed && (
+                <Path
+                  d="M4 18V10H8V5H11V14H14V8H18V3H21V14H25V9H28V20"
+                  fill="none"
+                  stroke="#ec729c"
+                  strokeWidth={3}
+                />
+              )}
+            </G>
+          )}
+        </G>
+      </G>
+    );
+  }
   const palette = (outfits[kind] ?? outfits.fighter!).map((color, i) =>
     i < 2 ? saturateColor(color, saturation) : color,
   );
@@ -269,7 +327,10 @@ function SpriteImpl({
   saturation = 1,
   tier = 1,
   variant,
+  eyeColor,
+  sceneCharacter = false,
 }: {
+  sceneCharacter?: boolean;
   kind: SpriteKind;
   size?: number;
   animate?: boolean;
@@ -277,6 +338,7 @@ function SpriteImpl({
   saturation?: number;
   tier?: number;
   variant?: number;
+  eyeColor?: string;
 }) {
   if (
     [
@@ -293,6 +355,10 @@ function SpriteImpl({
   )
     size *= 1.1;
   if (['fighter', 'wizard', 'healer'].includes(kind)) size *= 1.1;
+  const enlarged =
+    sceneCharacter &&
+    ['fighter', 'wizard', 'healer', 'miner', 'maintenance', 'defender', 'zombie'].includes(kind);
+  const drawnSize = enlarged ? 46 : size;
   const bounce = useRef(new Animated.Value(0)).current;
   useEffect(() => {
     if (!animate) return;
@@ -319,8 +385,21 @@ function SpriteImpl({
     <Animated.View
       style={{ width: size, height: size, transform: [{ translateY: bounce }, { scaleX: facing }] }}
     >
-      <Svg width={size} height={size} viewBox="0 -4 22 26">
-        <SpriteShape kind={kind} saturation={saturation} tier={tier} variant={variant} />
+      <Svg
+        width={drawnSize}
+        height={drawnSize}
+        style={
+          enlarged ? { position: 'absolute', bottom: 0, left: (size - drawnSize) / 2 } : undefined
+        }
+        viewBox="0 -4 22 26"
+      >
+        <SpriteShape
+          eyeColor={eyeColor}
+          kind={kind}
+          saturation={saturation}
+          tier={tier}
+          variant={variant}
+        />
       </Svg>
     </Animated.View>
   );
@@ -436,6 +515,7 @@ function FloorArtImpl({
   index: number;
   encounters: { kind: string; active: boolean; gold: number }[];
 }) {
+  if (built && !encounters.length) return <TierFloor tier={Math.max(1, Math.min(5, level))} full />;
   const spriteFor = (kind: string): SpriteKind =>
     kind === 'wood'
       ? 'chest'

@@ -48,3 +48,11 @@ export async function readBaseline(): Promise<Record<string, number> | null> {
 export async function writeBaseline(rules: Record<string, number>) {
   localStorage.setItem('underkeep-baseline-v1', JSON.stringify(rules));
 }
+
+export async function readPlanningTables(): Promise<unknown | null> {
+  const raw = localStorage.getItem('underkeep-planning-tables-v1');
+  return raw ? JSON.parse(raw) : null;
+}
+export async function writePlanningTables(tables: unknown): Promise<void> {
+  localStorage.setItem('underkeep-planning-tables-v1', JSON.stringify(tables));
+}

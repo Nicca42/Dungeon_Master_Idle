@@ -1,3 +1,4 @@
+import { dailyEvent } from './dailyReports';
 import { Actor, GameState, Stat } from './types';
 import { HOUR } from './content';
 export const skillNames = [
@@ -33,6 +34,7 @@ export function observeAdventures(s: GameState) {
     .filter((a) => ['fighter', 'wizard', 'healer'].includes(a.role))
     .map((a) => ({
       a,
+      inDungeon: s.parties.some((p) => p.members.includes(a.id) && p.status !== 'arriving'),
       before: {
         ...(a.combatStats ?? emptyCombat()),
         xp: { ...(a.combatStats?.xp ?? emptyCombat().xp) },
@@ -47,19 +49,24 @@ export function recordAdventures(s: GameState, before: ReturnType<typeof observe
     ...before,
     ...s.actors
       .filter((a) => !existing.has(a.id) && ['fighter', 'wizard', 'healer'].includes(a.role))
-      .map((a) => ({ a, before: emptyCombat() })),
+      .map((a) => ({
+        a,
+        inDungeon: s.parties.some((p) => p.members.includes(a.id) && p.status !== 'arriving'),
+        before: emptyCombat(),
+      })),
   ];
   let point = stats.history.at(-1);
   if (!point || point.hour !== hour) {
     point = { hour, ...emptyCombat(), parties: 0, adventurers: 0 };
     stats.history.push(point);
   }
-  for (const { a, before: previous } of people) {
+  for (const { a, before: previous, inDungeon } of people) {
     const current = a.combatStats ?? emptyCombat();
     for (const skill of skillNames) {
       const gain = current.xp[skill] - previous.xp[skill];
       stats.totals.xp[skill] += gain;
       point.xp[skill] += gain;
+      if (inDungeon && gain > 0) dailyEvent(s, { xp: gain });
     }
     for (const key of [
       'defenseDealt',
@@ -71,6 +78,7 @@ export function recordAdventures(s: GameState, before: ReturnType<typeof observe
       const gain = current[key] - previous[key];
       stats.totals[key] += gain;
       point[key] += gain;
+      if (inDungeon && key === 'deaths' && gain > 0) dailyEvent(s, { deaths: gain });
     }
   }
   const inside = s.parties.filter((p) => p.status !== 'arriving');

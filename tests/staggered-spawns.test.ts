@@ -16,13 +16,13 @@ test('three town points take turns every twenty game minutes and keep their spaw
   s.spawnTiers = [1, 2, 1];
   s.arrivalSequence = 0;
   s.nextArrivalAt = TICK;
-  assert.equal(arrivalAt(s, 1) - arrivalAt(s, 0), HOUR / 3);
+  assert.equal(arrivalAt(s, 1) - arrivalAt(s, 0), HOUR / 4);
   for (const tier of [1, 2, 1]) {
     const before = s.actors.length;
     s = advanceTo(s, s.nextArrivalAt);
     assert.equal(s.actors.length, before + 1);
     assert.equal(s.actors.at(-1)!.outfitTier, tier);
-    assert.equal(s.nextArrivalAt - s.now, HOUR / 3);
+    assert.equal(s.nextArrivalAt - s.now, HOUR / 4);
   }
   assert.deepEqual(decode(JSON.stringify({ state: s, wall: 0 })).state.spawnTiers, [1, 2, 1]);
 });
